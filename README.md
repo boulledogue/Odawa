@@ -1,6 +1,6 @@
 # Odawa
 
-<div style="text-align:center"><img src="RoundOdawa.png" /></div>
+<p align="center"><img src="RoundOdawa.png" /></p>
 
 Odawa est une application développée durant notre troisième année
 d'étude au sein de l'ESA - Namur dans le cadre d'un cour combiné de C# et de Java .
