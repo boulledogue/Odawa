@@ -19,6 +19,18 @@ namespace OdawaMainForm
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            PopulateAndBind();
+        }
+
+        private void PopulateAndBind()
+        {
+            // récupération des données 'restaurants' et 'restaurateurs'
+            this.restaurateursTableAdapter.Fill(this.odawaDataSet.restaurateurs);
+            this.restaurantsTableAdapter.Fill(this.odawaDataSet.restaurants);
+        }
+
+        private void Test()
+        {
 
         }
     }
