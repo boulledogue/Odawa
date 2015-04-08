@@ -2,6 +2,8 @@
 
 <p align="center"><img src="RoundOdawa.png" /></p>
 
+[Penser à aller voir le template du site Web!](http://errensuge.github.io/Odawa/)
+
 Odawa est une application développée durant notre troisième année
 d'étude au sein de l'ESA - Namur dans le cadre d'un cours combiné de C# et de Java .
 Odawa a pour vocation d'être une application de gestion de réservations dédié à l'Horeca (restaurants, snacks, ...).
