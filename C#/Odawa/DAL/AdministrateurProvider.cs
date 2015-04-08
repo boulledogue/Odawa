@@ -44,5 +44,39 @@ namespace Odawa.DAL
             }
             return list;
         }
+
+        public List<Administrateur> SearchData(string Texte)
+        {
+            List<Administrateur> list = new List<Administrateur>();
+
+            using (SqlConnection cn = new SqlConnection())
+            {
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString;
+                cn.Open();
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM [administrateurs] WHERE nom LIKE " + "'%" + Texte + "%'";
+                    cmd.Connection = cn;
+
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            Administrateur a = new Administrateur();
+                            a.id = (int)rdr["id"];
+                            a.nom = rdr["nom"].ToString();
+                            a.prenom = rdr["prenom"].ToString();
+                            a.username = rdr["username"].ToString();
+                            a.password = rdr["password"].ToString();
+                            a.email = rdr["email"].ToString();
+                            a.phone = rdr["phone"].ToString();
+                            list.Add(a);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
     }
 }

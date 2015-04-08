@@ -47,12 +47,24 @@
   <ItemGroup>
     <Compile Include="BU\Entities\Administrateur.cs" />
     <Compile Include="BU\AdministrateurManager.cs" />
+    <Compile Include="BU\Entities\Restaurant.cs" />
+    <Compile Include="BU\Entities\Restaurateur.cs" />
+    <Compile Include="BU\Entities\TypeCuisine.cs" />
+    <Compile Include="BU\Entities\Utilisateur.cs" />
+    <Compile Include="BU\RestaurantManager.cs" />
+    <Compile Include="BU\RestaurateurManager.cs" />
+    <Compile Include="BU\TypeCuisineManager.cs" />
+    <Compile Include="BU\UtilisateurManager.cs" />
     <Compile Include="DAL\OdawaDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OdawaDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="DAL\AdministrateurProvider.cs" />
+    <Compile Include="DAL\RestaurantProvider.cs" />
+    <Compile Include="DAL\RestaurateurProvider.cs" />
+    <Compile Include="DAL\TypeCuisineProvider.cs" />
+    <Compile Include="DAL\UtilisateurProvider.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
