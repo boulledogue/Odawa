@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,7 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BU\Entities\Administrateur.cs" />
     <Compile Include="BU\Test.cs" />
+    <Compile Include="DAL\OdawaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OdawaDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Test.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -66,6 +73,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DAL\OdawaDS.xsc">
+      <DependentUpon>OdawaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\OdawaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OdawaDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\OdawaDS.xss">
+      <DependentUpon>OdawaDS.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

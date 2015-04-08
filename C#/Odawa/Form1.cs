@@ -19,7 +19,13 @@ namespace Odawa
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = BU.Test.LoadData();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
+
     }
 }
