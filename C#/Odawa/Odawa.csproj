@@ -46,13 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BU\Entities\Administrateur.cs" />
-    <Compile Include="BU\Test.cs" />
+    <Compile Include="BU\AdministrateurManager.cs" />
     <Compile Include="DAL\OdawaDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OdawaDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Test.cs" />
+    <Compile Include="DAL\AdministrateurProvider.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

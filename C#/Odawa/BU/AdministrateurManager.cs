@@ -8,11 +8,11 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    class Test
+    class AdministrateurManager
     {
         public static List<Administrateur> LoadData()
         {
-            return new DAL.Test().LoadData();
+            return new AdministrateurProvider().LoadData();
         }
     }
 }

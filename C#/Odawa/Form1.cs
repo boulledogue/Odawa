@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Odawa.BU;
 
 namespace Odawa
 {
@@ -19,7 +20,7 @@ namespace Odawa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BU.Test.LoadData();
+            dataGridView1.DataSource = AdministrateurManager.LoadData();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

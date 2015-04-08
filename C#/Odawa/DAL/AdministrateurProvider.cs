@@ -9,7 +9,7 @@ using Odawa.BU.Entities;
 
 namespace Odawa.DAL
 {
-    class Test
+    class AdministrateurProvider
     {        
         public List<Administrateur> LoadData()
         {
