@@ -47,10 +47,12 @@
   <ItemGroup>
     <Compile Include="BU\Entities\Administrateur.cs" />
     <Compile Include="BU\AdministrateurManager.cs" />
+    <Compile Include="BU\Entities\Reservation.cs" />
     <Compile Include="BU\Entities\Restaurant.cs" />
     <Compile Include="BU\Entities\Restaurateur.cs" />
     <Compile Include="BU\Entities\TypeCuisine.cs" />
     <Compile Include="BU\Entities\Utilisateur.cs" />
+    <Compile Include="BU\ReservationManager.cs" />
     <Compile Include="BU\RestaurantManager.cs" />
     <Compile Include="BU\RestaurateurManager.cs" />
     <Compile Include="BU\TypeCuisineManager.cs" />
@@ -61,6 +63,7 @@
       <DependentUpon>OdawaDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="DAL\AdministrateurProvider.cs" />
+    <Compile Include="DAL\ReservationProvider.cs" />
     <Compile Include="DAL\RestaurantProvider.cs" />
     <Compile Include="DAL\RestaurateurProvider.cs" />
     <Compile Include="DAL\TypeCuisineProvider.cs" />

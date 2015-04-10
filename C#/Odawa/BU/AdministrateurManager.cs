@@ -10,9 +10,9 @@ namespace Odawa.BU
 {
     class AdministrateurManager
     {
-        public static List<Administrateur> LoadData()
+        public static List<Administrateur> GetAll()
         {
-            return new AdministrateurProvider().LoadData();
+            return new AdministrateurProvider().GetAll();
         }
     }
 }

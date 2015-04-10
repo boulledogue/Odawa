@@ -8,16 +8,11 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    class TypeCuisineManager
+    class ReservationManager
     {
-        public static List<TypeCuisine> GetAll()
+        public static List<Reservation> GetAll()
         {
-            return new TypeCuisineProvider().GetAll();
-        }
-
-        public static void DeleteData(int id)
-        {
-
+            return new ReservationProvider().GetAll();
         }
     }
 }

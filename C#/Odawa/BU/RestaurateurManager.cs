@@ -10,9 +10,9 @@ namespace Odawa.BU
 {
     class RestaurateurManager
     {
-        public static List<Restaurateur> LoadData()
+        public static List<Restaurateur> GetAll()
         {
-            return new RestaurateurProvider().LoadData();
+            return new RestaurateurProvider().GetAll();
         }
     }
 }

@@ -20,11 +20,11 @@ namespace Odawa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridViewAdministrateurs.DataSource = AdministrateurManager.LoadData();
-            dataGridViewRestaurateurs.DataSource = RestaurateurManager.LoadData();
-            dataGridViewUtilisateurs.DataSource = UtilisateurManager.LoadData();
-            dataGridViewRestaurants.DataSource = RestaurantManager.LoadData();
-            dataGridViewTypesCuisine.DataSource = TypeCuisineManager.LoadData();
+            dataGridViewAdministrateurs.DataSource = AdministrateurManager.GetAll();
+            dataGridViewRestaurateurs.DataSource = RestaurateurManager.GetAll();
+            dataGridViewUtilisateurs.DataSource = UtilisateurManager.GetAll();
+            dataGridViewRestaurants.DataSource = RestaurantManager.GetAll();
+            dataGridViewTypesCuisine.DataSource = TypeCuisineManager.GetAll();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Odawa.DAL
 {
     class RestaurateurProvider
     {
-        public List<Restaurateur> LoadData()
+        public List<Restaurateur> GetAll()
         {
             List<Restaurateur> list = new List<Restaurateur>();
 
@@ -43,6 +43,22 @@ namespace Odawa.DAL
                 }
             }
             return list;
+        }
+
+        public void DeleteData(int id)
+        {
+            using (SqlConnection cn = new SqlConnection())
+            {
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString;
+                cn.Open();
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "DELETE FROM [restaurateur] WHERE id = " + id;
+                    cmd.Connection = cn;
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

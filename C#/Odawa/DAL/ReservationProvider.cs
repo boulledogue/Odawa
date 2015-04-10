@@ -9,11 +9,11 @@ using Odawa.BU.Entities;
 
 namespace Odawa.DAL
 {
-    class TypeCuisineProvider
+    class ReservationProvider
     {
-        public List<TypeCuisine> GetAll()
+        public List<Reservation> GetAll()
         {
-            List<TypeCuisine> list = new List<TypeCuisine>();
+            List<Reservation> list = new List<Reservation>();
 
             using (SqlConnection cn = new SqlConnection())
             {
@@ -22,17 +22,16 @@ namespace Odawa.DAL
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "Select * from [typescuisine]";
+                    cmd.CommandText = "Select * from [reservations]";
                     cmd.Connection = cn;
 
                     using (SqlDataReader rdr = cmd.ExecuteReader())
                     {
                         while (rdr.Read())
                         {
-                            TypeCuisine t = new TypeCuisine();
-                            t.id = (int)rdr["id"];
-                            t.type = rdr["type"].ToString();
-                            list.Add(t);
+                            Reservation r = new Reservation();
+                            r.id = (int)rdr["id"];
+                            list.Add(r);
                         }
                     }
                 }
@@ -41,7 +40,7 @@ namespace Odawa.DAL
         }
 
         public void DeleteData(int id)
-        {            
+        {
             using (SqlConnection cn = new SqlConnection())
             {
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString;
@@ -49,7 +48,7 @@ namespace Odawa.DAL
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "DELETE FROM [typescuisine] WHERE id = " + id;
+                    cmd.CommandText = "DELETE FROM [reservations] WHERE id = " + id;
                     cmd.Connection = cn;
                     cmd.ExecuteNonQuery();
                 }

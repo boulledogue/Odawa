@@ -11,7 +11,7 @@ namespace Odawa.DAL
 {
     class UtilisateurProvider
     {
-        public List<Utilisateur> LoadData()
+        public List<Utilisateur> GetAll()
         {
             List<Utilisateur> list = new List<Utilisateur>();
 

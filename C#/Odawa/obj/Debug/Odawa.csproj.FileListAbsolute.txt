@@ -7,3 +7,12 @@ C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.Properties.Resou
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.csproj.GenerateResource.Cache
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.exe
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.pdb
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\bin\Debug\Odawa.exe.config
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\obj\Debug\Odawa.exe
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\obj\Debug\Odawa.pdb
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\bin\Debug\Odawa.exe
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\bin\Debug\Odawa.pdb
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\obj\Debug\Odawa.csprojResolveAssemblyReference.cache
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\obj\Debug\Odawa.Form1.resources
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\obj\Debug\Odawa.Properties.Resources.resources
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\obj\Debug\Odawa.csproj.GenerateResource.Cache

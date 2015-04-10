@@ -11,7 +11,7 @@ namespace Odawa.DAL
 {
     class AdministrateurProvider
     {        
-        public List<Administrateur> LoadData()
+        public List<Administrateur> GetAll()
         {
             List<Administrateur> list = new List<Administrateur>();
 
