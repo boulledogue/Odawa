@@ -10,7 +10,7 @@ namespace Odawa.BU
 {
     class UtilisateurManager
     {
-        public static Utilisateur GetAll()
+        public static List<Utilisateur> GetAll()
         {
             return new UtilisateurProvider().GetAll();
         }

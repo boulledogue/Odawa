@@ -114,7 +114,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="OdawaDS.Designer.cs">
+    <Compile Include="DAL\OdawaDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OdawaDS.xsd</DependentUpon>
@@ -150,15 +150,15 @@
       <DependentUpon>OdawaModel.edmx</DependentUpon>
       <LastGenOutput>OdawaModel.cs</LastGenOutput>
     </None>
-    <None Include="OdawaDS.xsc">
+    <None Include="DAL\OdawaDS.xsc">
       <DependentUpon>OdawaDS.xsd</DependentUpon>
     </None>
-    <None Include="OdawaDS.xsd">
+    <None Include="DAL\OdawaDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>OdawaDS.Designer.cs</LastGenOutput>
     </None>
-    <None Include="OdawaDS.xss">
+    <None Include="DAL\OdawaDS.xss">
       <DependentUpon>OdawaDS.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />

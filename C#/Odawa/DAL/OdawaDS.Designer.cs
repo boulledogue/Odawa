@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Odawa {
+namespace Odawa.DAL {
     
     
     /// <summary>
@@ -4156,7 +4156,7 @@ namespace Odawa {
         }
     }
 }
-namespace Odawa.OdawaDSTableAdapters {
+namespace Odawa.DAL.OdawaDSTableAdapters {
     
     
     /// <summary>

@@ -11,13 +11,6 @@ namespace Odawa.DAL
 {
     class UtilisateurProvider
     {
-        public utilisateur GetOne(int id)
-        {
-            odawaEntities context = new odawaEntities();
-            utilisateur fromDB = context.utilisateurs.Single(utilisateur => utilisateur.id == id);
-            return fromDB;
-        }
-
         public List<Utilisateur> GetAll()
         {
             List<Utilisateur> list = new List<Utilisateur>();
