@@ -17,7 +17,7 @@ namespace Odawa.BU
 
         public static void DeleteData(int id)
         {
-
+            
         }
     }
 }
