@@ -57,11 +57,6 @@
     <Compile Include="BU\RestaurateurManager.cs" />
     <Compile Include="BU\TypeCuisineManager.cs" />
     <Compile Include="BU\UtilisateurManager.cs" />
-    <Compile Include="DAL\OdawaDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OdawaDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DAL\AdministrateurProvider.cs" />
     <Compile Include="DAL\ReservationProvider.cs" />
     <Compile Include="DAL\RestaurantProvider.cs" />
@@ -73,6 +68,11 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OdawaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OdawaDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,15 +88,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DAL\OdawaDS.xsc">
+    <None Include="OdawaDS.xsc">
       <DependentUpon>OdawaDS.xsd</DependentUpon>
     </None>
-    <None Include="DAL\OdawaDS.xsd">
+    <None Include="OdawaDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>OdawaDS.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DAL\OdawaDS.xss">
+    <None Include="OdawaDS.xss">
       <DependentUpon>OdawaDS.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">

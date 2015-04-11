@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Odawa.DAL {
+namespace Odawa {
     
     
     /// <summary>
@@ -28,6 +28,8 @@ namespace Odawa.DAL {
         
         private utilisateursDataTable tableutilisateurs;
         
+        private commentsDataTable tablecomments;
+        
         private reservationsDataTable tablereservations;
         
         private restaurantsDataTable tablerestaurants;
@@ -35,6 +37,10 @@ namespace Odawa.DAL {
         private restaurateursDataTable tablerestaurateurs;
         
         private typescuisineDataTable tabletypescuisine;
+        
+        private global::System.Data.DataRelation relationcomments_restaurants;
+        
+        private global::System.Data.DataRelation relationcomments_utilisateurs;
         
         private global::System.Data.DataRelation relationreservations_restaurants;
         
@@ -75,6 +81,9 @@ namespace Odawa.DAL {
                 }
                 if ((ds.Tables["utilisateurs"] != null)) {
                     base.Tables.Add(new utilisateursDataTable(ds.Tables["utilisateurs"]));
+                }
+                if ((ds.Tables["comments"] != null)) {
+                    base.Tables.Add(new commentsDataTable(ds.Tables["comments"]));
                 }
                 if ((ds.Tables["reservations"] != null)) {
                     base.Tables.Add(new reservationsDataTable(ds.Tables["reservations"]));
@@ -123,6 +132,16 @@ namespace Odawa.DAL {
         public utilisateursDataTable utilisateurs {
             get {
                 return this.tableutilisateurs;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public commentsDataTable comments {
+            get {
+                return this.tablecomments;
             }
         }
         
@@ -239,6 +258,9 @@ namespace Odawa.DAL {
                 if ((ds.Tables["utilisateurs"] != null)) {
                     base.Tables.Add(new utilisateursDataTable(ds.Tables["utilisateurs"]));
                 }
+                if ((ds.Tables["comments"] != null)) {
+                    base.Tables.Add(new commentsDataTable(ds.Tables["comments"]));
+                }
                 if ((ds.Tables["reservations"] != null)) {
                     base.Tables.Add(new reservationsDataTable(ds.Tables["reservations"]));
                 }
@@ -296,6 +318,12 @@ namespace Odawa.DAL {
                     this.tableutilisateurs.InitVars();
                 }
             }
+            this.tablecomments = ((commentsDataTable)(base.Tables["comments"]));
+            if ((initTable == true)) {
+                if ((this.tablecomments != null)) {
+                    this.tablecomments.InitVars();
+                }
+            }
             this.tablereservations = ((reservationsDataTable)(base.Tables["reservations"]));
             if ((initTable == true)) {
                 if ((this.tablereservations != null)) {
@@ -320,6 +348,8 @@ namespace Odawa.DAL {
                     this.tabletypescuisine.InitVars();
                 }
             }
+            this.relationcomments_restaurants = this.Relations["comments_restaurants"];
+            this.relationcomments_utilisateurs = this.Relations["comments_utilisateurs"];
             this.relationreservations_restaurants = this.Relations["reservations_restaurants"];
             this.relationrestaurants_restaurateurs = this.Relations["restaurants_restaurateurs"];
             this.relationrestaurants_typescuisine = this.Relations["restaurants_typescuisine"];
@@ -337,6 +367,8 @@ namespace Odawa.DAL {
             base.Tables.Add(this.tableadministrateurs);
             this.tableutilisateurs = new utilisateursDataTable();
             base.Tables.Add(this.tableutilisateurs);
+            this.tablecomments = new commentsDataTable();
+            base.Tables.Add(this.tablecomments);
             this.tablereservations = new reservationsDataTable();
             base.Tables.Add(this.tablereservations);
             this.tablerestaurants = new restaurantsDataTable();
@@ -345,6 +377,14 @@ namespace Odawa.DAL {
             base.Tables.Add(this.tablerestaurateurs);
             this.tabletypescuisine = new typescuisineDataTable();
             base.Tables.Add(this.tabletypescuisine);
+            this.relationcomments_restaurants = new global::System.Data.DataRelation("comments_restaurants", new global::System.Data.DataColumn[] {
+                        this.tablerestaurants.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablecomments.idRestaurantColumn}, false);
+            this.Relations.Add(this.relationcomments_restaurants);
+            this.relationcomments_utilisateurs = new global::System.Data.DataRelation("comments_utilisateurs", new global::System.Data.DataColumn[] {
+                        this.tableutilisateurs.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablecomments.idUtilisateurColumn}, false);
+            this.Relations.Add(this.relationcomments_utilisateurs);
             this.relationreservations_restaurants = new global::System.Data.DataRelation("reservations_restaurants", new global::System.Data.DataColumn[] {
                         this.tablerestaurants.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablereservations.idRestaurantColumn}, false);
@@ -368,6 +408,12 @@ namespace Odawa.DAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeutilisateurs() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializecomments() {
             return false;
         }
         
@@ -455,6 +501,9 @@ namespace Odawa.DAL {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void utilisateursRowChangeEventHandler(object sender, utilisateursRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void commentsRowChangeEventHandler(object sender, commentsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void reservationsRowChangeEventHandler(object sender, reservationsRowChangeEvent e);
@@ -1144,6 +1193,319 @@ namespace Odawa.DAL {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "utilisateursDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class commentsDataTable : global::System.Data.TypedTableBase<commentsRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columncommentaire;
+            
+            private global::System.Data.DataColumn columnidUtilisateur;
+            
+            private global::System.Data.DataColumn columnidRestaurant;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public commentsDataTable() {
+                this.TableName = "comments";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal commentsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected commentsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn commentaireColumn {
+                get {
+                    return this.columncommentaire;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idUtilisateurColumn {
+                get {
+                    return this.columnidUtilisateur;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idRestaurantColumn {
+                get {
+                    return this.columnidRestaurant;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public commentsRow this[int index] {
+                get {
+                    return ((commentsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event commentsRowChangeEventHandler commentsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event commentsRowChangeEventHandler commentsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event commentsRowChangeEventHandler commentsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event commentsRowChangeEventHandler commentsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddcommentsRow(commentsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public commentsRow AddcommentsRow(string commentaire, utilisateursRow parentutilisateursRowBycomments_utilisateurs, restaurantsRow parentrestaurantsRowBycomments_restaurants) {
+                commentsRow rowcommentsRow = ((commentsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        commentaire,
+                        null,
+                        null};
+                if ((parentutilisateursRowBycomments_utilisateurs != null)) {
+                    columnValuesArray[2] = parentutilisateursRowBycomments_utilisateurs[0];
+                }
+                if ((parentrestaurantsRowBycomments_restaurants != null)) {
+                    columnValuesArray[3] = parentrestaurantsRowBycomments_restaurants[0];
+                }
+                rowcommentsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcommentsRow);
+                return rowcommentsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public commentsRow FindByid(int id) {
+                return ((commentsRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                commentsDataTable cln = ((commentsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new commentsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columncommentaire = base.Columns["commentaire"];
+                this.columnidUtilisateur = base.Columns["idUtilisateur"];
+                this.columnidRestaurant = base.Columns["idRestaurant"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columncommentaire = new global::System.Data.DataColumn("commentaire", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncommentaire);
+                this.columnidUtilisateur = new global::System.Data.DataColumn("idUtilisateur", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidUtilisateur);
+                this.columnidRestaurant = new global::System.Data.DataColumn("idRestaurant", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidRestaurant);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.ReadOnly = true;
+                this.columnid.Unique = true;
+                this.columncommentaire.MaxLength = 2147483647;
+                this.columnidUtilisateur.AllowDBNull = false;
+                this.columnidRestaurant.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public commentsRow NewcommentsRow() {
+                return ((commentsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new commentsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(commentsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.commentsRowChanged != null)) {
+                    this.commentsRowChanged(this, new commentsRowChangeEvent(((commentsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.commentsRowChanging != null)) {
+                    this.commentsRowChanging(this, new commentsRowChangeEvent(((commentsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.commentsRowDeleted != null)) {
+                    this.commentsRowDeleted(this, new commentsRowChangeEvent(((commentsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.commentsRowDeleting != null)) {
+                    this.commentsRowDeleting(this, new commentsRowChangeEvent(((commentsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovecommentsRow(commentsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                OdawaDS ds = new OdawaDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "commentsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1880,8 +2242,6 @@ namespace Odawa.DAL {
                 this.columndescription.MaxLength = 2147483647;
                 this.columnhoraire.MaxLength = 70;
                 this.columnpremium.AllowDBNull = false;
-                this.columnidTypeCuisine.AllowDBNull = false;
-                this.columnidRestaurateur.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2824,6 +3184,115 @@ namespace Odawa.DAL {
                     this[this.tableutilisateurs.phoneColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public commentsRow[] GetcommentsRows() {
+                if ((this.Table.ChildRelations["comments_utilisateurs"] == null)) {
+                    return new commentsRow[0];
+                }
+                else {
+                    return ((commentsRow[])(base.GetChildRows(this.Table.ChildRelations["comments_utilisateurs"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class commentsRow : global::System.Data.DataRow {
+            
+            private commentsDataTable tablecomments;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal commentsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablecomments = ((commentsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id {
+                get {
+                    return ((int)(this[this.tablecomments.idColumn]));
+                }
+                set {
+                    this[this.tablecomments.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string commentaire {
+                get {
+                    try {
+                        return ((string)(this[this.tablecomments.commentaireColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'commentaire\' dans la table \'comments\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecomments.commentaireColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int idUtilisateur {
+                get {
+                    return ((int)(this[this.tablecomments.idUtilisateurColumn]));
+                }
+                set {
+                    this[this.tablecomments.idUtilisateurColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int idRestaurant {
+                get {
+                    return ((int)(this[this.tablecomments.idRestaurantColumn]));
+                }
+                set {
+                    this[this.tablecomments.idRestaurantColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public restaurantsRow restaurantsRow {
+                get {
+                    return ((restaurantsRow)(this.GetParentRow(this.Table.ParentRelations["comments_restaurants"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["comments_restaurants"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public utilisateursRow utilisateursRow {
+                get {
+                    return ((utilisateursRow)(this.GetParentRow(this.Table.ParentRelations["comments_utilisateurs"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["comments_utilisateurs"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscommentaireNull() {
+                return this.IsNull(this.tablecomments.commentaireColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcommentaireNull() {
+                this[this.tablecomments.commentaireColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3128,7 +3597,13 @@ namespace Odawa.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int idTypeCuisine {
                 get {
-                    return ((int)(this[this.tablerestaurants.idTypeCuisineColumn]));
+                    try {
+                        return ((int)(this[this.tablerestaurants.idTypeCuisineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'idTypeCuisine\' dans la table \'restaurants\' est DBNull." +
+                                "", e);
+                    }
                 }
                 set {
                     this[this.tablerestaurants.idTypeCuisineColumn] = value;
@@ -3139,7 +3614,13 @@ namespace Odawa.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int idRestaurateur {
                 get {
-                    return ((int)(this[this.tablerestaurants.idRestaurateurColumn]));
+                    try {
+                        return ((int)(this[this.tablerestaurants.idRestaurateurColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'idRestaurateur\' dans la table \'restaurants\' est DBNull" +
+                                ".", e);
+                    }
                 }
                 set {
                     this[this.tablerestaurants.idRestaurateurColumn] = value;
@@ -3202,6 +3683,41 @@ namespace Odawa.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetbudgetNull() {
                 this[this.tablerestaurants.budgetColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsidTypeCuisineNull() {
+                return this.IsNull(this.tablerestaurants.idTypeCuisineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetidTypeCuisineNull() {
+                this[this.tablerestaurants.idTypeCuisineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsidRestaurateurNull() {
+                return this.IsNull(this.tablerestaurants.idRestaurateurColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetidRestaurateurNull() {
+                this[this.tablerestaurants.idRestaurateurColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public commentsRow[] GetcommentsRows() {
+                if ((this.Table.ChildRelations["comments_restaurants"] == null)) {
+                    return new commentsRow[0];
+                }
+                else {
+                    return ((commentsRow[])(base.GetChildRows(this.Table.ChildRelations["comments_restaurants"])));
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3473,6 +3989,40 @@ namespace Odawa.DAL {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class commentsRowChangeEvent : global::System.EventArgs {
+            
+            private commentsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public commentsRowChangeEvent(commentsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public commentsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public class reservationsRowChangeEvent : global::System.EventArgs {
             
             private reservationsRow eventRow;
@@ -3606,7 +4156,7 @@ namespace Odawa.DAL {
         }
     }
 }
-namespace Odawa.DAL.OdawaDSTableAdapters {
+namespace Odawa.OdawaDSTableAdapters {
     
     
     /// <summary>
@@ -4541,6 +5091,328 @@ SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class commentsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public commentsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "comments";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("commentaire", "commentaire");
+            tableMapping.ColumnMappings.Add("idUtilisateur", "idUtilisateur");
+            tableMapping.ColumnMappings.Add("idRestaurant", "idRestaurant");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[comments] WHERE (([id] = @Original_id) AND ([idUtilisateur] = " +
+                "@Original_idUtilisateur) AND ([idRestaurant] = @Original_idRestaurant))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idUtilisateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idUtilisateur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idRestaurant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idRestaurant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[comments] ([commentaire], [idUtilisateur], [idRestaurant]) VAL" +
+                "UES (@commentaire, @idUtilisateur, @idRestaurant);\r\nSELECT id, commentaire, idUt" +
+                "ilisateur, idRestaurant FROM comments WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@commentaire", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "commentaire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idUtilisateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idUtilisateur", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idRestaurant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idRestaurant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[comments] SET [commentaire] = @commentaire, [idUtilisateur] = @idUtilisateur, [idRestaurant] = @idRestaurant WHERE (([id] = @Original_id) AND ([idUtilisateur] = @Original_idUtilisateur) AND ([idRestaurant] = @Original_idRestaurant));
+SELECT id, commentaire, idUtilisateur, idRestaurant FROM comments WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@commentaire", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "commentaire", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idUtilisateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idUtilisateur", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idRestaurant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idRestaurant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idUtilisateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idUtilisateur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idRestaurant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idRestaurant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Odawa.Properties.Settings.Default.odawaConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT id, commentaire, idUtilisateur, idRestaurant FROM dbo.comments";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(OdawaDS.commentsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual OdawaDS.commentsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            OdawaDS.commentsDataTable dataTable = new OdawaDS.commentsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(OdawaDS.commentsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(OdawaDS dataSet) {
+            return this.Adapter.Update(dataSet, "comments");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_id, int Original_idUtilisateur, int Original_idRestaurant) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_idUtilisateur));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_idRestaurant));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string commentaire, int idUtilisateur, int idRestaurant) {
+            if ((commentaire == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(commentaire));
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(idUtilisateur));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(idRestaurant));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string commentaire, int idUtilisateur, int idRestaurant, int Original_id, int Original_idUtilisateur, int Original_idRestaurant, int id) {
+            if ((commentaire == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(commentaire));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(idUtilisateur));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(idRestaurant));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_idUtilisateur));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_idRestaurant));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string commentaire, int idUtilisateur, int idRestaurant, int Original_id, int Original_idUtilisateur, int Original_idRestaurant) {
+            return this.Update(commentaire, idUtilisateur, idRestaurant, Original_id, Original_idUtilisateur, Original_idRestaurant, Original_id);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class reservationsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -5155,7 +6027,7 @@ SELECT id, nom, prenom, date, typeService, nbPersonnes, email, phone, idRestaura
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[restaurants] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([adresse] = @Original_adresse) AND ([numero] = @Original_numero) AND ([zipCode] = @Original_zipCode) AND ([localite] = @Original_localite) AND ((@IsNull_horaire = 1 AND [horaire] IS NULL) OR ([horaire] = @Original_horaire)) AND ((@IsNull_budget = 1 AND [budget] IS NULL) OR ([budget] = @Original_budget)) AND ([premium] = @Original_premium) AND ([idTypeCuisine] = @Original_idTypeCuisine) AND ([idRestaurateur] = @Original_idRestaurateur))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[restaurants] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([adresse] = @Original_adresse) AND ([numero] = @Original_numero) AND ([zipCode] = @Original_zipCode) AND ([localite] = @Original_localite) AND ((@IsNull_horaire = 1 AND [horaire] IS NULL) OR ([horaire] = @Original_horaire)) AND ((@IsNull_budget = 1 AND [budget] IS NULL) OR ([budget] = @Original_budget)) AND ([premium] = @Original_premium) AND ((@IsNull_idTypeCuisine = 1 AND [idTypeCuisine] IS NULL) OR ([idTypeCuisine] = @Original_idTypeCuisine)) AND ((@IsNull_idRestaurateur = 1 AND [idRestaurateur] IS NULL) OR ([idRestaurateur] = @Original_idRestaurateur)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nom", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5168,7 +6040,9 @@ SELECT id, nom, prenom, date, typeService, nbPersonnes, email, phone, idRestaura
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_budget", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "budget", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_budget", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "budget", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_premium", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "premium", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idTypeCuisine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTypeCuisine", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idTypeCuisine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTypeCuisine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idRestaurateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idRestaurateur", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idRestaurateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idRestaurateur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -5188,7 +6062,7 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idRestaurateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idRestaurateur", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[restaurants] SET [nom] = @nom, [adresse] = @adresse, [numero] = @numero, [zipCode] = @zipCode, [localite] = @localite, [description] = @description, [horaire] = @horaire, [budget] = @budget, [premium] = @premium, [idTypeCuisine] = @idTypeCuisine, [idRestaurateur] = @idRestaurateur WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([adresse] = @Original_adresse) AND ([numero] = @Original_numero) AND ([zipCode] = @Original_zipCode) AND ([localite] = @Original_localite) AND ((@IsNull_horaire = 1 AND [horaire] IS NULL) OR ([horaire] = @Original_horaire)) AND ((@IsNull_budget = 1 AND [budget] IS NULL) OR ([budget] = @Original_budget)) AND ([premium] = @Original_premium) AND ([idTypeCuisine] = @Original_idTypeCuisine) AND ([idRestaurateur] = @Original_idRestaurateur));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[restaurants] SET [nom] = @nom, [adresse] = @adresse, [numero] = @numero, [zipCode] = @zipCode, [localite] = @localite, [description] = @description, [horaire] = @horaire, [budget] = @budget, [premium] = @premium, [idTypeCuisine] = @idTypeCuisine, [idRestaurateur] = @idRestaurateur WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([adresse] = @Original_adresse) AND ([numero] = @Original_numero) AND ([zipCode] = @Original_zipCode) AND ([localite] = @Original_localite) AND ((@IsNull_horaire = 1 AND [horaire] IS NULL) OR ([horaire] = @Original_horaire)) AND ((@IsNull_budget = 1 AND [budget] IS NULL) OR ([budget] = @Original_budget)) AND ([premium] = @Original_premium) AND ((@IsNull_idTypeCuisine = 1 AND [idTypeCuisine] IS NULL) OR ([idTypeCuisine] = @Original_idTypeCuisine)) AND ((@IsNull_idRestaurateur = 1 AND [idRestaurateur] IS NULL) OR ([idRestaurateur] = @Original_idRestaurateur)));
 SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget, premium, idTypeCuisine, idRestaurateur FROM restaurants WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nom", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nom", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5213,7 +6087,9 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_budget", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "budget", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_budget", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "budget", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_premium", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "premium", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idTypeCuisine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTypeCuisine", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idTypeCuisine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idTypeCuisine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_idRestaurateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idRestaurateur", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idRestaurateur", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idRestaurateur", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -5293,7 +6169,7 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_nom, string Original_adresse, string Original_numero, string Original_zipCode, string Original_localite, string Original_horaire, global::System.Nullable<int> Original_budget, bool Original_premium, int Original_idTypeCuisine, int Original_idRestaurateur) {
+        public virtual int Delete(int Original_id, string Original_nom, string Original_adresse, string Original_numero, string Original_zipCode, string Original_localite, string Original_horaire, global::System.Nullable<int> Original_budget, bool Original_premium, global::System.Nullable<int> Original_idTypeCuisine, global::System.Nullable<int> Original_idRestaurateur) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_nom == null)) {
                 throw new global::System.ArgumentNullException("Original_nom");
@@ -5342,8 +6218,22 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
                 this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             this.Adapter.DeleteCommand.Parameters[10].Value = ((bool)(Original_premium));
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_idTypeCuisine));
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_idRestaurateur));
+            if ((Original_idTypeCuisine.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_idTypeCuisine.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_idRestaurateur.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_idRestaurateur.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5364,7 +6254,7 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string nom, string adresse, string numero, string zipCode, string localite, string description, string horaire, global::System.Nullable<int> budget, bool premium, int idTypeCuisine, int idRestaurateur) {
+        public virtual int Insert(string nom, string adresse, string numero, string zipCode, string localite, string description, string horaire, global::System.Nullable<int> budget, bool premium, global::System.Nullable<int> idTypeCuisine, global::System.Nullable<int> idRestaurateur) {
             if ((nom == null)) {
                 throw new global::System.ArgumentNullException("nom");
             }
@@ -5414,8 +6304,18 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(premium));
-            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(idTypeCuisine));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(idRestaurateur));
+            if ((idTypeCuisine.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(idTypeCuisine.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((idRestaurateur.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(idRestaurateur.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5446,8 +6346,8 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
                     string horaire, 
                     global::System.Nullable<int> budget, 
                     bool premium, 
-                    int idTypeCuisine, 
-                    int idRestaurateur, 
+                    global::System.Nullable<int> idTypeCuisine, 
+                    global::System.Nullable<int> idRestaurateur, 
                     int Original_id, 
                     string Original_nom, 
                     string Original_adresse, 
@@ -5457,8 +6357,8 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
                     string Original_horaire, 
                     global::System.Nullable<int> Original_budget, 
                     bool Original_premium, 
-                    int Original_idTypeCuisine, 
-                    int Original_idRestaurateur, 
+                    global::System.Nullable<int> Original_idTypeCuisine, 
+                    global::System.Nullable<int> Original_idRestaurateur, 
                     int id) {
             if ((nom == null)) {
                 throw new global::System.ArgumentNullException("nom");
@@ -5509,8 +6409,18 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(premium));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(idTypeCuisine));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(idRestaurateur));
+            if ((idTypeCuisine.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(idTypeCuisine.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((idRestaurateur.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(idRestaurateur.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_id));
             if ((Original_nom == null)) {
                 throw new global::System.ArgumentNullException("Original_nom");
@@ -5559,9 +6469,23 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[21].Value = ((bool)(Original_premium));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_idTypeCuisine));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_idRestaurateur));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(id));
+            if ((Original_idTypeCuisine.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_idTypeCuisine.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Original_idRestaurateur.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_idRestaurateur.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5592,8 +6516,8 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
                     string horaire, 
                     global::System.Nullable<int> budget, 
                     bool premium, 
-                    int idTypeCuisine, 
-                    int idRestaurateur, 
+                    global::System.Nullable<int> idTypeCuisine, 
+                    global::System.Nullable<int> idRestaurateur, 
                     int Original_id, 
                     string Original_nom, 
                     string Original_adresse, 
@@ -5603,8 +6527,8 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, horaire, budget
                     string Original_horaire, 
                     global::System.Nullable<int> Original_budget, 
                     bool Original_premium, 
-                    int Original_idTypeCuisine, 
-                    int Original_idRestaurateur) {
+                    global::System.Nullable<int> Original_idTypeCuisine, 
+                    global::System.Nullable<int> Original_idRestaurateur) {
             return this.Update(nom, adresse, numero, zipCode, localite, description, horaire, budget, premium, idTypeCuisine, idRestaurateur, Original_id, Original_nom, Original_adresse, Original_numero, Original_zipCode, Original_localite, Original_horaire, Original_budget, Original_premium, Original_idTypeCuisine, Original_idRestaurateur, Original_id);
         }
     }
@@ -6215,14 +7139,14 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[typescuisine] ([type]) VALUES (@type);\nSELECT id, type FROM ty" +
-                "pescuisine WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[typescuisine] ([type]) VALUES (@type);\r\nSELECT id, type FROM t" +
+                "ypescuisine WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[typescuisine] SET [type] = @type WHERE (([id] = @Original_id) AND (" +
-                "[type] = @Original_type));\nSELECT id, type FROM typescuisine WHERE (id = @id)";
+                "[type] = @Original_type));\r\nSELECT id, type FROM typescuisine WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6415,6 +7339,8 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
         
         private utilisateursTableAdapter _utilisateursTableAdapter;
         
+        private commentsTableAdapter _commentsTableAdapter;
+        
         private reservationsTableAdapter _reservationsTableAdapter;
         
         private restaurantsTableAdapter _restaurantsTableAdapter;
@@ -6463,6 +7389,20 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
             }
             set {
                 this._utilisateursTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public commentsTableAdapter commentsTableAdapter {
+            get {
+                return this._commentsTableAdapter;
+            }
+            set {
+                this._commentsTableAdapter = value;
             }
         }
         
@@ -6549,6 +7489,10 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                             && (this._utilisateursTableAdapter.Connection != null))) {
                     return this._utilisateursTableAdapter.Connection;
                 }
+                if (((this._commentsTableAdapter != null) 
+                            && (this._commentsTableAdapter.Connection != null))) {
+                    return this._commentsTableAdapter.Connection;
+                }
                 if (((this._reservationsTableAdapter != null) 
                             && (this._reservationsTableAdapter.Connection != null))) {
                     return this._reservationsTableAdapter.Connection;
@@ -6582,6 +7526,9 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                     count = (count + 1);
                 }
                 if ((this._utilisateursTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._commentsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._reservationsTableAdapter != null)) {
@@ -6625,6 +7572,15 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._utilisateursTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.utilisateurs.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._utilisateursTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._restaurantsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.restaurants.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6643,12 +7599,12 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._utilisateursTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.utilisateurs.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._commentsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.comments.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._utilisateursTableAdapter.Update(updatedRows));
+                    result = (result + this._commentsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6687,6 +7643,14 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._utilisateursTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.utilisateurs.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._utilisateursTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._restaurantsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.restaurants.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6703,11 +7667,11 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._utilisateursTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.utilisateurs.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._commentsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.comments.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._utilisateursTableAdapter.Update(addedRows));
+                    result = (result + this._commentsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6737,11 +7701,11 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._utilisateursTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.utilisateurs.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._commentsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.comments.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._utilisateursTableAdapter.Update(deletedRows));
+                    result = (result + this._commentsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6758,6 +7722,14 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._restaurantsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._utilisateursTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.utilisateurs.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._utilisateursTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6823,6 +7795,11 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
             }
             if (((this._utilisateursTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._utilisateursTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
+                        "e chaîne de connexion.");
+            }
+            if (((this._commentsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._commentsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm" +
                         "e chaîne de connexion.");
             }
@@ -6896,6 +7873,15 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                     if (this._utilisateursTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._utilisateursTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._utilisateursTableAdapter.Adapter);
+                    }
+                }
+                if ((this._commentsTableAdapter != null)) {
+                    revertConnections.Add(this._commentsTableAdapter, this._commentsTableAdapter.Connection);
+                    this._commentsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._commentsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._commentsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._commentsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._commentsTableAdapter.Adapter);
                     }
                 }
                 if ((this._reservationsTableAdapter != null)) {
@@ -6999,6 +7985,10 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
                 if ((this._utilisateursTableAdapter != null)) {
                     this._utilisateursTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._utilisateursTableAdapter]));
                     this._utilisateursTableAdapter.Transaction = null;
+                }
+                if ((this._commentsTableAdapter != null)) {
+                    this._commentsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._commentsTableAdapter]));
+                    this._commentsTableAdapter.Transaction = null;
                 }
                 if ((this._reservationsTableAdapter != null)) {
                     this._reservationsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._reservationsTableAdapter]));
