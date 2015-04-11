@@ -66,47 +66,11 @@
     <Compile Include="BU\RestaurateurManager.cs" />
     <Compile Include="BU\TypeCuisineManager.cs" />
     <Compile Include="BU\UtilisateurManager.cs" />
-    <Compile Include="DAL\administrateur.cs">
-      <DependentUpon>OdawaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\AdministrateurProvider.cs" />
-    <Compile Include="DAL\comment.cs">
-      <DependentUpon>OdawaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\OdawaModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OdawaModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\OdawaModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OdawaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\OdawaModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OdawaModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\reservation.cs">
-      <DependentUpon>OdawaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\ReservationProvider.cs" />
-    <Compile Include="DAL\restaurant.cs">
-      <DependentUpon>OdawaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\RestaurantProvider.cs" />
-    <Compile Include="DAL\restaurateur.cs">
-      <DependentUpon>OdawaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\RestaurateurProvider.cs" />
     <Compile Include="DAL\TypeCuisineProvider.cs" />
-    <Compile Include="DAL\typescuisine.cs">
-      <DependentUpon>OdawaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\utilisateur.cs">
-      <DependentUpon>OdawaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\UtilisateurProvider.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -133,23 +97,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="DAL\OdawaModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OdawaModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DAL\OdawaModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OdawaModel.edmx</DependentUpon>
-      <LastGenOutput>OdawaModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="DAL\OdawaModel.edmx.diagram">
-      <DependentUpon>OdawaModel.edmx</DependentUpon>
-    </None>
-    <None Include="DAL\OdawaModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OdawaModel.edmx</DependentUpon>
-      <LastGenOutput>OdawaModel.cs</LastGenOutput>
-    </None>
     <None Include="DAL\OdawaDS.xsc">
       <DependentUpon>OdawaDS.xsd</DependentUpon>
     </None>
