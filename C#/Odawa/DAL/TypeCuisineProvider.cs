@@ -11,7 +11,24 @@ namespace Odawa.DAL
 {
     class TypeCuisineProvider
     {
-        public List<TypeCuisine> GetAll()
+        public void Create(TypeCuisine t)
+        {
+            using (SqlConnection cn = new SqlConnection())
+            {
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString;
+                cn.Open();
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "INSERT INTO [typescuisine](id, type)   VALUES(@param1,@param2)";
+                    cmd.Parameters.AddWithValue("@param1", t.id);
+                    cmd.Parameters.AddWithValue("@param2", t.type);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public List<TypeCuisine> GetTypeCuisine(int id=0)
         {
             List<TypeCuisine> list = new List<TypeCuisine>();
 
@@ -22,8 +39,16 @@ namespace Odawa.DAL
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "Select * from [typescuisine]";
-                    cmd.Connection = cn;
+                    if (id == 0)
+                    {
+                        cmd.CommandText = "SELECT * FROM [typescuisine]";
+                        cmd.Connection = cn;
+                    }
+                    else
+                    {
+                        cmd.CommandText = "SELECT * FROM [typescuisine] WHERE id=" + id;
+                        cmd.Connection = cn;
+                    }
 
                     using (SqlDataReader rdr = cmd.ExecuteReader())
                     {
@@ -39,7 +64,7 @@ namespace Odawa.DAL
             }
             return list;
         }
-
+        
         public void DeleteData(int id)
         {            
             using (SqlConnection cn = new SqlConnection())
@@ -49,7 +74,7 @@ namespace Odawa.DAL
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "DELETE FROM [typescuisine] WHERE id = " + id;
+                    cmd.CommandText = "DELETE FROM [typescuisine] WHERE id=" + id;
                     cmd.Connection = cn;
                     cmd.ExecuteNonQuery();
                 }

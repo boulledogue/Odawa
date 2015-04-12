@@ -12,7 +12,12 @@ namespace Odawa.BU
     {
         public static List<TypeCuisine> GetAll()
         {
-            return new TypeCuisineProvider().GetAll();
+            return new TypeCuisineProvider().GetTypeCuisine();
+        }
+
+        public static List<TypeCuisine> GetOne(int id)
+        {
+            return new TypeCuisineProvider().GetTypeCuisine(id);
         }
 
         public static void DeleteData(int id)
