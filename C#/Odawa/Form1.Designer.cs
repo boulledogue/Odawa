@@ -28,56 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewAdministrateurs = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewRestaurateurs = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridViewUtilisateurs = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridViewRestaurants = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridViewTypesCuisine = new System.Windows.Forms.DataGridView();
-            this.menuStrip1.SuspendLayout();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdministrateurs)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRestaurateurs)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtilisateurs)).BeginInit();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRestaurants)).BeginInit();
+            this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTypesCuisine)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fichierToolStripMenuItem,
-            this.testToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(741, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fichierToolStripMenuItem
-            // 
-            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.fichierToolStripMenuItem.Text = "Fichier";
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
-            this.testToolStripMenuItem.Text = "Test";
             // 
             // tabControl1
             // 
@@ -86,10 +62,10 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(13, 28);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(716, 373);
+            this.tabControl1.Size = new System.Drawing.Size(634, 377);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -98,10 +74,19 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(708, 347);
+            this.tabPage1.Size = new System.Drawing.Size(626, 351);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Administrateurs";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewAdministrateurs
+            // 
+            this.dataGridViewAdministrateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAdministrateurs.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewAdministrateurs.Name = "dataGridViewAdministrateurs";
+            this.dataGridViewAdministrateurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewAdministrateurs.Size = new System.Drawing.Size(620, 344);
+            this.dataGridViewAdministrateurs.TabIndex = 1;
             // 
             // tabPage2
             // 
@@ -113,15 +98,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Restaurateurs";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewAdministrateurs
-            // 
-            this.dataGridViewAdministrateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAdministrateurs.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewAdministrateurs.Name = "dataGridViewAdministrateurs";
-            this.dataGridViewAdministrateurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAdministrateurs.Size = new System.Drawing.Size(708, 347);
-            this.dataGridViewAdministrateurs.TabIndex = 1;
             // 
             // dataGridViewRestaurateurs
             // 
@@ -143,6 +119,14 @@
             this.tabPage3.Text = "Utilisateurs";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewUtilisateurs
+            // 
+            this.dataGridViewUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUtilisateurs.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewUtilisateurs.Name = "dataGridViewUtilisateurs";
+            this.dataGridViewUtilisateurs.Size = new System.Drawing.Size(708, 347);
+            this.dataGridViewUtilisateurs.TabIndex = 0;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dataGridViewRestaurants);
@@ -152,6 +136,14 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Restaurants";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewRestaurants
+            // 
+            this.dataGridViewRestaurants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRestaurants.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRestaurants.Name = "dataGridViewRestaurants";
+            this.dataGridViewRestaurants.Size = new System.Drawing.Size(708, 347);
+            this.dataGridViewRestaurants.TabIndex = 0;
             // 
             // tabPage5
             // 
@@ -164,22 +156,6 @@
             this.tabPage5.Text = "Types cuisine";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewUtilisateurs
-            // 
-            this.dataGridViewUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUtilisateurs.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewUtilisateurs.Name = "dataGridViewUtilisateurs";
-            this.dataGridViewUtilisateurs.Size = new System.Drawing.Size(708, 347);
-            this.dataGridViewUtilisateurs.TabIndex = 0;
-            // 
-            // dataGridViewRestaurants
-            // 
-            this.dataGridViewRestaurants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRestaurants.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewRestaurants.Name = "dataGridViewRestaurants";
-            this.dataGridViewRestaurants.Size = new System.Drawing.Size(708, 347);
-            this.dataGridViewRestaurants.TabIndex = 0;
-            // 
             // dataGridViewTypesCuisine
             // 
             this.dataGridViewTypesCuisine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -188,40 +164,62 @@
             this.dataGridViewTypesCuisine.Size = new System.Drawing.Size(708, 347);
             this.dataGridViewTypesCuisine.TabIndex = 0;
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(16, 395);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.TabIndex = 2;
+            this.buttonAdd.Text = "Ajouter";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(97, 395);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 3;
+            this.buttonDelete.Text = "Supprimer";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Location = new System.Drawing.Point(178, 395);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdit.TabIndex = 4;
+            this.buttonEdit.Text = "Editer";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 413);
+            this.ClientSize = new System.Drawing.Size(659, 430);
+            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Odawa";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdministrateurs)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRestaurateurs)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUtilisateurs)).EndInit();
+            this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRestaurants)).EndInit();
+            this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTypesCuisine)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridViewAdministrateurs;
@@ -233,6 +231,9 @@
         private System.Windows.Forms.DataGridView dataGridViewRestaurants;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.DataGridView dataGridViewTypesCuisine;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonEdit;
 
     }
 }

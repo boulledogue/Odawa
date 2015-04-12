@@ -20,7 +20,7 @@ namespace Odawa.DAL
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "INSERT INTO [typescuisine](id, type)   VALUES(@param1,@param2)";
+                    cmd.CommandText = "INSERT INTO [typescuisine](id, type) VALUES(@param1,@param2)";
                     cmd.Parameters.AddWithValue("@param1", t.id);
                     cmd.Parameters.AddWithValue("@param2", t.type);
                     cmd.ExecuteNonQuery();
