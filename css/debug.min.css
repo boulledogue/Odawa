@@ -14,7 +14,7 @@ body { background-color: #F2F2F2  }
 .navbar-default .navbar-nav > li > a { border-left: 1px solid #602726; }
 .navbar-default .navbar-nav .last { border-right: 1px solid #602726; }
 .navbar-default .navbar-brand { color: #FFFFFF; }
-.txt-debug { margin-top: -50px; }
+.txt-debug { margin-top: -60px; }
 
 /* Sticky footer styles */
 html { position: relative; min-height: 100%; }
