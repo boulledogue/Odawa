@@ -9,56 +9,24 @@ using Odawa.BU.Entities;
 
 namespace Odawa.DAL
 {
-    class RestaurateurProvider
+    static class RestaurateurProvider
     {
-        public List<Restaurateur> GetAll()
+        public static List<Restaurateur> GetAll()
         {
-            List<Restaurateur> list = new List<Restaurateur>();
-
-            using (SqlConnection cn = new SqlConnection())
+            List<Restaurateur> lst = new List<Restaurateur>();
+            foreach (OdawaDS.restaurateursRow restaurateurRow in DatabaseConnection.odawa.restaurateurs.Rows)
             {
-                cn.ConnectionString = ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString;
-                cn.Open();
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "Select * from [restaurateurs]";
-                    cmd.Connection = cn;
-
-                    using (SqlDataReader rdr = cmd.ExecuteReader())
-                    {
-                        while (rdr.Read())
-                        {
-                            Restaurateur r = new Restaurateur();
-                            r.id = (int)rdr["id"];
-                            r.nom = rdr["nom"].ToString();
-                            r.prenom = rdr["prenom"].ToString();
-                            r.username = rdr["username"].ToString();
-                            r.password = rdr["password"].ToString();
-                            r.email = rdr["email"].ToString();
-                            r.phone = rdr["phone"].ToString();
-                            list.Add(r);
-                        }
-                    }
-                }
+                Restaurateur r = new Restaurateur();
+                r.id = restaurateurRow.id;
+                r.nom = restaurateurRow.nom;
+                r.prenom = restaurateurRow.prenom;
+                r.username = restaurateurRow.username;
+                r.password = restaurateurRow.password;
+                r.email = restaurateurRow.email;
+                r.phone = restaurateurRow.phone;
+                lst.Add(r);
             }
-            return list;
-        }
-
-        public void DeleteData(int id)
-        {
-            using (SqlConnection cn = new SqlConnection())
-            {
-                cn.ConnectionString = ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString;
-                cn.Open();
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "DELETE FROM [restaurateur] WHERE id = " + id;
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            return lst;
         }
     }
 }

@@ -8,19 +8,19 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    class TypeCuisineManager
+    static class TypeCuisineManager
     {
         public static List<TypeCuisine> GetAll()
         {
-            return new TypeCuisineProvider().GetTypeCuisine();
+            return TypeCuisineProvider.GetTypeCuisine();
         }
 
         public static List<TypeCuisine> GetOne(int id)
         {
-            return new TypeCuisineProvider().GetTypeCuisine(id);
+            return TypeCuisineProvider.GetTypeCuisine(id);
         }
 
-        public static void DeleteData(int id)
+        public static void Delete(int id)
         {
             
         }

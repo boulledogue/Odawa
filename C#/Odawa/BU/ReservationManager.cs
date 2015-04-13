@@ -8,11 +8,11 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    class ReservationManager
+    static class ReservationManager
     {
         public static List<Reservation> GetAll()
         {
-            return new ReservationProvider().GetAll();
+            return ReservationProvider.GetAll();
         }
     }
 }

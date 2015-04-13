@@ -9,50 +9,25 @@ using Odawa.BU.Entities;
 
 namespace Odawa.DAL
 {
-    class ReservationProvider
+    static class ReservationProvider
     {
-        public List<Reservation> GetAll()
+        public static List<Reservation> GetAll()
         {
-            List<Reservation> list = new List<Reservation>();
-
-            using (SqlConnection cn = new SqlConnection())
+            List<Reservation> lst = new List<Reservation>();
+            foreach (OdawaDS.reservationsRow reservationRow in DatabaseConnection.odawa.reservations.Rows)
             {
-                cn.ConnectionString = ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString;
-                cn.Open();
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "Select * from [reservations]";
-                    cmd.Connection = cn;
-
-                    using (SqlDataReader rdr = cmd.ExecuteReader())
-                    {
-                        while (rdr.Read())
-                        {
-                            Reservation r = new Reservation();
-                            r.id = (int)rdr["id"];
-                            list.Add(r);
-                        }
-                    }
-                }
+                Reservation r = new Reservation();
+                r.id = reservationRow.id;
+                r.nom = reservationRow.nom;
+                r.prenom = reservationRow.prenom;
+                r.date = reservationRow.date;
+                r.typeService = reservationRow.typeService;
+                r.nbPersonnes = reservationRow.nbPersonnes;
+                r.email = reservationRow.email;
+                r.phone = reservationRow.phone;
+                lst.Add(r);                
             }
-            return list;
-        }
-
-        public void DeleteData(int id)
-        {
-            using (SqlConnection cn = new SqlConnection())
-            {
-                cn.ConnectionString = ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString;
-                cn.Open();
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "DELETE FROM [reservations] WHERE id = " + id;
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            return lst;
         }
     }
 }

@@ -36,3 +36,4 @@ C:\Users\dcr\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.Form1.resources
 C:\Users\dcr\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.Properties.Resources.resources
 C:\Users\dcr\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.csproj.GenerateResource.Cache
 C:\Users\dcr\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.pdb
+I:\ESA\C#\Odawa\Odawa\C#\Odawa\bin\Debug\fr\EntityFramework.SqlServer.resources.dll

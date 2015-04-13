@@ -20,6 +20,7 @@ namespace Odawa
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            DAL.DatabaseConnection.FillDataSet();
             dataGridViewAdministrateurs.DataSource = AdministrateurManager.GetAll();
             dataGridViewRestaurateurs.DataSource = RestaurateurManager.GetAll();
             dataGridViewUtilisateurs.DataSource = UtilisateurManager.GetAll();

@@ -67,6 +67,7 @@
     <Compile Include="BU\TypeCuisineManager.cs" />
     <Compile Include="BU\UtilisateurManager.cs" />
     <Compile Include="DAL\AdministrateurProvider.cs" />
+    <Compile Include="DAL\DatabaseConnection.cs" />
     <Compile Include="DAL\ReservationProvider.cs" />
     <Compile Include="DAL\RestaurantProvider.cs" />
     <Compile Include="DAL\RestaurateurProvider.cs" />
