@@ -81,9 +81,13 @@
             // 
             // dataGridViewAdministrateurs
             // 
+            this.dataGridViewAdministrateurs.AllowUserToAddRows = false;
+            this.dataGridViewAdministrateurs.AllowUserToDeleteRows = false;
             this.dataGridViewAdministrateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAdministrateurs.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewAdministrateurs.MultiSelect = false;
             this.dataGridViewAdministrateurs.Name = "dataGridViewAdministrateurs";
+            this.dataGridViewAdministrateurs.ReadOnly = true;
             this.dataGridViewAdministrateurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAdministrateurs.Size = new System.Drawing.Size(620, 344);
             this.dataGridViewAdministrateurs.TabIndex = 1;
@@ -94,18 +98,22 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(708, 347);
+            this.tabPage2.Size = new System.Drawing.Size(626, 351);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Restaurateurs";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dataGridViewRestaurateurs
             // 
+            this.dataGridViewRestaurateurs.AllowUserToAddRows = false;
+            this.dataGridViewRestaurateurs.AllowUserToDeleteRows = false;
             this.dataGridViewRestaurateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRestaurateurs.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewRestaurateurs.MultiSelect = false;
             this.dataGridViewRestaurateurs.Name = "dataGridViewRestaurateurs";
+            this.dataGridViewRestaurateurs.ReadOnly = true;
             this.dataGridViewRestaurateurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRestaurateurs.Size = new System.Drawing.Size(708, 347);
+            this.dataGridViewRestaurateurs.Size = new System.Drawing.Size(626, 347);
             this.dataGridViewRestaurateurs.TabIndex = 0;
             // 
             // tabPage3
@@ -114,7 +122,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(708, 347);
+            this.tabPage3.Size = new System.Drawing.Size(626, 351);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Utilisateurs";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -124,7 +132,9 @@
             this.dataGridViewUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUtilisateurs.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewUtilisateurs.Name = "dataGridViewUtilisateurs";
-            this.dataGridViewUtilisateurs.Size = new System.Drawing.Size(708, 347);
+            this.dataGridViewUtilisateurs.ReadOnly = true;
+            this.dataGridViewUtilisateurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewUtilisateurs.Size = new System.Drawing.Size(626, 347);
             this.dataGridViewUtilisateurs.TabIndex = 0;
             // 
             // tabPage4
@@ -132,7 +142,7 @@
             this.tabPage4.Controls.Add(this.dataGridViewRestaurants);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(708, 347);
+            this.tabPage4.Size = new System.Drawing.Size(626, 351);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Restaurants";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -142,7 +152,9 @@
             this.dataGridViewRestaurants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRestaurants.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewRestaurants.Name = "dataGridViewRestaurants";
-            this.dataGridViewRestaurants.Size = new System.Drawing.Size(708, 347);
+            this.dataGridViewRestaurants.ReadOnly = true;
+            this.dataGridViewRestaurants.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewRestaurants.Size = new System.Drawing.Size(626, 347);
             this.dataGridViewRestaurants.TabIndex = 0;
             // 
             // tabPage5
@@ -151,17 +163,22 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(708, 347);
+            this.tabPage5.Size = new System.Drawing.Size(626, 351);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Types cuisine";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // dataGridViewTypesCuisine
             // 
+            this.dataGridViewTypesCuisine.AllowUserToAddRows = false;
+            this.dataGridViewTypesCuisine.AllowUserToDeleteRows = false;
             this.dataGridViewTypesCuisine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTypesCuisine.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewTypesCuisine.MultiSelect = false;
             this.dataGridViewTypesCuisine.Name = "dataGridViewTypesCuisine";
-            this.dataGridViewTypesCuisine.Size = new System.Drawing.Size(708, 347);
+            this.dataGridViewTypesCuisine.ReadOnly = true;
+            this.dataGridViewTypesCuisine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewTypesCuisine.Size = new System.Drawing.Size(626, 347);
             this.dataGridViewTypesCuisine.TabIndex = 0;
             // 
             // buttonAdd

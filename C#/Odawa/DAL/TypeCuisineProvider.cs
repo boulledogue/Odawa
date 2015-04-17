@@ -14,7 +14,7 @@ namespace Odawa.DAL
     {
         public static List<TypeCuisine> GetTypeCuisine(int id=0)
         {
-            DataTable dt = DatabaseConnection.GetDataSet().Tables["typescuisine"];
+            DataTable dt = DatabaseConnection.GetTypesCuisine();
             List<TypeCuisine> lst = new List<TypeCuisine>();
             foreach (OdawaDS.typescuisineRow typeRow in dt.Rows)
             {

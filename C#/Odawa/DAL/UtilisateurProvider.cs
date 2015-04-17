@@ -15,7 +15,7 @@ namespace Odawa.DAL
     {
         public static List<Utilisateur> GetAll()
         {
-            DataTable dt = DatabaseConnection.GetDataSet().Tables["utilisateurs"];
+            DataTable dt = DatabaseConnection.GetUtilisateurs();
             List<Utilisateur> lst = new List<Utilisateur>();
             foreach (OdawaDS.utilisateursRow userRow in dt.Rows)
             {

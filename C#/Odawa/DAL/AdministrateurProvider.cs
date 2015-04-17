@@ -14,7 +14,7 @@ namespace Odawa.DAL
     {
         public static List<Administrateur> GetAll()
         {
-            DataTable dt = DatabaseConnection.GetDataSet().Tables["administrateurs"];
+            DataTable dt = DatabaseConnection.GetAdministrateurs();
             List<Administrateur> lst = new List<Administrateur>();
             foreach (OdawaDS.administrateursRow adminRow in dt.Rows)
             {

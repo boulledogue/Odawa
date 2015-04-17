@@ -19,10 +19,5 @@ namespace Odawa.BU
         {
             return TypeCuisineProvider.GetTypeCuisine(id);
         }
-
-        public static void Delete(int id)
-        {
-            
-        }
     }
 }

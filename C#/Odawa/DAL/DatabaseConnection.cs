@@ -55,5 +55,40 @@ namespace Odawa.DAL
         {
             return odawa;
         }
+
+        public static DataTable GetAdministrateurs()
+        {
+            return odawa.Tables["administrateurs"];
+        }
+
+        public static DataTable GetUtilisateurs()
+        {
+            return odawa.Tables["utilisateurs"];
+        }
+
+        public static DataTable GetTypesCuisine()
+        {
+            return odawa.Tables["typescuisine"];
+        }
+
+        public static DataTable GetRestaurants()
+        {
+            return odawa.Tables["restaurants"];
+        }
+
+        public static DataTable GetRestaurateurs()
+        {
+            return odawa.Tables["restaurateurs"];
+        }
+
+        public static DataTable GetReservations()
+        {
+            return odawa.Tables["reservations"];
+        }
+
+        public static DataTable GetComments()
+        {
+            return odawa.Tables["comments"];
+        }
     }
 }

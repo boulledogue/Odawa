@@ -14,7 +14,7 @@ namespace Odawa.DAL
     {
         public static List<Restaurant> GetAll()
         {
-            DataTable dt = DatabaseConnection.GetDataSet().Tables["restaurants"];
+            DataTable dt = DatabaseConnection.GetRestaurants();
             List<Restaurant> lst = new List<Restaurant>();
             foreach (OdawaDS.restaurantsRow restaurantRow in dt.Rows)
             {                
