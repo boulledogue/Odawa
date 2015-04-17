@@ -19,5 +19,14 @@ namespace Odawa.BU
         {
             return TypeCuisineProvider.GetTypeCuisine(id);
         }
+
+        public static bool Create(TypeCuisine t)
+        {
+            if (t.type == null) return false;
+            t.type = t.type.ToUpper();
+            if (GetAll().Exists(x => x.type == t.type)) return false;
+            TypeCuisineProvider.Create(t);
+            return true;
+        }
     }
 }

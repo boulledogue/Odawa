@@ -28,5 +28,25 @@ namespace Odawa.DAL
             }
             return lst;
         }
+
+        public static void Create(TypeCuisine t)
+        {
+            OdawaDS.typescuisineRow newRow = DatabaseConnection.odawa.typescuisine.NewtypescuisineRow();
+            newRow.id = t.id;
+            newRow.type = t.type;
+            DatabaseConnection.odawa.typescuisine.Rows.Add(newRow);
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM typescuisine";
+                SqlDataAdapter adpt = new SqlDataAdapter();
+                adpt.SelectCommand = cmd;
+                SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(adpt);
+                adpt.UpdateCommand = cmdBuilder.GetUpdateCommand();
+                adpt.Update(DatabaseConnection.odawa.typescuisine);
+                DatabaseConnection.odawa.typescuisine.AcceptChanges();
+            }
+        }
     }
 }
