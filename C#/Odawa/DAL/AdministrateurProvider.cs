@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,61 +10,53 @@ using Odawa.BU.Entities;
 
 namespace Odawa.DAL
 {
-    class AdministrateurProvider
+    static class AdministrateurProvider
     {
-        OdawaDS odawa = new OdawaDS();
-
-        public List<Administrateur> GetAll()
+        public static List<Administrateur> GetAll()
         {
+            DataTable dt = DatabaseConnection.GetDataSet().Tables["administrateurs"];
             List<Administrateur> lst = new List<Administrateur>();
-
-            using (OdawaDSTableAdapters.administrateursTableAdapter adpt = new OdawaDSTableAdapters.administrateursTableAdapter())
-            { adpt.Fill(odawa.administrateurs); }
-
-            foreach (OdawaDS.administrateursRow userRow in odawa.administrateurs.Rows)
+            foreach (OdawaDS.administrateursRow adminRow in dt.Rows)
             {
-                Administrateur user = new Administrateur();
-                user.id = userRow.id;
-                user.nom = userRow.nom;
-                user.prenom = userRow.prenom;
-                user.username = userRow.username;
-                user.password = userRow.password;
-                user.phone = userRow.phone;
-                lst.Add(user);
+                Administrateur admin = new Administrateur();
+                admin.id = adminRow.id;
+                admin.nom = adminRow.nom;
+                admin.prenom = adminRow.prenom;
+                admin.username = adminRow.username;
+                admin.password = adminRow.password;
+                admin.phone = adminRow.phone;
+                lst.Add(admin);
             }
 
             return lst;
         }
 
-        public List<Administrateur> Search( int id, String nom, String prenom, String username, String password, String phone )
+        public static List<Administrateur> Search( int id, String nom, String prenom, String username, String password, String phone )
         {
+            DataTable dt = DatabaseConnection.GetDataSet().Tables["administrateurs"];
             List<Administrateur> lst = new List<Administrateur>();
-
-            using (OdawaDSTableAdapters.administrateursTableAdapter adpt = new OdawaDSTableAdapters.administrateursTableAdapter())
-            { adpt.Fill(odawa.administrateurs); }
-
-            foreach (OdawaDS.administrateursRow userRow in odawa.administrateurs.Rows)
+            foreach (OdawaDS.administrateursRow adminRow in dt.Rows)
             {
-                if ((id == 0) || (userRow.id == id))
+                if ((id == 0) || (adminRow.id == id))
                 {
-                    if ((nom == null) || (userRow.nom == nom))
+                    if ((nom == null) || (adminRow.nom == nom))
                     {
-                        if ((prenom == null) || (userRow.prenom == prenom))
+                        if ((prenom == null) || (adminRow.prenom == prenom))
                         {
-                            if ((username == null) || (userRow.username == username))
+                            if ((username == null) || (adminRow.username == username))
                             {
-                                if ((password == null) || (userRow.password == password))
+                                if ((password == null) || (adminRow.password == password))
                                 {
-                                    if ((phone == null) || (userRow.phone == phone))
+                                    if ((phone == null) || (adminRow.phone == phone))
                                     {
-                                        Administrateur user = new Administrateur();
-                                        user.id = userRow.id;
-                                        user.nom = userRow.nom;
-                                        user.prenom = userRow.prenom;
-                                        user.username = userRow.username;
-                                        user.password = userRow.password;
-                                        user.phone = userRow.phone;
-                                        lst.Add(user);
+                                        Administrateur admin = new Administrateur();
+                                        admin.id = adminRow.id;
+                                        admin.nom = adminRow.nom;
+                                        admin.prenom = adminRow.prenom;
+                                        admin.username = adminRow.username;
+                                        admin.password = adminRow.password;
+                                        admin.phone = adminRow.phone;
+                                        lst.Add(admin);
                                     }
                                 }
                             }
@@ -75,12 +68,12 @@ namespace Odawa.DAL
             return lst;
         }
 
-        public Administrateur Search(int id)
+        public static Administrateur Search(int id)
         {
-            Administrateur user = new Administrateur();
+            Administrateur admin = new Administrateur();
             List<Administrateur> lst = Search(id, null, null, null, null, null);
-            user = lst.First();
-            return user;
+            admin = lst.First();
+            return admin;
         }
 
         /*** Exist() ne retourne donc true que s'il existe un et un seul éléments. 
@@ -88,7 +81,7 @@ namespace Odawa.DAL
              Ca ne l'est pas spécialement  pour les autres tables. :)
         ***/
 
-        public bool Exist(String username, String password)
+        public static bool Exist(String username, String password)
         {
             bool exist = false;
             List<Administrateur> lst = new List<Administrateur>();
@@ -97,8 +90,9 @@ namespace Odawa.DAL
             return exist;
         }
 
-        public void Create(String nom, String prenom, String username, String password, String phone)
+        public static void Create(String nom, String prenom, String username, String password, String phone)
         {
+            /*
             OdawaDS.administrateursRow newUserRow = odawa.administrateurs.NewadministrateursRow();
 
             newUserRow.nom = nom;
@@ -109,11 +103,13 @@ namespace Odawa.DAL
             odawa.administrateurs.Rows.Add(newUserRow);
 
             odawa.administrateurs.AcceptChanges();
+            */
         }
 
-        public void Update(int id, String nom, String prenom, String username, String password, String phone)
+        public static void Update(int id, String nom, String prenom, String username, String password, String phone)
         {
-            OdawaDS.administrateursRow updUserRow = odawa.administrateurs.FindByid(id);
+            /*
+            OdawaDS.administrateursRow updUserRow = DatabaseConnection.odawa.administrateurs.FindByid(id);
 
             if (nom != null)
                 updUserRow.nom = nom;
@@ -127,12 +123,15 @@ namespace Odawa.DAL
                 updUserRow.phone = phone;
 
             odawa.administrateurs.AcceptChanges();
+            */
         }
 
-        public void Delete(int id)
+        public static void Delete(int id)
         {
+            /*
             odawa.administrateurs.FindByid(id).Delete();
             odawa.administrateurs.AcceptChanges();
+            */ 
         }
 
     }

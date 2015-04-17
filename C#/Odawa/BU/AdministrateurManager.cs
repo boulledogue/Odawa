@@ -8,11 +8,11 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    class AdministrateurManager
+    static class AdministrateurManager
     {
         public static List<Administrateur> GetAll()
         {
-            return new AdministrateurProvider().GetAll();
+            return AdministrateurProvider.GetAll();
         }
     }
 }

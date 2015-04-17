@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,9 @@ namespace Odawa.DAL
     {
         public static List<TypeCuisine> GetTypeCuisine(int id=0)
         {
+            DataTable dt = DatabaseConnection.GetDataSet().Tables["typescuisine"];
             List<TypeCuisine> lst = new List<TypeCuisine>();
-            foreach (OdawaDS.typescuisineRow typeRow in DatabaseConnection.odawa.typescuisine.Rows)
+            foreach (OdawaDS.typescuisineRow typeRow in dt.Rows)
             {
                 if (id == 0 || id == typeRow.id)
                 {

@@ -11,18 +11,13 @@ using Odawa.BU.Entities;
 
 namespace Odawa.DAL
 {
-    class UtilisateurProvider
+    static class UtilisateurProvider
     {
-        OdawaDS odawa = new OdawaDS();
-
-        public List<Utilisateur> GetAll()
+        public static List<Utilisateur> GetAll()
         {
+            DataTable dt = DatabaseConnection.GetDataSet().Tables["utilisateurs"];
             List<Utilisateur> lst = new List<Utilisateur>();
-
-            using( OdawaDSTableAdapters.utilisateursTableAdapter adpt = new OdawaDSTableAdapters.utilisateursTableAdapter() )
-            { adpt.Fill(odawa.utilisateurs); }
-
-            foreach (OdawaDS.utilisateursRow userRow in odawa.utilisateurs.Rows)
+            foreach (OdawaDS.utilisateursRow userRow in dt.Rows)
             {
                 Utilisateur user = new Utilisateur();
                 user.id = userRow.id;
@@ -38,14 +33,11 @@ namespace Odawa.DAL
         }
 
 
-        public List<Utilisateur> Search( int id, String nom, String prenom, String username, String password, String phone )
+        public static List<Utilisateur> Search( int id, String nom, String prenom, String username, String password, String phone )
         {
+            DataTable dt = DatabaseConnection.GetDataSet().Tables["utilisateurs"];
             List<Utilisateur> lst = new List<Utilisateur>();
-
-            using (OdawaDSTableAdapters.utilisateursTableAdapter adpt = new OdawaDSTableAdapters.utilisateursTableAdapter())
-            { adpt.Fill(odawa.utilisateurs); }
-
-            foreach (OdawaDS.utilisateursRow userRow in odawa.utilisateurs.Rows)
+            foreach (OdawaDS.utilisateursRow userRow in dt.Rows)
             {
                 if( ( id == 0 ) || ( userRow.id == id ) )
                 {
@@ -78,7 +70,7 @@ namespace Odawa.DAL
             return lst;
         }
 
-        public Utilisateur Search( int id )
+        public static Utilisateur Search( int id )
         {
             Utilisateur user = new Utilisateur();
             List<Utilisateur> lst = Search(id, null, null, null, null, null);
@@ -91,7 +83,7 @@ namespace Odawa.DAL
              Ca ne l'est pas spécialement  pour les autres tables. :)
         ***/
 
-        public bool Exist( String username, String password )
+        public static bool Exist( String username, String password )
         {
             bool exist = false;
             List<Utilisateur> lst = new List<Utilisateur>();
@@ -100,8 +92,9 @@ namespace Odawa.DAL
             return exist;
         }
 
-        public void Create( String nom, String prenom, String username, String password, String phone )
+        public static void Create( String nom, String prenom, String username, String password, String phone )
         {
+            /*
             OdawaDS.utilisateursRow newUserRow = odawa.utilisateurs.NewutilisateursRow();
 
             newUserRow.nom = nom;
@@ -112,10 +105,12 @@ namespace Odawa.DAL
             odawa.utilisateurs.Rows.Add(newUserRow);
 
             odawa.utilisateurs.AcceptChanges();
+            */
         }
 
-        public void Update( int id, String nom, String prenom, String username, String password, String phone )
+        public static void Update( int id, String nom, String prenom, String username, String password, String phone )
         {
+            /*
             OdawaDS.utilisateursRow updUserRow = odawa.utilisateurs.FindByid(id);
 
             if (nom != null)
@@ -130,12 +125,15 @@ namespace Odawa.DAL
                 updUserRow.phone = phone;
 
             odawa.utilisateurs.AcceptChanges();
+            */
         }
 
-        public void Delete( int id )
+        public static void Delete( int id )
         {
+            /*
             odawa.utilisateurs.FindByid(id).Delete();
             odawa.utilisateurs.AcceptChanges();
+            */
         }
 
     }
