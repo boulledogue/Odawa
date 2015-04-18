@@ -19,7 +19,7 @@ namespace Odawa
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {     
             dataGridViewAdministrateurs.DataSource = AdministrateurManager.GetAll();
             dataGridViewAdministrateurs.Columns["username"].Visible = false;
             dataGridViewAdministrateurs.Columns["password"].Visible = false;

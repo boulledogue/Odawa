@@ -12,6 +12,14 @@ namespace Odawa.DAL
 {
     static class TypeCuisineProvider
     {
+        public static void Create(TypeCuisine t)
+        {
+            OdawaDS.typescuisineRow newRow = DatabaseConnection.odawa.typescuisine.NewtypescuisineRow();
+            newRow.type = t.type;
+            DatabaseConnection.odawa.typescuisine.Rows.Add(newRow);
+            WriteToDB();
+        }
+
         public static List<TypeCuisine> GetTypeCuisine(int id=0)
         {
             DataTable dt = DatabaseConnection.GetTypesCuisine();
@@ -29,24 +37,28 @@ namespace Odawa.DAL
             return lst;
         }
 
-        public static void Create(TypeCuisine t)
+        public static void Update(TypeCuisine t)
         {
-            OdawaDS.typescuisineRow newRow = DatabaseConnection.odawa.typescuisine.NewtypescuisineRow();
-            newRow.id = t.id;
-            newRow.type = t.type;
-            DatabaseConnection.odawa.typescuisine.Rows.Add(newRow);
+            DatabaseConnection.odawa.typescuisine.FindByid(t.id).type = t.type;
+            WriteToDB();
+        }
+
+        public static void Delete(int id)
+        {
+            DatabaseConnection.odawa.typescuisine.FindByid(id).Delete();
+            WriteToDB();
+        }
+
+        private static void WriteToDB()
+        {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString))
             {
                 conn.Open();
-                SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT * FROM typescuisine";
-                SqlDataAdapter adpt = new SqlDataAdapter();
-                adpt.SelectCommand = cmd;
-                SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(adpt);
-                adpt.UpdateCommand = cmdBuilder.GetUpdateCommand();
-                adpt.Update(DatabaseConnection.odawa.typescuisine);
-                DatabaseConnection.odawa.typescuisine.AcceptChanges();
+                SqlDataAdapter da = new SqlDataAdapter("select * from typescuisine", conn);
+                SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(da);
+                da.Update(DatabaseConnection.odawa, "typescuisine");
             }
+            DatabaseConnection.odawa.typescuisine.AcceptChanges();
         }
     }
 }

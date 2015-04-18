@@ -18,7 +18,7 @@ namespace Odawa.DAL
             odawa = new OdawaDS();
 
             using (OdawaDSTableAdapters.administrateursTableAdapter adpt = new OdawaDSTableAdapters.administrateursTableAdapter())
-            {
+            {                
                 adpt.Fill(odawa.administrateurs);
             }
 

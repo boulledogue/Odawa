@@ -10,6 +10,15 @@ namespace Odawa.BU
 {
     static class TypeCuisineManager
     {
+        public static bool Create(TypeCuisine t)
+        {
+            if (t.type == null) return false;
+            t.type = t.type.ToUpper();
+            if (GetAll().Exists(x => x.type == t.type)) return false;
+            TypeCuisineProvider.Create(t);
+            return true;
+        }
+
         public static List<TypeCuisine> GetAll()
         {
             return TypeCuisineProvider.GetTypeCuisine();
@@ -19,14 +28,22 @@ namespace Odawa.BU
         {
             return TypeCuisineProvider.GetTypeCuisine(id);
         }
-
-        public static bool Create(TypeCuisine t)
+        
+        public static void Update(TypeCuisine t)
         {
-            if (t.type == null) return false;
-            t.type = t.type.ToUpper();
-            if (GetAll().Exists(x => x.type == t.type)) return false;
-            TypeCuisineProvider.Create(t);
-            return true;
+            if (t.type != null)
+            {
+                t.type = t.type.ToUpper();
+                if (!GetAll().Exists(x => x.type == t.type))
+                {
+                    TypeCuisineProvider.Update(t);
+                }
+            }
+        }
+
+        public static void Delete(int id)
+        {
+            TypeCuisineProvider.Delete(id);            
         }
     }
 }
