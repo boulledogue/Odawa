@@ -76,11 +76,6 @@ namespace Odawa.DAL
             return admin;
         }
 
-        /*** Exist() ne retourne donc true que s'il existe un et un seul éléments. 
-             C'est logique pour les utilisateurs ( Vu qu'un username ne peut exister qu'un un seul exemplaire dans la BDD ).
-             Ca ne l'est pas spécialement  pour les autres tables. :)
-        ***/
-
         public static bool Exist(String username, String password)
         {
             bool exist = false;
@@ -90,48 +85,44 @@ namespace Odawa.DAL
             return exist;
         }
 
-        public static void Create(String nom, String prenom, String username, String password, String phone)
+        public static void Create( Administrateur adm )
         {
-            /*
-            OdawaDS.administrateursRow newUserRow = odawa.administrateurs.NewadministrateursRow();
-
-            newUserRow.nom = nom;
-            newUserRow.prenom = prenom;
-            newUserRow.username = username;
-            newUserRow.password = password;
-            newUserRow.phone = phone;
-            odawa.administrateurs.Rows.Add(newUserRow);
-
-            odawa.administrateurs.AcceptChanges();
-            */
+            OdawaDS.administrateursRow newRow = DatabaseConnection.odawa.administrateurs.NewadministrateursRow();
+            newRow.nom = adm.nom;
+            newRow.prenom = adm.prenom;
+            newRow.username = adm.username;
+            newRow.password = adm.password;
+            newRow.phone = adm.phone;
+            DatabaseConnection.odawa.administrateurs.Rows.Add(newRow);
+            WriteToDB();
         }
 
-        public static void Update(int id, String nom, String prenom, String username, String password, String phone)
+        public static void Update( Administrateur adm )
         {
-            /*
-            OdawaDS.administrateursRow updUserRow = DatabaseConnection.odawa.administrateurs.FindByid(id);
-
-            if (nom != null)
-                updUserRow.nom = nom;
-            if (prenom != null)
-                updUserRow.prenom = prenom;
-            if (username != null)
-                updUserRow.username = username;
-            if (password != null)
-                updUserRow.password = password;
-            if (phone != null)
-                updUserRow.phone = phone;
-
-            odawa.administrateurs.AcceptChanges();
-            */
+            DatabaseConnection.odawa.administrateurs.FindByid(adm.id).nom = adm.nom;
+            DatabaseConnection.odawa.administrateurs.FindByid(adm.id).prenom = adm.prenom;
+            DatabaseConnection.odawa.administrateurs.FindByid(adm.id).username = adm.username;
+            DatabaseConnection.odawa.administrateurs.FindByid(adm.id).password = adm.password;
+            DatabaseConnection.odawa.administrateurs.FindByid(adm.id).phone = adm.phone;
+            WriteToDB();
         }
 
-        public static void Delete(int id)
+        public static void Delete( int id )
         {
-            /*
-            odawa.administrateurs.FindByid(id).Delete();
-            odawa.administrateurs.AcceptChanges();
-            */ 
+            DatabaseConnection.odawa.administrateurs.FindByid(id).Delete();
+            WriteToDB();
+        }
+
+        private static void WriteToDB()
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("select * from administrateurs", conn);
+                SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(da);
+                da.Update(DatabaseConnection.odawa, "administrateurs");
+            }
+            DatabaseConnection.odawa.administrateurs.AcceptChanges();
         }
 
     }
