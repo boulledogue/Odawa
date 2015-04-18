@@ -12,6 +12,19 @@ namespace Odawa.DAL
 {
     static class RestaurateurProvider
     {
+        public static void Create(Restaurateur r)
+        {
+            OdawaDS.restaurateursRow newRow = DatabaseConnection.odawa.restaurateurs.NewrestaurateursRow();
+            newRow.nom = r.nom;
+            newRow.prenom = r.prenom;
+            newRow.username = r.username;
+            newRow.password = r.password;
+            newRow.email = r.email;
+            newRow.phone = r.phone;
+            DatabaseConnection.odawa.restaurateurs.Rows.Add(newRow);
+            WriteToDB();
+        }
+
         public static List<Restaurateur> GetAll()
         {
             DataTable dt = DatabaseConnection.GetRestaurateurs();
@@ -29,6 +42,35 @@ namespace Odawa.DAL
                 lst.Add(r);
             }
             return lst;
+        }
+
+        public static void Update(Restaurateur r)
+        {
+            DatabaseConnection.odawa.restaurateurs.FindByid(r.id).nom = r.nom;
+            DatabaseConnection.odawa.restaurateurs.FindByid(r.id).prenom = r.prenom;
+            DatabaseConnection.odawa.restaurateurs.FindByid(r.id).username = r.username;
+            DatabaseConnection.odawa.restaurateurs.FindByid(r.id).password = r.password;
+            DatabaseConnection.odawa.restaurateurs.FindByid(r.id).email = r.email;
+            DatabaseConnection.odawa.restaurateurs.FindByid(r.id).phone = r.phone;
+            WriteToDB();
+        }
+
+        public static void Delete(int id)
+        {
+            DatabaseConnection.odawa.restaurateurs.FindByid(id).Delete();
+            WriteToDB();
+        }
+
+        private static void WriteToDB()
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter("select * from restaurateurs", conn);
+                SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(da);
+                da.Update(DatabaseConnection.odawa, "restaurateurs");
+            }
+            DatabaseConnection.odawa.restaurateurs.AcceptChanges();
         }
     }
 }

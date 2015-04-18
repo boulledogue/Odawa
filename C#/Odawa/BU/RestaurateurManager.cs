@@ -10,9 +10,24 @@ namespace Odawa.BU
 {
     static class RestaurateurManager
     {
+        public static void Create(Restaurateur r)
+        {
+            RestaurateurProvider.Create(r);
+        }
+
         public static List<Restaurateur> GetAll()
         {
             return RestaurateurProvider.GetAll();
+        }
+
+        public static void Update(Restaurateur r)
+        {
+            RestaurateurProvider.Update(r);
+        }
+
+        public static void Delete(int id)
+        {
+            RestaurateurProvider.Delete(id);
         }
     }
 }
