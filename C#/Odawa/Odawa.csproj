@@ -59,11 +59,13 @@
     <Compile Include="BU\Entities\Reservation.cs" />
     <Compile Include="BU\Entities\Restaurant.cs" />
     <Compile Include="BU\Entities\Restaurateur.cs" />
+    <Compile Include="BU\Entities\Comment.cs" />
     <Compile Include="BU\Entities\TypeCuisine.cs" />
     <Compile Include="BU\Entities\Utilisateur.cs" />
     <Compile Include="BU\ReservationManager.cs" />
     <Compile Include="BU\RestaurantManager.cs" />
     <Compile Include="BU\RestaurateurManager.cs" />
+    <Compile Include="BU\CommentManager.cs" />
     <Compile Include="BU\TypeCuisineManager.cs" />
     <Compile Include="BU\UtilisateurManager.cs" />
     <Compile Include="DAL\AdministrateurProvider.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="DAL\ReservationProvider.cs" />
     <Compile Include="DAL\RestaurantProvider.cs" />
     <Compile Include="DAL\RestaurateurProvider.cs" />
+    <Compile Include="DAL\CommentProvider.cs" />
     <Compile Include="DAL\TypeCuisineProvider.cs" />
     <Compile Include="DAL\UtilisateurProvider.cs" />
     <Compile Include="Form1.cs">

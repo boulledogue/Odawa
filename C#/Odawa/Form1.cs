@@ -20,15 +20,6 @@ namespace Odawa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            BU.Entities.Restaurateur r = new BU.Entities.Restaurateur();
-            r.id = 3;
-            r.nom = "Lezeros";
-            r.prenom = "Toto";
-            r.username = "TOTUIOP";
-            r.password = "monziziestpetit";
-            r.phone = "081212121";
-            r.email = "toto@leheros.be";
-            RestaurateurManager.Update(r);
             dataGridViewAdministrateurs.DataSource = AdministrateurManager.GetAll();
             dataGridViewAdministrateurs.Columns["username"].Visible = false;
             dataGridViewAdministrateurs.Columns["password"].Visible = false;
