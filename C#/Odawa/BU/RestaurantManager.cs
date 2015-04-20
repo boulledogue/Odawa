@@ -8,7 +8,7 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    static class RestaurantManager
+    public static class RestaurantManager
     {
         public static void Create(Restaurant r)
         {

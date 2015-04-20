@@ -8,7 +8,7 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    static class UtilisateurManager
+    public static class UtilisateurManager
     {
         public static List<Utilisateur> GetAll()
         {

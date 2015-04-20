@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Odawa.BU.Entities
 {
-    class Reservation
+    public class Reservation
     {
         public int id { get; set; }
         public string nom { get; set; }

@@ -10,7 +10,7 @@ using Odawa.BU.Entities;
 
 namespace Odawa.DAL
 {
-    static class TypeCuisineProvider
+    public static class TypeCuisineProvider
     {
         public static void Create(TypeCuisine t)
         {

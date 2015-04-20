@@ -8,7 +8,7 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    static class AdministrateurManager
+    public static class AdministrateurManager
     {
         public static List<Administrateur> GetAll()
         {

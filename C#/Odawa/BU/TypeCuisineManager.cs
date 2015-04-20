@@ -8,14 +8,14 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    static class TypeCuisineManager
+    public static class TypeCuisineManager
     {
         public static void Create(TypeCuisine t)
         {
             if (t.type != null)
             {
                 t.type = t.type.ToUpper();
-                if (!GetAll().Exists(x => x.type == t.type)) TypeCuisineProvider.Create(t);
+                TypeCuisineProvider.Create(t);
             }
 
         }
@@ -35,7 +35,7 @@ namespace Odawa.BU
             if (t.type != null)
             {
                 t.type = t.type.ToUpper();
-                if (!GetAll().Exists(x => x.type == t.type)) TypeCuisineProvider.Update(t);                
+                TypeCuisineProvider.Update(t);                
             }
         }
 

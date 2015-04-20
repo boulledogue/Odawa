@@ -8,7 +8,7 @@ using Odawa.BU.Entities;
 
 namespace Odawa.BU
 {
-    static class CommentManager
+    public static class CommentManager
     {
         public static void Create(Comment c)
         {

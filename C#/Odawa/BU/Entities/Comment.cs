@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Odawa.BU.Entities
 {
-    class Comment
+    public class Comment
     {
         public int id { get; set; }
         public string commentaire { get; set; }
