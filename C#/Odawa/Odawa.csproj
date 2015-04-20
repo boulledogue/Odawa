@@ -70,9 +70,10 @@
     <Compile Include="BU\UtilisateurManager.cs" />
     <Compile Include="DAL\AdministrateurProvider.cs" />
     <Compile Include="DAL\DatabaseConnection.cs" />
-    <Compile Include="DAL\OdawaDS.cs">
+    <Compile Include="DAL\OdawaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>OdawaDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DAL\ReservationProvider.cs" />
     <Compile Include="DAL\RestaurantProvider.cs" />
@@ -85,11 +86,6 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\OdawaDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OdawaDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
