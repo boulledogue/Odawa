@@ -21,10 +21,19 @@ namespace OdawaService
         }
 
 
-        public List<TypeCuisine> GetTypeCuisine(int id=0)
+        public List<TypeCuisine> GetAllTypeCuisine()
         {
-            if (id == 0) return TypeCuisineManager.GetAll();
-            else return TypeCuisineManager.GetOne(id);
+            return TypeCuisineManager.GetAll();
+        }
+
+        public List<TypeCuisine> GetTypeCuisine(int id)
+        {
+            return TypeCuisineManager.GetOne(id);
+        }
+
+        public List<Utilisateur> GetAllUtilisateur()
+        {
+            return UtilisateurManager.GetAll();
         }
     }
 }
