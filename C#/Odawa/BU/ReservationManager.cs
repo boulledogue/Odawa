@@ -14,5 +14,10 @@ namespace Odawa.BU
         {
             return ReservationProvider.GetAll();
         }
+
+        public static Reservation GetOne(int id)
+        {
+            return ReservationProvider.GetOne(id);
+        }
     }
 }

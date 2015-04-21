@@ -24,11 +24,25 @@ namespace Odawa.DAL
                 admin.prenom = adminRow.prenom;
                 admin.username = adminRow.username;
                 admin.password = adminRow.password;
+                admin.email = adminRow.email;
                 admin.phone = adminRow.phone;
                 lst.Add(admin);
             }
 
             return lst;
+        }
+
+        public static Administrateur GetOne(int id)
+        {
+            Administrateur a = new Administrateur();
+            a.id = DatabaseConnection.odawa.administrateurs.FindByid(id).id;
+            a.nom = DatabaseConnection.odawa.administrateurs.FindByid(id).nom;
+            a.prenom = DatabaseConnection.odawa.administrateurs.FindByid(id).prenom;
+            a.username = DatabaseConnection.odawa.administrateurs.FindByid(id).username;
+            a.password = DatabaseConnection.odawa.administrateurs.FindByid(id).password;
+            a.email = DatabaseConnection.odawa.administrateurs.FindByid(id).email;
+            a.phone = DatabaseConnection.odawa.administrateurs.FindByid(id).phone;
+            return a;
         }
 
         public static List<Administrateur> Search( int id, String nom, String prenom, String username, String password, String phone )
@@ -55,6 +69,7 @@ namespace Odawa.DAL
                                         admin.prenom = adminRow.prenom;
                                         admin.username = adminRow.username;
                                         admin.password = adminRow.password;
+                                        admin.email = adminRow.email;
                                         admin.phone = adminRow.phone;
                                         lst.Add(admin);
                                     }
@@ -92,6 +107,7 @@ namespace Odawa.DAL
             newRow.prenom = adm.prenom;
             newRow.username = adm.username;
             newRow.password = adm.password;
+            newRow.email = adm.email;
             newRow.phone = adm.phone;
             DatabaseConnection.odawa.administrateurs.Rows.Add(newRow);
             WriteToDB();
@@ -103,6 +119,7 @@ namespace Odawa.DAL
             DatabaseConnection.odawa.administrateurs.FindByid(adm.id).prenom = adm.prenom;
             DatabaseConnection.odawa.administrateurs.FindByid(adm.id).username = adm.username;
             DatabaseConnection.odawa.administrateurs.FindByid(adm.id).password = adm.password;
+            DatabaseConnection.odawa.administrateurs.FindByid(adm.id).email = adm.email;
             DatabaseConnection.odawa.administrateurs.FindByid(adm.id).phone = adm.phone;
             WriteToDB();
         }

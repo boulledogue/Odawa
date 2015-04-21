@@ -26,7 +26,7 @@ namespace OdawaService
             return TypeCuisineManager.GetAll();
         }
 
-        public List<TypeCuisine> GetTypeCuisine(int id)
+        public TypeCuisine GetTypeCuisine(int id)
         {
             return TypeCuisineManager.GetOne(id);
         }
@@ -34,6 +34,11 @@ namespace OdawaService
         public List<Utilisateur> GetAllUtilisateur()
         {
             return UtilisateurManager.GetAll();
+        }
+
+        public Utilisateur GetUtilisateur(int id)
+        {
+            return UtilisateurManager.GetOne(id);
         }
     }
 }

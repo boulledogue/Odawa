@@ -14,5 +14,10 @@ namespace Odawa.BU
         {
             return AdministrateurProvider.GetAll();
         }
+
+        public static Administrateur GetOne(int id)
+        { 
+            return AdministrateurProvider.GetOne(id);
+        }
     }
 }

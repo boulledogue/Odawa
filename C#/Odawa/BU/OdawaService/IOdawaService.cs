@@ -18,10 +18,13 @@ namespace OdawaService
         List<TypeCuisine> GetAllTypeCuisine();
 
         [OperationContract]
-        List<TypeCuisine> GetTypeCuisine(int id);
+        TypeCuisine GetTypeCuisine(int id);
 
         [OperationContract]
         List<Utilisateur> GetAllUtilisateur();
+
+        [OperationContract]
+        Utilisateur GetUtilisateur(int id);
 
         // TODO: ajoutez vos opérations de service ici
     }

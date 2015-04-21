@@ -52,3 +52,18 @@ I:\ESA\C#\Odawa\C#\Odawa\bin\Debug\EntityFramework.SqlServer.xml
 I:\ESA\C#\Odawa\C#\Odawa\bin\Debug\fr\EntityFramework.resources.dll
 I:\ESA\C#\Odawa\C#\Odawa\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
 I:\ESA\C#\Odawa\C#\Odawa\obj\Debug\Odawa.pdb
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\Odawa.exe.config
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\obj\Debug\Odawa.exe
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\obj\Debug\Odawa.pdb
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\Odawa.exe
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\Odawa.pdb
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\EntityFramework.dll
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\EntityFramework.SqlServer.dll
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\EntityFramework.xml
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\EntityFramework.SqlServer.xml
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\fr\EntityFramework.resources.dll
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\obj\Debug\Odawa.csprojResolveAssemblyReference.cache
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\obj\Debug\Odawa.Form1.resources
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\obj\Debug\Odawa.Properties.Resources.resources
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\obj\Debug\Odawa.csproj.GenerateResource.Cache

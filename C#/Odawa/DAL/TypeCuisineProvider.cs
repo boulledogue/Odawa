@@ -20,21 +20,26 @@ namespace Odawa.DAL
             WriteToDB();
         }
 
-        public static List<TypeCuisine> GetTypeCuisine(int id=0)
+        public static List<TypeCuisine> GetAll()
         {
             DataTable dt = DatabaseConnection.GetTypesCuisine();
             List<TypeCuisine> lst = new List<TypeCuisine>();
             foreach (OdawaDS.typescuisineRow typeRow in dt.Rows)
             {
-                if (id == 0 || id == typeRow.id)
-                {
-                    TypeCuisine type = new TypeCuisine();
-                    type.id = typeRow.id;
-                    type.type = typeRow.type;
-                    lst.Add(type);
-                }
+                TypeCuisine type = new TypeCuisine();
+                type.id = typeRow.id;
+                type.type = typeRow.type;
+                lst.Add(type);                
             }
             return lst;
+        }
+
+        public static TypeCuisine GetOne(int id)
+        {
+            TypeCuisine t = new TypeCuisine();
+            t.id = DatabaseConnection.odawa.typescuisine.FindByid(id).id;
+            t.type = DatabaseConnection.odawa.typescuisine.FindByid(id).type;
+            return t;
         }
 
         public static void Update(TypeCuisine t)

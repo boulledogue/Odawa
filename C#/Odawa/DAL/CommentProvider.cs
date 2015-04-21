@@ -22,7 +22,7 @@ namespace Odawa.DAL
             WriteToDB();
         }
 
-        public static List<Comment> GetComments()
+        public static List<Comment> GetAll()
         {
             DataTable dt = DatabaseConnection.GetComments();
             List<Comment> lst = new List<Comment>();
@@ -36,6 +36,16 @@ namespace Odawa.DAL
                 lst.Add(comment);                
             }
             return lst;
+        }
+
+        public static Comment GetOne(int id)
+        {
+            Comment c = new Comment();
+            c.id = DatabaseConnection.odawa.comments.FindByid(id).id;
+            c.commentaire = DatabaseConnection.odawa.comments.FindByid(id).commentaire;
+            c.idRestaurant = DatabaseConnection.odawa.comments.FindByid(id).idRestaurant;
+            c.idUtilisateur = DatabaseConnection.odawa.comments.FindByid(id).idUtilisateur;
+            return c;
         }
 
         public static List<Comment> GetByRestaurant(int id)

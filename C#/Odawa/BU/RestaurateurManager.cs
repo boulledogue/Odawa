@@ -20,6 +20,11 @@ namespace Odawa.BU
             return RestaurateurProvider.GetAll();
         }
 
+        public static Restaurateur GetOne(int id)
+        {
+            return RestaurateurProvider.GetOne(id);
+        }
+
         public static void Update(Restaurateur r)
         {
             RestaurateurProvider.Update(r);

@@ -16,12 +16,16 @@ namespace Odawa.BU
             {
                 CommentProvider.Create(c);
             }
-
         }
 
         public static List<Comment> GetAll()
         {
-            return CommentProvider.GetComments();
+            return CommentProvider.GetAll();
+        }
+
+        public static Comment GetOne(int id)
+        {
+            return CommentProvider.GetOne(id);
         }
 
         public static List<Comment> GetByRestaurant(int id)

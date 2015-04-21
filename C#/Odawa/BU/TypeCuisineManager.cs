@@ -17,17 +17,16 @@ namespace Odawa.BU
                 t.type = t.type.ToUpper();
                 TypeCuisineProvider.Create(t);
             }
-
         }
 
         public static List<TypeCuisine> GetAll()
         {
-            return TypeCuisineProvider.GetTypeCuisine();
+            return TypeCuisineProvider.GetAll();
         }
 
-        public static List<TypeCuisine> GetOne(int id)
+        public static TypeCuisine GetOne(int id)
         {
-            return TypeCuisineProvider.GetTypeCuisine(id);
+            return TypeCuisineProvider.GetOne(id);
         }
         
         public static void Update(TypeCuisine t)

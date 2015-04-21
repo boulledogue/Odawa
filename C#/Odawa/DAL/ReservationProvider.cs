@@ -31,5 +31,19 @@ namespace Odawa.DAL
             }
             return lst;
         }
+
+        public static Reservation GetOne(int id)
+        {
+            Reservation r = new Reservation();
+            r.id = DatabaseConnection.odawa.reservations.FindByid(id).id;
+            r.nom = DatabaseConnection.odawa.reservations.FindByid(id).nom;
+            r.prenom = DatabaseConnection.odawa.reservations.FindByid(id).prenom;
+            r.date = DatabaseConnection.odawa.reservations.FindByid(id).date;
+            r.typeService = DatabaseConnection.odawa.reservations.FindByid(id).typeService;
+            r.nbPersonnes = DatabaseConnection.odawa.reservations.FindByid(id).nbPersonnes;
+            r.email = DatabaseConnection.odawa.reservations.FindByid(id).email;
+            r.phone = DatabaseConnection.odawa.reservations.FindByid(id).phone;
+            return r;
+        }
     }
 }

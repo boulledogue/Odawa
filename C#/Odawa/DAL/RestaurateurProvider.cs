@@ -44,6 +44,19 @@ namespace Odawa.DAL
             return lst;
         }
 
+        public static Restaurateur GetOne(int id)
+        {
+            Restaurateur r = new Restaurateur();
+            r.id = DatabaseConnection.odawa.restaurateurs.FindByid(id).id;
+            r.nom = DatabaseConnection.odawa.restaurateurs.FindByid(id).nom;
+            r.prenom = DatabaseConnection.odawa.restaurateurs.FindByid(id).prenom;
+            r.username = DatabaseConnection.odawa.restaurateurs.FindByid(id).username;
+            r.password = DatabaseConnection.odawa.restaurateurs.FindByid(id).password;
+            r.email = DatabaseConnection.odawa.restaurateurs.FindByid(id).email;
+            r.phone = DatabaseConnection.odawa.restaurateurs.FindByid(id).phone;
+            return r;
+        }
+
         public static void Update(Restaurateur r)
         {
             DatabaseConnection.odawa.restaurateurs.FindByid(r.id).nom = r.nom;

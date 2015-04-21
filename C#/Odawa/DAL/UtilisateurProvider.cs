@@ -25,11 +25,25 @@ namespace Odawa.DAL
                 user.prenom = userRow.prenom;
                 user.username = userRow.username;
                 user.password = userRow.password;
+                user.email = userRow.email;
                 user.phone = userRow.phone;
                 lst.Add(user);
             }
 
             return lst;
+        }
+
+        public static Utilisateur GetOne(int id)
+        {
+            Utilisateur t = new Utilisateur();
+            t.id = DatabaseConnection.odawa.utilisateurs.FindByid(id).id;
+            t.nom = DatabaseConnection.odawa.utilisateurs.FindByid(id).nom;
+            t.prenom = DatabaseConnection.odawa.utilisateurs.FindByid(id).prenom;
+            t.username = DatabaseConnection.odawa.utilisateurs.FindByid(id).username;
+            t.password = DatabaseConnection.odawa.utilisateurs.FindByid(id).password;
+            t.email = DatabaseConnection.odawa.utilisateurs.FindByid(id).email;
+            t.phone = DatabaseConnection.odawa.utilisateurs.FindByid(id).phone;
+            return t;
         }
 
         public static List<Utilisateur> Search( int id, String nom, String prenom, String username, String password, String phone )
@@ -93,6 +107,7 @@ namespace Odawa.DAL
             newRow.prenom = utl.prenom;
             newRow.username = utl.username;
             newRow.password = utl.password;
+            newRow.email = utl.email;
             newRow.phone = utl.phone;
             DatabaseConnection.odawa.administrateurs.Rows.Add(newRow);
             WriteToDB();
@@ -104,6 +119,7 @@ namespace Odawa.DAL
             DatabaseConnection.odawa.utilisateurs.FindByid(utl.id).prenom = utl.prenom;
             DatabaseConnection.odawa.utilisateurs.FindByid(utl.id).username = utl.username;
             DatabaseConnection.odawa.utilisateurs.FindByid(utl.id).password = utl.password;
+            DatabaseConnection.odawa.utilisateurs.FindByid(utl.id).email = utl.email;
             DatabaseConnection.odawa.utilisateurs.FindByid(utl.id).phone = utl.phone;
             WriteToDB();
         }
