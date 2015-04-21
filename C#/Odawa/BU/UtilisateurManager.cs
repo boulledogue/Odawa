@@ -16,7 +16,7 @@ namespace Odawa.BU
             UtilisateurProvider.Create(u);
         }
 
-        public static DataTable GetTable()
+        public static OdawaDS.utilisateursDataTable GetTable()
         {
             return UtilisateurProvider.GetTable();
         }

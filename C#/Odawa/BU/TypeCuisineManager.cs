@@ -13,14 +13,10 @@ namespace Odawa.BU
     {
         public static void Create(TypeCuisine t)
         {
-            if (t.type != null)
-            {
-                t.type = t.type.ToUpper();
-                TypeCuisineProvider.Create(t);
-            }
+            if (t.type != null) TypeCuisineProvider.Create(t);
         }
 
-        public static DataTable GetTable()
+        public static OdawaDS.typescuisineDataTable GetTable()
         {
             return TypeCuisineProvider.GetTable();
         }
@@ -37,11 +33,7 @@ namespace Odawa.BU
         
         public static void Update(TypeCuisine t)
         {
-            if (t.type != null)
-            {
-                t.type = t.type.ToUpper();
-                TypeCuisineProvider.Update(t);                
-            }
+            if (t.type != null) TypeCuisineProvider.Update(t);
         }
 
         public static void Delete(int id)

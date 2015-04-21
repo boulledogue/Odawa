@@ -19,7 +19,7 @@ namespace Odawa.BU
             }
         }
 
-        public static DataTable GetTable()
+        public static OdawaDS.commentsDataTable GetTable()
         {
             return CommentProvider.GetTable();
         }

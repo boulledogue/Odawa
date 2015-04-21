@@ -16,7 +16,7 @@ namespace Odawa.BU
             RestaurateurProvider.Create(r);
         }
 
-        public static DataTable GetTable()
+        public static OdawaDS.restaurateursDataTable GetTable()
         {
             return RestaurateurProvider.GetTable();
         }

@@ -16,7 +16,7 @@ namespace Odawa.BU
             ReservationProvider.Create(r);
         }
 
-        public static DataTable GetTable()
+        public static OdawaDS.reservationsDataTable GetTable()
         {
             return ReservationProvider.GetTable();
         }

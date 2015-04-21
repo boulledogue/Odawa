@@ -16,7 +16,7 @@ namespace Odawa.BU
             RestaurantProvider.Create(r);
         }
 
-        public static DataTable GetTable()
+        public static OdawaDS.restaurantsDataTable GetTable()
         {
             return RestaurantProvider.GetTable();
         }
