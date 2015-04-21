@@ -59,6 +59,17 @@ namespace Odawa.DAL
             return r;
         }
 
+        public static List<Restaurant> GetByTypeCuisineId(int id)
+        {
+            DataTable dt = DatabaseConnection.GetRestaurants();
+            List<Restaurant> lst = new List<Restaurant>();
+            foreach (OdawaDS.restaurantsRow restaurantRow in dt.Rows)
+            {
+                if (restaurantRow.idTypeCuisine == id) lst.Add(GetOne(restaurantRow.id));
+            }
+            return lst;
+        }
+
         public static void Update(Restaurant r)
         {
             DatabaseConnection.odawa.restaurants.FindByid(r.id).nom = r.nom;

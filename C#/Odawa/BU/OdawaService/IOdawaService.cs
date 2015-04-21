@@ -26,6 +26,15 @@ namespace OdawaService
         [OperationContract]
         Utilisateur GetUtilisateur(int id);
 
+        [OperationContract]
+        List<Restaurant> GetAllRestaurant();
+
+        [OperationContract]
+        Restaurant GetRestaurant(int id);
+
+        [OperationContract]
+        List<Restaurant> GetRestaurantByTypeCuisineId(int id);
+
         // TODO: ajoutez vos opérations de service ici
     }
 

@@ -25,6 +25,11 @@ namespace Odawa.BU
             return RestaurantProvider.GetOne(id);
         }
 
+        public static List<Restaurant> GetByTypeCuisineId(int id)
+        {
+            return RestaurantProvider.GetByTypeCuisineId(id);
+        }
+
         public static void Update(Restaurant r)
         {
             RestaurantProvider.Update(r);

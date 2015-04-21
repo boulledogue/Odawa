@@ -40,5 +40,20 @@ namespace OdawaService
         {
             return UtilisateurManager.GetOne(id);
         }
+
+        public List<Restaurant> GetAllRestaurant()
+        {
+            return RestaurantManager.GetAll();
+        }
+
+        public Restaurant GetRestaurant(int id)
+        {
+            return RestaurantManager.GetOne(id);
+        }
+
+        public List<Restaurant> GetRestaurantByTypeCuisineId(int id)
+        {
+            return RestaurantManager.GetByTypeCuisineId(id);
+        }
     }
 }
