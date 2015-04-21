@@ -17,7 +17,7 @@ namespace Odawa
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             DAL.DatabaseConnection.FillDataSet();
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

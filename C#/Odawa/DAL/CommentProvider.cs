@@ -22,9 +22,15 @@ namespace Odawa.DAL
             WriteToDB();
         }
 
+        public static OdawaDS.commentsDataTable GetTable()
+        {
+            return DatabaseConnection.GetComments();
+        }
+
+
         public static List<Comment> GetAll()
         {
-            DataTable dt = DatabaseConnection.GetComments();
+            DataTable dt = GetTable();
             List<Comment> lst = new List<Comment>();
             foreach (OdawaDS.commentsRow commentRow in dt.Rows)
             {
@@ -45,7 +51,7 @@ namespace Odawa.DAL
 
         public static List<Comment> GetByRestaurant(int id)
         {
-            DataTable dt = DatabaseConnection.GetComments();
+            DataTable dt = GetTable();
             List<Comment> lst = new List<Comment>();
             foreach (OdawaDS.commentsRow commentRow in dt.Rows)
             {

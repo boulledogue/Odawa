@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,11 @@ namespace Odawa.BU
         public static void Create(Restaurant r)
         {
             RestaurantProvider.Create(r);
+        }
+
+        public static DataTable GetTable()
+        {
+            return RestaurantProvider.GetTable();
         }
 
         public static List<Restaurant> GetAll()

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Odawa.DAL;
 using Odawa.BU.Entities;
+using System.Data;
 
 namespace Odawa.BU
 {
@@ -16,6 +17,11 @@ namespace Odawa.BU
             {
                 CommentProvider.Create(c);
             }
+        }
+
+        public static DataTable GetTable()
+        {
+            return CommentProvider.GetTable();
         }
 
         public static List<Comment> GetAll()

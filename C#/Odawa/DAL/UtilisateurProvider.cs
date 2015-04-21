@@ -25,6 +25,11 @@ namespace Odawa.DAL
             return lst;
         }
 
+        public static OdawaDS.utilisateursDataTable GetTable()
+        {
+            return DatabaseConnection.GetUtilisateurs();
+        }
+
         public static Utilisateur GetOne(int id)
         {
             Utilisateur t = new Utilisateur();
@@ -40,7 +45,7 @@ namespace Odawa.DAL
 
         public static List<Utilisateur> Search( int id, String nom, String prenom, String username, String password, String phone )
         {
-            DataTable dt = DatabaseConnection.GetDataSet().Tables["utilisateurs"];
+            DataTable dt = DatabaseConnection.GetUtilisateurs();
             List<Utilisateur> lst = new List<Utilisateur>();
             foreach (OdawaDS.utilisateursRow userRow in dt.Rows)
             {

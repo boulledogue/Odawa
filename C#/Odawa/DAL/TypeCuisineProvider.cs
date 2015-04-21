@@ -20,9 +20,14 @@ namespace Odawa.DAL
             WriteToDB();
         }
 
+        public static OdawaDS.typescuisineDataTable GetTable()
+        {
+            return DatabaseConnection.GetTypesCuisine();
+        }
+
         public static List<TypeCuisine> GetAll()
         {
-            DataTable dt = DatabaseConnection.GetTypesCuisine();
+            DataTable dt = GetTable();
             List<TypeCuisine> lst = new List<TypeCuisine>();
             foreach (OdawaDS.typescuisineRow typeRow in dt.Rows)
             {

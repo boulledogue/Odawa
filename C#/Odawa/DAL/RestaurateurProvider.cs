@@ -25,9 +25,14 @@ namespace Odawa.DAL
             WriteToDB();
         }
 
+        public static OdawaDS.restaurateursDataTable GetTable()
+        {
+            return DatabaseConnection.GetRestaurateurs();
+        }
+
         public static List<Restaurateur> GetAll()
         {
-            DataTable dt = DatabaseConnection.GetRestaurateurs();
+            DataTable dt = GetTable();
             List<Restaurateur> lst = new List<Restaurateur>();
             foreach (OdawaDS.restaurateursRow restaurateurRow in dt.Rows)
             {

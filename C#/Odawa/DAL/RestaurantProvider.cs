@@ -30,9 +30,14 @@ namespace Odawa.DAL
             WriteToDB();
         }
 
+        public static OdawaDS.restaurantsDataTable GetTable()
+        {
+            return DatabaseConnection.GetRestaurants();
+        }
+
         public static List<Restaurant> GetAll()
         {
-            DataTable dt = DatabaseConnection.GetRestaurants();
+            DataTable dt = GetTable();
             List<Restaurant> lst = new List<Restaurant>();
             foreach (OdawaDS.restaurantsRow restaurantRow in dt.Rows)
             {                
@@ -61,7 +66,7 @@ namespace Odawa.DAL
 
         public static List<Restaurant> GetByTypeCuisineId(int id)
         {
-            DataTable dt = DatabaseConnection.GetRestaurants();
+            DataTable dt = GetTable();
             List<Restaurant> lst = new List<Restaurant>();
             foreach (OdawaDS.restaurantsRow restaurantRow in dt.Rows)
             {

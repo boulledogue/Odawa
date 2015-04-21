@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Odawa.BU
                 t.type = t.type.ToUpper();
                 TypeCuisineProvider.Create(t);
             }
+        }
+
+        public static DataTable GetTable()
+        {
+            return TypeCuisineProvider.GetTable();
         }
 
         public static List<TypeCuisine> GetAll()

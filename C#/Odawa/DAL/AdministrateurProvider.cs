@@ -14,7 +14,7 @@ namespace Odawa.DAL
     {
         public static List<Administrateur> GetAll()
         {
-            DataTable dt = DatabaseConnection.GetAdministrateurs();
+            DataTable dt = GetTable();
             List<Administrateur> lst = new List<Administrateur>();
             foreach (OdawaDS.administrateursRow adminRow in dt.Rows)
             {
@@ -22,6 +22,11 @@ namespace Odawa.DAL
             }
 
             return lst;
+        }
+
+        public static OdawaDS.administrateursDataTable GetTable()
+        {
+            return DatabaseConnection.GetAdministrateurs();
         }
 
         public static Administrateur GetOne(int id)
@@ -39,7 +44,7 @@ namespace Odawa.DAL
 
         public static List<Administrateur> Search( int id, String nom, String prenom, String username, String password, String phone )
         {
-            DataTable dt = DatabaseConnection.GetDataSet().Tables["administrateurs"];
+            DataTable dt = GetTable();
             List<Administrateur> lst = new List<Administrateur>();
             foreach (OdawaDS.administrateursRow adminRow in dt.Rows)
             {
