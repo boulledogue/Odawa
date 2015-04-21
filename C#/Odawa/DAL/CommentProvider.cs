@@ -28,12 +28,7 @@ namespace Odawa.DAL
             List<Comment> lst = new List<Comment>();
             foreach (OdawaDS.commentsRow commentRow in dt.Rows)
             {
-                Comment comment = new Comment();
-                comment.id = commentRow.id;
-                comment.commentaire = commentRow.commentaire;
-                comment.idRestaurant = commentRow.idRestaurant;
-                comment.idUtilisateur = commentRow.idUtilisateur;
-                lst.Add(comment);                
+                lst.Add(GetOne(commentRow.id));                
             }
             return lst;
         }

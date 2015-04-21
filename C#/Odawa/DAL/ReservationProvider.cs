@@ -18,16 +18,7 @@ namespace Odawa.DAL
             List<Reservation> lst = new List<Reservation>();
             foreach (OdawaDS.reservationsRow reservationRow in dt.Rows)
             {
-                Reservation r = new Reservation();
-                r.id = reservationRow.id;
-                r.nom = reservationRow.nom;
-                r.prenom = reservationRow.prenom;
-                r.date = reservationRow.date;
-                r.typeService = reservationRow.typeService;
-                r.nbPersonnes = reservationRow.nbPersonnes;
-                r.email = reservationRow.email;
-                r.phone = reservationRow.phone;
-                lst.Add(r);                
+                lst.Add(GetOne(reservationRow.id));                
             }
             return lst;
         }

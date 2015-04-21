@@ -31,15 +31,7 @@ namespace Odawa.DAL
             List<Restaurateur> lst = new List<Restaurateur>();
             foreach (OdawaDS.restaurateursRow restaurateurRow in dt.Rows)
             {
-                Restaurateur r = new Restaurateur();
-                r.id = restaurateurRow.id;
-                r.nom = restaurateurRow.nom;
-                r.prenom = restaurateurRow.prenom;
-                r.username = restaurateurRow.username;
-                r.password = restaurateurRow.password;
-                r.email = restaurateurRow.email;
-                r.phone = restaurateurRow.phone;
-                lst.Add(r);
+                lst.Add(GetOne(restaurateurRow.id));
             }
             return lst;
         }

@@ -18,15 +18,7 @@ namespace Odawa.DAL
             List<Administrateur> lst = new List<Administrateur>();
             foreach (OdawaDS.administrateursRow adminRow in dt.Rows)
             {
-                Administrateur admin = new Administrateur();
-                admin.id = adminRow.id;
-                admin.nom = adminRow.nom;
-                admin.prenom = adminRow.prenom;
-                admin.username = adminRow.username;
-                admin.password = adminRow.password;
-                admin.email = adminRow.email;
-                admin.phone = adminRow.phone;
-                lst.Add(admin);
+                lst.Add(GetOne(adminRow.id));
             }
 
             return lst;

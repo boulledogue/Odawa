@@ -26,10 +26,7 @@ namespace Odawa.DAL
             List<TypeCuisine> lst = new List<TypeCuisine>();
             foreach (OdawaDS.typescuisineRow typeRow in dt.Rows)
             {
-                TypeCuisine type = new TypeCuisine();
-                type.id = typeRow.id;
-                type.type = typeRow.type;
-                lst.Add(type);                
+                lst.Add(GetOne(typeRow.id));                
             }
             return lst;
         }

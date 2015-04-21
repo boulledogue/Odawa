@@ -19,15 +19,7 @@ namespace Odawa.DAL
             List<Utilisateur> lst = new List<Utilisateur>();
             foreach (OdawaDS.utilisateursRow userRow in dt.Rows)
             {
-                Utilisateur user = new Utilisateur();
-                user.id = userRow.id;
-                user.nom = userRow.nom;
-                user.prenom = userRow.prenom;
-                user.username = userRow.username;
-                user.password = userRow.password;
-                user.email = userRow.email;
-                user.phone = userRow.phone;
-                lst.Add(user);
+                lst.Add(GetOne(userRow.id));
             }
 
             return lst;

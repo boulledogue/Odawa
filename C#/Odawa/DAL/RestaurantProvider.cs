@@ -36,20 +36,7 @@ namespace Odawa.DAL
             List<Restaurant> lst = new List<Restaurant>();
             foreach (OdawaDS.restaurantsRow restaurantRow in dt.Rows)
             {                
-                Restaurant r = new Restaurant();
-                r.id = restaurantRow.id;
-                r.nom = restaurantRow.nom;
-                r.adresse = restaurantRow.adresse;
-                r.numero = restaurantRow.numero;
-                r.zipCode = restaurantRow.zipCode;
-                r.localite = restaurantRow.localite;
-                r.description = restaurantRow.description;
-                r.horaire = restaurantRow.horaire;
-                r.budget = restaurantRow.budget;
-                r.premium = restaurantRow.premium;
-                r.idTypeCuisine = restaurantRow.idTypeCuisine;
-                r.idRestaurateur = restaurantRow.idRestaurateur;
-                lst.Add(r);                
+                lst.Add(GetOne(restaurantRow.id));                
             }
             return lst;
         }
