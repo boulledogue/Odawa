@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="BU\Entities\Administrateur.cs" />
     <Compile Include="BU\AdministrateurManager.cs" />
+    <Compile Include="BU\Entities\DataContact.cs" />
     <Compile Include="BU\Entities\Reservation.cs" />
     <Compile Include="BU\Entities\Restaurant.cs" />
     <Compile Include="BU\Entities\Restaurateur.cs" />

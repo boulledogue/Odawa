@@ -36,6 +36,21 @@ namespace Odawa.BU
             return RestaurantProvider.GetByTypeCuisineId(id);
         }
 
+        public static List<Restaurant> SearchByName(string s)
+        {
+            return RestaurantProvider.SearchRestaurantNom(s);
+        }
+
+        public static List<Restaurant> SearchByZipCode(string s)
+        {
+            return RestaurantProvider.SearchRestaurantZipCode(s);
+        }
+
+        public static List<Restaurant> SearchByLocalite(string s)
+        {
+            return RestaurantProvider.SearchRestaurantLocalite(s);
+        }
+
         public static void Update(Restaurant r)
         {
             RestaurantProvider.Update(r);

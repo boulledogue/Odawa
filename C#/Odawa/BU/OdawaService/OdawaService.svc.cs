@@ -55,5 +55,20 @@ namespace OdawaService
         {
             return RestaurantManager.GetByTypeCuisineId(id);
         }
+
+        public List<Restaurant> SearchRestaurantByName(string s)
+        {
+            return RestaurantManager.SearchByName(s);
+        }
+
+        public List<Restaurant> SearchRestaurantByZipCode(string s)
+        {
+            return RestaurantManager.SearchByZipCode(s);
+        }
+
+        public List<Restaurant> SearchRestaurantByLocalite(string s)
+        {
+            return RestaurantManager.SearchByLocalite(s);
+        }
     }
 }

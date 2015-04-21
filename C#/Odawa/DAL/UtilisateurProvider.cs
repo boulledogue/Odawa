@@ -80,14 +80,6 @@ namespace Odawa.DAL
             return lst;
         }
 
-        public static Utilisateur Search( int id )
-        {
-            Utilisateur user = new Utilisateur();
-            List<Utilisateur> lst = Search(id, null, null, null, null, null);
-            user = lst.First();
-            return user;
-        }
-
         public static bool Exist( String username, String password )
         {
             bool exist = false;
