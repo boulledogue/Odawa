@@ -34,6 +34,15 @@ namespace OdawaService
 
         [OperationContract]
         List<Restaurant> GetRestaurantByTypeCuisineId(int id);
+        
+        [OperationContract]
+        List<Restaurant> SearchRestaurantByName(string s);
+
+        [OperationContract]
+        List<Restaurant> SearchRestaurantByZipCode(string s);
+
+        [OperationContract]
+        List<Restaurant> SearchRestaurantByLocalite(string s);
 
         // TODO: ajoutez vos opérations de service ici
     }

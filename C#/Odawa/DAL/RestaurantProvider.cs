@@ -75,6 +75,46 @@ namespace Odawa.DAL
             return lst;
         }
 
+        public static List<Restaurant> SearchRestaurantNom(string s)
+        {
+            DataTable dt = GetTable();
+            List<Restaurant> lst = new List<Restaurant>();
+            string nom;
+            foreach (OdawaDS.restaurantsRow restaurantRow in dt.Rows)
+            {
+                nom = restaurantRow.nom.ToUpper();
+                if (nom.Contains(s.ToUpper())) 
+                    lst.Add(GetOne(restaurantRow.id));
+            }
+            return lst;
+        }
+
+        public static List<Restaurant> SearchRestaurantZipCode(string s)
+        {
+            DataTable dt = GetTable();
+            List<Restaurant> lst = new List<Restaurant>();
+            foreach (OdawaDS.restaurantsRow restaurantRow in dt.Rows)
+            {
+                if (restaurantRow.zipCode.Contains(s))
+                    lst.Add(GetOne(restaurantRow.id));
+            }
+            return lst;
+        }
+
+        public static List<Restaurant> SearchRestaurantLocalite(string s)
+        {
+            DataTable dt = GetTable();
+            List<Restaurant> lst = new List<Restaurant>();
+            string localite;
+            foreach (OdawaDS.restaurantsRow restaurantRow in dt.Rows)
+            {
+                localite = restaurantRow.localite.ToUpper();
+                if (localite.Contains(s.ToUpper()))
+                    lst.Add(GetOne(restaurantRow.id));
+            }
+            return lst;
+        }
+
         public static void Update(Restaurant r)
         {
             DatabaseConnection.odawa.restaurants.FindByid(r.id).nom = r.nom;
