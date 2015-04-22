@@ -63,11 +63,17 @@ namespace Odawa
             string message = "Voulez-vous vraiment supprimer cet administrateur?";
             string caption = "Suppression";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Warning;
             DialogResult result;
-            result = MessageBox.Show(message, caption, buttons);
+            result = MessageBox.Show(message, caption, buttons, icon);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                // Supprimer l'administrateur sélectionné
+                int id = (int)dataGridViewAdministrateurs.SelectedRows[0].Cells[0].Value;
+                AdministrateurManager.Delete(id);
+                message = "Administrateur supprimé!";
+                buttons = MessageBoxButtons.OK;
+                icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, caption, buttons, icon);
             }
         }
 
@@ -86,11 +92,17 @@ namespace Odawa
             string message = "Voulez-vous vraiment supprimer ce restaurateur?";
             string caption = "Suppression";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Warning;
             DialogResult result;
-            result = MessageBox.Show(message, caption, buttons);
+            result = MessageBox.Show(message, caption, buttons, icon);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                // Supprimer le restaurateur sélectionné
+                int id = (int)dataGridViewRestaurateurs.SelectedRows[0].Cells[0].Value;
+                RestaurateurManager.Delete(id);
+                message = "Restaurateur supprimé!";
+                buttons = MessageBoxButtons.OK;
+                icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, caption, buttons, icon);
             }
         }
 
@@ -109,11 +121,17 @@ namespace Odawa
             string message = "Voulez-vous vraiment supprimer cet utilisateur?";
             string caption = "Suppression";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Warning;
             DialogResult result;
-            result = MessageBox.Show(message, caption, buttons);
+            result = MessageBox.Show(message, caption, buttons, icon);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                // Supprimer l'utilisateur sélectionné
+                int id = (int)dataGridViewUtilisateurs.SelectedRows[0].Cells[0].Value;
+                UtilisateurManager.Delete(id);
+                message = "Utilisateur supprimé!";
+                buttons = MessageBoxButtons.OK;
+                icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, caption, buttons, icon);
             }
         }
 
@@ -132,11 +150,17 @@ namespace Odawa
             string message = "Voulez-vous vraiment supprimer ce restaurant?";
             string caption = "Suppression";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Warning;
             DialogResult result;
-            result = MessageBox.Show(message, caption, buttons);
+            result = MessageBox.Show(message, caption, buttons, icon);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                // Supprimer le restaurant sélectionné
+                int id = (int)dataGridViewRestaurants.SelectedRows[0].Cells[0].Value;
+                RestaurantManager.Delete(id);
+                message = "Restaurant supprimé!";
+                buttons = MessageBoxButtons.OK;
+                icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, caption, buttons, icon);
             }
         }
 
@@ -155,16 +179,17 @@ namespace Odawa
             string message = "Voulez-vous vraiment supprimer ce type de cuisine?";
             string caption = "Suppression";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            MessageBoxIcon icon = MessageBoxIcon.Warning;
             DialogResult result;
-            result = MessageBox.Show(message, caption, buttons);
+            result = MessageBox.Show(message, caption, buttons, icon);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 int id = (int)dataGridViewTypesCuisine.SelectedRows[0].Cells[0].Value;
                 TypeCuisineManager.Delete(id);
                 message = "Type de cuisine supprimé!";
-                caption = "Suppression";
                 buttons = MessageBoxButtons.OK;
-                MessageBox.Show(message, caption, buttons);
+                icon = MessageBoxIcon.Information;
+                MessageBox.Show(message, caption, buttons, icon);
             }
         }
     }
