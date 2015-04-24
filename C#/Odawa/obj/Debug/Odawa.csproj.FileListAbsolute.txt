@@ -67,3 +67,7 @@ C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\obj\Debug\Odawa.P
 C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\obj\Debug\Odawa.csproj.GenerateResource.Cache
 C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\obj\Debug\Odawa.MainForm.resources
 I:\ESA\C#\Odawa\C#\Odawa\obj\Debug\Odawa.MainForm.resources
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\BU.dll
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\DAL.dll
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\BU.pdb
+C:\Documents PERSO\ESA\Projet de développement\Odawa\C#\Odawa\bin\Debug\DAL.pdb

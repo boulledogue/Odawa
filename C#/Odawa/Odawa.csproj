@@ -54,34 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BU\Entities\Administrateur.cs" />
-    <Compile Include="BU\AdministrateurManager.cs" />
-    <Compile Include="BU\Entities\DataContact.cs" />
-    <Compile Include="BU\Entities\Reservation.cs" />
-    <Compile Include="BU\Entities\Restaurant.cs" />
-    <Compile Include="BU\Entities\Restaurateur.cs" />
-    <Compile Include="BU\Entities\Comment.cs" />
-    <Compile Include="BU\Entities\TypeCuisine.cs" />
-    <Compile Include="BU\Entities\Utilisateur.cs" />
-    <Compile Include="BU\ReservationManager.cs" />
-    <Compile Include="BU\RestaurantManager.cs" />
-    <Compile Include="BU\RestaurateurManager.cs" />
-    <Compile Include="BU\CommentManager.cs" />
-    <Compile Include="BU\TypeCuisineManager.cs" />
-    <Compile Include="BU\UtilisateurManager.cs" />
-    <Compile Include="DAL\AdministrateurProvider.cs" />
-    <Compile Include="DAL\DatabaseConnection.cs" />
-    <Compile Include="DAL\OdawaDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OdawaDS.xsd</DependentUpon>
+    <Compile Include="FormAjoutTypeCuisine.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DAL\ReservationProvider.cs" />
-    <Compile Include="DAL\RestaurantProvider.cs" />
-    <Compile Include="DAL\RestaurateurProvider.cs" />
-    <Compile Include="DAL\CommentProvider.cs" />
-    <Compile Include="DAL\TypeCuisineProvider.cs" />
-    <Compile Include="DAL\UtilisateurProvider.cs" />
+    <Compile Include="FormAjoutTypeCuisine.Designer.cs">
+      <DependentUpon>FormAjoutTypeCuisine.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,17 +80,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DAL\OdawaDS.xsc">
-      <DependentUpon>OdawaDS.xsd</DependentUpon>
-    </None>
-    <None Include="DAL\OdawaDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>OdawaDS.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DAL\OdawaDS.xss">
-      <DependentUpon>OdawaDS.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -134,6 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="roundodawa_swq_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BU\BU.csproj">
+      <Project>{0c67b536-88a6-4556-a151-b52375b2209a}</Project>
+      <Name>BU</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
