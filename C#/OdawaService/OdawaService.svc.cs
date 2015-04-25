@@ -23,5 +23,33 @@ namespace OdawaService
         {
             return TypeCuisineManager.GetOne(id);
         }
+
+        public List<Restaurant> GetAllRestaurant()
+        {
+            return RestaurantManager.GetAll();
+        }
+
+        public Restaurant GetRestaurant(int id)
+        {
+            return RestaurantManager.GetOne(id);
+        }
+
+        public List<Restaurant> SearchRestaurantByName(string s)
+        {
+            if (s != null) return RestaurantManager.SearchByName(s);
+            else return RestaurantManager.GetAll();
+        }
+
+        public List<Restaurant> SearchRestaurantByZipCode(string s)
+        {
+            if (s != null) return RestaurantManager.SearchByZipCode(s);
+            else return RestaurantManager.GetAll();
+        }
+
+        public List<Restaurant> SearchRestaurantByLocalite(string s)
+        {
+            if (s != null) return RestaurantManager.SearchByLocalite(s);
+            else return RestaurantManager.GetAll();
+        }
     }
 }

@@ -5,12 +5,13 @@
  */
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.datacontract.schemas._2004._07.bu.*;
+import Models.*;
 
 /**
  *
@@ -30,7 +31,12 @@ public class OdawaServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        TypeCuisineManager tCM = new TypeCuisineManager();
+        ArrayOfTypeCuisine TypesCuisine = tCM.getAll();
+        
         response.setContentType("text/html;charset=UTF-8");
+        request.setAttribute("ListeTypeCuisine",TypesCuisine);
         request.getRequestDispatcher("/ODAWA-INF/Index.jsp").forward(request, response);
     }
 

@@ -16,23 +16,15 @@
     </head>
     <body>
         <h1>Liste des types de cuisine</h1>
-        
-    <%-- start web service invocation --%><hr/>
-    <%
-    try {
-	org.tempuri.OdawaService service = new org.tempuri.OdawaService();
-	org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
-	ArrayOfTypeCuisine result = port.getAllTypeCuisine();
-        for(TypeCuisine t : result.getTypeCuisine()){
+        <% 
+        ArrayOfTypeCuisine array = (ArrayOfTypeCuisine) request.getAttribute("ListeTypeCuisine");
+        int i = 1;
+        for(TypeCuisine t : array.getTypeCuisine()){
         %>
-        <%=t.getId()%> <%=t.getType().getValue()%> <br>
+        <%=i%> <%=t.getType().getValue()%> <br>
         <%
+        i++;
         }
-    } catch (Exception ex) {
-	// TODO handle custom exceptions here
-    }
-    %>
-    <%-- end web service invocation --%><hr/>   
-
+        %>
     </body>
 </html>
