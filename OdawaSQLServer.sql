@@ -157,6 +157,7 @@ CREATE TABLE [dbo].[reservations](
 	[email] [varchar](50) NULL DEFAULT (NULL),
 	[phone] [varchar](10) NULL DEFAULT (NULL),
 	[idRestaurant] [int] NOT NULL,
+	[statut] [int] NOT NULL CONSTRAINT [DF_reservations_statut]  DEFAULT ((1)),
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
