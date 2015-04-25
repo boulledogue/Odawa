@@ -13,7 +13,20 @@ namespace BU
     {
         public static void Create(Restaurant r)
         {
-            
+            OdawaDS.restaurantsRow newRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
+            newRow.nom = r.nom;
+            newRow.adresse = r.adresse;
+            newRow.numero = r.numero;
+            newRow.zipCode = r.zipCode;
+            newRow.localite = r.localite;
+            newRow.description = r.description;
+            newRow.budgetLow = r.budgetLow;
+            newRow.budgetHigh = r.budgetHigh;
+            newRow.premium = r.premium;
+            newRow.idTypeCuisine = r.idTypeCuisine;
+            newRow.idRestaurateur = r.idRestaurateur;
+            newRow.idHoraire = r.idHoraire;
+            DataProvider.CreateRestaurant(newRow);
         }
 
         public static List<Restaurant> GetAll()
@@ -48,12 +61,30 @@ namespace BU
 
         public static void Update(Restaurant r)
         {
-            
+            OdawaDS.restaurantsRow updRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
+            updRow.id = r.id;
+            updRow.nom = r.nom;
+            updRow.adresse = r.adresse;
+            updRow.numero = r.numero;
+            updRow.zipCode = r.zipCode;
+            updRow.localite = r.localite;
+            updRow.description = r.description;
+            updRow.budgetLow = r.budgetLow;
+            updRow.budgetHigh = r.budgetHigh;
+            updRow.premium = r.premium;
+            updRow.idTypeCuisine = r.idTypeCuisine;
+            updRow.idRestaurateur = r.idRestaurateur;
+            updRow.idHoraire = r.idHoraire;
+            DataProvider.UpdateRestaurant(updRow);
         }
 
         public static void Delete(int id)
-        {
-            
+        {            
+            Restaurant resto = RestaurantManager.GetOne(id);
+            CommentManager.DeleteByRestaurant(id);
+            ReservationManager.DeleteByRestaurant(id);
+            DataProvider.DeleteRestaurant(id);
+            HoraireManager.Delete(resto.idHoraire);
         }
     }
 }

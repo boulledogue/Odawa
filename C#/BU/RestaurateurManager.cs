@@ -13,7 +13,14 @@ namespace BU
     {
         public static void Create(Restaurateur r)
         {
-            
+            OdawaDS.restaurateursRow newRow = DataProvider.odawa.restaurateurs.NewrestaurateursRow();
+            newRow.nom = r.nom;
+            newRow.prenom = r.prenom;
+            newRow.username = r.username;
+            newRow.password = r.password;
+            newRow.email = r.email;
+            newRow.phone = r.phone;
+            DataProvider.CreateRestaurateur(newRow);
         }
 
         public static List<Restaurateur> GetAll()
@@ -42,12 +49,20 @@ namespace BU
 
         public static void Update(Restaurateur r)
         {
-            
+            OdawaDS.restaurateursRow updRow = DataProvider.odawa.restaurateurs.NewrestaurateursRow();
+            updRow.id = r.id;
+            updRow.nom = r.nom;
+            updRow.prenom = r.prenom;
+            updRow.username = r.username;
+            updRow.password = r.password;
+            updRow.email = r.email;
+            updRow.phone = r.phone;
+            DataProvider.UpdateRestaurateur(updRow);
         }
 
         public static void Delete(int id)
         {
-            
+            DataProvider.DeleteRestaurateur(id);
         }
     }
 }

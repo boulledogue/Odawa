@@ -98,21 +98,32 @@ namespace Odawa
 
         private void buttonDelRestaurateur_Click(object sender, EventArgs e)
         {
-            string message = "Voulez-vous vraiment supprimer ce restaurateur?";
-            string caption = "Suppression";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            MessageBoxIcon icon = MessageBoxIcon.Warning;
-            DialogResult result;
-            result = MessageBox.Show(message, caption, buttons, icon);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            int id = (int)dataGridViewRestaurateurs.SelectedRows[0].Cells[0].Value;
+            if (BU.RestaurantManager.GetAll().Where(x => x.idRestaurateur == id).Count() == 0)
             {
-                int id = (int)dataGridViewRestaurateurs.SelectedRows[0].Cells[0].Value;
-                RestaurateurManager.Delete(id);
-                dataGridViewTypesCuisine.DataSource = typeof(List<TypeCuisine>);
-                PopulateGrids();
-                message = "Restaurateur supprimé!";
-                buttons = MessageBoxButtons.OK;
-                icon = MessageBoxIcon.Information;
+                string message = "Voulez-vous vraiment supprimer ce restaurateur?";
+                string caption = "Suppression";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons, icon);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    RestaurateurManager.Delete(id);
+                    dataGridViewTypesCuisine.DataSource = typeof(List<TypeCuisine>);
+                    PopulateGrids();
+                    message = "Restaurateur supprimé!";
+                    buttons = MessageBoxButtons.OK;
+                    icon = MessageBoxIcon.Information;
+                    MessageBox.Show(message, caption, buttons, icon);
+                }
+            }
+            else
+            {
+                string caption = "Erreur lors de la suppression";
+                string message = "Au moins un restaurant est lié à ce restaurateur, impossible de le supprimer.";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
                 MessageBox.Show(message, caption, buttons, icon);
             }
         }
@@ -150,7 +161,22 @@ namespace Odawa
 
         private void buttonAddResto_Click(object sender, EventArgs e)
         {
-
+            Restaurant r = new Restaurant();
+            r.nom = "toto";
+            r.adresse = "zhsz";
+            r.numero = "123";
+            r.zipCode = "5000";
+            r.localite = "zehzhz";
+            r.description = "";
+            r.budgetLow = 0;
+            r.budgetHigh = 0;
+            r.premium = true;
+            r.idHoraire = 1;
+            r.idRestaurateur = 1;
+            r.idTypeCuisine = 1;
+            RestaurantManager.Create(r);
+            dataGridViewTypesCuisine.DataSource = typeof(List<TypeCuisine>);
+            PopulateGrids();
         }
 
         private void buttonModResto_Click(object sender, EventArgs e)

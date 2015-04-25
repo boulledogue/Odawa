@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormAjoutTypeCuisine
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "FormAjoutTypeCuisine";
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "FormAjoutTypeCuisine";
+            this.Text = "Ajout d\'un type de cuisine";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

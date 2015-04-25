@@ -13,7 +13,9 @@ namespace BU
     {
         public static void Create(TypeCuisine t)
         {
-            
+            OdawaDS.typescuisineRow newRow = DataProvider.odawa.typescuisine.NewtypescuisineRow();
+            newRow.type = t.type;
+            DataProvider.CreateTypeCuisine(newRow);
         }
 
         public static List<TypeCuisine> GetAll()
@@ -37,7 +39,10 @@ namespace BU
         
         public static void Update(TypeCuisine t)
         {
-            
+            OdawaDS.typescuisineRow updRow = DataProvider.odawa.typescuisine.NewtypescuisineRow();
+            updRow.id = t.id;
+            updRow.type = t.type;
+            DataProvider.UpdateTypeCuisine(updRow);
         }
 
         public static void Delete(int id)

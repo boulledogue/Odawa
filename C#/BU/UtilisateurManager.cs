@@ -13,7 +13,14 @@ namespace BU
     {
         public static void Create(Utilisateur u)
         {
-            
+            OdawaDS.utilisateursRow newRow = DataProvider.odawa.utilisateurs.NewutilisateursRow();
+            newRow.nom = u.nom;
+            newRow.prenom = u.prenom;
+            newRow.username = u.username;
+            newRow.password = u.password;
+            newRow.email = u.email;
+            newRow.phone = u.phone;
+            DataProvider.CreateUtilisateur(newRow);
         }
 
         public static List<Utilisateur> GetAll()
@@ -42,12 +49,21 @@ namespace BU
 
         public static void Update(Utilisateur u)
         {
-            
+            OdawaDS.utilisateursRow updRow = DataProvider.odawa.utilisateurs.NewutilisateursRow();
+            updRow.id = u.id;
+            updRow.nom = u.nom;
+            updRow.prenom = u.prenom;
+            updRow.username = u.username;
+            updRow.password = u.password;
+            updRow.email = u.email;
+            updRow.phone = u.phone;
+            DataProvider.UpdateUtilisateur(updRow);
         }
 
         public static void Delete(int id)
         {
-            
+            CommentManager.DeleteByUtilisateur(id);
+            DataProvider.DeleteUtilisateur(id);
         }
     }
 }

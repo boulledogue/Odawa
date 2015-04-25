@@ -11,9 +11,18 @@ namespace BU
 {
     public static class ReservationManager
     {
-        public static void Create()
+        public static void Create(Reservation r)
         {
-            
+            OdawaDS.reservationsRow newRow = DataProvider.odawa.reservations.NewreservationsRow();
+            newRow.nom = r.nom;
+            newRow.prenom = r.prenom;
+            newRow.date = r.date;
+            newRow.typeService = r.typeService;
+            newRow.nbPersonnes = r.nbPersonnes;
+            newRow.email = r.email;
+            newRow.phone = r.phone;
+            newRow.idRestaurant = r.idRestaurant;
+            DataProvider.CreateReservation(newRow);
         }
         
         public static List<Reservation> GetAll()
@@ -44,12 +53,34 @@ namespace BU
 
         public static void Update(Reservation r)
         {
-            
+            OdawaDS.reservationsRow updRow = DataProvider.odawa.reservations.NewreservationsRow();
+            updRow.id = r.id;
+            updRow.nom = r.nom;
+            updRow.prenom = r.prenom;
+            updRow.date = r.date;
+            updRow.typeService = r.typeService;
+            updRow.nbPersonnes = r.nbPersonnes;
+            updRow.email = r.email;
+            updRow.phone = r.phone;
+            updRow.idRestaurant = r.idRestaurant;
+            DataProvider.UpdateReservation(updRow);
         }
 
         public static void Delete(int id)
         {
-            
+            DataProvider.DeleteReservation(id);
+        }
+
+        public static void DeleteByRestaurant(int id)
+        {
+            List<Reservation> lst = GetAll().Where(x => x.idRestaurant == id).ToList();
+            if (lst.Count() > 0)
+            {
+                foreach (Reservation r in lst)
+                {
+                    Delete(r.id);
+                }
+            }
         }
     }
 }

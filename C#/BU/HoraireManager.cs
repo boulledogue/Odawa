@@ -11,9 +11,23 @@ namespace BU
 {
     public static class HoraireManager
     {
-        public static void Create()
+        public static void Create(Horaire h)
         {
-
+            OdawaDS.horairesRow newRow = DataProvider.odawa.horaires.NewhorairesRow();
+            newRow.mondayOpen = h.mondayOpen;
+            newRow.mondayClose = h.mondayClose;
+            newRow.tuesdayOpen = h.tuesdayOpen;
+            newRow.tuesdayClose = h.tuesdayClose;
+            newRow.wednesdayOpen = h.wednesdayOpen;
+            newRow.wednesdayClose = h.wednesdayClose;
+            newRow.thursdayOpen = h.thursdayOpen;
+            newRow.thursdayClose = h.thursdayClose;
+            newRow.fridayOpen = h.fridayOpen;
+            newRow.saturdayOpen = h.saturdayOpen;
+            newRow.saturdayClose = h.saturdayClose;
+            newRow.sundayOpen = h.sundayOpen;
+            newRow.sundayClose = h.sundayClose;
+            DataProvider.CreateHoraire(newRow);
         }
 
         public static List<Horaire> GetAll()
@@ -47,14 +61,29 @@ namespace BU
             return GetAll().Find(x => x.id == id);
         }
 
-        public static void Update()
+        public static void Update(Horaire h)
         {
-            
+            OdawaDS.horairesRow updRow = DataProvider.odawa.horaires.NewhorairesRow();
+            updRow.id = h.id;
+            updRow.mondayOpen = h.mondayOpen;
+            updRow.mondayClose = h.mondayClose;
+            updRow.tuesdayOpen = h.tuesdayOpen;
+            updRow.tuesdayClose = h.tuesdayClose;
+            updRow.wednesdayOpen = h.wednesdayOpen;
+            updRow.wednesdayClose = h.wednesdayClose;
+            updRow.thursdayOpen = h.thursdayOpen;
+            updRow.thursdayClose = h.thursdayClose;
+            updRow.fridayOpen = h.fridayOpen;
+            updRow.saturdayOpen = h.saturdayOpen;
+            updRow.saturdayClose = h.saturdayClose;
+            updRow.sundayOpen = h.sundayOpen;
+            updRow.sundayClose = h.sundayClose;
+            DataProvider.UpdateHoraires(updRow);
         }
 
         public static void Delete(int id)
         {
-            
+            DataProvider.DeleteHoraire(id);
         }
     }
 }

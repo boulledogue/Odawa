@@ -13,7 +13,14 @@ namespace BU
     {
         public static void Create(Administrateur a)
         {
-            
+            OdawaDS.administrateursRow newRow = DataProvider.odawa.administrateurs.NewadministrateursRow();
+            newRow.nom = a.nom;
+            newRow.prenom = a.prenom;
+            newRow.username = a.username;
+            newRow.password = a.password;
+            newRow.email = a.email;
+            newRow.phone = a.phone;
+            DataProvider.CreateAdministrateur(newRow);
         }
 
         public static List<Administrateur> GetAll()
@@ -42,12 +49,20 @@ namespace BU
 
         public static void Update(Administrateur a)
         {
-            
+            OdawaDS.administrateursRow updRow = DataProvider.odawa.administrateurs.NewadministrateursRow();
+            updRow.id = a.id;
+            updRow.nom = a.nom;
+            updRow.prenom = a.prenom;
+            updRow.username = a.username;
+            updRow.password = a.password;
+            updRow.email = a.email;
+            updRow.phone = a.phone;
+            DataProvider.UpdateAdministrateur(updRow);
         }
 
         public static void Delete(int id)
         {
-            
+            DataProvider.DeleteAdministrateur(id);
         }
     }
 }
