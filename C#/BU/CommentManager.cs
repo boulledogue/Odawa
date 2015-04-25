@@ -77,5 +77,24 @@ namespace BU
                 }
             }
         }
+
+        public static List<Comment> GetByRestaurant(int id)
+        {
+            OdawaDS.commentsDataTable dt = DataProvider.GetComments();
+            List<Comment> lst = new List<Comment>();
+            foreach (OdawaDS.commentsRow commentRow in dt.Rows)
+            {
+                if (commentRow.idRestaurant == id)
+                {
+                    Comment c = new Comment();
+                    c.id = commentRow.id;
+                    c.commentaire = commentRow.commentaire;
+                    c.idUtilisateur = commentRow.idUtilisateur;
+                    c.idRestaurant = commentRow.idRestaurant;
+                    lst.Add(c);
+                }
+            }
+            return lst;
+        }
     }
 }

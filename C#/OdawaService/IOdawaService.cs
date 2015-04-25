@@ -22,19 +22,31 @@ namespace OdawaService
         TypeCuisine GetTypeCuisine(int id);
 
         [OperationContract]
-        List<Restaurant> GetAllRestaurant();
+        List<Restaurant> GetRestaurantByTypeCuisine(int id);
+
+        [OperationContract]
+        List<Comment> GetCommentByRestaurant(int id);
+
+        [OperationContract]
+        List<Reservation> GetReservationByRestaurant(int id);
 
         [OperationContract]
         Restaurant GetRestaurant(int id);
 
         [OperationContract]
-        List<Restaurant> SearchRestaurantByName(string s);
+        List<Restaurant> SearchRestaurant(string s);
 
         [OperationContract]
-        List<Restaurant> SearchRestaurantByZipCode(string s);
+        bool AcceptLoginRestaurateur(string username, string password);
 
         [OperationContract]
-        List<Restaurant> SearchRestaurantByLocalite(string s);
+        Restaurateur GetRestaurateur(string username);
+
+        [OperationContract]
+        bool AcceptLoginUtilisateur(string username, string password);
+
+        [OperationContract]
+        Utilisateur GetUtilisateur(string username);
 
         // TODO: ajoutez vos opérations de service ici
     }

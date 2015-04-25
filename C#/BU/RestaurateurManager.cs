@@ -64,5 +64,18 @@ namespace BU
         {
             DataProvider.DeleteRestaurateur(id);
         }
+
+        public static bool AcceptLogin(string username, string password)
+        {
+            Restaurateur r = GetByUsername(username);            
+            if (r != null && r.password == password) return true;
+            return false;
+        }
+
+        public static Restaurateur GetByUsername(string username)
+        {
+            Restaurateur r = GetAll().Find(x => x.username == username);
+            return r;
+        }
     }
 }

@@ -24,9 +24,19 @@ namespace OdawaService
             return TypeCuisineManager.GetOne(id);
         }
 
-        public List<Restaurant> GetAllRestaurant()
+        public List<Restaurant> GetRestaurantByTypeCuisine(int id)
         {
-            return RestaurantManager.GetAll();
+            if (id != 0) return RestaurantManager.GetByTypeCuisine(id);
+            else return null;
+        }
+
+        public List<Comment> GetCommentByRestaurant(int id)
+        {
+            return CommentManager.GetByRestaurant(id);
+        }
+        public List<Reservation> GetReservationByRestaurant(int id)
+        {
+            return ReservationManager.GetByRestaurant(id);
         }
 
         public Restaurant GetRestaurant(int id)
@@ -34,22 +44,32 @@ namespace OdawaService
             return RestaurantManager.GetOne(id);
         }
 
-        public List<Restaurant> SearchRestaurantByName(string s)
+        public List<Restaurant> SearchRestaurant(string s)
         {
-            if (s != null) return RestaurantManager.SearchByName(s);
+            if (s != null) return RestaurantManager.Search(s);
             else return RestaurantManager.GetAll();
         }
 
-        public List<Restaurant> SearchRestaurantByZipCode(string s)
+        public bool AcceptLoginRestaurateur(string username, string password)
         {
-            if (s != null) return RestaurantManager.SearchByZipCode(s);
-            else return RestaurantManager.GetAll();
+            if (username != null && password != null) if (RestaurateurManager.AcceptLogin(username, password)) return true;
+            return false;
         }
 
-        public List<Restaurant> SearchRestaurantByLocalite(string s)
+        public bool AcceptLoginUtilisateur(string username, string password)
         {
-            if (s != null) return RestaurantManager.SearchByLocalite(s);
-            else return RestaurantManager.GetAll();
+            if (username != null && password != null) if (UtilisateurManager.AcceptLogin(username, password)) return true;
+            return false;
+        }
+
+        public Restaurateur GetRestaurateur(string username)
+        {
+            return RestaurateurManager.GetByUsername(username);
+        }
+
+        public Utilisateur GetUtilisateur(string username)
+        {
+            return UtilisateurManager.GetByUsername(username);
         }
     }
 }

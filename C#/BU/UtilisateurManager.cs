@@ -65,5 +65,18 @@ namespace BU
             CommentManager.DeleteByUtilisateur(id);
             DataProvider.DeleteUtilisateur(id);
         }
+
+        public static bool AcceptLogin(string username, string password)
+        {
+            Utilisateur u = GetByUsername(username);
+            if (u != null && u.password == password) return true;
+            return false;
+        }
+
+        public static Utilisateur GetByUsername(string username)
+        {
+            Utilisateur u = GetAll().Find(x => x.username == username);
+            return u;
+        }
     }
 }

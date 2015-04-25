@@ -59,6 +59,35 @@ namespace BU
             return GetAll().Find(x => x.id == id);
         }
 
+        public static List<Restaurant> GetByTypeCuisine(int id)
+        {
+            OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
+            List<Restaurant> lst = new List<Restaurant>();
+            foreach (OdawaDS.restaurantsRow restoRow in dt.Rows)
+            {
+                if (restoRow.idTypeCuisine == id)
+                {
+                    Restaurant r = new Restaurant();
+                    r.id = restoRow.id;
+                    r.nom = restoRow.nom;
+                    r.adresse = restoRow.adresse;
+                    r.numero = restoRow.numero;
+                    r.zipCode = restoRow.zipCode;
+                    r.localite = restoRow.localite;
+                    r.description = restoRow.description;
+                    r.budgetLow = restoRow.budgetLow;
+                    r.budgetHigh = restoRow.budgetHigh;
+                    r.premium = restoRow.premium;
+                    r.idTypeCuisine = restoRow.idTypeCuisine;
+                    r.idRestaurateur = restoRow.idRestaurateur;
+                    r.idHoraire = restoRow.idHoraire;
+                    lst.Add(r);
+                }
+            }
+            return lst;
+        }
+        
+
         public static void Update(Restaurant r)
         {
             OdawaDS.restaurantsRow updRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
@@ -87,71 +116,14 @@ namespace BU
             HoraireManager.Delete(resto.idHoraire);
         }
 
-        public static List<Restaurant> SearchByName(string s)
+        public static List<Restaurant> Search(string s)
         {
             OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
             List<Restaurant> lst = new List<Restaurant>();
             s = s.ToUpper();
             foreach (OdawaDS.restaurantsRow restoRow in dt.Rows)
             {
-                if (restoRow.nom.ToUpper().Contains(s))
-                {
-                    Restaurant r = new Restaurant();
-                    r.id = restoRow.id;
-                    r.nom = restoRow.nom;
-                    r.adresse = restoRow.adresse;
-                    r.numero = restoRow.numero;
-                    r.zipCode = restoRow.zipCode;
-                    r.localite = restoRow.localite;
-                    r.description = restoRow.description;
-                    r.budgetLow = restoRow.budgetLow;
-                    r.budgetHigh = restoRow.budgetHigh;
-                    r.premium = restoRow.premium;
-                    r.idTypeCuisine = restoRow.idTypeCuisine;
-                    r.idRestaurateur = restoRow.idRestaurateur;
-                    r.idHoraire = restoRow.idHoraire;
-                    lst.Add(r);
-                }
-            }
-            return lst;
-        }
-
-        public static List<Restaurant> SearchByZipCode(string s)
-        {
-            OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
-            List<Restaurant> lst = new List<Restaurant>();
-            foreach (OdawaDS.restaurantsRow restoRow in dt.Rows)
-            {
-                if (restoRow.zipCode.Contains(s))
-                {
-                    Restaurant r = new Restaurant();
-                    r.id = restoRow.id;
-                    r.nom = restoRow.nom;
-                    r.adresse = restoRow.adresse;
-                    r.numero = restoRow.numero;
-                    r.zipCode = restoRow.zipCode;
-                    r.localite = restoRow.localite;
-                    r.description = restoRow.description;
-                    r.budgetLow = restoRow.budgetLow;
-                    r.budgetHigh = restoRow.budgetHigh;
-                    r.premium = restoRow.premium;
-                    r.idTypeCuisine = restoRow.idTypeCuisine;
-                    r.idRestaurateur = restoRow.idRestaurateur;
-                    r.idHoraire = restoRow.idHoraire;
-                    lst.Add(r);
-                }
-            }
-            return lst;
-        }
-
-        public static List<Restaurant> SearchByLocalite(string s)
-        {
-            OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
-            List<Restaurant> lst = new List<Restaurant>();
-            s = s.ToUpper();
-            foreach (OdawaDS.restaurantsRow restoRow in dt.Rows)
-            {
-                if (restoRow.localite.ToUpper().Contains(s))
+                if (restoRow.nom.ToUpper().Contains(s) || restoRow.zipCode.Contains(s) || restoRow.localite.ToUpper().Contains(s))
                 {
                     Restaurant r = new Restaurant();
                     r.id = restoRow.id;
