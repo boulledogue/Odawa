@@ -54,11 +54,6 @@ namespace BU
             return lst;
         }
 
-        public static Restaurant GetOne(int id)
-        {
-            return GetAll().Find(x => x.id == id);
-        }
-
         public static List<Restaurant> GetByTypeCuisine(int id)
         {
             OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
@@ -108,12 +103,12 @@ namespace BU
         }
 
         public static void Delete(int id)
-        {            
-            Restaurant resto = RestaurantManager.GetOne(id);
+        {
+            Restaurant resto = RestaurantManager.GetAll().Find(x => x.id == id);
             CommentManager.DeleteByRestaurant(id);
             ReservationManager.DeleteByRestaurant(id);
             DataProvider.DeleteRestaurant(id);
-            HoraireManager.Delete(resto.idHoraire);
+            if (resto.idHoraire > 0) HoraireManager.Delete(resto.idHoraire);
         }
 
         public static List<Restaurant> Search(string s)

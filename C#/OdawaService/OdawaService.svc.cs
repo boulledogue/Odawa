@@ -81,5 +81,40 @@ namespace OdawaService
                 return true;
             }
         }
+
+        public void UpdateUtilisateur(Utilisateur u)
+        {
+            UtilisateurManager.Update(u);
+        }
+
+        public void DeleteUtilisateur(int id)
+        {
+            UtilisateurManager.Delete(id);
+        }
+
+        public void CreateComment(Comment c)
+        {
+            CommentManager.Create(c);
+        }
+
+        public void UpdateComment(Comment c)
+        {
+            CommentManager.Update(c);
+        }
+
+        public void DeleteComment(int id)
+        {
+            CommentManager.Delete(id);
+        }
+                
+        public void CreateReservation(Reservation r)
+        {
+            ReservationManager.Create(r);
+        }
+        
+        public void UpdateReservation(Reservation r)
+        {
+            ReservationManager.Update(r);
+        }
     }
 }

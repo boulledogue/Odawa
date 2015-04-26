@@ -50,6 +50,27 @@ namespace OdawaService
 
         [OperationContract]
         bool CreateUtilisateur(Utilisateur u);
+
+        [OperationContract]
+        void UpdateUtilisateur(Utilisateur u);
+
+        [OperationContract]
+        void DeleteUtilisateur(int id);
+
+        [OperationContract]
+        void CreateComment(Comment c);
+
+        [OperationContract]
+        void UpdateComment(Comment c);
+
+        [OperationContract]
+        void DeleteComment(int id);
+
+        [OperationContract]
+        void CreateReservation(Reservation r);
+
+        [OperationContract]
+        void UpdateReservation(Reservation r);
         // TODO: ajoutez vos opérations de service ici
     }
 
