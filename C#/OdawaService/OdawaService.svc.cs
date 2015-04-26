@@ -55,6 +55,11 @@ namespace OdawaService
             else return RestaurantManager.GetAll();
         }
 
+        public List<Restaurant> BestRestaurant()
+        {
+            return RestaurantManager.BestRestaurant();
+        }
+
         public bool AcceptLoginRestaurateur(string username, string password)
         {
             if (RestaurateurManager.AcceptLogin(username, password)) return true;

@@ -110,5 +110,15 @@ namespace BU
             }
             return lst;
         }
+
+        public static List<Restaurant> BestRestaurant()
+        {
+            List<Restaurant> lst = new List<Restaurant>();
+            foreach (int id in DataProvider.BestRestaurant())
+            {
+                lst.Add(GetAll().Find(x => x.id == id));
+            }
+            return lst;
+        }
     }
 }

@@ -228,6 +228,23 @@ namespace DAL
             WriteToDB("restaurants");
         }
 
+        public static List<int> BestRestaurant()
+        {
+            List<int> lst = new List<int>();
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["odawaConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                SqlDataReader dr;                
+                SqlCommand cm = new SqlCommand("select top 3 r.id from restaurants r left join reservations s on r.id=s.idRestaurant group by r.id order by count(s.id) DESC", conn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    lst.Add((int)dr["id"]);
+                }                
+            }
+            return lst;
+        }
+
         //------------- Restaurateurs
 
         public static void CreateRestaurateur(OdawaDS.restaurateursRow r)
