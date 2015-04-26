@@ -42,11 +42,6 @@ namespace BU
             return lst;
         }
 
-        public static Restaurateur GetOne(int id)
-        {
-            return GetAll().Find(x => x.id == id);
-        }
-
         public static void Update(Restaurateur r)
         {
             OdawaDS.restaurateursRow updRow = DataProvider.odawa.restaurateurs.NewrestaurateursRow();
@@ -67,15 +62,9 @@ namespace BU
 
         public static bool AcceptLogin(string username, string password)
         {
-            Restaurateur r = GetByUsername(username);            
+            Restaurateur r = GetAll().Find(x => x.username == username);            
             if (r != null && r.password == password) return true;
             return false;
-        }
-
-        public static Restaurateur GetByUsername(string username)
-        {
-            Restaurateur r = GetAll().Find(x => x.username == username);
-            return r;
         }
     }
 }

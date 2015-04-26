@@ -23,6 +23,7 @@ namespace BU
             newRow.phone = r.phone;
             newRow.idRestaurant = r.idRestaurant;
             newRow.statut = r.statut;
+            newRow.encodedDateTime = r.encodedDateTime;
             DataProvider.CreateReservation(newRow);
         }
         
@@ -43,37 +44,8 @@ namespace BU
                 r.phone = resRow.phone;
                 r.idRestaurant = resRow.idRestaurant;
                 r.statut = resRow.statut;
+                r.encodedDateTime = resRow.encodedDateTime;
                 lst.Add(r);
-            }
-            return lst;
-        }
-
-        public static Reservation GetOne(int id)
-        {
-            return GetAll().Find(x => x.id == id);
-        }
-
-        public static List<Reservation> GetByRestaurant(int id)
-        {
-            OdawaDS.reservationsDataTable dt = DataProvider.GetReservations();
-            List<Reservation> lst = new List<Reservation>();
-            foreach (OdawaDS.reservationsRow resRow in dt.Rows)
-            {
-                if (resRow.idRestaurant == id)
-                {
-                    Reservation r = new Reservation();
-                    r.id = resRow.id;
-                    r.nom = resRow.nom;
-                    r.prenom = resRow.prenom;
-                    r.date = resRow.date;
-                    r.typeService = resRow.typeService;
-                    r.nbPersonnes = resRow.nbPersonnes;
-                    r.email = resRow.email;
-                    r.phone = resRow.phone;
-                    r.idRestaurant = resRow.idRestaurant;
-                    r.statut = resRow.statut;
-                    lst.Add(r);
-                }
             }
             return lst;
         }

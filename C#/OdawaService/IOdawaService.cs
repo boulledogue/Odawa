@@ -31,6 +31,9 @@ namespace OdawaService
         List<Reservation> GetReservationByRestaurant(int id);
 
         [OperationContract]
+        List<Reservation> GetReservationEnAttente(int id);
+
+        [OperationContract]
         Restaurant GetRestaurant(int id);
 
         [OperationContract]
@@ -71,6 +74,7 @@ namespace OdawaService
 
         [OperationContract]
         void UpdateReservation(Reservation r);
+
         // TODO: ajoutez vos opérations de service ici
     }
 

@@ -42,11 +42,6 @@ namespace BU
             return lst;
         }
 
-        public static Administrateur GetOne(int id)
-        {
-            return GetAll().Find(x => x.id == id);
-        }
-
         public static void Update(Administrateur a)
         {
             OdawaDS.administrateursRow updRow = DataProvider.odawa.administrateurs.NewadministrateursRow();

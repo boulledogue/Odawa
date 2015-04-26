@@ -56,11 +56,6 @@ namespace BU
             return lst;
         }
 
-        public static Horaire GetOne(int id)
-        {
-            return GetAll().Find(x => x.id == id);
-        }
-
         public static void Update(Horaire h)
         {
             OdawaDS.horairesRow updRow = DataProvider.odawa.horaires.NewhorairesRow();

@@ -70,27 +70,5 @@ namespace BU
             }
             return false;
         }
-
-        /*
-        public static bool UserEmailExists(string email)
-        {
-            email = email.ToLower();
-            if (GetAll().Exists(x => x.email == email)) return true;
-            return false;
-        }
-
-        public static bool UserExists(string username)
-        {
-            username = username.ToLower();
-            if (GetAll().Exists(x => x.username == username)) return true;
-            return false;
-        }
-        
-        public static Utilisateur GetByUsername(string username)
-        {
-            username = username.ToLower();
-            Utilisateur u = GetAll().Find(x => x.username == username);
-            return u;
-        }*/
     }
 }

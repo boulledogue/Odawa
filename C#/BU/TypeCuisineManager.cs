@@ -31,11 +31,6 @@ namespace BU
             }
             return lst;
         }
-
-        public static TypeCuisine GetOne(int id)
-        {
-            return GetAll().Find(x => x.id == id);
-        }
         
         public static void Update(TypeCuisine t)
         {

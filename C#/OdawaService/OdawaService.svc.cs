@@ -26,17 +26,22 @@ namespace OdawaService
 
         public List<Restaurant> GetRestaurantByTypeCuisine(int id)
         {
-            return RestaurantManager.GetByTypeCuisine(id);
+            return RestaurantManager.GetAll().Where(x => x.idTypeCuisine == id).ToList();
         }
 
         public List<Comment> GetCommentByRestaurant(int id)
         {
-            return CommentManager.GetByRestaurant(id);
+            return CommentManager.GetAll().Where(x => x.idRestaurant == id).ToList();
         }
 
         public List<Reservation> GetReservationByRestaurant(int id)
         {
-            return ReservationManager.GetByRestaurant(id);
+            return ReservationManager.GetAll().Where(x => x.idRestaurant == id).ToList();
+        }
+
+        public List<Reservation> GetReservationEnAttente(int id)
+        {
+            return GetReservationByRestaurant(id).Where(x => x.statut == 1).ToList();
         }
 
         public Restaurant GetRestaurant(int id)
@@ -58,7 +63,7 @@ namespace OdawaService
 
         public Restaurateur GetRestaurateur(string username)
         {
-            return RestaurateurManager.GetByUsername(username);
+            return RestaurateurManager.GetAll().Find(x => x.username == username);
         }
 
         public bool AcceptLoginUtilisateur(string username, string password)

@@ -52,36 +52,7 @@ namespace BU
                 lst.Add(r);
             }
             return lst;
-        }
-
-        public static List<Restaurant> GetByTypeCuisine(int id)
-        {
-            OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
-            List<Restaurant> lst = new List<Restaurant>();
-            foreach (OdawaDS.restaurantsRow restoRow in dt.Rows)
-            {
-                if (restoRow.idTypeCuisine == id)
-                {
-                    Restaurant r = new Restaurant();
-                    r.id = restoRow.id;
-                    r.nom = restoRow.nom;
-                    r.adresse = restoRow.adresse;
-                    r.numero = restoRow.numero;
-                    r.zipCode = restoRow.zipCode;
-                    r.localite = restoRow.localite;
-                    r.description = restoRow.description;
-                    r.budgetLow = restoRow.budgetLow;
-                    r.budgetHigh = restoRow.budgetHigh;
-                    r.premium = restoRow.premium;
-                    r.idTypeCuisine = restoRow.idTypeCuisine;
-                    r.idRestaurateur = restoRow.idRestaurateur;
-                    r.idHoraire = restoRow.idHoraire;
-                    lst.Add(r);
-                }
-            }
-            return lst;
-        }
-        
+        }        
 
         public static void Update(Restaurant r)
         {
