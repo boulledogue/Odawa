@@ -158,6 +158,7 @@ CREATE TABLE [dbo].[reservations](
 	[phone] [varchar](10) NULL DEFAULT (NULL),
 	[idRestaurant] [int] NOT NULL,
 	[statut] [int] NOT NULL CONSTRAINT [DF_reservations_statut]  DEFAULT ((1)),
+	[encodedDateTime] [smalldatetime] NOT NULL DEFAULT(CURRENT_TIMESTAMP),
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
