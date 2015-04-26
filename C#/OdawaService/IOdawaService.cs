@@ -48,6 +48,8 @@ namespace OdawaService
         [OperationContract]
         Utilisateur GetUtilisateur(string username);
 
+        [OperationContract]
+        bool CreateUtilisateur(Utilisateur u);
         // TODO: ajoutez vos opérations de service ici
     }
 

@@ -21,19 +21,19 @@ namespace OdawaService
 
         public TypeCuisine GetTypeCuisine(int id)
         {
-            return TypeCuisineManager.GetOne(id);
+            return TypeCuisineManager.GetAll().Find(x => x.id == id);
         }
 
         public List<Restaurant> GetRestaurantByTypeCuisine(int id)
         {
-            if (id != 0) return RestaurantManager.GetByTypeCuisine(id);
-            else return null;
+            return RestaurantManager.GetByTypeCuisine(id);
         }
 
         public List<Comment> GetCommentByRestaurant(int id)
         {
             return CommentManager.GetByRestaurant(id);
         }
+
         public List<Reservation> GetReservationByRestaurant(int id)
         {
             return ReservationManager.GetByRestaurant(id);
@@ -41,7 +41,7 @@ namespace OdawaService
 
         public Restaurant GetRestaurant(int id)
         {
-            return RestaurantManager.GetOne(id);
+            return RestaurantManager.GetAll().Find(x => x.id == id);
         }
 
         public List<Restaurant> SearchRestaurant(string s)
@@ -52,13 +52,7 @@ namespace OdawaService
 
         public bool AcceptLoginRestaurateur(string username, string password)
         {
-            if (username != null && password != null) if (RestaurateurManager.AcceptLogin(username, password)) return true;
-            return false;
-        }
-
-        public bool AcceptLoginUtilisateur(string username, string password)
-        {
-            if (username != null && password != null) if (UtilisateurManager.AcceptLogin(username, password)) return true;
+            if (RestaurateurManager.AcceptLogin(username, password)) return true;
             return false;
         }
 
@@ -67,9 +61,25 @@ namespace OdawaService
             return RestaurateurManager.GetByUsername(username);
         }
 
+        public bool AcceptLoginUtilisateur(string username, string password)
+        {
+            if (UtilisateurManager.AcceptLogin(username, password)) return true;
+            return false;
+        }
+
         public Utilisateur GetUtilisateur(string username)
         {
-            return UtilisateurManager.GetByUsername(username);
+            return UtilisateurManager.GetAll().Find(x => x.username == username);
+        }
+
+        public bool CreateUtilisateur(Utilisateur u)
+        {
+            if (UtilisateurManager.GetAll().Exists(x => x.username == u.username) || UtilisateurManager.GetAll().Exists(x => x.email == u.email)) return false;
+            else
+            {
+                UtilisateurManager.Create(u);
+                return true;
+            }
         }
     }
 }

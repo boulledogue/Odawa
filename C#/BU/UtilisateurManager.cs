@@ -42,11 +42,6 @@ namespace BU
             return lst;
         }
 
-        public static Utilisateur GetOne(int id)
-        {
-            return GetAll().Find(x => x.id == id);
-        }
-
         public static void Update(Utilisateur u)
         {
             OdawaDS.utilisateursRow updRow = DataProvider.odawa.utilisateurs.NewutilisateursRow();
@@ -68,15 +63,34 @@ namespace BU
 
         public static bool AcceptLogin(string username, string password)
         {
-            Utilisateur u = GetByUsername(username);
-            if (u != null && u.password == password) return true;
+            if (GetAll().Exists(x => x.username == username))
+            {
+                Utilisateur u = GetAll().Find(x => x.username == username);
+                if (u.password == password) return true;
+            }
             return false;
         }
 
+        /*
+        public static bool UserEmailExists(string email)
+        {
+            email = email.ToLower();
+            if (GetAll().Exists(x => x.email == email)) return true;
+            return false;
+        }
+
+        public static bool UserExists(string username)
+        {
+            username = username.ToLower();
+            if (GetAll().Exists(x => x.username == username)) return true;
+            return false;
+        }
+        
         public static Utilisateur GetByUsername(string username)
         {
+            username = username.ToLower();
             Utilisateur u = GetAll().Find(x => x.username == username);
             return u;
-        }
+        }*/
     }
 }
