@@ -297,7 +297,7 @@ GO
 SET IDENTITY_INSERT [dbo].[reservations] ON 
 
 GO
-INSERT [dbo].[reservations] ([id], [nom], [prenom], [date], [typeService], [nbPersonnes], [email], [phone], [idRestaurant]) VALUES (1, N'LATAUPE', N'René', CAST(N'2015-06-30' AS Date), 1, 12, N'renelataupe@ausecours.be', N'0123456789', 2)
+INSERT [dbo].[reservations] ([id], [nom], [prenom], [date], [typeService], [nbPersonnes], [email], [phone], [idRestaurant], [statut], [encodedDateTime]) VALUES (1, N'LATAUPE', N'René', CAST(N'2015-06-30' AS Date), 1, 12, N'renelataupe@ausecours.be', N'0123456789', 2, 1, CURRENT_TIMESTAMP)
 GO
 SET IDENTITY_INSERT [dbo].[reservations] OFF
 GO
