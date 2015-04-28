@@ -18,7 +18,7 @@ namespace BU.Entities
         public string email { get; set; }
         public string phone { get; set; }
         public int idRestaurant { get; set; }
-        public int statut { get; set; }
+        public int status { get; set; }
         public DateTime encodedDateTime { get; set; }
     }
 }

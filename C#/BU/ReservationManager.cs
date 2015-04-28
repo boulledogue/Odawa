@@ -22,7 +22,7 @@ namespace BU
             newRow.email = r.email;
             newRow.phone = r.phone;
             newRow.idRestaurant = r.idRestaurant;
-            newRow.statut = r.statut;
+            newRow.status = r.status;
             newRow.encodedDateTime = r.encodedDateTime;
             DataProvider.CreateReservation(newRow);
         }
@@ -43,7 +43,7 @@ namespace BU
                 r.email = resRow.email;
                 r.phone = resRow.phone;
                 r.idRestaurant = resRow.idRestaurant;
-                r.statut = resRow.statut;
+                r.status = resRow.status;
                 r.encodedDateTime = resRow.encodedDateTime;
                 lst.Add(r);
             }
@@ -62,7 +62,7 @@ namespace BU
             updRow.email = r.email;
             updRow.phone = r.phone;
             updRow.idRestaurant = r.idRestaurant;
-            updRow.statut = r.statut;
+            updRow.status = r.status;
             DataProvider.UpdateReservation(updRow);
         }
 
