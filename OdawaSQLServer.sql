@@ -1,6 +1,6 @@
-.USE [master]
+USE [master]
 GO
-/****** Object:  Database [odawa]    Script Date: 24/04/2015 11:57:32 ******/
+
 CREATE DATABASE [odawa]
 
 GO
@@ -71,7 +71,7 @@ ALTER DATABASE [odawa] SET DELAYED_DURABILITY = DISABLED
 GO
 USE [odawa]
 GO
-/****** Object:  Table [dbo].[administrateurs]    Script Date: 24/04/2015 11:57:32 ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -95,7 +95,7 @@ PRIMARY KEY CLUSTERED
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[comments]    Script Date: 24/04/2015 11:57:32 ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,27 +112,27 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[horaires]    Script Date: 24/04/2015 11:57:32 ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[horaires](
 	[id] [int] IDENTITY(1,1) NOT NULL,
-	[mondayOpen] [time](0) NULL DEFAULT (NULL),
-	[mondayClose] [time](0) NULL DEFAULT (NULL),
-	[tuesdayOpen] [time](0) NULL DEFAULT (NULL),
-	[tuesdayClose] [time](0) NULL DEFAULT (NULL),
-	[wednesdayOpen] [time](0) NULL DEFAULT (NULL),
-	[wednesdayClose] [time](0) NULL DEFAULT (NULL),
-	[thursdayOpen] [time](0) NULL DEFAULT (NULL),
-	[thursdayClose] [time](0) NULL DEFAULT (NULL),
-	[fridayOpen] [time](0) NULL DEFAULT (NULL),
-	[fridayClose] [time](0) NULL DEFAULT (NULL),
-	[saturdayOpen] [time](0) NULL DEFAULT (NULL),
-	[saturdayClose] [time](0) NULL DEFAULT (NULL),
-	[sundayOpen] [time](0) NULL DEFAULT (NULL),
-	[sundayClose] [time](0) NULL DEFAULT (NULL),
+	[mondayOpen] [time](0) NOT NULL,
+	[mondayClose] [time](0) NOT NULL,
+	[tuesdayOpen] [time](0) NOT NULL,
+	[tuesdayClose] [time](0) NOT NULL,
+	[wednesdayOpen] [time](0) NOT NULL,
+	[wednesdayClose] [time](0) NOT NULL,
+	[thursdayOpen] [time](0) NOT NULL,
+	[thursdayClose] [time](0) NOT NULL,
+	[fridayOpen] [time](0) NOT NULL,
+	[fridayClose] [time](0) NOT NULL,
+	[saturdayOpen] [time](0) NOT NULL,
+	[saturdayClose] [time](0) NOT NULL,
+	[sundayOpen] [time](0) NOT NULL,
+	[sundayClose] [time](0) NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -140,7 +140,7 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[reservations]    Script Date: 24/04/2015 11:57:32 ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -157,7 +157,7 @@ CREATE TABLE [dbo].[reservations](
 	[email] [varchar](50) NULL DEFAULT (NULL),
 	[phone] [varchar](10) NULL DEFAULT (NULL),
 	[idRestaurant] [int] NOT NULL,
-	[statut] [int] NOT NULL CONSTRAINT [DF_reservations_statut]  DEFAULT ((1)),
+	[status] [int] NOT NULL CONSTRAINT [DF_reservations_statut]  DEFAULT ((1)),
 	[encodedDateTime] [smalldatetime] NOT NULL DEFAULT(CURRENT_TIMESTAMP),
 PRIMARY KEY CLUSTERED 
 (
@@ -168,7 +168,7 @@ PRIMARY KEY CLUSTERED
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[restaurants]    Script Date: 24/04/2015 11:57:32 ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -182,13 +182,13 @@ CREATE TABLE [dbo].[restaurants](
 	[numero] [varchar](5) NOT NULL,
 	[zipCode] [varchar](4) NOT NULL,
 	[localite] [varchar](50) NOT NULL,
-	[description] [text] NULL DEFAULT (NULL),
-	[budgetLow] [int] NULL DEFAULT (NULL),
-	[budgetHigh] [int] NULL DEFAULT (NULL),
+	[description] [text] NOT NULL DEFAULT ('La description du restaurant n''a pas été complétée.'),
+	[budgetLow] [int] NOT NULL,
+	[budgetHigh] [int] NOT NULL,
 	[premium] [bit] NOT NULL DEFAULT ('0'),
-	[idTypeCuisine] [int] NULL DEFAULT (NULL),
+	[idTypeCuisine] [int] NOT NULL,
 	[idRestaurateur] [int] NOT NULL,
-	[idHoraire] [int] NULL DEFAULT (NULL),
+	[idHoraire] [int] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -198,7 +198,7 @@ PRIMARY KEY CLUSTERED
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[restaurateurs]    Script Date: 24/04/2015 11:57:32 ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -211,8 +211,8 @@ CREATE TABLE [dbo].[restaurateurs](
 	[prenom] [varchar](30) NOT NULL,
 	[username] [varchar](30) NOT NULL,
 	[password] [varchar](30) NOT NULL,
-	[email] [varchar](50) NULL DEFAULT (NULL),
-	[phone] [varchar](10) NULL DEFAULT (NULL),
+	[email] [varchar](50) NOT NULL,
+	[phone] [varchar](10) NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -226,7 +226,7 @@ UNIQUE NONCLUSTERED
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[typescuisine]    Script Date: 24/04/2015 11:57:32 ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -249,7 +249,7 @@ UNIQUE NONCLUSTERED
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[utilisateurs]    Script Date: 24/04/2015 11:57:32 ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -272,84 +272,6 @@ PRIMARY KEY CLUSTERED
 
 GO
 SET ANSI_PADDING OFF
-GO
-
-SET IDENTITY_INSERT [dbo].[administrateurs] ON 
-
-GO
-INSERT [dbo].[administrateurs] ([id], [nom], [prenom], [username], [password], [email], [phone]) VALUES (1, N'CHARETTE', N'Denis', N'dcr', N'1234', N'denis@odawa.be', N'0123456')
-GO
-INSERT [dbo].[administrateurs] ([id], [nom], [prenom], [username], [password], [email], [phone]) VALUES (2, N'DAL', N'Kevin', N'dke', N'1234', N'kevin@odawa.be', N'6543210')
-GO
-INSERT [dbo].[administrateurs] ([id], [nom], [prenom], [username], [password], [email], [phone]) VALUES (3, N'GUERET', N'Laurent', N'lgu', N'1234', N'laurent@odawa.be', N'024680')
-GO
-SET IDENTITY_INSERT [dbo].[administrateurs] OFF
-GO
-SET IDENTITY_INSERT [dbo].[comments] ON 
-
-GO
-INSERT [dbo].[comments] ([id], [commentaire], [idUtilisateur], [idRestaurant]) VALUES (1, N'D''la bombe, bébé!', 1, 1)
-GO
-INSERT [dbo].[comments] ([id], [commentaire], [idUtilisateur], [idRestaurant]) VALUES (2, N'Enorme!', 2, 1)
-GO
-SET IDENTITY_INSERT [dbo].[comments] OFF
-GO
-SET IDENTITY_INSERT [dbo].[reservations] ON 
-
-GO
-INSERT [dbo].[reservations] ([id], [nom], [prenom], [date], [typeService], [nbPersonnes], [email], [phone], [idRestaurant], [statut], [encodedDateTime]) VALUES (1, N'LATAUPE', N'René', CAST(N'2015-06-30' AS Date), 1, 12, N'renelataupe@ausecours.be', N'0123456789', 2, 1, CURRENT_TIMESTAMP)
-GO
-SET IDENTITY_INSERT [dbo].[reservations] OFF
-GO
-SET IDENTITY_INSERT [dbo].[restaurants] ON 
-
-GO
-INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (1, N'La Grosse Bouffe', N'Rue de l''Indigestion', N'1', N'6200', N'Bouffioulx', N'Ici, on bouffe tout', 100, 500, 1, 1, 1, 1)
-GO
-INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (2, N'Chez Gaby', N'Square Léopold', N'1', N'5000', N'Namur', N'La meilleure friterie de Namur!', 10, 20, 0, 3, 2, 2)
-GO
-SET IDENTITY_INSERT [dbo].[restaurants] OFF
-GO
-SET IDENTITY_INSERT [dbo].[horaires] ON 
-
-GO
-INSERT [dbo].[horaires] ([id], [mondayOpen], [mondayClose], [tuesdayOpen], [tuesdayClose], [wednesdayOpen], [wednesdayClose], [thursdayOpen], [thursdayClose], [fridayOpen], [fridayClose]) VALUES (1, '08:00', '20:00', '08:00', '20:00', '08:00', '20:00', '08:00', '20:00', '08:00', '21:00');
-GO
-INSERT [dbo].[horaires] ([id], [tuesdayOpen], [tuesdayClose], [wednesdayOpen], [wednesdayClose], [thursdayOpen], [thursdayClose], [fridayOpen], [fridayClose], [saturdayOpen], [saturdayClose], [sundayOpen], [sundayClose]) VALUES (2, '11:30', '20:00', '11:30', '20:00', '11:30', '20:00', '11:30', '20:00', '11:30', '21:00', '11:30', '21:00');
-GO
-SET IDENTITY_INSERT [dbo].[horaires] OFF
-GO
-SET IDENTITY_INSERT [dbo].[restaurateurs] ON 
-
-GO
-INSERT [dbo].[restaurateurs] ([id], [nom], [prenom], [username], [password], [email], [phone]) VALUES (1, N'BOCUSE', N'Paul', N'pbo', N'1234', N'paul@bocuse.fr', N'0123456789')
-GO
-INSERT [dbo].[restaurateurs] ([id], [nom], [prenom], [username], [password], [email], [phone]) VALUES (2, N'BALLE', N'Emile', N'eba', N'1234', N'gaby@namur.be', N'081212121')
-GO
-SET IDENTITY_INSERT [dbo].[restaurateurs] OFF
-GO
-SET IDENTITY_INSERT [dbo].[typescuisine] ON 
-
-GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (1, N'Chinoise')
-GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (2, N'Française')
-GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (3, N'Snack')
-GO
-SET IDENTITY_INSERT [dbo].[typescuisine] OFF
-GO
-SET IDENTITY_INSERT [dbo].[utilisateurs] ON 
-
-GO
-INSERT [dbo].[utilisateurs] ([id], [nom], [prenom], [username], [password], [email], [phone]) VALUES (1, N'GATES', N'Bill', N'bga', N'1234', N'bilou@microsoft.com', N'0123456789')
-GO
-INSERT [dbo].[utilisateurs] ([id], [nom], [prenom], [username], [password], [email], [phone]) VALUES (2, N'JOBS', N'Steve', N'sjo', N'1234', N'stevie@apple.com', N'9876543210')
-GO
-SET IDENTITY_INSERT [dbo].[utilisateurs] OFF
-GO
-SET ANSI_PADDING ON
-
 GO
 
 ALTER TABLE [dbo].[comments]  WITH CHECK ADD  CONSTRAINT [comments_restaurants] FOREIGN KEY([idRestaurant])
