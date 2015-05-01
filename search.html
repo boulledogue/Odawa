@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Template</title>
+  <link href="css/yeti.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Odawa</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <p class="navbar-text navbar-text-debug">Restaurant,Snack,Bar,...</p>
+          <li><span>&nbsp;</span></li>
+          <li><a href="list.html">Restaurants</a></li>
+          <li><a href="list.html">Snacks</a></li>
+          <li class="last"><a href="list.html">Bars</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <p class="navbar-text hello-debug"> Bienvenu M. Trucmuche </p>
+          <li><a href="gestion.html"> Gestion du Compte </a></li>
+          <li><a href="search.html"> Recherche </a></li>
+          <li class="last"><a href="connect.html"> Connection </a></li>
+          <!-- Oui, j'ai honte d'avoir utilisé cette méthode! J'en dors même mal la nuit ^^''' -->
+          <li><span>&nbsp;</span></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container ocnt">
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="form-group">
+            <div class="input-group debug-search">
+              <div class="input-group-addon">Recherche :</div>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Localisation</th>
+              <th>Type de cuisine</th>
+              <th>Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="restaurant.html">La Frikadelle</a></td>
+              <td>Namur</td>
+              <td>Turque</td>
+              <th><span class="badge">P</span></th>
+            </tr>
+            <tr>
+              <td><a href="restaurant.html">Le Stromboli</a></td>
+              <td>Namur</td>
+              <td>Italien</td>
+              <th><span class="badge">P</span></th>
+            </tr>
+            <tr>
+              <td><a href="restaurant.html">Le Dogalos</a></td>
+              <td>Namur</td>
+              <td>Grecque</td>
+              <th></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nav>
+        <ul class="pagination">
+          <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="text-muted"><span>Odawa</span></p>
+    </div>
+  </footer>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
