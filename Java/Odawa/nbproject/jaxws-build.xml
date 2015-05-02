@@ -28,7 +28,7 @@
     </target>
     <target name="wsimport-client-OdawaService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/OdawaService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/OdawaService" destdir="${build.generated.dir}/jax-wsCache/OdawaService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/OdawaService/wsdl/localhost_51140/OdawaService.svc.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:51140/OdawaService.svc?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/OdawaService" destdir="${build.generated.dir}/jax-wsCache/OdawaService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/OdawaService/wsdl/localhost_51140/OdawaService.svc.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:51140/OdawaService.svc?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/OdawaService/wsdl/localhost_51140/OdawaService.svc.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/OdawaService"/>
         </wsimport>

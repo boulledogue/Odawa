@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+  
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>Index</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>Search</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Restaurant</servlet-name>
+        <servlet-class>Restaurant</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Gestion</servlet-name>
+        <servlet-class>Gestion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Connect</servlet-name>
+        <servlet-class>Connect</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Restaurant</servlet-name>
+        <url-pattern>/Restaurant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Gestion</servlet-name>
+        <url-pattern>/Gestion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Connect</servlet-name>
+        <url-pattern>/Connect</url-pattern>
+    </servlet-mapping>
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+</web-app>
