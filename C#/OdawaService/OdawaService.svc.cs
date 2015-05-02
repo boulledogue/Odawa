@@ -146,5 +146,20 @@ namespace OdawaService
         {
             ReservationManager.Update(r);
         }
+
+        public void CreateRestaurant(Restaurant r)
+        {
+            RestaurantManager.Create(r);
+        }
+
+        public void UpdateRestaurant(Restaurant r)
+        {
+            RestaurantManager.Update(r);
+        }
+
+        public void DeleteRestaurant(int id)
+        {
+            RestaurantManager.Delete(id);
+        }
     }
 }

@@ -10,9 +10,52 @@ import org.datacontract.schemas._2004._07.bu.*;
 
 /**
  *
- * @author Alistreaza
+ * @author Denis Charette
  */
 public class ModelsMapping {
+    
+    public static void createReservation(Reservation r) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.createReservation(r);
+    }
+    
+    public static ArrayList<ReservationJ> getReservationByRestaurant(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        List<Reservation> lstR =  port.getReservationByRestaurant(id).getReservation();
+        ArrayList<ReservationJ> arrayReservationJ = new ArrayList<ReservationJ>();
+        for(Reservation r : lstR){
+            ReservationJ res = new ReservationJ();
+            res.setId(r.getId());
+            res.setNom(r.getNom().getValue());
+            res.setPrenom(r.getPrenom().getValue());
+            res.setDate(r.getDate().toGregorianCalendar().getTime());
+            res.setTypeService(r.isTypeService());
+            res.setNbPersonnes(r.getNbPersonnes());
+            res.setEmail(r.getEmail().getValue());
+            res.setPhone(r.getPhone().getValue());
+            res.setIdRestaurant(r.getIdRestaurant());
+            res.setStatus(r.getStatus());
+            res.setEncodedDateTime(r.getEncodedDateTime().toGregorianCalendar().getTime());
+            arrayReservationJ.add(res);
+        }
+        return arrayReservationJ;
+    }
+    
+    public static void updateReservation(Reservation r) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.updateReservation(r);
+    }
+    
+    //------------------------
+    
+    public static void createRestaurant(Restaurant r) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.createRestaurant(r);
+    }
     
     public static ArrayList<RestaurantJ> SearchRestaurant(String s) {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
@@ -38,5 +81,16 @@ public class ModelsMapping {
         }
         return arrayRestaurantJ;
     }
-    
+
+    public static void updateRestaurant(Restaurant r) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.updateRestaurant(r);
+    }
+
+    public static void deleteRestaurant(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.deleteRestaurant(id);
+    }
 }

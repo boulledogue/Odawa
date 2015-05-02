@@ -90,6 +90,15 @@ namespace OdawaService
         [OperationContract]
         void UpdateReservation(Reservation r);
 
+        [OperationContract]
+        void CreateRestaurant(Restaurant r);
+
+        [OperationContract]
+        void UpdateRestaurant(Restaurant r);
+
+        [OperationContract]
+        void DeleteRestaurant(int id);
+
         // TODO: ajoutez vos opérations de service ici
     }
 

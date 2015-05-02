@@ -20,6 +20,7 @@ public class RestaurantJ {
     private int budgetLow;
     private int budgetHigh;
     private boolean premium;
+    private int genre;
     private int idTypeCuisine;
     private int idRestaurateur;
     private int idHoraire;
@@ -50,6 +51,7 @@ public class RestaurantJ {
     public void setBudgetLow(int budgetLow) { this.budgetLow = budgetLow; }
     public void setBudgetHigh(int budgetHigh) { this.budgetHigh = budgetHigh; }
     public void setPremium(boolean premium) { this.premium = premium; }
+    public void setGenre(int genre) { this.genre = genre; }
     public void setIdTypeCuisine(int idTypeCuisine) { this.idTypeCuisine = idTypeCuisine; }
     public void setIdRestaurateur(int idRestaurateur) { this.idRestaurateur = idRestaurateur; }
     public void setIdHoraire(int idHoraire) { this.idHoraire = idHoraire; }
@@ -64,6 +66,7 @@ public class RestaurantJ {
     public int getBudgetLow() { return this.budgetLow; }
     public int getBudgetHigh() { return this.budgetHigh; }
     public boolean getPremium() { return this.premium; }
+    public int getGenre() { return this.genre; }
     public int getIdTypeCuisine() { return this.idTypeCuisine; }
     public int getIdRestaurateur() { return this.idRestaurateur; }
     public int getIdHoraire() { return this.idHoraire; }
