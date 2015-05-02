@@ -22,6 +22,12 @@ namespace OdawaService
         TypeCuisine GetTypeCuisine(int id);
 
         [OperationContract]
+        List<Restaurant> GetAllRestaurant();
+
+        [OperationContract]
+        List<Restaurant> GetAllSnack();
+        
+        [OperationContract]
         List<Restaurant> GetRestaurantByTypeCuisine(int id);
 
         [OperationContract]
@@ -31,7 +37,13 @@ namespace OdawaService
         List<Reservation> GetReservationByRestaurant(int id);
 
         [OperationContract]
-        List<Reservation> GetReservationEnAttente(int id);
+        List<Reservation> GetReservationsEnAttente(int id);
+
+        [OperationContract]
+        List<Reservation> GetReservationsAcceptees(int id);
+
+        [OperationContract]
+        List<Reservation> GetReservationsRefusees(int id);
 
         [OperationContract]
         Restaurant GetRestaurant(int id);

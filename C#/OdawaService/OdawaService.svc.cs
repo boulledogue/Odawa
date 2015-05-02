@@ -24,6 +24,16 @@ namespace OdawaService
             return TypeCuisineManager.GetAll().Find(x => x.id == id);
         }
 
+        public List<Restaurant> GetAllRestaurant()
+        {
+            return RestaurantManager.GetAll().Where(x => x.genre == 1).ToList();
+        }
+
+        public List<Restaurant> GetAllSnack()
+        {
+            return RestaurantManager.GetAll().Where(x => x.genre == 2).ToList();
+        }
+
         public List<Restaurant> GetRestaurantByTypeCuisine(int id)
         {
             return RestaurantManager.GetAll().Where(x => x.idTypeCuisine == id).ToList();
@@ -39,9 +49,19 @@ namespace OdawaService
             return ReservationManager.GetAll().Where(x => x.idRestaurant == id).ToList();
         }
 
-        public List<Reservation> GetReservationEnAttente(int id)
+        public List<Reservation> GetReservationsEnAttente(int id)
         {
             return GetReservationByRestaurant(id).Where(x => x.status == 1).ToList();
+        }
+
+        public List<Reservation> GetReservationsAcceptees(int id)
+        {
+            return GetReservationByRestaurant(id).Where(x => x.status == 2).ToList();
+        }
+
+        public List<Reservation> GetReservationsRefusees(int id)
+        {
+            return GetReservationByRestaurant(id).Where(x => x.status == 3).ToList();
         }
 
         public Restaurant GetRestaurant(int id)
