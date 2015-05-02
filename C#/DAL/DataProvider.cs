@@ -216,6 +216,7 @@ namespace DAL
             odawa.restaurants.FindByid(r.id).description = r.description;
             odawa.restaurants.FindByid(r.id).budgetLow = r.budgetHigh;
             odawa.restaurants.FindByid(r.id).premium = r.premium;
+            odawa.restaurants.FindByid(r.id).genre = r.genre;
             odawa.restaurants.FindByid(r.id).idTypeCuisine = r.idTypeCuisine;
             odawa.restaurants.FindByid(r.id).idRestaurateur = r.idRestaurateur;
             odawa.restaurants.FindByid(r.id).idHoraire = r.idHoraire;

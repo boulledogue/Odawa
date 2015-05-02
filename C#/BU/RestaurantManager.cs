@@ -23,6 +23,7 @@ namespace BU
             newRow.budgetLow = r.budgetLow;
             newRow.budgetHigh = r.budgetHigh;
             newRow.premium = r.premium;
+            newRow.genre = r.genre;
             newRow.idTypeCuisine = r.idTypeCuisine;
             newRow.idRestaurateur = r.idRestaurateur;
             newRow.idHoraire = r.idHoraire;
@@ -46,6 +47,7 @@ namespace BU
                 r.budgetLow = restoRow.budgetLow;
                 r.budgetHigh = restoRow.budgetHigh;
                 r.premium = restoRow.premium;
+                r.genre = restoRow.genre;
                 r.idTypeCuisine = restoRow.idTypeCuisine;
                 r.idRestaurateur = restoRow.idRestaurateur;
                 r.idHoraire = restoRow.idHoraire;
@@ -67,6 +69,7 @@ namespace BU
             updRow.budgetLow = r.budgetLow;
             updRow.budgetHigh = r.budgetHigh;
             updRow.premium = r.premium;
+            updRow.genre = r.genre;
             updRow.idTypeCuisine = r.idTypeCuisine;
             updRow.idRestaurateur = r.idRestaurateur;
             updRow.idHoraire = r.idHoraire;
@@ -102,6 +105,7 @@ namespace BU
                     r.budgetLow = restoRow.budgetLow;
                     r.budgetHigh = restoRow.budgetHigh;
                     r.premium = restoRow.premium;
+                    r.genre = restoRow.genre;
                     r.idTypeCuisine = restoRow.idTypeCuisine;
                     r.idRestaurateur = restoRow.idRestaurateur;
                     r.idHoraire = restoRow.idHoraire;

@@ -41,7 +41,7 @@ namespace OdawaService
 
         public List<Reservation> GetReservationEnAttente(int id)
         {
-            return GetReservationByRestaurant(id).Where(x => x.statut == 1).ToList();
+            return GetReservationByRestaurant(id).Where(x => x.status == 1).ToList();
         }
 
         public Restaurant GetRestaurant(int id)

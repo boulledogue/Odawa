@@ -18,6 +18,7 @@ namespace BU.Entities
         public int budgetLow { get; set; }
         public int budgetHigh { get; set; }
         public bool premium { get; set; }
+        public int genre { get; set; }
         public int idTypeCuisine { get; set; }
         public int idRestaurateur { get; set; }
         public int idHoraire { get; set; }
