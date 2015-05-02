@@ -78,15 +78,15 @@ GO
 SET IDENTITY_INSERT [dbo].[restaurants] ON 
 
 GO
-INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (1, N'La Grosse Bouffe', N'Rue de l''Indigestion', N'1', N'6200', N'Bouffioulx', N'Ici, on bouffe tout', 100, 500, 1, 1, 1, 1)
+INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [genre], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (1, N'La Grosse Bouffe', N'Rue de l''Indigestion', N'1', N'6200', N'Bouffioulx', N'Ici, on bouffe tout', 100, 500, 1, 1, 1, 1, 1)
 GO
-INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (2, N'Chez Gaby', N'Square Léopold', N'1', N'5000', N'Namur', N'La meilleure friterie de Namur!', 10, 20, 0, 3, 2, 2)
+INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [genre], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (2, N'Chez Gaby', N'Square Léopold', N'1', N'5000', N'Namur', N'La meilleure friterie de Namur!', 10, 20, 0, 2, 3, 2, 2)
 GO
-INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (3, N'Le Myconos', N'Rue de la Halle', N'8', N'5000', N'Namur', N'La crise, connait pas!', 30, 50, 1, 8, 3, 3)
+INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [genre], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (3, N'Le Myconos', N'Rue de la Halle', N'8', N'5000', N'Namur', N'La crise, connait pas!', 30, 50, 1, 1, 8, 3, 3)
 GO
-INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (4, N'Comme Chez Soi', N'Impasse de la loose', N'6', N'7000', N'Mons', N'Vous pouvez même faire la vaisselle', 50, 100, 0, 3, 4, 4)
+INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [genre], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (4, N'Comme Chez Soi', N'Impasse de la loose', N'6', N'7000', N'Mons', N'Vous pouvez même faire la vaisselle', 50, 100, 0, 1, 3, 4, 4)
 GO
-INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (5, N'J''ai plus d''idée', N'Rue du Trou de Mémoire', N'5', N'1000', N'Bruxelles', N'heuuuu', 60, 80, 0, 6, 5, 5)
+INSERT [dbo].[restaurants] ([id], [nom], [adresse], [numero], [zipCode], [localite], [description], [budgetLow], [budgetHigh], [premium], [genre], [idTypeCuisine], [idRestaurateur], [idHoraire]) VALUES (5, N'J''ai plus d''idée', N'Rue du Trou de Mémoire', N'5', N'1000', N'Bruxelles', N'heuuuu', 60, 80, 0, 1, 6, 5, 5)
 GO
 SET IDENTITY_INSERT [dbo].[restaurants] OFF
 GO

@@ -186,6 +186,7 @@ CREATE TABLE [dbo].[restaurants](
 	[budgetLow] [int] NOT NULL,
 	[budgetHigh] [int] NOT NULL,
 	[premium] [bit] NOT NULL DEFAULT ('0'),
+	[genre] [int] NOT NULL DEFAULT ('1'),
 	[idTypeCuisine] [int] NOT NULL,
 	[idRestaurateur] [int] NOT NULL,
 	[idHoraire] [int] NOT NULL,
