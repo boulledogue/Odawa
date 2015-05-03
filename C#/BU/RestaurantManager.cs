@@ -58,6 +58,7 @@ namespace BU
 
         public static void Update(Restaurant r)
         {
+            OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
             OdawaDS.restaurantsRow updRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
             updRow.id = r.id;
             updRow.nom = r.nom;

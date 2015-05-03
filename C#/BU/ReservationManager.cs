@@ -52,6 +52,7 @@ namespace BU
 
         public static void Update(Reservation r)
         {
+            OdawaDS.reservationsDataTable dt = DataProvider.GetReservations();
             OdawaDS.reservationsRow updRow = DataProvider.odawa.reservations.NewreservationsRow();
             updRow.id = r.id;
             updRow.nom = r.nom;

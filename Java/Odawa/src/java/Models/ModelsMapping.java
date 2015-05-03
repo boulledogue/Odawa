@@ -6,6 +6,8 @@
 package Models;
 
 import java.util.*;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
 import org.datacontract.schemas._2004._07.bu.*;
 
 /**
@@ -14,7 +16,69 @@ import org.datacontract.schemas._2004._07.bu.*;
  */
 public class ModelsMapping {
     
-    public static void createReservation(Reservation r) {
+    //---------Comments
+    
+    public static void createComment(CommentJ cj) {
+        ObjectFactory o = new ObjectFactory();
+        Comment c = new Comment();
+        c.setCommentaire(o.createCommentCommentaire(cj.getCommentaire()));
+        c.setIdRestaurant(cj.getIdRestaurant());
+        c.setIdUtilisateur(cj.getIdUtilisateur());
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.createComment(c);
+    }
+    
+    public static ArrayList<CommentJ> getCommentByRestaurant(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        List<Comment> lstC =  port.getCommentByRestaurant(id).getComment();
+        ArrayList<CommentJ> arrayCommentJ = new ArrayList<CommentJ>();
+        for (Comment c : lstC){
+            CommentJ com = new CommentJ();
+            com.setId(c.getId());
+            com.setCommentaire(c.getCommentaire().getValue());
+            com.setIdRestaurant(c.getIdRestaurant());
+            com.setIdUtilisateur(c.getIdUtilisateur());
+            arrayCommentJ.add(com);
+        }
+        return arrayCommentJ;
+    }
+    
+    public static void updateComment(CommentJ cj) {
+        ObjectFactory o = new ObjectFactory();
+        Comment c = new Comment();
+        c.setId(cj.getId());
+        c.setCommentaire(o.createCommentCommentaire(cj.getCommentaire()));
+        c.setIdRestaurant(cj.getIdRestaurant());
+        c.setIdUtilisateur(cj.getIdUtilisateur());
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.updateComment(c);
+    }
+    
+    public static void deleteComment(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.deleteComment(id);
+    }
+    
+    //---------Reservations
+    
+    public static void createReservation(ReservationJ rj) throws DatatypeConfigurationException {
+        ObjectFactory o = new ObjectFactory();
+        DatatypeFactory datatypes = DatatypeFactory.newInstance(); 
+        Reservation r = new Reservation();
+        r.setNom(o.createReservationNom(rj.getNom()));
+        r.setPrenom(o.createReservationPrenom(rj.getPrenom()));
+        r.setDate(datatypes.newXMLGregorianCalendar(rj.getDate().toString()));
+        r.setTypeService(rj.getTypeService());
+        r.setNbPersonnes(rj.getNbPersonnes());
+        r.setEmail(o.createReservationEmail(rj.getEmail()));
+        r.setPhone(o.createReservationPhone(rj.getPhone()));
+        r.setIdRestaurant(rj.getIdRestaurant());
+        r.setStatus(rj.getStatus());
+        r.setEncodedDateTime(datatypes.newXMLGregorianCalendar(rj.getEncodedDateTime().toString()));
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.createReservation(r);
@@ -43,15 +107,44 @@ public class ModelsMapping {
         return arrayReservationJ;
     }
     
-    public static void updateReservation(Reservation r) {
+    public static void updateReservation(ReservationJ rj) throws DatatypeConfigurationException {
+        ObjectFactory o = new ObjectFactory();
+        DatatypeFactory datatypes = DatatypeFactory.newInstance();
+        Reservation r = new Reservation();
+        r.setId(rj.getId());
+        r.setNom(o.createReservationNom(rj.getNom()));
+        r.setPrenom(o.createReservationPrenom(rj.getPrenom()));
+        r.setDate(datatypes.newXMLGregorianCalendar(rj.getDate().toString()));
+        r.setTypeService(rj.getTypeService());
+        r.setNbPersonnes(rj.getNbPersonnes());
+        r.setEmail(o.createReservationEmail(rj.getEmail()));
+        r.setPhone(o.createReservationPhone(rj.getPhone()));
+        r.setIdRestaurant(rj.getIdRestaurant());
+        r.setStatus(rj.getStatus());
+        r.setEncodedDateTime(datatypes.newXMLGregorianCalendar(rj.getEncodedDateTime().toString()));
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.updateReservation(r);
     }
     
-    //------------------------
+    //---------Restaurants
     
-    public static void createRestaurant(Restaurant r) {
+    public static void createRestaurant(RestaurantJ rj) {
+        ObjectFactory o = new ObjectFactory();
+        Restaurant r = new Restaurant();
+        r.setNom(o.createRestaurantNom(rj.getNom()));
+        r.setAdresse(o.createRestaurantAdresse(rj.getAdresse()));
+        r.setNumero(o.createRestaurantNumero(rj.getNumero()));
+        r.setZipCode(o.createRestaurantZipCode(rj.getZipCode()));
+        r.setLocalite(o.createRestaurantLocalite(rj.getLocalite()));
+        r.setDescription(o.createRestaurantDescription(rj.getDescription()));
+        r.setBudgetLow(rj.getBudgetLow());
+        r.setBudgetHigh(rj.getBudgetHigh());
+        r.setPremium(rj.getPremium());
+        r.setGenre(rj.getGenre());
+        r.setIdTypeCuisine(rj.getIdTypeCuisine());
+        r.setIdRestaurateur(rj.getIdRestaurateur());
+        r.setIdHoraire(rj.getIdHoraire());
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.createRestaurant(r);
@@ -82,7 +175,23 @@ public class ModelsMapping {
         return arrayRestaurantJ;
     }
 
-    public static void updateRestaurant(Restaurant r) {
+    public static void updateRestaurant(RestaurantJ rj) {
+        ObjectFactory o = new ObjectFactory();
+        Restaurant r = new Restaurant();
+        r.setId(rj.getId());
+        r.setNom(o.createRestaurantNom(rj.getNom()));
+        r.setAdresse(o.createRestaurantAdresse(rj.getAdresse()));
+        r.setNumero(o.createRestaurantNumero(rj.getNumero()));
+        r.setZipCode(o.createRestaurantZipCode(rj.getZipCode()));
+        r.setLocalite(o.createRestaurantLocalite(rj.getLocalite()));
+        r.setDescription(o.createRestaurantDescription(rj.getDescription()));
+        r.setBudgetLow(rj.getBudgetLow());
+        r.setBudgetHigh(rj.getBudgetHigh());
+        r.setPremium(rj.getPremium());
+        r.setGenre(rj.getGenre());
+        r.setIdTypeCuisine(rj.getIdTypeCuisine());
+        r.setIdRestaurateur(rj.getIdRestaurateur());
+        r.setIdHoraire(rj.getIdHoraire());
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.updateRestaurant(r);
@@ -94,7 +203,54 @@ public class ModelsMapping {
         port.deleteRestaurant(id);
     }
     
-    //---------------------
+    //---------Restaurateurs
+    
+    public static RestaurateurJ getRestaurateurByRestaurant(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        Restaurateur r = port.getRestaurateurByRestaurant(id);
+        RestaurateurJ rj = new RestaurateurJ();
+        rj.setId(r.getId());
+        rj.setNom(r.getNom().getValue());
+        rj.setPrenom(r.getPrenom().getValue());
+        rj.setUsername(r.getUsername().getValue());
+        rj.setPassword(r.getPassword().getValue());
+        rj.setEmail(r.getEmail().getValue());
+        rj.setPhone(r.getPhone().getValue());
+        return rj;
+    }
+    
+    public static RestaurateurJ getRestaurateurByUsername(java.lang.String username) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        Restaurateur r = port.getRestaurateurByUsername(username);
+        RestaurateurJ rj = new RestaurateurJ();
+        rj.setId(r.getId());
+        rj.setNom(r.getNom().getValue());
+        rj.setPrenom(r.getPrenom().getValue());
+        rj.setUsername(r.getUsername().getValue());
+        rj.setPassword(r.getPassword().getValue());
+        rj.setEmail(r.getEmail().getValue());
+        rj.setPhone(r.getPhone().getValue());
+        return rj;
+    }
+    
+    public static void updateRestaurateur(RestaurateurJ rj) {
+        ObjectFactory o = new ObjectFactory();
+        Restaurateur r = new Restaurateur();
+        r.setId(rj.getId());
+        r.setNom(o.createRestaurateurNom(rj.getNom()));
+        r.setPrenom(o.createRestaurateurPrenom(rj.getPrenom()));
+        r.setUsername(o.createRestaurateurUsername(rj.getUsername()));
+        r.setPassword(o.createRestaurateurPassword(rj.getPassword()));
+        r.setEmail(o.createRestaurateurEmail(rj.getEmail()));
+        r.setPhone(o.createRestaurateurPhone(rj.getPhone()));
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.updateRestaurateur(r);
+    }
+    
+    //---------Types Cuisine
 
     public static ArrayList<TypeCuisineJ> getAllTypeCuisine() {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
@@ -108,5 +264,22 @@ public class ModelsMapping {
             arrayTypeJ.add(type);
         }
         return arrayTypeJ;
+    }
+    
+    //---------Utilisateurs
+    
+    public static UtilisateurJ getUtilisateurByUsername(String s) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        Utilisateur u = port.getUtilisateurByUsername(s);
+        UtilisateurJ uj = new UtilisateurJ();
+        uj.setId(u.getId());
+        uj.setNom(u.getNom().getValue());
+        uj.setPrenom(u.getPrenom().getValue());
+        uj.setUsername(u.getUsername().getValue());
+        uj.setPassword(u.getPassword().getValue());
+        uj.setEmail(u.getEmail().getValue());
+        uj.setPhone(u.getPhone().getValue());
+        return uj;
     }
 }

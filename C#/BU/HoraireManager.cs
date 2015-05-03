@@ -58,6 +58,7 @@ namespace BU
 
         public static void Update(Horaire h)
         {
+            OdawaDS.horairesDataTable dt = DataProvider.GetHoraires();
             OdawaDS.horairesRow updRow = DataProvider.odawa.horaires.NewhorairesRow();
             updRow.id = h.id;
             updRow.mondayOpen = h.mondayOpen;

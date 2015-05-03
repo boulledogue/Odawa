@@ -44,6 +44,7 @@ namespace BU
 
         public static void Update(Restaurateur r)
         {
+            OdawaDS.restaurateursDataTable dt = DataProvider.GetRestaurateurs();
             OdawaDS.restaurateursRow updRow = DataProvider.odawa.restaurateurs.NewrestaurateursRow();
             updRow.id = r.id;
             updRow.nom = r.nom;

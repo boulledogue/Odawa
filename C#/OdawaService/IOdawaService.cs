@@ -52,19 +52,25 @@ namespace OdawaService
         List<Restaurant> SearchRestaurant(string s);
 
         [OperationContract]
+        Utilisateur GetUtilisateur(int id);
+
+        [OperationContract]
         List<Restaurant> BestRestaurant();
 
         [OperationContract]
         bool AcceptLoginRestaurateur(string username, string password);
 
         [OperationContract]
-        Restaurateur GetRestaurateur(string username);
+        Restaurateur GetRestaurateurByUsername(string username);
+
+        [OperationContract]
+        Restaurateur GetRestaurateurByRestaurant(int id);
 
         [OperationContract]
         bool AcceptLoginUtilisateur(string username, string password);
 
         [OperationContract]
-        Utilisateur GetUtilisateur(string username);
+        Utilisateur GetUtilisateurByUsername(string username);
 
         [OperationContract]
         bool CreateUtilisateur(Utilisateur u);
@@ -85,6 +91,12 @@ namespace OdawaService
         void DeleteComment(int id);
 
         [OperationContract]
+        void CreateHoraire(Horaire h);
+
+        [OperationContract]
+        void UpdateHoraire(Horaire h);
+
+        [OperationContract]
         void CreateReservation(Reservation r);
 
         [OperationContract]
@@ -98,6 +110,9 @@ namespace OdawaService
 
         [OperationContract]
         void DeleteRestaurant(int id);
+
+        [OperationContract]
+        void UpdateRestaurateur(Restaurateur r);
 
         // TODO: ajoutez vos opérations de service ici
     }

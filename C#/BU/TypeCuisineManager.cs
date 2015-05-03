@@ -34,6 +34,7 @@ namespace BU
         
         public static void Update(TypeCuisine t)
         {
+            OdawaDS.typescuisineDataTable dt = DataProvider.GetTypesCuisine();
             OdawaDS.typescuisineRow updRow = DataProvider.odawa.typescuisine.NewtypescuisineRow();
             updRow.id = t.id;
             updRow.type = t.type;

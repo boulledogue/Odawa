@@ -5,10 +5,21 @@
  */
 package Controller;
 
+import Models.RestaurateurJ;
+import Models.ModelsMapping;
+
 /**
  *
  * @author Alistreaza
  */
 public class RestaurateurManager {
     
+    public static RestaurateurJ getRestaurateurByRestaurant(int id){
+        RestaurateurJ r = ModelsMapping.getRestaurateurByRestaurant(id);
+        return r;
+    }
+
+    public static void updateRestaurateur(RestaurateurJ rj) {
+        ModelsMapping.updateRestaurateur(rj);
+    }
 }

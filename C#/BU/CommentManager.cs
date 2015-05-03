@@ -13,6 +13,7 @@ namespace BU
     {
         public static void Create(Comment c)
         {
+            OdawaDS.commentsDataTable dt = DataProvider.GetComments();
             OdawaDS.commentsRow newRow = DataProvider.odawa.comments.NewcommentsRow();
             newRow.commentaire = c.commentaire;
             newRow.idUtilisateur = c.idUtilisateur;
@@ -38,8 +39,11 @@ namespace BU
 
         public static void Update(Comment c)
         {
+            OdawaDS.commentsDataTable dt = DataProvider.GetComments();
             OdawaDS.commentsRow updRow = DataProvider.odawa.comments.NewcommentsRow();
             updRow.id = c.id;
+            updRow.idRestaurant = c.idRestaurant;
+            updRow.idUtilisateur = c.idUtilisateur;
             updRow.commentaire = c.commentaire;
             DataProvider.UpdateComment(updRow);
         }

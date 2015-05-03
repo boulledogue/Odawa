@@ -128,9 +128,9 @@ namespace DAL
             WriteToDB("comments");
         }
 
-        public static void UpdateComment(OdawaDS.commentsRow c)
+        public static void UpdateComment(OdawaDS.commentsRow cr)
         {
-            odawa.comments.FindByid(c.id).commentaire = c.commentaire;
+            odawa.comments.FindByid(cr.id).commentaire = cr.commentaire;
             WriteToDB("comments");
         }
 
@@ -182,14 +182,7 @@ namespace DAL
 
         public static void UpdateReservation(OdawaDS.reservationsRow r)
         {
-            odawa.reservations.FindByid(r.id).nom = r.nom;
-            odawa.reservations.FindByid(r.id).prenom = r.prenom;
-            odawa.reservations.FindByid(r.id).date = r.date;
-            odawa.reservations.FindByid(r.id).typeService = r.typeService;
-            odawa.reservations.FindByid(r.id).nbPersonnes = r.nbPersonnes;
-            odawa.reservations.FindByid(r.id).email = r.email;
-            odawa.reservations.FindByid(r.id).phone = r.phone;
-            odawa.reservations.FindByid(r.id).idRestaurant = r.idRestaurant;
+            odawa.reservations.FindByid(r.id).status = r.status;
             WriteToDB("reservations");
         }
         public static void DeleteReservation(int id)

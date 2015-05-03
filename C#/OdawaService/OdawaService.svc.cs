@@ -80,15 +80,26 @@ namespace OdawaService
             return RestaurantManager.BestRestaurant();
         }
 
+        public Utilisateur GetUtilisateur(int id)
+        {
+            return UtilisateurManager.GetAll().Find(x => x.id == id);
+        }
+
         public bool AcceptLoginRestaurateur(string username, string password)
         {
             if (RestaurateurManager.AcceptLogin(username, password)) return true;
             return false;
         }
 
-        public Restaurateur GetRestaurateur(string username)
+        public Restaurateur GetRestaurateurByUsername(string username)
         {
             return RestaurateurManager.GetAll().Find(x => x.username == username);
+        }
+
+        public Restaurateur GetRestaurateurByRestaurant(int id)
+        {
+            int idRestaurateur = RestaurantManager.GetAll().Find(x => x.id == id).idRestaurateur;
+            return RestaurateurManager.GetAll().Find(x => x.id == idRestaurateur);
         }
 
         public bool AcceptLoginUtilisateur(string username, string password)
@@ -97,7 +108,7 @@ namespace OdawaService
             return false;
         }
 
-        public Utilisateur GetUtilisateur(string username)
+        public Utilisateur GetUtilisateurByUsername(string username)
         {
             return UtilisateurManager.GetAll().Find(x => x.username == username);
         }
@@ -136,7 +147,17 @@ namespace OdawaService
         {
             CommentManager.Delete(id);
         }
-                
+
+        public void CreateHoraire(Horaire h)
+        {
+            HoraireManager.Create(h);
+        }
+
+        public void UpdateHoraire(Horaire h)
+        {
+            HoraireManager.Update(h);
+        }
+
         public void CreateReservation(Reservation r)
         {
             ReservationManager.Create(r);
@@ -160,6 +181,11 @@ namespace OdawaService
         public void DeleteRestaurant(int id)
         {
             RestaurantManager.Delete(id);
+        }
+
+        public void UpdateRestaurateur(Restaurateur r)
+        {
+            RestaurateurManager.Update(r);
         }
     }
 }

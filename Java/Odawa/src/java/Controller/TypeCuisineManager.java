@@ -7,6 +7,7 @@ package Controller;
 import Models.ModelsMapping;
 import Models.TypeCuisineJ;
 import java.util.ArrayList;
+import org.datacontract.schemas._2004._07.bu.TypeCuisine;
 
 /**
  *
@@ -17,5 +18,10 @@ public class TypeCuisineManager {
     public static ArrayList<TypeCuisineJ> GetAllTypeCuisine(){
         ArrayList<TypeCuisineJ> a = ModelsMapping.getAllTypeCuisine();
         return a;
+    }
+    
+    public static TypeCuisineJ GetTypeCuisine(int id){
+        TypeCuisineJ t = ModelsMapping.getAllTypeCuisine().get(id);
+        return t;
     }
 }

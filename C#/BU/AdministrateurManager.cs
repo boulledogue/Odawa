@@ -44,6 +44,7 @@ namespace BU
 
         public static void Update(Administrateur a)
         {
+            OdawaDS.administrateursDataTable dt = DataProvider.GetAdministrateurs();
             OdawaDS.administrateursRow updRow = DataProvider.odawa.administrateurs.NewadministrateursRow();
             updRow.id = a.id;
             updRow.nom = a.nom;
