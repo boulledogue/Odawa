@@ -38,8 +38,8 @@ public class Search extends HttpServlet {
                 if( request.getParameter("SearchType").equals("2") ) { request.setAttribute("SearchType",2); } 
             }
         }else{ request.setAttribute("SearchType",0); }
-        
-        request.setAttribute("Restaurants",ModelsMapping.SearchRestaurant((String)request.getAttribute("SearchString")));
+                
+        request.setAttribute("Restaurants",RestaurantManager.GetRestaurants((String)request.getAttribute("SearchString")));
         request.getRequestDispatcher("/ODA-INF/Search.jsp").forward(request,response);
     }
 

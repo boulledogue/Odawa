@@ -4,19 +4,18 @@
  * and open the template in the editor.
  */
 package Controller;
-import org.datacontract.schemas._2004._07.bu.*;
+import Models.ModelsMapping;
+import Models.TypeCuisineJ;
+import java.util.ArrayList;
 
 /**
  *
  * @author Alistreaza
  */
 public class TypeCuisineManager {
-    
-    public ArrayOfTypeCuisine getAll() {
-            org.tempuri.OdawaService service = new org.tempuri.OdawaService();
-            org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
-            ArrayOfTypeCuisine result = port.getAllTypeCuisine();
-            return result;
+        
+    public static ArrayList<TypeCuisineJ> GetAllTypeCuisine(){
+        ArrayList<TypeCuisineJ> a = ModelsMapping.getAllTypeCuisine();
+        return a;
     }
-    
 }

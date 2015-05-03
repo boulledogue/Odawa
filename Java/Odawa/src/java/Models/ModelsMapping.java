@@ -93,4 +93,20 @@ public class ModelsMapping {
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.deleteRestaurant(id);
     }
+    
+    //---------------------
+
+    public static ArrayList<TypeCuisineJ> getAllTypeCuisine() {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        List<TypeCuisine> lstT = port.getAllTypeCuisine().getTypeCuisine();
+        ArrayList<TypeCuisineJ> arrayTypeJ = new ArrayList<TypeCuisineJ>();
+        for(TypeCuisine t : lstT){
+            TypeCuisineJ type = new TypeCuisineJ();
+            type.setId(t.getId());
+            type.setType(t.getType().getValue());
+            arrayTypeJ.add(type);
+        }
+        return arrayTypeJ;
+    }
 }

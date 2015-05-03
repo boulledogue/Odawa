@@ -7,8 +7,15 @@ package Models;
 
 /**
  *
- * @author Alistreaza
+ * @author Denis Charette
  */
 public class TypeCuisineJ {
+    private int id;
+    private String type;
     
+    public void setId(int id) { this.id = id; }
+    public void setType(String type) { this.type = type; }
+    
+    public int getId() { return this.id; }
+    public String getType() { return this.type; }
 }
