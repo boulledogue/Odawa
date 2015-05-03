@@ -2,15 +2,14 @@
 <xs:schema id="OdawaDS" targetNamespace="http://tempuri.org/OdawaDS.xsd" xmlns:mstns="http://tempuri.org/OdawaDS.xsd" xmlns="http://tempuri.org/OdawaDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="odawaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="odawaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DAL.Properties.Settings.GlobalReference.Default.odawaConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="odawaConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="odawaConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DAL.Properties.Settings.GlobalReference.Default.odawaConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="administrateursTableAdapter" GeneratorDataComponentClassName="administrateursTableAdapter" Name="administrateurs" UserDataComponentName="administrateursTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="odawaConnectionString1 (Settings)" DbObjectName="odawa.dbo.administrateurs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="odawaConnectionString (Settings)" DbObjectName="odawa.dbo.administrateurs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[administrateurs] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([username] = @Original_username) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([phone] = @Original_phone))</CommandText>
@@ -80,9 +79,81 @@ SELECT id, nom, prenom, username, password, email, phone FROM administrateurs WH
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="utilisateursTableAdapter" GeneratorDataComponentClassName="utilisateursTableAdapter" Name="utilisateurs" UserDataComponentName="utilisateursTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="odawaConnectionString (Settings)" DbObjectName="odawa.dbo.utilisateurs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[utilisateurs] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([username] = @Original_username) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([phone] = @Original_phone))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[utilisateurs] ([nom], [prenom], [username], [password], [email], [phone]) VALUES (@nom, @prenom, @username, @password, @email, @phone);
+SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, nom, prenom, username, password, email, phone FROM dbo.utilisateurs</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[utilisateurs] SET [nom] = @nom, [prenom] = @prenom, [username] = @username, [password] = @password, [email] = @email, [phone] = @phone WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([username] = @Original_username) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([phone] = @Original_phone));
+SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="nom" DataSetColumn="nom" />
+              <Mapping SourceColumn="prenom" DataSetColumn="prenom" />
+              <Mapping SourceColumn="username" DataSetColumn="username" />
+              <Mapping SourceColumn="password" DataSetColumn="password" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="phone" DataSetColumn="phone" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="commentsTableAdapter" GeneratorDataComponentClassName="commentsTableAdapter" Name="comments" UserDataComponentName="commentsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="odawaConnectionString1 (Settings)" DbObjectName="odawa.dbo.comments" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="odawaConnectionString (Settings)" DbObjectName="odawa.dbo.comments" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[comments] WHERE (([id] = @Original_id) AND ([idUtilisateur] = @Original_idUtilisateur) AND ([idRestaurant] = @Original_idRestaurant))</CommandText>
@@ -135,105 +206,9 @@ SELECT id, commentaire, idUtilisateur, idRestaurant FROM comments WHERE (id = @i
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="reservationsTableAdapter" GeneratorDataComponentClassName="reservationsTableAdapter" Name="reservations" UserDataComponentName="reservationsTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="odawaConnectionString1 (Settings)" DbObjectName="odawa.dbo.reservations" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[reservations] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([date] = @Original_date) AND ([typeService] = @Original_typeService) AND ([nbPersonnes] = @Original_nbPersonnes) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_phone = 1 AND [phone] IS NULL) OR ([phone] = @Original_phone)) AND ([idRestaurant] = @Original_idRestaurant) AND ([status] = @Original_status) AND ([encodedDateTime] = @Original_encodedDateTime))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_typeService" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="typeService" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nbPersonnes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nbPersonnes" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_email" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_phone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idRestaurant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idRestaurant" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_encodedDateTime" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="encodedDateTime" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[reservations] ([nom], [prenom], [date], [typeService], [nbPersonnes], [email], [phone], [idRestaurant], [status], [encodedDateTime]) VALUES (@nom, @prenom, @date, @typeService, @nbPersonnes, @email, @phone, @idRestaurant, @status, @encodedDateTime);
-SELECT id, nom, prenom, date, typeService, nbPersonnes, email, phone, idRestaurant, status, encodedDateTime FROM reservations WHERE (id = SCOPE_IDENTITY())</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@typeService" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="typeService" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nbPersonnes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nbPersonnes" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idRestaurant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idRestaurant" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@encodedDateTime" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="encodedDateTime" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT id, nom, prenom, date, typeService, nbPersonnes, email, phone, idRestaurant, status, encodedDateTime FROM dbo.reservations</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[reservations] SET [nom] = @nom, [prenom] = @prenom, [date] = @date, [typeService] = @typeService, [nbPersonnes] = @nbPersonnes, [email] = @email, [phone] = @phone, [idRestaurant] = @idRestaurant, [status] = @status, [encodedDateTime] = @encodedDateTime WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([date] = @Original_date) AND ([typeService] = @Original_typeService) AND ([nbPersonnes] = @Original_nbPersonnes) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_phone = 1 AND [phone] IS NULL) OR ([phone] = @Original_phone)) AND ([idRestaurant] = @Original_idRestaurant) AND ([status] = @Original_status) AND ([encodedDateTime] = @Original_encodedDateTime));
-SELECT id, nom, prenom, date, typeService, nbPersonnes, email, phone, idRestaurant, status, encodedDateTime FROM reservations WHERE (id = @id)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@typeService" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="typeService" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nbPersonnes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nbPersonnes" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idRestaurant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idRestaurant" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@encodedDateTime" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="encodedDateTime" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_typeService" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="typeService" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nbPersonnes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nbPersonnes" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_email" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_phone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idRestaurant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idRestaurant" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_encodedDateTime" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="encodedDateTime" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="id" DataSetColumn="id" />
-              <Mapping SourceColumn="nom" DataSetColumn="nom" />
-              <Mapping SourceColumn="prenom" DataSetColumn="prenom" />
-              <Mapping SourceColumn="date" DataSetColumn="date" />
-              <Mapping SourceColumn="typeService" DataSetColumn="typeService" />
-              <Mapping SourceColumn="nbPersonnes" DataSetColumn="nbPersonnes" />
-              <Mapping SourceColumn="email" DataSetColumn="email" />
-              <Mapping SourceColumn="phone" DataSetColumn="phone" />
-              <Mapping SourceColumn="idRestaurant" DataSetColumn="idRestaurant" />
-              <Mapping SourceColumn="status" DataSetColumn="status" />
-              <Mapping SourceColumn="encodedDateTime" DataSetColumn="encodedDateTime" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="horairesTableAdapter" GeneratorDataComponentClassName="horairesTableAdapter" Name="horaires" UserDataComponentName="horairesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="odawaConnectionString1 (Settings)" DbObjectName="odawa.dbo.horaires" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="odawaConnectionString (Settings)" DbObjectName="odawa.dbo.horaires" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[horaires] WHERE (([id] = @Original_id) AND ([mondayOpen] = @Original_mondayOpen) AND ([mondayClose] = @Original_mondayClose) AND ([tuesdayOpen] = @Original_tuesdayOpen) AND ([tuesdayClose] = @Original_tuesdayClose) AND ([wednesdayOpen] = @Original_wednesdayOpen) AND ([wednesdayClose] = @Original_wednesdayClose) AND ([thursdayOpen] = @Original_thursdayOpen) AND ([thursdayClose] = @Original_thursdayClose) AND ([fridayOpen] = @Original_fridayOpen) AND ([fridayClose] = @Original_fridayClose) AND ([saturdayOpen] = @Original_saturdayOpen) AND ([saturdayClose] = @Original_saturdayClose) AND ([sundayOpen] = @Original_sundayOpen) AND ([sundayClose] = @Original_sundayClose))</CommandText>
@@ -343,9 +318,224 @@ SELECT id, mondayOpen, mondayClose, tuesdayOpen, tuesdayClose, wednesdayOpen, we
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="reservationsTableAdapter" GeneratorDataComponentClassName="reservationsTableAdapter" Name="reservations" UserDataComponentName="reservationsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="odawaConnectionString (Settings)" DbObjectName="odawa.dbo.reservations" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[reservations] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([date] = @Original_date) AND ([typeService] = @Original_typeService) AND ([nbPersonnes] = @Original_nbPersonnes) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_phone = 1 AND [phone] IS NULL) OR ([phone] = @Original_phone)) AND ([idRestaurant] = @Original_idRestaurant) AND ([status] = @Original_status) AND ([encodedDateTime] = @Original_encodedDateTime))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_typeService" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="typeService" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nbPersonnes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nbPersonnes" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_email" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_phone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idRestaurant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idRestaurant" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_encodedDateTime" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="encodedDateTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[reservations] ([nom], [prenom], [date], [typeService], [nbPersonnes], [email], [phone], [idRestaurant], [status], [encodedDateTime]) VALUES (@nom, @prenom, @date, @typeService, @nbPersonnes, @email, @phone, @idRestaurant, @status, @encodedDateTime);
+SELECT id, nom, prenom, date, typeService, nbPersonnes, email, phone, idRestaurant, status, encodedDateTime FROM reservations WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@typeService" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="typeService" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nbPersonnes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nbPersonnes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idRestaurant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idRestaurant" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@encodedDateTime" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="encodedDateTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, nom, prenom, date, typeService, nbPersonnes, email, phone, idRestaurant, status, encodedDateTime FROM dbo.reservations</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[reservations] SET [nom] = @nom, [prenom] = @prenom, [date] = @date, [typeService] = @typeService, [nbPersonnes] = @nbPersonnes, [email] = @email, [phone] = @phone, [idRestaurant] = @idRestaurant, [status] = @status, [encodedDateTime] = @encodedDateTime WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([date] = @Original_date) AND ([typeService] = @Original_typeService) AND ([nbPersonnes] = @Original_nbPersonnes) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_phone = 1 AND [phone] IS NULL) OR ([phone] = @Original_phone)) AND ([idRestaurant] = @Original_idRestaurant) AND ([status] = @Original_status) AND ([encodedDateTime] = @Original_encodedDateTime));
+SELECT id, nom, prenom, date, typeService, nbPersonnes, email, phone, idRestaurant, status, encodedDateTime FROM reservations WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@typeService" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="typeService" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nbPersonnes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nbPersonnes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@idRestaurant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idRestaurant" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@encodedDateTime" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="encodedDateTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_typeService" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="typeService" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nbPersonnes" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nbPersonnes" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_email" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_phone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idRestaurant" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="idRestaurant" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_encodedDateTime" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="0" SourceColumn="encodedDateTime" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="nom" DataSetColumn="nom" />
+              <Mapping SourceColumn="prenom" DataSetColumn="prenom" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="typeService" DataSetColumn="typeService" />
+              <Mapping SourceColumn="nbPersonnes" DataSetColumn="nbPersonnes" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="phone" DataSetColumn="phone" />
+              <Mapping SourceColumn="idRestaurant" DataSetColumn="idRestaurant" />
+              <Mapping SourceColumn="status" DataSetColumn="status" />
+              <Mapping SourceColumn="encodedDateTime" DataSetColumn="encodedDateTime" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="restaurateursTableAdapter" GeneratorDataComponentClassName="restaurateursTableAdapter" Name="restaurateurs" UserDataComponentName="restaurateursTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="odawaConnectionString (Settings)" DbObjectName="odawa.dbo.restaurateurs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[restaurateurs] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([username] = @Original_username) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([phone] = @Original_phone))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[restaurateurs] ([nom], [prenom], [username], [password], [email], [phone]) VALUES (@nom, @prenom, @username, @password, @email, @phone);
+SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, nom, prenom, username, password, email, phone FROM dbo.restaurateurs</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[restaurateurs] SET [nom] = @nom, [prenom] = @prenom, [username] = @username, [password] = @password, [email] = @email, [phone] = @phone WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([username] = @Original_username) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([phone] = @Original_phone));
+SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="nom" DataSetColumn="nom" />
+              <Mapping SourceColumn="prenom" DataSetColumn="prenom" />
+              <Mapping SourceColumn="username" DataSetColumn="username" />
+              <Mapping SourceColumn="password" DataSetColumn="password" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="phone" DataSetColumn="phone" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="typescuisineTableAdapter" GeneratorDataComponentClassName="typescuisineTableAdapter" Name="typescuisine" UserDataComponentName="typescuisineTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="odawaConnectionString (Settings)" DbObjectName="odawa.dbo.typescuisine" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[typescuisine] WHERE (([id] = @Original_id) AND ([type] = @Original_type))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[typescuisine] ([type]) VALUES (@type);
+SELECT id, type FROM typescuisine WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, type FROM dbo.typescuisine</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[typescuisine] SET [type] = @type WHERE (([id] = @Original_id) AND ([type] = @Original_type));
+SELECT id, type FROM typescuisine WHERE (id = @id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="type" DataSetColumn="type" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="restaurantsTableAdapter" GeneratorDataComponentClassName="restaurantsTableAdapter" Name="restaurants" UserDataComponentName="restaurantsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="odawaConnectionString1 (Settings)" DbObjectName="odawa.dbo.restaurants" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="odawaConnectionString (Settings)" DbObjectName="odawa.dbo.restaurants" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[restaurants] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([adresse] = @Original_adresse) AND ([numero] = @Original_numero) AND ([zipCode] = @Original_zipCode) AND ([localite] = @Original_localite) AND ([budgetLow] = @Original_budgetLow) AND ([budgetHigh] = @Original_budgetHigh) AND ([premium] = @Original_premium) AND ([genre] = @Original_genre) AND ([idTypeCuisine] = @Original_idTypeCuisine) AND ([idRestaurateur] = @Original_idRestaurateur) AND ([idHoraire] = @Original_idHoraire))</CommandText>
@@ -448,197 +638,6 @@ SELECT id, nom, adresse, numero, zipCode, localite, description, budgetLow, budg
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="restaurateursTableAdapter" GeneratorDataComponentClassName="restaurateursTableAdapter" Name="restaurateurs" UserDataComponentName="restaurateursTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="odawaConnectionString1 (Settings)" DbObjectName="odawa.dbo.restaurateurs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[restaurateurs] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([username] = @Original_username) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([phone] = @Original_phone))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[restaurateurs] ([nom], [prenom], [username], [password], [email], [phone]) VALUES (@nom, @prenom, @username, @password, @email, @phone);
-SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHERE (id = SCOPE_IDENTITY())</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT id, nom, prenom, username, password, email, phone FROM dbo.restaurateurs</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[restaurateurs] SET [nom] = @nom, [prenom] = @prenom, [username] = @username, [password] = @password, [email] = @email, [phone] = @phone WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([username] = @Original_username) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([phone] = @Original_phone));
-SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHERE (id = @id)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="id" DataSetColumn="id" />
-              <Mapping SourceColumn="nom" DataSetColumn="nom" />
-              <Mapping SourceColumn="prenom" DataSetColumn="prenom" />
-              <Mapping SourceColumn="username" DataSetColumn="username" />
-              <Mapping SourceColumn="password" DataSetColumn="password" />
-              <Mapping SourceColumn="email" DataSetColumn="email" />
-              <Mapping SourceColumn="phone" DataSetColumn="phone" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="typescuisineTableAdapter" GeneratorDataComponentClassName="typescuisineTableAdapter" Name="typescuisine" UserDataComponentName="typescuisineTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="odawaConnectionString1 (Settings)" DbObjectName="odawa.dbo.typescuisine" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[typescuisine] WHERE (([id] = @Original_id) AND ([type] = @Original_type))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[typescuisine] ([type]) VALUES (@type);
-SELECT id, type FROM typescuisine WHERE (id = SCOPE_IDENTITY())</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT id, type FROM dbo.typescuisine</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[typescuisine] SET [type] = @type WHERE (([id] = @Original_id) AND ([type] = @Original_type));
-SELECT id, type FROM typescuisine WHERE (id = @id)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="id" DataSetColumn="id" />
-              <Mapping SourceColumn="type" DataSetColumn="type" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="utilisateursTableAdapter" GeneratorDataComponentClassName="utilisateursTableAdapter" Name="utilisateurs" UserDataComponentName="utilisateursTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="odawaConnectionString1 (Settings)" DbObjectName="odawa.dbo.utilisateurs" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[utilisateurs] WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([username] = @Original_username) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([phone] = @Original_phone))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[utilisateurs] ([nom], [prenom], [username], [password], [email], [phone]) VALUES (@nom, @prenom, @username, @password, @email, @phone);
-SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE (id = SCOPE_IDENTITY())</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT id, nom, prenom, username, password, email, phone FROM dbo.utilisateurs</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[utilisateurs] SET [nom] = @nom, [prenom] = @prenom, [username] = @username, [password] = @password, [email] = @email, [phone] = @phone WHERE (([id] = @Original_id) AND ([nom] = @Original_nom) AND ([prenom] = @Original_prenom) AND ([username] = @Original_username) AND ([password] = @Original_password) AND ([email] = @Original_email) AND ([phone] = @Original_phone));
-SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE (id = @id)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_prenom" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="prenom" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_email" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="email" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_phone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="id" DataSetColumn="id" />
-              <Mapping SourceColumn="nom" DataSetColumn="nom" />
-              <Mapping SourceColumn="prenom" DataSetColumn="prenom" />
-              <Mapping SourceColumn="username" DataSetColumn="username" />
-              <Mapping SourceColumn="password" DataSetColumn="password" />
-              <Mapping SourceColumn="email" DataSetColumn="email" />
-              <Mapping SourceColumn="phone" DataSetColumn="phone" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -647,7 +646,7 @@ SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE
   <xs:element name="OdawaDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="OdawaDS" msprop:Generator_UserDSName="OdawaDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="administrateurs" msprop:Generator_TableClassName="administrateursDataTable" msprop:Generator_TableVarName="tableadministrateurs" msprop:Generator_TablePropName="administrateurs" msprop:Generator_RowDeletingName="administrateursRowDeleting" msprop:Generator_RowChangingName="administrateursRowChanging" msprop:Generator_RowEvHandlerName="administrateursRowChangeEventHandler" msprop:Generator_RowDeletedName="administrateursRowDeleted" msprop:Generator_UserTableName="administrateurs" msprop:Generator_RowChangedName="administrateursRowChanged" msprop:Generator_RowEvArgName="administrateursRowChangeEvent" msprop:Generator_RowClassName="administrateursRow">
+        <xs:element name="administrateurs" msprop:Generator_TableClassName="administrateursDataTable" msprop:Generator_TableVarName="tableadministrateurs" msprop:Generator_RowChangedName="administrateursRowChanged" msprop:Generator_TablePropName="administrateurs" msprop:Generator_RowDeletingName="administrateursRowDeleting" msprop:Generator_RowChangingName="administrateursRowChanging" msprop:Generator_RowEvHandlerName="administrateursRowChangeEventHandler" msprop:Generator_RowDeletedName="administrateursRowDeleted" msprop:Generator_RowClassName="administrateursRow" msprop:Generator_UserTableName="administrateurs" msprop:Generator_RowEvArgName="administrateursRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -696,7 +695,56 @@ SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="comments" msprop:Generator_TableClassName="commentsDataTable" msprop:Generator_TableVarName="tablecomments" msprop:Generator_TablePropName="comments" msprop:Generator_RowDeletingName="commentsRowDeleting" msprop:Generator_RowChangingName="commentsRowChanging" msprop:Generator_RowEvHandlerName="commentsRowChangeEventHandler" msprop:Generator_RowDeletedName="commentsRowDeleted" msprop:Generator_UserTableName="comments" msprop:Generator_RowChangedName="commentsRowChanged" msprop:Generator_RowEvArgName="commentsRowChangeEvent" msprop:Generator_RowClassName="commentsRow">
+        <xs:element name="utilisateurs" msprop:Generator_TableClassName="utilisateursDataTable" msprop:Generator_TableVarName="tableutilisateurs" msprop:Generator_RowChangedName="utilisateursRowChanged" msprop:Generator_TablePropName="utilisateurs" msprop:Generator_RowDeletingName="utilisateursRowDeleting" msprop:Generator_RowChangingName="utilisateursRowChanging" msprop:Generator_RowEvHandlerName="utilisateursRowChangeEventHandler" msprop:Generator_RowDeletedName="utilisateursRowDeleted" msprop:Generator_RowClassName="utilisateursRow" msprop:Generator_UserTableName="utilisateurs" msprop:Generator_RowEvArgName="utilisateursRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="nom" msprop:Generator_ColumnVarNameInTable="columnnom" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_UserColumnName="nom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prenom" msprop:Generator_ColumnVarNameInTable="columnprenom" msprop:Generator_ColumnPropNameInRow="prenom" msprop:Generator_ColumnPropNameInTable="prenomColumn" msprop:Generator_UserColumnName="prenom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="password" msprop:Generator_ColumnVarNameInTable="columnpassword" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_UserColumnName="password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phone" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_UserColumnName="phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="comments" msprop:Generator_TableClassName="commentsDataTable" msprop:Generator_TableVarName="tablecomments" msprop:Generator_RowChangedName="commentsRowChanged" msprop:Generator_TablePropName="comments" msprop:Generator_RowDeletingName="commentsRowDeleting" msprop:Generator_RowChangingName="commentsRowChanging" msprop:Generator_RowEvHandlerName="commentsRowChangeEventHandler" msprop:Generator_RowDeletedName="commentsRowDeleted" msprop:Generator_RowClassName="commentsRow" msprop:Generator_UserTableName="comments" msprop:Generator_RowEvArgName="commentsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -712,7 +760,28 @@ SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="reservations" msprop:Generator_TableClassName="reservationsDataTable" msprop:Generator_TableVarName="tablereservations" msprop:Generator_TablePropName="reservations" msprop:Generator_RowDeletingName="reservationsRowDeleting" msprop:Generator_RowChangingName="reservationsRowChanging" msprop:Generator_RowEvHandlerName="reservationsRowChangeEventHandler" msprop:Generator_RowDeletedName="reservationsRowDeleted" msprop:Generator_UserTableName="reservations" msprop:Generator_RowChangedName="reservationsRowChanged" msprop:Generator_RowEvArgName="reservationsRowChangeEvent" msprop:Generator_RowClassName="reservationsRow">
+        <xs:element name="horaires" msprop:Generator_TableClassName="horairesDataTable" msprop:Generator_TableVarName="tablehoraires" msprop:Generator_RowChangedName="horairesRowChanged" msprop:Generator_TablePropName="horaires" msprop:Generator_RowDeletingName="horairesRowDeleting" msprop:Generator_RowChangingName="horairesRowChanging" msprop:Generator_RowEvHandlerName="horairesRowChangeEventHandler" msprop:Generator_RowDeletedName="horairesRowDeleted" msprop:Generator_RowClassName="horairesRow" msprop:Generator_UserTableName="horaires" msprop:Generator_RowEvArgName="horairesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="mondayOpen" msprop:Generator_ColumnVarNameInTable="columnmondayOpen" msprop:Generator_ColumnPropNameInRow="mondayOpen" msprop:Generator_ColumnPropNameInTable="mondayOpenColumn" msprop:Generator_UserColumnName="mondayOpen" type="xs:duration" />
+              <xs:element name="mondayClose" msprop:Generator_ColumnVarNameInTable="columnmondayClose" msprop:Generator_ColumnPropNameInRow="mondayClose" msprop:Generator_ColumnPropNameInTable="mondayCloseColumn" msprop:Generator_UserColumnName="mondayClose" type="xs:duration" />
+              <xs:element name="tuesdayOpen" msprop:Generator_ColumnVarNameInTable="columntuesdayOpen" msprop:Generator_ColumnPropNameInRow="tuesdayOpen" msprop:Generator_ColumnPropNameInTable="tuesdayOpenColumn" msprop:Generator_UserColumnName="tuesdayOpen" type="xs:duration" />
+              <xs:element name="tuesdayClose" msprop:Generator_ColumnVarNameInTable="columntuesdayClose" msprop:Generator_ColumnPropNameInRow="tuesdayClose" msprop:Generator_ColumnPropNameInTable="tuesdayCloseColumn" msprop:Generator_UserColumnName="tuesdayClose" type="xs:duration" />
+              <xs:element name="wednesdayOpen" msprop:Generator_ColumnVarNameInTable="columnwednesdayOpen" msprop:Generator_ColumnPropNameInRow="wednesdayOpen" msprop:Generator_ColumnPropNameInTable="wednesdayOpenColumn" msprop:Generator_UserColumnName="wednesdayOpen" type="xs:duration" />
+              <xs:element name="wednesdayClose" msprop:Generator_ColumnVarNameInTable="columnwednesdayClose" msprop:Generator_ColumnPropNameInRow="wednesdayClose" msprop:Generator_ColumnPropNameInTable="wednesdayCloseColumn" msprop:Generator_UserColumnName="wednesdayClose" type="xs:duration" />
+              <xs:element name="thursdayOpen" msprop:Generator_ColumnVarNameInTable="columnthursdayOpen" msprop:Generator_ColumnPropNameInRow="thursdayOpen" msprop:Generator_ColumnPropNameInTable="thursdayOpenColumn" msprop:Generator_UserColumnName="thursdayOpen" type="xs:duration" />
+              <xs:element name="thursdayClose" msprop:Generator_ColumnVarNameInTable="columnthursdayClose" msprop:Generator_ColumnPropNameInRow="thursdayClose" msprop:Generator_ColumnPropNameInTable="thursdayCloseColumn" msprop:Generator_UserColumnName="thursdayClose" type="xs:duration" />
+              <xs:element name="fridayOpen" msprop:Generator_ColumnVarNameInTable="columnfridayOpen" msprop:Generator_ColumnPropNameInRow="fridayOpen" msprop:Generator_ColumnPropNameInTable="fridayOpenColumn" msprop:Generator_UserColumnName="fridayOpen" type="xs:duration" />
+              <xs:element name="fridayClose" msprop:Generator_ColumnVarNameInTable="columnfridayClose" msprop:Generator_ColumnPropNameInRow="fridayClose" msprop:Generator_ColumnPropNameInTable="fridayCloseColumn" msprop:Generator_UserColumnName="fridayClose" type="xs:duration" />
+              <xs:element name="saturdayOpen" msprop:Generator_ColumnVarNameInTable="columnsaturdayOpen" msprop:Generator_ColumnPropNameInRow="saturdayOpen" msprop:Generator_ColumnPropNameInTable="saturdayOpenColumn" msprop:Generator_UserColumnName="saturdayOpen" type="xs:duration" />
+              <xs:element name="saturdayClose" msprop:Generator_ColumnVarNameInTable="columnsaturdayClose" msprop:Generator_ColumnPropNameInRow="saturdayClose" msprop:Generator_ColumnPropNameInTable="saturdayCloseColumn" msprop:Generator_UserColumnName="saturdayClose" type="xs:duration" />
+              <xs:element name="sundayOpen" msprop:Generator_ColumnVarNameInTable="columnsundayOpen" msprop:Generator_ColumnPropNameInRow="sundayOpen" msprop:Generator_ColumnPropNameInTable="sundayOpenColumn" msprop:Generator_UserColumnName="sundayOpen" type="xs:duration" />
+              <xs:element name="sundayClose" msprop:Generator_ColumnVarNameInTable="columnsundayClose" msprop:Generator_ColumnPropNameInRow="sundayClose" msprop:Generator_ColumnPropNameInTable="sundayCloseColumn" msprop:Generator_UserColumnName="sundayClose" type="xs:duration" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="reservations" msprop:Generator_TableClassName="reservationsDataTable" msprop:Generator_TableVarName="tablereservations" msprop:Generator_RowChangedName="reservationsRowChanged" msprop:Generator_TablePropName="reservations" msprop:Generator_RowDeletingName="reservationsRowDeleting" msprop:Generator_RowChangingName="reservationsRowChanging" msprop:Generator_RowEvHandlerName="reservationsRowChangeEventHandler" msprop:Generator_RowDeletedName="reservationsRowDeleted" msprop:Generator_RowClassName="reservationsRow" msprop:Generator_UserTableName="reservations" msprop:Generator_RowEvArgName="reservationsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -753,24 +822,66 @@ SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="horaires" msprop:Generator_TableClassName="horairesDataTable" msprop:Generator_TableVarName="tablehoraires" msprop:Generator_TablePropName="horaires" msprop:Generator_RowDeletingName="horairesRowDeleting" msprop:Generator_RowChangingName="horairesRowChanging" msprop:Generator_RowEvHandlerName="horairesRowChangeEventHandler" msprop:Generator_RowDeletedName="horairesRowDeleted" msprop:Generator_UserTableName="horaires" msprop:Generator_RowChangedName="horairesRowChanged" msprop:Generator_RowEvArgName="horairesRowChangeEvent" msprop:Generator_RowClassName="horairesRow">
+        <xs:element name="restaurateurs" msprop:Generator_TableClassName="restaurateursDataTable" msprop:Generator_TableVarName="tablerestaurateurs" msprop:Generator_RowChangedName="restaurateursRowChanged" msprop:Generator_TablePropName="restaurateurs" msprop:Generator_RowDeletingName="restaurateursRowDeleting" msprop:Generator_RowChangingName="restaurateursRowChanging" msprop:Generator_RowEvHandlerName="restaurateursRowChangeEventHandler" msprop:Generator_RowDeletedName="restaurateursRowDeleted" msprop:Generator_RowClassName="restaurateursRow" msprop:Generator_UserTableName="restaurateurs" msprop:Generator_RowEvArgName="restaurateursRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
-              <xs:element name="mondayOpen" msprop:Generator_ColumnVarNameInTable="columnmondayOpen" msprop:Generator_ColumnPropNameInRow="mondayOpen" msprop:Generator_ColumnPropNameInTable="mondayOpenColumn" msprop:Generator_UserColumnName="mondayOpen" type="xs:duration" />
-              <xs:element name="mondayClose" msprop:Generator_ColumnVarNameInTable="columnmondayClose" msprop:Generator_ColumnPropNameInRow="mondayClose" msprop:Generator_ColumnPropNameInTable="mondayCloseColumn" msprop:Generator_UserColumnName="mondayClose" type="xs:duration" />
-              <xs:element name="tuesdayOpen" msprop:Generator_ColumnVarNameInTable="columntuesdayOpen" msprop:Generator_ColumnPropNameInRow="tuesdayOpen" msprop:Generator_ColumnPropNameInTable="tuesdayOpenColumn" msprop:Generator_UserColumnName="tuesdayOpen" type="xs:duration" />
-              <xs:element name="tuesdayClose" msprop:Generator_ColumnVarNameInTable="columntuesdayClose" msprop:Generator_ColumnPropNameInRow="tuesdayClose" msprop:Generator_ColumnPropNameInTable="tuesdayCloseColumn" msprop:Generator_UserColumnName="tuesdayClose" type="xs:duration" />
-              <xs:element name="wednesdayOpen" msprop:Generator_ColumnVarNameInTable="columnwednesdayOpen" msprop:Generator_ColumnPropNameInRow="wednesdayOpen" msprop:Generator_ColumnPropNameInTable="wednesdayOpenColumn" msprop:Generator_UserColumnName="wednesdayOpen" type="xs:duration" />
-              <xs:element name="wednesdayClose" msprop:Generator_ColumnVarNameInTable="columnwednesdayClose" msprop:Generator_ColumnPropNameInRow="wednesdayClose" msprop:Generator_ColumnPropNameInTable="wednesdayCloseColumn" msprop:Generator_UserColumnName="wednesdayClose" type="xs:duration" />
-              <xs:element name="thursdayOpen" msprop:Generator_ColumnVarNameInTable="columnthursdayOpen" msprop:Generator_ColumnPropNameInRow="thursdayOpen" msprop:Generator_ColumnPropNameInTable="thursdayOpenColumn" msprop:Generator_UserColumnName="thursdayOpen" type="xs:duration" />
-              <xs:element name="thursdayClose" msprop:Generator_ColumnVarNameInTable="columnthursdayClose" msprop:Generator_ColumnPropNameInRow="thursdayClose" msprop:Generator_ColumnPropNameInTable="thursdayCloseColumn" msprop:Generator_UserColumnName="thursdayClose" type="xs:duration" />
-              <xs:element name="fridayOpen" msprop:Generator_ColumnVarNameInTable="columnfridayOpen" msprop:Generator_ColumnPropNameInRow="fridayOpen" msprop:Generator_ColumnPropNameInTable="fridayOpenColumn" msprop:Generator_UserColumnName="fridayOpen" type="xs:duration" />
-              <xs:element name="fridayClose" msprop:Generator_ColumnVarNameInTable="columnfridayClose" msprop:Generator_ColumnPropNameInRow="fridayClose" msprop:Generator_ColumnPropNameInTable="fridayCloseColumn" msprop:Generator_UserColumnName="fridayClose" type="xs:duration" />
-              <xs:element name="saturdayOpen" msprop:Generator_ColumnVarNameInTable="columnsaturdayOpen" msprop:Generator_ColumnPropNameInRow="saturdayOpen" msprop:Generator_ColumnPropNameInTable="saturdayOpenColumn" msprop:Generator_UserColumnName="saturdayOpen" type="xs:duration" />
-              <xs:element name="saturdayClose" msprop:Generator_ColumnVarNameInTable="columnsaturdayClose" msprop:Generator_ColumnPropNameInRow="saturdayClose" msprop:Generator_ColumnPropNameInTable="saturdayCloseColumn" msprop:Generator_UserColumnName="saturdayClose" type="xs:duration" />
-              <xs:element name="sundayOpen" msprop:Generator_ColumnVarNameInTable="columnsundayOpen" msprop:Generator_ColumnPropNameInRow="sundayOpen" msprop:Generator_ColumnPropNameInTable="sundayOpenColumn" msprop:Generator_UserColumnName="sundayOpen" type="xs:duration" />
-              <xs:element name="sundayClose" msprop:Generator_ColumnVarNameInTable="columnsundayClose" msprop:Generator_ColumnPropNameInRow="sundayClose" msprop:Generator_ColumnPropNameInTable="sundayCloseColumn" msprop:Generator_UserColumnName="sundayClose" type="xs:duration" />
+              <xs:element name="nom" msprop:Generator_ColumnVarNameInTable="columnnom" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_UserColumnName="nom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prenom" msprop:Generator_ColumnVarNameInTable="columnprenom" msprop:Generator_ColumnPropNameInRow="prenom" msprop:Generator_ColumnPropNameInTable="prenomColumn" msprop:Generator_UserColumnName="prenom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="password" msprop:Generator_ColumnVarNameInTable="columnpassword" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_UserColumnName="password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phone" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_UserColumnName="phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="typescuisine" msprop:Generator_TableClassName="typescuisineDataTable" msprop:Generator_TableVarName="tabletypescuisine" msprop:Generator_RowChangedName="typescuisineRowChanged" msprop:Generator_TablePropName="typescuisine" msprop:Generator_RowDeletingName="typescuisineRowDeleting" msprop:Generator_RowChangingName="typescuisineRowChanging" msprop:Generator_RowEvHandlerName="typescuisineRowChangeEventHandler" msprop:Generator_RowDeletedName="typescuisineRowDeleted" msprop:Generator_RowClassName="typescuisineRow" msprop:Generator_UserTableName="typescuisine" msprop:Generator_RowEvArgName="typescuisineRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -830,138 +941,26 @@ SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="restaurateurs" msprop:Generator_TableClassName="restaurateursDataTable" msprop:Generator_TableVarName="tablerestaurateurs" msprop:Generator_TablePropName="restaurateurs" msprop:Generator_RowDeletingName="restaurateursRowDeleting" msprop:Generator_RowChangingName="restaurateursRowChanging" msprop:Generator_RowEvHandlerName="restaurateursRowChangeEventHandler" msprop:Generator_RowDeletedName="restaurateursRowDeleted" msprop:Generator_UserTableName="restaurateurs" msprop:Generator_RowChangedName="restaurateursRowChanged" msprop:Generator_RowEvArgName="restaurateursRowChangeEvent" msprop:Generator_RowClassName="restaurateursRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
-              <xs:element name="nom" msprop:Generator_ColumnVarNameInTable="columnnom" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_UserColumnName="nom">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="prenom" msprop:Generator_ColumnVarNameInTable="columnprenom" msprop:Generator_ColumnPropNameInRow="prenom" msprop:Generator_ColumnPropNameInTable="prenomColumn" msprop:Generator_UserColumnName="prenom">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="password" msprop:Generator_ColumnVarNameInTable="columnpassword" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_UserColumnName="password">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="phone" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_UserColumnName="phone">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="typescuisine" msprop:Generator_TableClassName="typescuisineDataTable" msprop:Generator_TableVarName="tabletypescuisine" msprop:Generator_TablePropName="typescuisine" msprop:Generator_RowDeletingName="typescuisineRowDeleting" msprop:Generator_RowChangingName="typescuisineRowChanging" msprop:Generator_RowEvHandlerName="typescuisineRowChangeEventHandler" msprop:Generator_RowDeletedName="typescuisineRowDeleted" msprop:Generator_UserTableName="typescuisine" msprop:Generator_RowChangedName="typescuisineRowChanged" msprop:Generator_RowEvArgName="typescuisineRowChangeEvent" msprop:Generator_RowClassName="typescuisineRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
-              <xs:element name="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" msprop:Generator_UserColumnName="type">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="utilisateurs" msprop:Generator_TableClassName="utilisateursDataTable" msprop:Generator_TableVarName="tableutilisateurs" msprop:Generator_TablePropName="utilisateurs" msprop:Generator_RowDeletingName="utilisateursRowDeleting" msprop:Generator_RowChangingName="utilisateursRowChanging" msprop:Generator_RowEvHandlerName="utilisateursRowChangeEventHandler" msprop:Generator_RowDeletedName="utilisateursRowDeleted" msprop:Generator_UserTableName="utilisateurs" msprop:Generator_RowChangedName="utilisateursRowChanged" msprop:Generator_RowEvArgName="utilisateursRowChangeEvent" msprop:Generator_RowClassName="utilisateursRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
-              <xs:element name="nom" msprop:Generator_ColumnVarNameInTable="columnnom" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_UserColumnName="nom">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="prenom" msprop:Generator_ColumnVarNameInTable="columnprenom" msprop:Generator_ColumnPropNameInRow="prenom" msprop:Generator_ColumnPropNameInTable="prenomColumn" msprop:Generator_UserColumnName="prenom">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="password" msprop:Generator_ColumnVarNameInTable="columnpassword" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_UserColumnName="password">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="phone" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_UserColumnName="phone">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:administrateurs" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
-    <xs:unique name="comments_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:comments" />
+    <xs:unique name="utilisateurs_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:utilisateurs" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
-    <xs:unique name="reservations_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:reservations" />
+    <xs:unique name="comments_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:comments" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
     <xs:unique name="horaires_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:horaires" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
-    <xs:unique name="restaurants_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:restaurants" />
+    <xs:unique name="reservations_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:reservations" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
     <xs:unique name="restaurateurs_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
@@ -972,19 +971,19 @@ SELECT id, nom, prenom, username, password, email, phone FROM utilisateurs WHERE
       <xs:selector xpath=".//mstns:typescuisine" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
-    <xs:unique name="utilisateurs_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:utilisateurs" />
+    <xs:unique name="restaurants_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:restaurants" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="comments_restaurants" msdata:parent="restaurants" msdata:child="comments" msdata:parentkey="id" msdata:childkey="idRestaurant" msprop:Generator_UserChildTable="comments" msprop:Generator_ChildPropName="GetcommentsRows" msprop:Generator_UserRelationName="comments_restaurants" msprop:Generator_RelationVarName="relationcomments_restaurants" msprop:Generator_UserParentTable="restaurants" msprop:Generator_ParentPropName="restaurantsRow" />
       <msdata:Relationship name="comments_utilisateurs" msdata:parent="utilisateurs" msdata:child="comments" msdata:parentkey="id" msdata:childkey="idUtilisateur" msprop:Generator_UserChildTable="comments" msprop:Generator_ChildPropName="GetcommentsRows" msprop:Generator_UserRelationName="comments_utilisateurs" msprop:Generator_RelationVarName="relationcomments_utilisateurs" msprop:Generator_UserParentTable="utilisateurs" msprop:Generator_ParentPropName="utilisateursRow" />
+      <msdata:Relationship name="comments_restaurants" msdata:parent="restaurants" msdata:child="comments" msdata:parentkey="id" msdata:childkey="idRestaurant" msprop:Generator_UserChildTable="comments" msprop:Generator_ChildPropName="GetcommentsRows" msprop:Generator_UserRelationName="comments_restaurants" msprop:Generator_RelationVarName="relationcomments_restaurants" msprop:Generator_UserParentTable="restaurants" msprop:Generator_ParentPropName="restaurantsRow" />
       <msdata:Relationship name="reservations_restaurants" msdata:parent="restaurants" msdata:child="reservations" msdata:parentkey="id" msdata:childkey="idRestaurant" msprop:Generator_UserChildTable="reservations" msprop:Generator_ChildPropName="GetreservationsRows" msprop:Generator_UserRelationName="reservations_restaurants" msprop:Generator_RelationVarName="relationreservations_restaurants" msprop:Generator_UserParentTable="restaurants" msprop:Generator_ParentPropName="restaurantsRow" />
       <msdata:Relationship name="restaurants_horaires" msdata:parent="horaires" msdata:child="restaurants" msdata:parentkey="id" msdata:childkey="idHoraire" msprop:Generator_UserChildTable="restaurants" msprop:Generator_ChildPropName="GetrestaurantsRows" msprop:Generator_UserRelationName="restaurants_horaires" msprop:Generator_ParentPropName="horairesRow" msprop:Generator_RelationVarName="relationrestaurants_horaires" msprop:Generator_UserParentTable="horaires" />
-      <msdata:Relationship name="restaurants_restaurateurs" msdata:parent="restaurateurs" msdata:child="restaurants" msdata:parentkey="id" msdata:childkey="idRestaurateur" msprop:Generator_UserChildTable="restaurants" msprop:Generator_ChildPropName="GetrestaurantsRows" msprop:Generator_UserRelationName="restaurants_restaurateurs" msprop:Generator_RelationVarName="relationrestaurants_restaurateurs" msprop:Generator_UserParentTable="restaurateurs" msprop:Generator_ParentPropName="restaurateursRow" />
-      <msdata:Relationship name="restaurants_typescuisine" msdata:parent="typescuisine" msdata:child="restaurants" msdata:parentkey="id" msdata:childkey="idTypeCuisine" msprop:Generator_UserChildTable="restaurants" msprop:Generator_ChildPropName="GetrestaurantsRows" msprop:Generator_UserRelationName="restaurants_typescuisine" msprop:Generator_RelationVarName="relationrestaurants_typescuisine" msprop:Generator_UserParentTable="typescuisine" msprop:Generator_ParentPropName="typescuisineRow" />
+      <msdata:Relationship name="restaurants_restaurateurs" msdata:parent="restaurateurs" msdata:child="restaurants" msdata:parentkey="id" msdata:childkey="idRestaurateur" msprop:Generator_UserChildTable="restaurants" msprop:Generator_ChildPropName="GetrestaurantsRows" msprop:Generator_UserRelationName="restaurants_restaurateurs" msprop:Generator_ParentPropName="restaurateursRow" msprop:Generator_RelationVarName="relationrestaurants_restaurateurs" msprop:Generator_UserParentTable="restaurateurs" />
+      <msdata:Relationship name="restaurants_typescuisine" msdata:parent="typescuisine" msdata:child="restaurants" msdata:parentkey="id" msdata:childkey="idTypeCuisine" msprop:Generator_UserChildTable="restaurants" msprop:Generator_ChildPropName="GetrestaurantsRows" msprop:Generator_UserRelationName="restaurants_typescuisine" msprop:Generator_ParentPropName="typescuisineRow" msprop:Generator_RelationVarName="relationrestaurants_typescuisine" msprop:Generator_UserParentTable="typescuisine" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
