@@ -1,0 +1,6 @@
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\DAL\bin\Debug\DAL.dll.config
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\DAL\bin\Debug\DAL.dll
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\DAL\bin\Debug\DAL.pdb
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\DAL\obj\Debug\DAL.dll
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\DAL\obj\Debug\DAL.pdb

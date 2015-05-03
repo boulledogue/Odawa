@@ -159,7 +159,7 @@ public class ModelsMapping {
         rest.setNom(r.getNom().getValue());
         rest.setAdresse(r.getAdresse().getValue());
         rest.setNumero(r.getNumero().getValue());
-        rest.setZipCode(r.getNumero().getValue());
+        rest.setZipCode(r.getZipCode().getValue());
         rest.setLocalite(r.getLocalite().getValue());
         rest.setDescription(r.getDescription().getValue());
         rest.setBudgetLow(r.getBudgetLow());
@@ -182,7 +182,7 @@ public class ModelsMapping {
             rest.setNom(r.getNom().getValue());
             rest.setAdresse(r.getAdresse().getValue());
             rest.setNumero(r.getNumero().getValue());
-            rest.setZipCode(r.getNumero().getValue());
+            rest.setZipCode(r.getZipCode().getValue());
             rest.setLocalite(r.getLocalite().getValue());
             rest.setDescription(r.getDescription().getValue());
             rest.setBudgetLow(r.getBudgetLow());

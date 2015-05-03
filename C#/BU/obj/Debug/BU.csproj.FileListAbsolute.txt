@@ -1,0 +1,7 @@
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\BU\bin\Debug\BU.dll
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\BU\bin\Debug\BU.pdb
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\BU\bin\Debug\DAL.dll
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\BU\bin\Debug\DAL.pdb
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\BU\obj\Debug\BU.csprojResolveAssemblyReference.cache
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\BU\obj\Debug\BU.dll
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\BU\obj\Debug\BU.pdb

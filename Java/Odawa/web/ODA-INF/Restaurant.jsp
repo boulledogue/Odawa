@@ -4,17 +4,26 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="page-header page-header-debug">
-            <h4><p class="text-left">La Frikadelle</p><p class="text-right txt-debug"><small> Snack </small></p></h4>
+            <h4><p class="text-left">${Restaurant.getNom()}</p><p class="text-right txt-debug"><small> 
+                        <c:choose>
+                            <c:when test="${Restaurant.getGenre() == 1 }">
+                                Restaurant
+                            </c:when>
+                            <c:otherwise>
+                                Snack
+                            </c:otherwise>
+                        </c:choose>
+            </small></p></h4>
           </div>
           <div>
             <div class="well col-md-6 rest-plus-descr"><div id="map-container"></div></div>
             <div class="col-md-6 rest-prsnt">
-              <p class="text-right">Marc Oden</p>
-              <p>Type de Cuisine : Belge</p>
-              <p>Adresse : Rue des rosier,14. Namur. </p>
+              <p class="text-right">${Restaurateur.getNom()} ${Restaurateur.getPrenom()}</p>
+              <p>Type de Cuisine : ${TypeCuisine.getType()}</p>
+              <p>Adresse : ${Restaurant.getAdresse()}, n°${Restaurant.getNumero()} -- ${Restaurant.getZipCode()} ${Restaurant.getLocalite()} </p>
               <p>Horaire : 8H-22H</p>
-              <p>Fourchette de Tarif : De 2Euros à 16Euros</p>
-              <div class="well descr">Merveilleux snack placé le long de ...</div>
+              <p>Fourchette de Tarif : De ${Restaurant.getBudgetLow()} Euros à ${Restaurant.getBudgetHigh()} Euros</p>
+              <div class="well descr">${Restaurant.getDescription()}</div>
             </div>
           </div>
         </div>

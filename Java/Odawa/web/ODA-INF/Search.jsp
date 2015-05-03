@@ -29,7 +29,7 @@
           <tbody>
             <c:forEach var="restaurant" items="${Restaurants}" >
               <tr>
-                <td><a href="/Restaurant">${restaurant.getNom()}</a></td>
+                <td><a href="/Restaurant?id=${restaurant.getId()}">${restaurant.getNom()}</a></td>
                 <td>${restaurant.getLocalite()}</td>
                 <td>${restaurant.getIdTypeCuisine()}</td>
                 <c:choose>
