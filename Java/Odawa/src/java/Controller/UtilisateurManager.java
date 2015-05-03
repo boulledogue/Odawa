@@ -5,10 +5,26 @@
  */
 package Controller;
 
+import Models.*;
+import org.datacontract.schemas._2004._07.bu.*;
+
 /**
  *
  * @author Alistreaza
  */
 public class UtilisateurManager {
     
+    public static boolean AcceptUtilisateur(String username, String password) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        boolean u = port.acceptLoginUtilisateur(username, password);
+        boolean r = port.acceptLoginRestaurateur(username, password);
+        if(u == true || r == true) return true;
+        else return false;
+    }
+    
+    public static UtilisateurJ getUtilisateurByUsername(String username) {
+        UtilisateurJ u = ModelsMapping.getUtilisateurByUsername(username);
+        return u;
+    }
 }

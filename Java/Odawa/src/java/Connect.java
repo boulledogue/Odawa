@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
+import Controller.UtilisateurManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -57,7 +59,13 @@ public class Connect extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        boolean resp = UtilisateurManager.AcceptUtilisateur(request.getParameter("username"),request.getParameter("password"));
+        if(resp == true) {
+            HttpSession Session = request.getSession();
+            Session.setAttribute("Utilisateur",UtilisateurManager.getUtilisateurByUsername(request.getParameter("username"))); 
+        }
+        response.setContentType("application/json");
+        try (PrintWriter out = response.getWriter()) { out.println("{\"success\":"+resp+"}"); }
     }
 
     /**

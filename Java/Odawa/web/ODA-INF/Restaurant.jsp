@@ -1,19 +1,11 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="/ODA-INF/Header.jsp" />
   <div class="container ocnt">
     <div class="row">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="page-header page-header-debug">
-            <h4><p class="text-left">${Restaurant.getNom()}</p><p class="text-right txt-debug"><small> 
-                        <c:choose>
-                            <c:when test="${Restaurant.getGenre() == 1 }">
-                                Restaurant
-                            </c:when>
-                            <c:otherwise>
-                                Snack
-                            </c:otherwise>
-                        </c:choose>
-            </small></p></h4>
+            <h4><p class="text-left">${Restaurant.getNom()}</p><p class="text-right txt-debug"><small><c:out value="${Restaurant.getGenre() == 1 ? 'Restaurant': 'Snack'}"/></small></p></h4>
           </div>
           <div>
             <div class="well col-md-6 rest-plus-descr"><div id="map-container"></div></div>
@@ -28,12 +20,9 @@
           </div>
         </div>
         <ul class="list-group">
-          <li class="list-group-item"><div class="input-group"><span class="input-group-addon">Marcel :</span><input type="text" class="form-control commnt" placeholder="Tu tire ou Tu pointe ?" disabled></div></li>
-          <li class="list-group-item"><div class="input-group"><span class="input-group-addon">Pagnol :</span><input type="text" class="form-control commnt" placeholder="Je pointe Marcel ! Je pointe !" disabled></div></li>
-          <li class="list-group-item"><div class="input-group"><span class="input-group-addon">Le Chateau :</span><input type="text" class="form-control commnt" placeholder="Ha, la vinasse du chateau! Du chateau ! Du chateau ! Qu'elle est belle, Qu'il est beau !" disabled></div></li>
-          <li class="list-group-item"><div class="input-group"><span class="input-group-addon">De :</span><input type="text" class="form-control commnt" placeholder="De ? Non, rien ! Oublie !" disabled></div></li>
-          <li class="list-group-item"><div class="input-group"><span class="input-group-addon">Ma Mere :</span><input type="text" class="form-control commnt" placeholder="On avait dis : 'Pas les mamans !'" disabled></div></li>
-          <li class="list-group-item"> <a>Et 50 autres commentaires ...</a> </li>
+          <c:forEach var="Comment" items="${Comments}" >
+          <li class="list-group-item"><div class="input-group"><span class="input-group-addon">${Comment.getIdUtilisateur()} :</span><input type="text" class="form-control commnt" placeholder="${Comment.getCommentaire()}" disabled></div></li>
+          </c:forEach>
         </ul>
       </div>
       <div class="panel panel-default">

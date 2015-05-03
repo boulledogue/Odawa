@@ -31,15 +31,23 @@ public class Search extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
         if( request.getParameter("SearchType") != null ) {
-            if( request.getParameter("SearchType").equals("1") ) { request.setAttribute("SearchType",1); }
-            else{
-                if( request.getParameter("SearchType").equals("2") ) { request.setAttribute("SearchType",2); } 
+            if( request.getParameter("SearchType").equals("1") ) { 
+                request.setAttribute("SearchType",1);
+                request.setAttribute("Restaurants",RestaurantManager.GetAllRestaurant());
+            }else{
+                if( request.getParameter("SearchType").equals("2") ) { 
+                    request.setAttribute("SearchType",2);
+                    request.setAttribute("Restaurants",RestaurantManager.GetAllSnack());
+                } 
             }
-        }else{ request.setAttribute("SearchType",0); }
-                
-        request.setAttribute("Restaurants",RestaurantManager.GetRestaurants((String)request.getAttribute("SearchString")));
+        }else{ 
+            request.setAttribute("SearchType",0); 
+            if( request.getAttribute("SearchString") != null)
+                request.setAttribute("Restaurants",RestaurantManager.GetRestaurants((String)request.getAttribute("SearchString")));
+            else
+                request.setAttribute("Restaurants",RestaurantManager.GetBestRestaurants());
+        }
         request.getRequestDispatcher("/ODA-INF/Search.jsp").forward(request,response);
     }
 

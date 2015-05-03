@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import Controller.CommentManager;
 import Controller.RestaurantManager;
 import Controller.RestaurateurManager;
 import Controller.TypeCuisineManager;
@@ -34,10 +35,9 @@ public class Restaurant extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         RestaurantJ r = RestaurantManager.GetRestaurant(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("Restaurant",r);
-        RestaurateurJ rt = RestaurateurManager.getRestaurateurByRestaurant(r.getId());
-        request.setAttribute("Restaurateur",rt);
-        TypeCuisineJ tc = TypeCuisineManager.GetTypeCuisine(r.getIdTypeCuisine());
-        request.setAttribute("TypeCuisine",tc);
+        request.setAttribute("Restaurateur",RestaurateurManager.getRestaurateurByRestaurant(r.getId()));
+        request.setAttribute("TypeCuisine",TypeCuisineManager.GetTypeCuisine(r.getIdTypeCuisine()));
+        request.setAttribute("Comments",CommentManager.GetCommentByRestaurant(r.getId()));
         request.getRequestDispatcher("/ODA-INF/Restaurant.jsp").forward(request,response);
     }
 

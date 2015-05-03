@@ -349,6 +349,21 @@ public class ModelsMapping {
         return uj;
     }
     
+    public static UtilisateurJ getUtilisateurByUsername(String username) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        Utilisateur u = port.getUtilisateurByUsername(username);
+        UtilisateurJ uj = new UtilisateurJ();
+        uj.setId(u.getId());
+        uj.setNom(u.getNom().getValue());
+        uj.setPrenom(u.getPrenom().getValue());
+        uj.setUsername(u.getUsername().getValue());
+        uj.setPassword(u.getPassword().getValue());
+        uj.setEmail(u.getEmail().getValue());
+        uj.setPhone(u.getPhone().getValue());
+        return uj;
+    }
+    
     public static void updateUtilisateur(UtilisateurJ uj) {
         ObjectFactory o = new ObjectFactory();
         Utilisateur u = new Utilisateur();

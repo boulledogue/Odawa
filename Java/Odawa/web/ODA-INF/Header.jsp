@@ -27,7 +27,7 @@
           <li class="last"><a href="/Search?SearchType=2">Snacks</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <p class="navbar-text hello-debug"> Bienvenu M. Trucmuche </p>
+          <p class="navbar-text hello-debug"> Bienvenue ${Session.getAttribute("Utilisateur").getNom()} </p>
           <li><a href="/Gestion"> Gestion du Compte </a></li>
           <li><a href="/Search"> Recherche </a></li>
           <li class="last"><a href="/Connect"> Connection </a></li>

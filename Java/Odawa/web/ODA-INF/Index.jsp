@@ -1,56 +1,24 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="/ODA-INF/Header.jsp" />
   <div class="container ocnt">
     <div class="row">
       <div class="col-md-8">
         <div class="panel panel-default debug-panel">
           <div class="panel-body">
-            <p class="debug-titre">News</p>
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="media">
-                  <div class="media-body">
-                    <h4 class="media-heading">Cras sit amet</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="media">
-                  <div class="media-body">
-                    <h4 class="media-heading">Cras sit amet</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="media">
-                  <div class="media-body">
-                    <h4 class="media-heading">Cras sit amet</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </div>
-                </div>
-              </div>
-            </div>
             <p class="debug-titre">Restaurant au hasard!</p>
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="page-header page-header-debug">
-                  <h4><p class="text-left">La Frikadelle</p><p class="text-right txt-debug"><small> Snack </small></p></h4>
+                  <h4><p class="text-left">${RestaurantOazar.getNom()}</p><p class="text-right txt-debug"><small><c:out value="${RestaurantOazar.getGenre() == 1 ? 'Restaurant': 'Snack'}"/></small></p></h4>
                 </div>
                 <div class="well col-md-6 rest-prsnt"><div id="map-container"></div></div>
-                <div class="col-md-6 rest-prsnt">
-                  <p class="text-right">Marc Oden</p>
-                  <p>Type de Cuisine : Belge</p>
-                  <p>Adresse : Rue des rosier,14. Namur. </p>
-                  <p>Description :</p>
-                  <div class="well" >Merveilleux snack placé le long de ...</div>
+                <div class="col-md-6 rest-top top-rest">
+                  <p class="text-right">${RestaurateurOazar.getNom()} ${RestaurateurOazar.getPrenom()}</p>
+                  <p>Type de Cuisine : ${TypeCuisineOazar.getType()}</p>
+                  <p>Adresse : ${RestaurantOazar.getAdresse()}, n°${RestaurantOazar.getNumero()} -- ${RestaurantOazar.getZipCode()} ${RestaurantOazar.getLocalite()} </p>
                   <p>Horaire : 8H-22H</p>
-                  <p>Fourchette de Tarif : De 2Euros à 16Euros</p>
-                  <p class="text-right"><span class="badge">P</span></p>
+                  <p>Fourchette de Tarif : De ${RestaurantOazar.getBudgetLow()} Euros à ${RestaurantOazar.getBudgetHigh()} Euros</p>
+                  <p class="text-right"><span class="badge"><c:out value="${RestaurantOazar.getPremium() == true ? 'P': ''}"/></span></p>
                 </div>
               </div>
             </div>
@@ -61,21 +29,14 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <p class="debug-titre">Les 3 Meilleurs Restaurant</p>
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h5><p class="text-left"><strong>La Frikadelle</strong></p><p class="text-right txt-debug"><small> Snack </small></p></h5>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h5><p class="text-left"><strong>Le Stromboli</strong></p><p class="text-right txt-debug"><small> Restaurant </small></p></h5>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h5><p class="text-left"><strong>Le Dogalos</strong></p><p class="text-right txt-debug"><small> Bar </small></p></h5>
-              </div>
-            </div>
+            <c:forEach var="Restaurant" items="${Restaurants}" >
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h5><p class="text-left"><strong>${Restaurant.getNom()}</strong></p>
+                            <p class="text-right txt-debug"><small> <c:out value="${Restaurant.getGenre() == 1 ? 'Restaurant': 'Snack'}"/> </small></p></h5>
+                    </div>
+                </div>
+            </c:forEach>
           </div>
         </div>
       </div>

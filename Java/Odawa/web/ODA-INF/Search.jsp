@@ -27,35 +27,17 @@
             </tr>
           </thead>
           <tbody>
-            <c:forEach var="restaurant" items="${Restaurants}" >
+            <c:forEach var="Restaurant" items="${Restaurants}" >
               <tr>
-                <td><a href="/Restaurant?id=${restaurant.getId()}">${restaurant.getNom()}</a></td>
-                <td>${restaurant.getLocalite()}</td>
-                <td>${restaurant.getIdTypeCuisine()}</td>
-                <c:choose>
-                    <c:when test="${restaurant.getPremium() == true}">
-                        <th><span class="badge">P</span></th>
-                    </c:when>
-                    <c:otherwise>
-                        <th><span class="badge"></span></th>
-                    </c:otherwise>
-                </c:choose>
+                <td><a href="/Restaurant?id=${Restaurant.getId()}">${Restaurant.getNom()}</a></td>
+                <td>${Restaurant.getLocalite()}</td>
+                <td>${Restaurant.getIdTypeCuisine()}</td>
+                <th><span class="badge"><c:out value="${Restaurant.getPremium() == true ? 'P': ''}"/></span></th>
             </tr>
             </c:forEach>
           </tbody>
         </table>
       </div>
-      <!--<nav>
-        <ul class="pagination">
-          <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-        </ul>
-      </nav>-->
     </div>
   </div>
 <jsp:include page="/ODA-INF/Footer.jsp" />

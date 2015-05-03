@@ -19,6 +19,7 @@ body { background-color: #F2F2F2; }
 .txt-debug { margin-top: -30px; }
 .hello-debug { margin-top:15px; }
 .rest-prsnt { height:300px; margin-top:-5px; }
+.top-rest { margin-top: 25px; }
 .rest-plus-descr { height:300px; }
 .descr { height:148px; }
 .commnt { cursor:default !important;background-color: #FFF !important; }
