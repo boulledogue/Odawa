@@ -154,21 +154,7 @@ public class ModelsMapping {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         Restaurant r = port.getRestaurant(id);
-        RestaurantJ rest = new RestaurantJ();
-        rest.setId(r.getId());
-        rest.setNom(r.getNom().getValue());
-        rest.setAdresse(r.getAdresse().getValue());
-        rest.setNumero(r.getNumero().getValue());
-        rest.setZipCode(r.getZipCode().getValue());
-        rest.setLocalite(r.getLocalite().getValue());
-        rest.setDescription(r.getDescription().getValue());
-        rest.setBudgetLow(r.getBudgetLow());
-        rest.setBudgetHigh(r.getBudgetHigh());
-        rest.setPremium(r.isPremium());
-        rest.setIdTypeCuisine(r.getIdTypeCuisine());
-        rest.setIdRestaurateur(r.getIdRestaurateur());
-        rest.setIdHoraire(r.getIdHoraire());
-        return rest;
+        return ConvertToRestaurantJ(r);
     }
     
     public static ArrayList<RestaurantJ> SearchRestaurant(String s) {
@@ -177,25 +163,55 @@ public class ModelsMapping {
         List<Restaurant> lstR = port.searchRestaurant(s).getRestaurant();
         ArrayList<RestaurantJ> arrayRestaurantJ = new ArrayList<RestaurantJ>();
         for(Restaurant r : lstR){            
-            RestaurantJ rest = new RestaurantJ();
-            rest.setId(r.getId());
-            rest.setNom(r.getNom().getValue());
-            rest.setAdresse(r.getAdresse().getValue());
-            rest.setNumero(r.getNumero().getValue());
-            rest.setZipCode(r.getZipCode().getValue());
-            rest.setLocalite(r.getLocalite().getValue());
-            rest.setDescription(r.getDescription().getValue());
-            rest.setBudgetLow(r.getBudgetLow());
-            rest.setBudgetHigh(r.getBudgetHigh());
-            rest.setPremium(r.isPremium());
-            rest.setIdTypeCuisine(r.getIdTypeCuisine());
-            rest.setIdRestaurateur(r.getIdRestaurateur());
-            rest.setIdHoraire(r.getIdHoraire());
+            RestaurantJ rest = ConvertToRestaurantJ(r);
             arrayRestaurantJ.add(rest);
         }
         return arrayRestaurantJ;
     }
 
+    public static ArrayList<RestaurantJ> getAllRestaurant() {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        List<Restaurant> lstR = port.getAllRestaurant().getRestaurant();
+        ArrayList<RestaurantJ> arrayRestaurantJ = new ArrayList<RestaurantJ>();
+        for(Restaurant r : lstR){            
+            RestaurantJ rest = ConvertToRestaurantJ(r);
+            arrayRestaurantJ.add(rest);
+        }
+        return arrayRestaurantJ;
+    }
+
+    public static ArrayList<RestaurantJ> getAllSnack() {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        List<Restaurant> lstR = port.getAllSnack().getRestaurant();
+        ArrayList<RestaurantJ> arrayRestaurantJ = new ArrayList<RestaurantJ>();
+        for(Restaurant r : lstR){            
+            RestaurantJ rest = ConvertToRestaurantJ(r);
+            arrayRestaurantJ.add(rest);
+        }
+        return arrayRestaurantJ;
+    }
+    
+    public static ArrayList<RestaurantJ> bestRestaurant() {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        List<Restaurant> lstR = port.bestRestaurant().getRestaurant();
+        ArrayList<RestaurantJ> arrayRestaurantJ = new ArrayList<RestaurantJ>();
+        for(Restaurant r : lstR){            
+            RestaurantJ rest = ConvertToRestaurantJ(r);
+            arrayRestaurantJ.add(rest);
+        }
+        return arrayRestaurantJ;
+    }
+    
+    public static RestaurantJ randomRestaurant() {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        Restaurant r = port.randomRestaurant();
+        return ConvertToRestaurantJ(r);
+    }
+    
     public static void updateRestaurant(RestaurantJ rj) {
         ObjectFactory o = new ObjectFactory();
         Restaurant r = new Restaurant();
@@ -222,6 +238,25 @@ public class ModelsMapping {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.deleteRestaurant(id);
+    }
+    
+    public static RestaurantJ ConvertToRestaurantJ(Restaurant r){
+        RestaurantJ rest = new RestaurantJ();
+        rest.setId(r.getId());
+        rest.setNom(r.getNom().getValue());
+        rest.setAdresse(r.getAdresse().getValue());
+        rest.setNumero(r.getNumero().getValue());
+        rest.setZipCode(r.getZipCode().getValue());
+        rest.setLocalite(r.getLocalite().getValue());
+        rest.setDescription(r.getDescription().getValue());
+        rest.setBudgetLow(r.getBudgetLow());
+        rest.setBudgetHigh(r.getBudgetHigh());
+        rest.setPremium(r.isPremium());
+        rest.setGenre(r.getGenre());
+        rest.setIdTypeCuisine(r.getIdTypeCuisine());
+        rest.setIdRestaurateur(r.getIdRestaurateur());
+        rest.setIdHoraire(r.getIdHoraire());
+        return rest;
     }
     
     //---------Restaurateurs

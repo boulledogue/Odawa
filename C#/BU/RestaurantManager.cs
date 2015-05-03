@@ -83,7 +83,7 @@ namespace BU
             CommentManager.DeleteByRestaurant(id);
             ReservationManager.DeleteByRestaurant(id);
             DataProvider.DeleteRestaurant(id);
-            if (resto.idHoraire > 0) HoraireManager.Delete(resto.idHoraire);
+            HoraireManager.Delete(resto.idHoraire);
         }
 
         public static List<Restaurant> Search(string s)
@@ -124,6 +124,17 @@ namespace BU
                 lst.Add(GetAll().Find(x => x.id == id));
             }
             return lst;
+        }
+
+        public static Restaurant RandomRestaurant()
+        {
+            List<Restaurant> lst = GetAll();
+            Restaurant r = new Restaurant();
+            int count = lst.Count();
+            Random rnd = new Random();
+            int randomIndex = rnd.Next(0, count-1);
+            r = lst[randomIndex];
+            return r;
         }
     }
 }

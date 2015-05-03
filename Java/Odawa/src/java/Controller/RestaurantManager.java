@@ -29,6 +29,26 @@ public class RestaurantManager {
         return a;
     }
     
+    public static ArrayList<RestaurantJ> GetAllRestaurant(){
+        ArrayList<RestaurantJ> a = ModelsMapping.getAllRestaurant();
+        return a;
+    }
+    
+    public static ArrayList<RestaurantJ> GetAllSnack(){
+        ArrayList<RestaurantJ> a = ModelsMapping.getAllSnack();
+        return a;
+    }
+    
+    public static ArrayList<RestaurantJ> GetBestRestaurants(){
+        ArrayList<RestaurantJ> a = ModelsMapping.bestRestaurant();
+        return a;
+    }
+    
+    public static RestaurantJ RandomRestaurant(){
+        RestaurantJ r = ModelsMapping.randomRestaurant();
+        return r;
+    }
+    
     public static void Update(RestaurantJ rj){        
         ModelsMapping.updateRestaurant(rj);
     }

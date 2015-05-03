@@ -80,6 +80,11 @@ namespace OdawaService
             return RestaurantManager.BestRestaurant();
         }
 
+        public Restaurant RandomRestaurant()
+        {
+            return RestaurantManager.RandomRestaurant();
+        }
+
         public Utilisateur GetUtilisateur(int id)
         {
             return UtilisateurManager.GetAll().Find(x => x.id == id);

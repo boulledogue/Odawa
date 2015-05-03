@@ -58,6 +58,9 @@ namespace OdawaService
         List<Restaurant> BestRestaurant();
 
         [OperationContract]
+        Restaurant RandomRestaurant();
+
+        [OperationContract]
         bool AcceptLoginRestaurateur(string username, string password);
 
         [OperationContract]
