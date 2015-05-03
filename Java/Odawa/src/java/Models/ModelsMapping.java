@@ -150,6 +150,27 @@ public class ModelsMapping {
         port.createRestaurant(r);
     }
     
+    public static RestaurantJ getRestaurant(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        Restaurant r = port.getRestaurant(id);
+        RestaurantJ rest = new RestaurantJ();
+        rest.setId(r.getId());
+        rest.setNom(r.getNom().getValue());
+        rest.setAdresse(r.getAdresse().getValue());
+        rest.setNumero(r.getNumero().getValue());
+        rest.setZipCode(r.getNumero().getValue());
+        rest.setLocalite(r.getLocalite().getValue());
+        rest.setDescription(r.getDescription().getValue());
+        rest.setBudgetLow(r.getBudgetLow());
+        rest.setBudgetHigh(r.getBudgetHigh());
+        rest.setPremium(r.isPremium());
+        rest.setIdTypeCuisine(r.getIdTypeCuisine());
+        rest.setIdRestaurateur(r.getIdRestaurateur());
+        rest.setIdHoraire(r.getIdHoraire());
+        return rest;
+    }
+    
     public static ArrayList<RestaurantJ> SearchRestaurant(String s) {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
@@ -268,10 +289,10 @@ public class ModelsMapping {
     
     //---------Utilisateurs
     
-    public static UtilisateurJ getUtilisateurByUsername(String s) {
+    public static UtilisateurJ getUtilisateur(int id) {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
-        Utilisateur u = port.getUtilisateurByUsername(s);
+        Utilisateur u = port.getUtilisateur(id);
         UtilisateurJ uj = new UtilisateurJ();
         uj.setId(u.getId());
         uj.setNom(u.getNom().getValue());
@@ -282,4 +303,19 @@ public class ModelsMapping {
         uj.setPhone(u.getPhone().getValue());
         return uj;
     }
+    
+    public static void updateUtilisateur(UtilisateurJ uj) {
+        ObjectFactory o = new ObjectFactory();
+        Utilisateur u = new Utilisateur();
+        u.setId(uj.getId());
+        u.setNom(o.createUtilisateurNom(uj.getNom()));
+        u.setPrenom(o.createUtilisateurPrenom(uj.getPrenom()));
+        u.setUsername(o.createUtilisateurUsername(uj.getUsername()));
+        u.setPassword(o.createUtilisateurPassword(uj.getPassword()));
+        u.setEmail(o.createUtilisateurEmail(uj.getEmail()));
+        u.setPhone(o.createUtilisateurPhone(uj.getPhone()));
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.updateUtilisateur(u);
+    }    
 }

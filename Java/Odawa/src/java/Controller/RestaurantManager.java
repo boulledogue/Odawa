@@ -19,6 +19,11 @@ public class RestaurantManager {
         ModelsMapping.createRestaurant(rj);
     }    
     
+    public static RestaurantJ GetRestaurant(int id){
+        RestaurantJ r = ModelsMapping.getRestaurant(id);
+        return r;
+    }
+    
     public static ArrayList<RestaurantJ> GetRestaurants(String s){
         ArrayList<RestaurantJ> a = ModelsMapping.SearchRestaurant(s);
         return a;
