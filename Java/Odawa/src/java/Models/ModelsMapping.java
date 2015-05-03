@@ -287,6 +287,16 @@ public class ModelsMapping {
         return arrayTypeJ;
     }
     
+    public static TypeCuisineJ getTypeCuisine(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        TypeCuisine t = port.getTypeCuisine(id);
+        TypeCuisineJ tj = new TypeCuisineJ();
+        tj.setId(t.getId());
+        tj.setType(t.getType().getValue());
+        return tj;
+    }
+    
     //---------Utilisateurs
     
     public static UtilisateurJ getUtilisateur(int id) {
@@ -317,5 +327,5 @@ public class ModelsMapping {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.updateUtilisateur(u);
-    }    
+    }
 }

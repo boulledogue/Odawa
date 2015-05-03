@@ -21,7 +21,7 @@ public class TypeCuisineManager {
     }
     
     public static TypeCuisineJ GetTypeCuisine(int id){
-        TypeCuisineJ t = ModelsMapping.getAllTypeCuisine().get(id);
+        TypeCuisineJ t = ModelsMapping.getTypeCuisine(id);
         return t;
     }
 }
