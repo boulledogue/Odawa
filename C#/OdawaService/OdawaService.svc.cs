@@ -44,6 +44,11 @@ namespace OdawaService
             return CommentManager.GetAll().Where(x => x.idRestaurant == id).ToList();
         }
 
+        public Horaire GetHoraire(int id)
+        {
+            return HoraireManager.GetAll().Find(x => x.id == id);
+        }
+
         public List<Reservation> GetReservationByRestaurant(int id)
         {
             return ReservationManager.GetAll().Where(x => x.idRestaurant == id).ToList();

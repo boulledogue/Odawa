@@ -23,6 +23,7 @@ namespace BU
             newRow.thursdayOpen = h.thursdayOpen;
             newRow.thursdayClose = h.thursdayClose;
             newRow.fridayOpen = h.fridayOpen;
+            newRow.fridayClose = h.fridayClose;
             newRow.saturdayOpen = h.saturdayOpen;
             newRow.saturdayClose = h.saturdayClose;
             newRow.sundayOpen = h.sundayOpen;
@@ -47,6 +48,7 @@ namespace BU
                 h.thursdayOpen = horaireRow.thursdayOpen;
                 h.thursdayClose = horaireRow.thursdayClose;
                 h.fridayOpen = horaireRow.fridayOpen;
+                h.fridayClose = horaireRow.fridayClose;
                 h.saturdayOpen = horaireRow.saturdayOpen;
                 h.saturdayClose = horaireRow.saturdayClose;
                 h.sundayOpen = horaireRow.sundayOpen;
@@ -70,6 +72,7 @@ namespace BU
             updRow.thursdayOpen = h.thursdayOpen;
             updRow.thursdayClose = h.thursdayClose;
             updRow.fridayOpen = h.fridayOpen;
+            updRow.fridayClose = h.fridayClose;
             updRow.saturdayOpen = h.saturdayOpen;
             updRow.saturdayClose = h.saturdayClose;
             updRow.sundayOpen = h.sundayOpen;

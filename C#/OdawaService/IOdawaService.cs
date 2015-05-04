@@ -34,6 +34,9 @@ namespace OdawaService
         List<Comment> GetCommentByRestaurant(int id);
 
         [OperationContract]
+        Horaire GetHoraire(int id);
+
+        [OperationContract]
         List<Reservation> GetReservationByRestaurant(int id);
 
         [OperationContract]
