@@ -154,10 +154,10 @@ CREATE TABLE [dbo].[restaurants](
 	[numero] [varchar](5) NOT NULL,
 	[zipCode] [varchar](4) NOT NULL,
 	[localite] [varchar](50) NOT NULL,
-	[description] [text] NOT NULL DEFAULT ('La description du restaurant n''a pas été complétée.'),
-	[budgetLow] [int] NOT NULL DEFAULT (0),
-	[budgetHigh] [int] NOT NULL DEFAULT (0),
-	[horaire] [varchar](70) NOT NULL DEFAULT ('0000-0000;0000-0000;0000-0000;0000-0000;0000-0000;0000-0000;0000-0000'),
+	[description] [text] NOT NULL,
+	[budgetLow] [int] NOT NULL,
+	[budgetHigh] [int] NOT NULL,
+	[horaire] [varchar](70) NOT NULL,
 	[premium] [bit] NOT NULL DEFAULT ('0'),
 	[genre] [int] NOT NULL DEFAULT ('1'),
 	[idTypeCuisine] [int] NOT NULL,
@@ -184,8 +184,8 @@ CREATE TABLE [dbo].[restaurateurs](
 	[prenom] [varchar](30) NOT NULL,
 	[username] [varchar](30) NOT NULL,
 	[password] [varchar](30) NOT NULL,
-	[email] [varchar](50) NOT NULL DEFAULT ('aucun'),
-	[phone] [varchar](10) NOT NULL DEFAULT ('aucun'),
+	[email] [varchar](50) NOT NULL,
+	[phone] [varchar](10) NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -235,8 +235,8 @@ CREATE TABLE [dbo].[utilisateurs](
 	[prenom] [varchar](30) NOT NULL,
 	[username] [varchar](30) NOT NULL,
 	[password] [varchar](30) NOT NULL,
-	[email] [varchar](50) NOT NULL DEFAULT ('aucun'),
-	[phone] [varchar](10) NOT NULL DEFAULT ('aucun'),
+	[email] [varchar](50) NOT NULL,
+	[phone] [varchar](10) NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
