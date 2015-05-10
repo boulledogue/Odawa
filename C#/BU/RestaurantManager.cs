@@ -22,11 +22,11 @@ namespace BU
             newRow.description = r.description;
             newRow.budgetLow = r.budgetLow;
             newRow.budgetHigh = r.budgetHigh;
+            newRow.horaire = r.horaire;
             newRow.premium = r.premium;
             newRow.genre = r.genre;
             newRow.idTypeCuisine = r.idTypeCuisine;
             newRow.idRestaurateur = r.idRestaurateur;
-            newRow.idHoraire = r.idHoraire;
             DataProvider.CreateRestaurant(newRow);
         }
 
@@ -46,11 +46,11 @@ namespace BU
                 r.description = restoRow.description;
                 r.budgetLow = restoRow.budgetLow;
                 r.budgetHigh = restoRow.budgetHigh;
+                r.horaire = restoRow.horaire;
                 r.premium = restoRow.premium;
                 r.genre = restoRow.genre;
                 r.idTypeCuisine = restoRow.idTypeCuisine;
                 r.idRestaurateur = restoRow.idRestaurateur;
-                r.idHoraire = restoRow.idHoraire;
                 lst.Add(r);
             }
             return lst;
@@ -69,11 +69,11 @@ namespace BU
             updRow.description = r.description;
             updRow.budgetLow = r.budgetLow;
             updRow.budgetHigh = r.budgetHigh;
+            updRow.horaire = r.horaire;
             updRow.premium = r.premium;
             updRow.genre = r.genre;
             updRow.idTypeCuisine = r.idTypeCuisine;
             updRow.idRestaurateur = r.idRestaurateur;
-            updRow.idHoraire = r.idHoraire;
             DataProvider.UpdateRestaurant(updRow);
         }
 
@@ -83,7 +83,6 @@ namespace BU
             CommentManager.DeleteByRestaurant(id);
             ReservationManager.DeleteByRestaurant(id);
             DataProvider.DeleteRestaurant(id);
-            HoraireManager.Delete(resto.idHoraire);
         }
 
         public static List<Restaurant> Search(string s)
@@ -105,11 +104,11 @@ namespace BU
                     r.description = restoRow.description;
                     r.budgetLow = restoRow.budgetLow;
                     r.budgetHigh = restoRow.budgetHigh;
+                    r.horaire = restoRow.horaire;
                     r.premium = restoRow.premium;
                     r.genre = restoRow.genre;
                     r.idTypeCuisine = restoRow.idTypeCuisine;
                     r.idRestaurateur = restoRow.idRestaurateur;
-                    r.idHoraire = restoRow.idHoraire;
                     lst.Add(r);
                 }
             }

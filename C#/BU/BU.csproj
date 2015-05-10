@@ -39,12 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HoraireManager.cs" />
     <Compile Include="AdministrateurManager.cs" />
     <Compile Include="CommentManager.cs" />
     <Compile Include="Entities\Administrateur.cs" />
     <Compile Include="Entities\Comment.cs" />
-    <Compile Include="Entities\Horaire.cs" />
     <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Entities\Restaurant.cs" />
     <Compile Include="Entities\Restaurateur.cs" />

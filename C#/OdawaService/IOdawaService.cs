@@ -34,9 +34,6 @@ namespace OdawaService
         List<Comment> GetCommentByRestaurant(int id);
 
         [OperationContract]
-        Horaire GetHoraire(int id);
-
-        [OperationContract]
         List<Reservation> GetReservationByRestaurant(int id);
 
         [OperationContract]
@@ -95,12 +92,6 @@ namespace OdawaService
 
         [OperationContract]
         void DeleteComment(int id);
-
-        [OperationContract]
-        void CreateHoraire(Horaire h);
-
-        [OperationContract]
-        void UpdateHoraire(Horaire h);
 
         [OperationContract]
         void CreateReservation(Reservation r);

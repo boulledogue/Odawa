@@ -44,11 +44,6 @@ namespace OdawaService
             return CommentManager.GetAll().Where(x => x.idRestaurant == id).ToList();
         }
 
-        public Horaire GetHoraire(int id)
-        {
-            return HoraireManager.GetAll().Find(x => x.id == id);
-        }
-
         public List<Reservation> GetReservationByRestaurant(int id)
         {
             return ReservationManager.GetAll().Where(x => x.idRestaurant == id).ToList();
@@ -156,16 +151,6 @@ namespace OdawaService
         public void DeleteComment(int id)
         {
             CommentManager.Delete(id);
-        }
-
-        public void CreateHoraire(Horaire h)
-        {
-            HoraireManager.Create(h);
-        }
-
-        public void UpdateHoraire(Horaire h)
-        {
-            HoraireManager.Update(h);
         }
 
         public void CreateReservation(Reservation r)

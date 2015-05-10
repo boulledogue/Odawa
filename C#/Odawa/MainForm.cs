@@ -48,9 +48,9 @@ namespace Odawa
             dataGridViewRestaurants.Columns["description"].Visible = false;
             dataGridViewRestaurants.Columns["budgetLow"].Visible = false;
             dataGridViewRestaurants.Columns["budgetHigh"].Visible = false;
+            dataGridViewRestaurants.Columns["horaire"].Visible = false;
             dataGridViewRestaurants.Columns["idTypeCuisine"].Visible = false;
             dataGridViewRestaurants.Columns["idRestaurateur"].Visible = false;
-            dataGridViewRestaurants.Columns["idHoraire"].Visible = false;
 
             dataGridViewTypesCuisine.DataSource = TypeCuisineManager.GetAll();
         }
@@ -161,22 +161,7 @@ namespace Odawa
 
         private void buttonAddResto_Click(object sender, EventArgs e)
         {
-            Restaurant r = new Restaurant();
-            r.nom = "toto";
-            r.adresse = "zhsz";
-            r.numero = "123";
-            r.zipCode = "5000";
-            r.localite = "zehzhz";
-            r.description = "";
-            r.budgetLow = 0;
-            r.budgetHigh = 0;
-            r.premium = true;
-            r.idHoraire = 1;
-            r.idRestaurateur = 1;
-            r.idTypeCuisine = 1;
-            RestaurantManager.Create(r);
-            dataGridViewTypesCuisine.DataSource = typeof(List<TypeCuisine>);
-            PopulateGrids();
+
         }
 
         private void buttonModResto_Click(object sender, EventArgs e)

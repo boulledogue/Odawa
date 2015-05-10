@@ -30,15 +30,6 @@ namespace DAL
             return odawa.comments;
         }
 
-        public static OdawaDS.horairesDataTable GetHoraires()
-        {
-            using (OdawaDSTableAdapters.horairesTableAdapter adpt = new OdawaDSTableAdapters.horairesTableAdapter())
-            {
-                adpt.Fill(odawa.horaires);
-            }
-            return odawa.horaires;
-        }
-
         public static OdawaDS.reservationsDataTable GetReservations()
         {
             using (OdawaDSTableAdapters.reservationsTableAdapter adpt = new OdawaDSTableAdapters.reservationsTableAdapter())
@@ -140,38 +131,6 @@ namespace DAL
             WriteToDB("comments");
         }
 
-        //------------ Horaires
-
-        public static void CreateHoraire(OdawaDS.horairesRow h)
-        {
-            odawa.horaires.Rows.Add(h);
-            WriteToDB("horaires");
-        }
-
-        public static void UpdateHoraires(OdawaDS.horairesRow h)
-        {
-            odawa.horaires.FindByid(h.id).mondayOpen = h.mondayOpen;
-            odawa.horaires.FindByid(h.id).mondayClose = h.mondayClose;
-            odawa.horaires.FindByid(h.id).tuesdayOpen = h.tuesdayOpen;
-            odawa.horaires.FindByid(h.id).tuesdayClose = h.tuesdayClose;
-            odawa.horaires.FindByid(h.id).wednesdayOpen = h.wednesdayOpen;
-            odawa.horaires.FindByid(h.id).wednesdayClose = h.wednesdayClose;
-            odawa.horaires.FindByid(h.id).thursdayOpen = h.thursdayOpen;
-            odawa.horaires.FindByid(h.id).thursdayClose = h.thursdayClose;
-            odawa.horaires.FindByid(h.id).fridayOpen = h.fridayOpen;
-            odawa.horaires.FindByid(h.id).saturdayOpen = h.saturdayOpen;
-            odawa.horaires.FindByid(h.id).saturdayClose = h.saturdayClose;
-            odawa.horaires.FindByid(h.id).sundayOpen = h.sundayOpen;
-            odawa.horaires.FindByid(h.id).sundayClose = h.sundayClose;
-            WriteToDB("horaires");
-        }
-
-        public static void DeleteHoraire(int id)
-        {
-            odawa.horaires.FindByid(id).Delete();
-            WriteToDB("horaires");
-        }
-
         //-------------- Réservations
 
         public static void CreateReservation(OdawaDS.reservationsRow r)
@@ -208,11 +167,11 @@ namespace DAL
             odawa.restaurants.FindByid(r.id).localite = r.localite;
             odawa.restaurants.FindByid(r.id).description = r.description;
             odawa.restaurants.FindByid(r.id).budgetLow = r.budgetHigh;
+            odawa.restaurants.FindByid(r.id).horaire = r.horaire;
             odawa.restaurants.FindByid(r.id).premium = r.premium;
             odawa.restaurants.FindByid(r.id).genre = r.genre;
             odawa.restaurants.FindByid(r.id).idTypeCuisine = r.idTypeCuisine;
             odawa.restaurants.FindByid(r.id).idRestaurateur = r.idRestaurateur;
-            odawa.restaurants.FindByid(r.id).idHoraire = r.idHoraire;
             WriteToDB("restaurants");
         }
 
