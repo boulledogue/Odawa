@@ -11,6 +11,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 vrt-center">
+          <div class="alert alert-danger hidden" role="alert">Votre nom d'utilisateur ou votre mot de passe est erroné!</div>
           <div class="panel panel-default">
             <div class="panel-body debug-search">
               <form class="form-horizontal">
@@ -44,7 +45,7 @@
         $.post("/Connect",{username: $("#email").val(),password: $("#password").val()})
             .done(function(data) { 
                 if(data.success === true) document.location.href="/";
-                else alert("Votre login ou votre password est mauvais !")
+                else $(".alert").removeClass("hidden");
             })
     }
     </script>

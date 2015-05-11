@@ -18,9 +18,7 @@ public class UtilisateurManager {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         boolean u = port.acceptLoginUtilisateur(username, password);
-        boolean r = port.acceptLoginRestaurateur(username, password);
-        if(u == true || r == true) return true;
-        else return false;
+        return u;
     }
     
     public static UtilisateurJ getUtilisateurByUsername(String username) {

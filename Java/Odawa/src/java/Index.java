@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.text.DateFormatSymbols;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+
 import Models.*;
 import Controller.*;
 
@@ -35,6 +40,13 @@ public class Index extends HttpServlet {
         RestaurantJ r = RestaurantManager.RandomRestaurant();
         request.setAttribute("RandomRestaurant",r); 
         request.setAttribute("BestRestaurants",RestaurantManager.GetBestRestaurants());
+        
+        GregorianCalendar calendar = new GregorianCalendar();
+        DateFormatSymbols symbols = new DateFormatSymbols(Locale.FRENCH);
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        request.setAttribute("day",day);
+        String nomJour = symbols.getWeekdays()[day];
+        request.setAttribute("nomJour",nomJour);
         
         request.getRequestDispatcher("/ODA-INF/Index.jsp").forward(request,response);
     }

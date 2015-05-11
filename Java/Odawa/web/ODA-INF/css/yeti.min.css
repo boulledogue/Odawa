@@ -18,8 +18,24 @@ body { background-color: #F2F2F2; }
 .navbar-default .navbar-brand { color: #FFFFFF; }
 .txt-debug { margin-top: -30px; }
 .hello-debug { margin-top:15px; }
-.rest-prsnt { height:300px; margin-top:-5px; }
-.top-rest { margin-top: 25px; }
+.same-height { bottom: 0px; }
+.page { 
+    box-shadow: 4px 4px 0 #fff,
+                5px 5px 0 #ccc,
+                9px 9px 0 #fff,
+                10px 10px 0 #ccc,
+                14px 14px 0 #fff;
+    -moz-box-shadow:4px 4px 0 #fff,
+                    5px 5px 0 #ccc,
+                    9px 9px 0 #fff,
+                    10px 10px 0 #ccc,
+                    14px 14px 0 #fff;
+    -webkit-box-shadow: 4px 4px 0 #fff,
+                        5px 5px 0 #ccc,
+                        9px 9px 0 #fff,
+                        10px 10px 0 #ccc,
+                        14px 14px 0 #fff; 
+}
 .rest-plus-descr { height:300px; }
 .descr { height:148px; }
 .commnt { cursor:default !important;background-color: #FFF !important; }

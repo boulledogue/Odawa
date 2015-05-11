@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import Models.*;
 import Controller.*;
+import java.text.DateFormatSymbols;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 ;
 
 /**
@@ -35,6 +39,12 @@ public class Restaurant extends HttpServlet {
         RestaurantJ r = RestaurantManager.GetRestaurant(Integer.parseInt(request.getParameter("id")));
         request.setAttribute("Restaurant",r);
         request.setAttribute("Comments",CommentManager.GetCommentByRestaurant(r.getId()));
+        GregorianCalendar calendar = new GregorianCalendar();
+        DateFormatSymbols symbols = new DateFormatSymbols(Locale.FRENCH);
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        request.setAttribute("day",day);
+        String nomJour = symbols.getWeekdays()[day];
+        request.setAttribute("nomJour",nomJour);
         request.getRequestDispatcher("/ODA-INF/Restaurant.jsp").forward(request,response);
     }
 

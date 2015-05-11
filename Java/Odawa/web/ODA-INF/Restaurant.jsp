@@ -8,15 +8,31 @@
             <h4><p class="text-left">${Restaurant.getNom()}</p><p class="text-right txt-debug"><small><c:out value="${Restaurant.getGenre() == 1 ? 'Restaurant': 'Snack'}"/></small></p></h4>
           </div>
           <div>
-            <div class="well col-md-6 rest-plus-descr"><div id="map-container"></div></div>
-            <div class="col-md-6 rest-prsnt">
-              <p class="text-right">${Restaurant.getRestaurateur()} </p>
-              <p>Type de Cuisine : ${Restaurant.getTypeCuisine()}</p>
-              <p>Adresse : ${Restaurant.getAllOfAdresse()} </p>
-              <p>Horaire : ${Restaurant.getFormatHoraire()} </p>
-              <p>Fourchette de Tarif : ${Restaurant.getAllBudget()}</p>
-              <div class="well descr">${Restaurant.getDescription()}</div>
+            <div class="row">
+            <div class="col-md-4">
+              <div class="panel panel-default page">
+                <div class="panel-body">
+                  <div class="page-header page-header-debug">
+                    <h4><p class="text-left">${Restaurant.getNom()}</p><p class="text-right txt-debug"><small><c:out value="${Restaurant.getGenre() == 1 ? 'Restaurant': 'Snack'}"/></small></p></h4>
+                  </div>
+                  <p class="text-right"><span class="badge"><c:out value="${Restaurant.getPremium() == true ? 'P': ''}"/></span></p>
+                  <p class="text-right">${Restaurant.getRestaurateur()}</p>
+                  <p><span class="text-muted">Type de Cuisine :</span></br> ${Restaurant.getTypeCuisine()}</p>
+                  <p><span class="text-muted">Adresse :</span></br> ${Restaurant.getAllOfAdresse()} </p> 
+                  <p><span class="text-muted">Fourchette de Tarif :</span></br> ${Restaurant.getAllBudget()}</p>
+                  <p><span class="text-muted">Horaire :</span></br> ${Restaurant.getFormatHoraire()[day]}, ce ${nomJour} !
+                  </br><a id="Horaire" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="<table><tr><td><c:forEach var="Jour" items="${Restaurant.returnNomJour()}">${Jour}</br></c:forEach></td><td><c:forEach var="Horaire" items="${Restaurant.getFormatHoraire()}">${Horaire}</br></c:forEach></td></tr></table>">Autre ...</a></p>
+                </div>
+              </div>
             </div>
+            <div class="col-md-8">
+              <div class="panel panel-default page">
+                <div class="panel-body">
+                    <p> <span class="text-muted">Description :</span></br> ${Restaurant.getDescription()} </p>
+                </div>
+              </div>  
+            </div>
+          </div>
           </div>
         </div>
         <ul class="list-group">
@@ -95,4 +111,5 @@
       </div>
     </div>
   </div>
+  <script> $('#Horaire').popover({html: true}); </script>
 <jsp:include page="/ODA-INF/Footer.jsp" />

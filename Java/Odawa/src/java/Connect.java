@@ -61,10 +61,10 @@ public class Connect extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        boolean resp = UtilisateurManager.AcceptUtilisateur(request.getParameter("username"),request.getParameter("password"));
-        if(resp == true) {
-            HttpSession Session = request.getSession();
-            Session.setAttribute("Utilisateur",UtilisateurManager.getUtilisateurByUsername(request.getParameter("username"))); 
+        boolean respUtilisateur = UtilisateurManager.AcceptUtilisateur(request.getParameter("username"),request.getParameter("password"));
+        boolean respRestaurateur = RestaurateurManager.AcceptRestaurateur(request.getParameter("username"),request.getParameter("password"));
+        boolean resp = (respUtilisateur == true || respRestaurateur==true ) ? true : false ;
+        if( resp == true ) {
         }
         response.setContentType("application/json");
         try (PrintWriter out = response.getWriter()) { out.println("{\"success\":"+resp+"}"); }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Models;
+import java.util.ArrayList;
 
 /**
  *
@@ -66,13 +67,24 @@ public class RestaurantJ {
     
     public String getAllOfAdresse() { return getAdresse() + ", N°" + getNumero() + " -- " + getZipCode() + " " + getLocalite(); }
     public String getAllBudget() {  return "De " + getBudgetLow() + " Euros à " + getBudgetHigh() + " Euros."; }
-    public String getFormatHoraire() { 
-        String rtn = "";
+    public ArrayList<String> getFormatHoraire() { 
+        ArrayList<String> rtn = new ArrayList() ;
         String[] Horaires = Horaire.split(";");
         for( String HoraireF : Horaires ) {
             String[] HoraireJ = HoraireF.split("-");
-            rtn+= HoraireJ[0].substring(0,2) + "H" + HoraireJ[0].substring(2,4) + " - " + HoraireJ[1].substring(0,2) + "H" + HoraireJ[1].substring(2,4) + " </br>";
+            rtn.add("De " + HoraireJ[0].substring(0,2) + "H" + HoraireJ[0].substring(2,4) + " à " + HoraireJ[1].substring(0,2) + "H" + HoraireJ[1].substring(2,4));
         }
         return rtn;
+    }
+    public ArrayList<String> returnNomJour() {
+        ArrayList<String> nmJ = new ArrayList() ;
+        nmJ.add("Dimanche : ");
+        nmJ.add("Lundi : ");
+        nmJ.add("Mardi : ");
+        nmJ.add("Mercredi : ");
+        nmJ.add("Jeudi : ");
+        nmJ.add("Vendredi : ");
+        nmJ.add("Samedi : ");
+        return nmJ;
     }
 }

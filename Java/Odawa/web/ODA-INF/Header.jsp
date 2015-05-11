@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Template</title>
   <link href="/ODA-INF/css/yeti.min.css" rel="stylesheet">
+  <script src="/ODA-INF/js/jquery.min.js"></script>
+  <script src="/ODA-INF/js/bootstrap.min.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-default">

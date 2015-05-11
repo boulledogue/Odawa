@@ -18,6 +18,13 @@ public class RestaurateurManager {
         RestaurateurJ r = ModelsMapping.getRestaurateurByRestaurant(id);
         return r;
     }
+    
+    public static boolean AcceptRestaurateur(String username, String password) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        boolean r = port.acceptLoginRestaurateur(username, password);
+        return r;
+    }
 
     public static void updateRestaurateur(RestaurateurJ rj) {
         ModelsMapping.updateRestaurateur(rj);
