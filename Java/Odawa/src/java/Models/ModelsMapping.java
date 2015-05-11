@@ -33,13 +33,17 @@ public class ModelsMapping {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         List<Comment> lstC =  port.getCommentByRestaurant(id).getComment();
-        ArrayList<CommentJ> arrayCommentJ = new ArrayList<CommentJ>();
+        ArrayList<CommentJ> arrayCommentJ = new ArrayList();
         for (Comment c : lstC){
             CommentJ com = new CommentJ();
             com.setId(c.getId());
             com.setCommentaire(c.getCommentaire().getValue());
             com.setIdRestaurant(c.getIdRestaurant());
+            Restaurant rst = port.getRestaurant(c.getIdRestaurant());
+            com.setNomRestaurant(rst.getNom().getValue());
             com.setIdUtilisateur(c.getIdUtilisateur());
+            Utilisateur utl = port.getUtilisateur(c.getIdUtilisateur());
+            com.setNomUtilisateur(utl.getNom().getValue()+" "+utl.getPrenom().getValue());
             arrayCommentJ.add(com);
         }
         return arrayCommentJ;
@@ -100,6 +104,8 @@ public class ModelsMapping {
             res.setEmail(r.getEmail().getValue());
             res.setPhone(r.getPhone().getValue());
             res.setIdRestaurant(r.getIdRestaurant());
+            Restaurant rst = port.getRestaurant(r.getIdRestaurant());
+            res.setRestaurant(rst.getNom().getValue());
             res.setStatus(r.getStatus());
             res.setEncodedDateTime(r.getEncodedDateTime().toGregorianCalendar().getTime());
             arrayReservationJ.add(res);
@@ -144,7 +150,7 @@ public class ModelsMapping {
         r.setGenre(rj.getGenre());
         r.setIdTypeCuisine(rj.getIdTypeCuisine());
         r.setIdRestaurateur(rj.getIdRestaurateur());
-        r.setIdHoraire(rj.getIdHoraire());
+        r.setHoraire(o.createRestaurantHoraire(rj.getHoraire()));
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.createRestaurant(r);
@@ -228,7 +234,7 @@ public class ModelsMapping {
         r.setGenre(rj.getGenre());
         r.setIdTypeCuisine(rj.getIdTypeCuisine());
         r.setIdRestaurateur(rj.getIdRestaurateur());
-        r.setIdHoraire(rj.getIdHoraire());
+        r.setHoraire(o.createRestaurantHoraire(rj.getHoraire()));
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.updateRestaurant(r);
@@ -241,6 +247,8 @@ public class ModelsMapping {
     }
     
     public static RestaurantJ ConvertToRestaurantJ(Restaurant r){
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         RestaurantJ rest = new RestaurantJ();
         rest.setId(r.getId());
         rest.setNom(r.getNom().getValue());
@@ -255,7 +263,11 @@ public class ModelsMapping {
         rest.setGenre(r.getGenre());
         rest.setIdTypeCuisine(r.getIdTypeCuisine());
         rest.setIdRestaurateur(r.getIdRestaurateur());
-        rest.setIdHoraire(r.getIdHoraire());
+        rest.setHoraire(r.getHoraire().getValue());
+        TypeCuisine tc = port.getTypeCuisine(r.getIdTypeCuisine());
+        rest.setTypeCuisine(tc.getType().getValue());
+        Restaurateur rst = port.getRestaurateurByRestaurant(r.getId());
+        rest.setRestaurateur(rst.getNom().getValue()+" "+rst.getPrenom().getValue());
         return rest;
     }
     

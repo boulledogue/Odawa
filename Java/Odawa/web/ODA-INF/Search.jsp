@@ -31,7 +31,7 @@
               <tr>
                 <td><a href="/Restaurant?id=${Restaurant.getId()}">${Restaurant.getNom()}</a></td>
                 <td>${Restaurant.getLocalite()}</td>
-                <td>${Restaurant.getIdTypeCuisine()}</td>
+                <td>${Restaurant.getTypeCuisine()}</td>
                 <th><span class="badge"><c:out value="${Restaurant.getPremium() == true ? 'P': ''}"/></span></th>
             </tr>
             </c:forEach>

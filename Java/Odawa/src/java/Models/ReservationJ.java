@@ -21,9 +21,11 @@ public class ReservationJ {
     private int nbPersonnes;
     private String email;
     private String phone;
-    private int idRestaurant;
+    private int idRestaurant; 
     private int status;
     private Date encodedDateTime;
+    
+    private String Restaurant; 
     
     public void setId(int id) { this.id = id; }
     public void setNom(String nom) { this.nom = nom; }
@@ -37,6 +39,8 @@ public class ReservationJ {
     public void setStatus(int status) { this.status = status; }
     public void setEncodedDateTime(Date dateTime) { this.encodedDateTime = dateTime; }
     
+    public void setRestaurant(String Restaurant) { this.Restaurant = Restaurant; }
+    
     public int getId() { return this.id; }
     public String getNom() { return this.nom; }
     public String getPrenom() { return this.prenom; }
@@ -48,4 +52,6 @@ public class ReservationJ {
     public int getIdRestaurant() { return this.idRestaurant; }
     public int getStatus() { return this.status; }
     public Date getEncodedDateTime() { return this.encodedDateTime; }
+    
+    public String getRestaurant() { return this.Restaurant; }
 }

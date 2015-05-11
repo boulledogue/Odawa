@@ -21,26 +21,13 @@ public class RestaurantJ {
     private int budgetHigh;
     private boolean premium;
     private int genre;
+    private String Horaire;
     private int idTypeCuisine;
     private int idRestaurateur;
-    private int idHoraire;
     
-   /* public RestaurantJ(int id,String nom,String adresse,String numero,String zipcode,String localite,String description,int budgetLow,int budgetHigh,boolean premium,int idTypeCuisine,int idRestaurateur, int idHoraire) {
-        this.id = id;
-        this.nom = nom;
-        this.adresse = adresse;
-        this.numero = numero;
-        this.zipCode = zipcode;
-        this.localite = localite;
-        this.description = description;
-        this.budgetLow = budgetLow;
-        this.budgetHigh = budgetHigh;
-        this.premium = premium;
-        this.idTypeCuisine = idTypeCuisine;
-        this.idRestaurateur = idRestaurateur;
-        this.idHoraire = idHoraire;
-    } */
-    
+    private String TypeCuisine;
+    private String Restaurateur;
+
     public void setId(int id) { this.id = id; }
     public void setNom(String nom) { this.nom = nom; }
     public void setAdresse(String adresse) { this.adresse = adresse; }
@@ -54,7 +41,10 @@ public class RestaurantJ {
     public void setGenre(int genre) { this.genre = genre; }
     public void setIdTypeCuisine(int idTypeCuisine) { this.idTypeCuisine = idTypeCuisine; }
     public void setIdRestaurateur(int idRestaurateur) { this.idRestaurateur = idRestaurateur; }
-    public void setIdHoraire(int idHoraire) { this.idHoraire = idHoraire; }
+    
+    public void setTypeCuisine(String TypeCuisine) { this.TypeCuisine = TypeCuisine; }
+    public void setRestaurateur(String Restaurateur) { this.Restaurateur = Restaurateur; }
+    public void setHoraire(String Horaire) { this.Horaire = Horaire; }
     
     public int getId() { return this.id; }
     public String getNom() { return this.nom; }
@@ -69,5 +59,20 @@ public class RestaurantJ {
     public int getGenre() { return this.genre; }
     public int getIdTypeCuisine() { return this.idTypeCuisine; }
     public int getIdRestaurateur() { return this.idRestaurateur; }
-    public int getIdHoraire() { return this.idHoraire; }
+    
+    public String getTypeCuisine() { return this.TypeCuisine; }
+    public String getRestaurateur() { return this.Restaurateur; }
+    public String getHoraire() { return this.Horaire; }
+    
+    public String getAllOfAdresse() { return getAdresse() + ", N°" + getNumero() + " -- " + getZipCode() + " " + getLocalite(); }
+    public String getAllBudget() {  return "De " + getBudgetLow() + " Euros à " + getBudgetHigh() + " Euros."; }
+    public String getFormatHoraire() { 
+        String rtn = "";
+        String[] Horaires = Horaire.split(";");
+        for( String HoraireF : Horaires ) {
+            String[] HoraireJ = HoraireF.split("-");
+            rtn+= HoraireJ[0].substring(0,2) + "H" + HoraireJ[0].substring(2,4) + " - " + HoraireJ[1].substring(0,2) + "H" + HoraireJ[1].substring(2,4) + " </br>";
+        }
+        return rtn;
+    }
 }

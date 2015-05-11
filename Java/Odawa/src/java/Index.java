@@ -4,17 +4,15 @@
  * and open the template in the editor.
  */
 
-import Controller.RestaurantManager;
-import Controller.RestaurateurManager;
-import Controller.TypeCuisineManager;
-import Models.TypeCuisineJ;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import Models.*;
+import Controller.*;
 
 /**
  *
@@ -33,11 +31,11 @@ public class Index extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         RestaurantJ r = RestaurantManager.RandomRestaurant();
-        request.setAttribute("RestaurantOazar",r); 
-        request.setAttribute("Restaurants",RestaurantManager.GetBestRestaurants());
-        request.setAttribute("TypeCuisineOazar",TypeCuisineManager.GetTypeCuisine(r.getIdTypeCuisine()));
-        request.setAttribute("RestaurateurOazar",RestaurateurManager.getRestaurateurByRestaurant(r.getId()));
+        request.setAttribute("RandomRestaurant",r); 
+        request.setAttribute("BestRestaurants",RestaurantManager.GetBestRestaurants());
+        
         request.getRequestDispatcher("/ODA-INF/Index.jsp").forward(request,response);
     }
 

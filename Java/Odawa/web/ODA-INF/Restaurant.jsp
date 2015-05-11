@@ -10,18 +10,18 @@
           <div>
             <div class="well col-md-6 rest-plus-descr"><div id="map-container"></div></div>
             <div class="col-md-6 rest-prsnt">
-              <p class="text-right">${Restaurateur.getNom()} ${Restaurateur.getPrenom()}</p>
-              <p>Type de Cuisine : ${TypeCuisine.getType()}</p>
-              <p>Adresse : ${Restaurant.getAdresse()}, n°${Restaurant.getNumero()} -- ${Restaurant.getZipCode()} ${Restaurant.getLocalite()} </p>
-              <p>Horaire : 8H-22H</p>
-              <p>Fourchette de Tarif : De ${Restaurant.getBudgetLow()} Euros à ${Restaurant.getBudgetHigh()} Euros</p>
+              <p class="text-right">${Restaurant.getRestaurateur()} </p>
+              <p>Type de Cuisine : ${Restaurant.getTypeCuisine()}</p>
+              <p>Adresse : ${Restaurant.getAllOfAdresse()} </p>
+              <p>Horaire : ${Restaurant.getFormatHoraire()} </p>
+              <p>Fourchette de Tarif : ${Restaurant.getAllBudget()}</p>
               <div class="well descr">${Restaurant.getDescription()}</div>
             </div>
           </div>
         </div>
         <ul class="list-group">
           <c:forEach var="Comment" items="${Comments}" >
-          <li class="list-group-item"><div class="input-group"><span class="input-group-addon">${Comment.getIdUtilisateur()} :</span><input type="text" class="form-control commnt" placeholder="${Comment.getCommentaire()}" disabled></div></li>
+          <li class="list-group-item"><div class="input-group"><span class="input-group-addon">${Comment.getNomUtilisateur()} :</span><input type="text" class="form-control commnt" placeholder="${Comment.getCommentaire()}" disabled></div></li>
           </c:forEach>
         </ul>
       </div>
@@ -38,7 +38,6 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <button type="button" class="btn btn-default" data-toggle="modal" data-target=".resrv-rest-modal">Reserver dans ce Restaurant</button>
-          <p class="text-right txt-debug">Vous avez déja <b>2</b> réservations pour ce restaurant! </p>
         </div>
       </div>
     </div>
