@@ -18,7 +18,7 @@ INSERT [dbo].[typescuisine] ([id], [type]) VALUES (1, N'Chinoise')
 GO
 INSERT [dbo].[typescuisine] ([id], [type]) VALUES (2, N'Française')
 GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (3, N'Snack')
+INSERT [dbo].[typescuisine] ([id], [type]) VALUES (3, N'Friterie')
 GO
 INSERT [dbo].[typescuisine] ([id], [type]) VALUES (4, N'Italienne')
 GO
