@@ -32,7 +32,7 @@
                 </c:if>
                 <li class="<c:out value="${(sessionScope.Utl == null) ? '' : 'last'}"/>" ><a href="/Search"> Recherche </a></li>
                 <c:if test="${ sessionScope.Utl == null }" >
-                    <li class="last"><a href="/Connect"> Connection </a></li>
+                    <li class="last"><a href="/Connect"> Connexion </a></li>
                 </c:if>
                 <li><span>&nbsp;</span></li>
             </ul>

@@ -72,8 +72,9 @@ public class RestaurantJ {
         String[] Horaires = Horaire.split(";");
         for( String HoraireF : Horaires ) {
             String[] HoraireJ = HoraireF.split("-");
-            if(HoraireJ[0].substring(0,4).equals("0000")) rtn.add("Aucune Ouverture");
-            else rtn.add("De " + HoraireJ[0].substring(0,2) + "H" + HoraireJ[0].substring(2,4) + " à " + HoraireJ[1].substring(0,2) + "H" + HoraireJ[1].substring(2,4));
+            if(HoraireJ[0].equals("0000") && HoraireJ[1].equals("0000")) rtn.add("Fermé");
+            else if(HoraireJ[0].equals("1111") && HoraireJ[1].equals("1111")) rtn.add("Ouvert 24h/24");
+                 else rtn.add("De " + HoraireJ[0].substring(0,2) + "H" + HoraireJ[0].substring(2,4) + " à " + HoraireJ[1].substring(0,2) + "H" + HoraireJ[1].substring(2,4));
         }
         return rtn;
     }

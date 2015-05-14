@@ -33,7 +33,7 @@
                                             </div>
                                             <p class="text-right"><span class="badge"><c:out value="${RandomRestaurant.getPremium() == true ? 'P': ''}"/></span></p>
                                             <p class="text-right"><c:out value="${RandomRestaurant.getRestaurateur()}"/></p>
-                                            <p><span class="text-muted">Type de Cuisine :</span></br><c:out value="${RandomRestaurant.getRestaurateur()}"/></p>
+                                            <p><span class="text-muted">Type de Cuisine :</span></br><c:out value="${RandomRestaurant.getTypeCuisine()}"/></p>
                                             <p><span class="text-muted">Adresse :</span></br><c:out value="${RandomRestaurant.getAllOfAdresse()}"/></p> 
                                             <p><span class="text-muted">Fourchette de Tarif :</span></br><c:out value="${RandomRestaurant.getAllBudget()}"/></p>
                                             <p><span class="text-muted">Horaire :</span></br><c:out value="${RandomRestaurant.getFormatHoraire()[day]}, ce ${nomJour} !"/></br>

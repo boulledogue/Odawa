@@ -34,6 +34,11 @@ namespace OdawaService
             return RestaurantManager.GetAll().Where(x => x.genre == 2).ToList();
         }
 
+        public List<Restaurant> GetRestaurantByRestaurateur(int id)
+        {
+            return RestaurantManager.GetAll().Where(x => x.idRestaurateur == id).ToList();
+        }
+
         public List<Restaurant> GetRestaurantByTypeCuisine(int id)
         {
             return RestaurantManager.GetAll().Where(x => x.idTypeCuisine == id).ToList();
