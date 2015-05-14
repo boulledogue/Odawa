@@ -15,9 +15,11 @@ import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import java.util.ArrayList;
 
 import Models.*;
 import Controller.*;
+import static Utils.Utilitaires.*;
 
 /**
  *
@@ -36,18 +38,17 @@ public class Index extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
         RestaurantJ r = RestaurantManager.RandomRestaurant();
         request.setAttribute("RandomRestaurant",r); 
         request.setAttribute("BestRestaurants",RestaurantManager.GetBestRestaurants());
-        
         GregorianCalendar calendar = new GregorianCalendar();
         DateFormatSymbols symbols = new DateFormatSymbols(Locale.FRENCH);
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         request.setAttribute("day",day);
         String nomJour = symbols.getWeekdays()[day];
         request.setAttribute("nomJour",nomJour);
-        
+        ArrayList<String> ListNomJour = returnNomJour();
+        request.setAttribute("ListNomJour",ListNomJour);
         request.getRequestDispatcher("/ODA-INF/Index.jsp").forward(request,response);
     }
 

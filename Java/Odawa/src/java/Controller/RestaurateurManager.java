@@ -25,6 +25,11 @@ public class RestaurateurManager {
         boolean r = port.acceptLoginRestaurateur(username, password);
         return r;
     }
+    
+    public static RestaurateurJ getRestaurateurByUsername(String username) {
+        RestaurateurJ u = ModelsMapping.getRestaurateurByUsername(username);
+        return u;
+    }
 
     public static void updateRestaurateur(RestaurateurJ rj) {
         ModelsMapping.updateRestaurateur(rj);

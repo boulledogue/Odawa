@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Models.*;
 import Controller.*;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,6 +32,9 @@ public class Gestion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+        RestaurateurJ rest = (RestaurateurJ) session.getAttribute("utl");
+        request.setAttribute("RandomRestaurant",null);
         request.getRequestDispatcher("/ODA-INF/Gestion.jsp").forward(request,response);
     }
 

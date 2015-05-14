@@ -61,13 +61,24 @@ public class Connect extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         boolean respUtilisateur = UtilisateurManager.AcceptUtilisateur(request.getParameter("username"),request.getParameter("password"));
         boolean respRestaurateur = RestaurateurManager.AcceptRestaurateur(request.getParameter("username"),request.getParameter("password"));
         boolean resp = (respUtilisateur == true || respRestaurateur==true ) ? true : false ;
         if( resp == true ) {
-        }
+            HttpSession session = request.getSession();
+            session.setAttribute("AdmState",respRestaurateur);
+            if( respRestaurateur == true ){
+                RestaurateurJ rest = RestaurateurManager.getRestaurateurByUsername(request.getParameter("username"));
+                session.setAttribute("Utl",rest);
+            }else{
+                UtilisateurJ utl = UtilisateurManager.getUtilisateurByUsername(request.getParameter("username"));
+                session.setAttribute("Utl",utl);
+            }
+        }else{ HttpSession session = request.getSession();session.setAttribute("Utl",null); }
         response.setContentType("application/json");
         try (PrintWriter out = response.getWriter()) { out.println("{\"success\":"+resp+"}"); }
+        
     }
 
     /**

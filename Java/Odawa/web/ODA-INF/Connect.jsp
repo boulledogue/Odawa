@@ -1,12 +1,7 @@
+<%-- JSP Code --%>
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Template</title>
-    <link href="/ODA-INF/css/yeti.min.css" rel="stylesheet">
-  </head>
+  <jsp:include page="/ODA-INF/BASE/Head.jsp" />
   <body>
     <div class="container">
       <div class="row">
@@ -38,15 +33,13 @@
         </div>
       </div>
     </div>
-    <script src="/ODA-INF/js/jquery.min.js"></script>
-    <script src="/ODA-INF/js/bootstrap.min.js"></script>
     <script>
     function Send() {
         $.post("/Connect",{username: $("#email").val(),password: $("#password").val()})
             .done(function(data) { 
                 if(data.success === true) document.location.href="/";
                 else $(".alert").removeClass("hidden");
-            })
+            });
     }
     </script>
   </body>

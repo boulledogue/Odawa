@@ -11,13 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Models.*;
-import Controller.*;
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
-;
+import java.util.ArrayList;
+
+import Models.*;
+import Controller.*;
+import static Utils.Utilitaires.*;
+
 
 /**
  *
@@ -45,6 +48,8 @@ public class Restaurant extends HttpServlet {
         request.setAttribute("day",day);
         String nomJour = symbols.getWeekdays()[day];
         request.setAttribute("nomJour",nomJour);
+        ArrayList<String> ListNomJour = returnNomJour();
+        request.setAttribute("ListNomJour",ListNomJour);
         request.getRequestDispatcher("/ODA-INF/Restaurant.jsp").forward(request,response);
     }
 
@@ -74,6 +79,11 @@ public class Restaurant extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CommentJ cm = new CommentJ();
+        cm.setCommentaire(request.getParameter("comm"));
+        cm.setIdUtilisateur(Integer.parseInt(request.getParameter("idutl")));
+        cm.setIdRestaurant(Integer.parseInt(request.getParameter("id")));
+        CommentManager.Add(cm);
         processRequest(request, response);
     }
 
