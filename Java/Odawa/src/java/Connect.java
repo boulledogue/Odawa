@@ -75,7 +75,7 @@ public class Connect extends HttpServlet {
                 UtilisateurJ utl = UtilisateurManager.getUtilisateurByUsername(request.getParameter("username"));
                 session.setAttribute("Utl",utl);
             }
-        }else{ HttpSession session = request.getSession();session.setAttribute("Utl",null); }
+        }
         response.setContentType("application/json");
         try (PrintWriter out = response.getWriter()) { out.println("{\"success\":"+resp+"}"); }
         
