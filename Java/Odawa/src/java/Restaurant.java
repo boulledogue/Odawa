@@ -82,9 +82,8 @@ public class Restaurant extends HttpServlet {
         CommentJ cm = new CommentJ();
         cm.setCommentaire(request.getParameter("comm"));
         cm.setIdUtilisateur(Integer.parseInt(request.getParameter("idutl")));
-        cm.setIdRestaurant(Integer.parseInt(request.getParameter("id")));
+        cm.setIdRestaurant(Integer.parseInt(request.getParameter("idrest")));
         CommentManager.Add(cm);
-        processRequest(request, response);
     }
 
     /**

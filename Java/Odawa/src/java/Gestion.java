@@ -34,7 +34,8 @@ public class Gestion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         RestaurateurJ rest = (RestaurateurJ) session.getAttribute("utl");
-        request.setAttribute("RandomRestaurant",null);
+        request.setAttribute("Restaurants",null);
+        request.setAttribute("Reservations",null);
         request.getRequestDispatcher("/ODA-INF/Gestion.jsp").forward(request,response);
     }
 

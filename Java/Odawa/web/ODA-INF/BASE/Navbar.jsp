@@ -21,17 +21,19 @@
                 <li class="last"><a href="/Search?SearchType=2">Snacks</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <p class="navbar-text hello-debug">
-                    <c:if test="${ sessionScope.Utl != null }" > 
+                <c:if test="${ sessionScope.Utl != null }" > 
+                    <p class="navbar-text hello-debug">
                         Bonjour <c:out value="${sessionScope.Utl.getPrenom()}"/> <c:out value="${sessionScope.Utl.getNom()}"/>
-                    </c:if>
-                </p>
+                        (<a href="/Disconnect"> Déconnecter </a>) -- Compte <c:out value="${(sessionScope.AdmState == true) ? 'Restaurateur': 'Utilisateur'}"/>
+                    </p>
+                </c:if>
                 <c:if test="${ sessionScope.AdmState == true }" > 
                    <li><a href="/Gestion"> Gestion du Compte </a></li>
                 </c:if>
-                <li><a href="/Search"> Recherche </a></li>
-                <li class="last"><a href="/Connect"> Connection </a></li>
-                <!-- Oui, j'ai honte d'avoir utilisé cette méthode! J'en dors même mal la nuit ^^''' -->
+                <li class="<c:out value="${(sessionScope.Utl == null) ? '' : 'last'}"/>" ><a href="/Search"> Recherche </a></li>
+                <c:if test="${ sessionScope.Utl == null }" >
+                    <li class="last"><a href="/Connect"> Connection </a></li>
+                </c:if>
                 <li><span>&nbsp;</span></li>
             </ul>
         </div>

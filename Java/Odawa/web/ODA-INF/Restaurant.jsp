@@ -84,12 +84,12 @@
                             </div>
                         </div>
                     </div>
-                </c:if>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target=".resrv-rest-modal">Reserver dans ce Restaurant</button>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".resrv-rest-modal">Reserver dans ce Restaurant</button>
+                        </div>
                     </div>
-                </div>
+                </c:if>
             </div>
         </div>
         <div class="modal fade resrv-rest-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -148,7 +148,8 @@
         <script>
             $('#Horaire').popover({html: true});
             function Send(id) {
-                $.post("#",{comm: $("#comm").val(),idutl: id})
+                $.post("#",{comm: $("#comm").val(), idutl: id, idrest: ${Restaurant.getId()} })
+                 .done(function(){location.reload(true);});
             }
         </script>
         <jsp:include page="/ODA-INF/BASE/Footer.jsp" />
