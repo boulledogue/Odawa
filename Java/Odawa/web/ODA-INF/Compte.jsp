@@ -22,37 +22,37 @@
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon" id="basic-addon1">Nom</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNom()}"/>">
+                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${sessionScope.Utl.getNom()}"/>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon" id="basic-addon1">Prenom</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNom()}"/>">
+                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${sessionScope.Utl.getPrenom()}"/>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon" id="basic-addon1">Nom d'Utilisateur</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNom()}"/>">
+                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${sessionScope.Utl.getUsername()}"/>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon" id="basic-addon1">Mot de Passe</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNom()}"/>">
+                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${sessionScope.Utl.getPassword()}"/>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon" id="basic-addon1">E-mail</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNom()}"/>">
+                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${sessionScope.Utl.getEmail()}"/>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon" id="basic-addon1">Telephone</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNom()}"/>">
+                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${sessionScope.Utl.getPhone()}"/>">
                                     </div>
                                 </div>
                             </form>
