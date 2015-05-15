@@ -10,3 +10,15 @@ C:\Users\Alistreaza\Source\Repos\Odawa\C#\OdawaService\bin\DAL.pdb
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\OdawaService\obj\Debug\OdawaService.csprojResolveAssemblyReference.cache
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\OdawaService\obj\Debug\OdawaService.dll
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\OdawaService\obj\Debug\OdawaService.pdb
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\bin\OdawaService.dll.config
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\bin\OdawaService.dll
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\bin\OdawaService.pdb
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\bin\BU.dll
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\bin\Odawa.exe
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\bin\DAL.dll
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\bin\BU.pdb
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\bin\Odawa.pdb
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\bin\DAL.pdb
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\obj\Debug\OdawaService.csprojResolveAssemblyReference.cache
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\obj\Debug\OdawaService.dll
+C:\Users\Kevin\Source\Repos\Odawa\C#\OdawaService\obj\Debug\OdawaService.pdb

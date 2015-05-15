@@ -79,12 +79,18 @@ namespace Odawa
 
         private void buttonAddAdmin_Click(object sender, EventArgs e)
         {
-
+            FormAjoutAdministrateur f = new FormAjoutAdministrateur();
+            f.ShowDialog();
+            PopulateGrids();
         }
 
         private void buttonModAdmin_Click(object sender, EventArgs e)
         {
-
+            int id = (int)dataGridViewAdministrateurs.SelectedRows[0].Cells[0].Value;
+            Administrateur a = AdministrateurManager.GetAll().Find(x => x.id == id);
+            FormAjoutAdministrateur f = new FormAjoutAdministrateur(a);
+            f.ShowDialog();
+            PopulateGrids();
         }
 
         private void buttonDelAdmin_Click(object sender, EventArgs e)
