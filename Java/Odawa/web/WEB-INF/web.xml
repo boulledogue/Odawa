@@ -24,6 +24,10 @@
         <servlet-name>Disconnect</servlet-name>
         <servlet-class>Disconnect</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Compte</servlet-name>
+        <servlet-class>Compte</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern/>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>Disconnect</servlet-name>
         <url-pattern>/Disconnect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Compte</servlet-name>
+        <url-pattern>/Compte</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
