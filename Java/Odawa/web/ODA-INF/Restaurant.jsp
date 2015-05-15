@@ -73,7 +73,7 @@
                         </c:forEach>
                     </ul>
                 </div>
-                <c:if test="${ sessionScope.AdmState != true && sessionScope.Utl != null }" > 
+                    <c:if test="${ sessionScope.AdmState != true }" > 
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="input-group">
@@ -104,13 +104,13 @@
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label">Nom</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputEmail3">
+                                    <input type="text" class="form-control" id="inputEmail3" value="<c:out value="${sessionScope.Utl.getNom()}"/>" <c:out value="${(sessionScope.Utl != null)? 'disabled' : ''}"/>>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Prénom</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3">
+                                    <input type="text" class="form-control" id="inputPassword3" value="<c:out value="${sessionScope.Utl.getPrenom()}"/>" <c:out value="${(sessionScope.Utl != null)? 'disabled' : ''}"/>>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -128,13 +128,13 @@
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3">
+                                    <input type="text" class="form-control" id="inputPassword3" value="<c:out value="${sessionScope.Utl.getEmail()}"/>" <c:out value="${(sessionScope.Utl != null)? 'disabled' : ''}"/>>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Téléphone</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3">
+                                    <input type="text" class="form-control" id="inputPassword3" value="<c:out value="${sessionScope.Utl.getPhone()}"/>" <c:out value="${(sessionScope.Utl != null)? 'disabled' : ''}"/>>
                                 </div>
                             </div>
                         </form>
