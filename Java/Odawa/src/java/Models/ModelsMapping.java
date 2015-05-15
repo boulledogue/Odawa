@@ -163,6 +163,18 @@ public class ModelsMapping {
         return ConvertToRestaurantJ(r);
     }
     
+    public static ArrayList<RestaurantJ> getRestaurantbyRestaurateur(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        List<Restaurant> lstR = port.getRestaurantByRestaurateur(id).getRestaurant();
+        ArrayList<RestaurantJ> arrayRestaurantJ = new ArrayList<RestaurantJ>();
+        for(Restaurant r : lstR){            
+            RestaurantJ rest = ConvertToRestaurantJ(r);
+            arrayRestaurantJ.add(rest);
+        }
+        return arrayRestaurantJ;
+    }
+    
     public static ArrayList<RestaurantJ> SearchRestaurant(String s) {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();

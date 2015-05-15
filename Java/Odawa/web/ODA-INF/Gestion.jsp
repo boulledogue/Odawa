@@ -14,31 +14,36 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Gestion des restaurants</div>
                             <div class="panel-body">
-                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                <c:forEach var="Restaurant" items="${Restaurants}">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" role="tab" id="headingOne">
-                                            <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">La Frikadelle</a></h4>
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<c:out value="${Restaurant.getId()}"/>" aria-expanded="true" aria-controls="collapseOne">
+                                                    <c:out value="${Restaurant.getNom()}"/>
+                                                </a>
+                                            </h4>
                                         </div>
-                                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div id="collapse<c:out value="${Restaurant.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                             <div class="panel-body">
                                                 <form class="form-horizontal">
                                                     <div class="form-group">
                                                         <div class="input-group debug-gestrest">
                                                             <span class="input-group-addon" id="basic-addon1">Nom</span>
-                                                            <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNom()}"/>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-lg-6">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon" id="basic-addon1">Adresse</span>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getAdresse()}"/>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div  class="input-group">
                                                                 <span class="input-group-addon" id="basic-addon1">Numéro</span>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNumero()}"/>">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -46,33 +51,35 @@
                                                         <div class="col-lg-6">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon" id="basic-addon1">Localité</span>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getLocalite()}"/>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div  class="input-group">
                                                                 <span class="input-group-addon" id="basic-addon1">Zip Code</span>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getZipCode()}"/>">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <div class="input-group debug-gestrest">
-                                                            <span class="input-group-addon" id="basic-addon1">Description</span>
-                                                            <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <label class="input-group-addon" style="border-bottom: 0px none; border-right: 1px solid #CCC;">Description</label>
+                                                            <textarea class="form-control" rows="3"><c:out value="${Restaurant.getDescription()}"/></textarea>
+                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-lg-6">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon" id="basic-addon1">Budget Low</span>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getBudgetLow()}"/>">
+                                                                <div class="input-group-addon"> &euro; </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div  class="input-group">
                                                                 <span class="input-group-addon" id="basic-addon1">Budget Hight</span>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getBudgetHigh()}"/>">
+                                                                <div class="input-group-addon"> &euro; </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -87,13 +94,13 @@
                                                                 <div class="col-lg-6">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Lundi Ouvert.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[0]}"/>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div  class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Lundi Fermet.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[1]}"/>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -101,13 +108,13 @@
                                                                 <div class="col-lg-6">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Mardi Ouvert.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[2]}"/>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div  class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Mardi Fermet.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[3]}"/>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -115,13 +122,13 @@
                                                                 <div class="col-lg-6">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Mercredi Ouvert.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[4]}"/>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div  class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Mercredi Fermet.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[5]}"/>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -129,13 +136,13 @@
                                                                 <div class="col-lg-6">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Jeudi Ouvert.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[6]}"/>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div  class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Jeudi Fermet.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[7]}"/>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -143,13 +150,13 @@
                                                                 <div class="col-lg-6">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Vendredi Ouvert.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[8]}"/>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div  class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Vendredi Fermet.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[9]}"/>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -157,13 +164,13 @@
                                                                 <div class="col-lg-6">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Samedi Ouvert.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[10]}"/>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div  class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Samedi Fermet.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[11]}"/>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -171,13 +178,13 @@
                                                                 <div class="col-lg-6">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Dimanche Ouvert.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[12]}"/>">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div  class="input-group">
                                                                         <span class="input-group-addon" id="basic-addon1">Dimanche Fermet.</span>
-                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[13]}"/>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -189,18 +196,18 @@
                                                         <div class="col-lg-6">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon">
-                                                                    <input type="checkbox" aria-label="...">
+                                                                    <input type="checkbox" aria-label="..." <c:out value="${Restaurant.getPremium() == true ? 'checked': ''}"/> disabled="">
                                                                 </span>
-                                                                <input type="text" class="form-control dbg-crsr" value="Premium" disabled>
+                                                                <input type="text" class="form-control dbg-crsr" value="Premium"  disabled>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6">
-                                                            <select class="form-control">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
+                                                            <select class="form-control"> type
+                                                                <c:forEach var="Type" items="${Types}">
+                                                                    <option value="<c:out value="${Type.getId()}"/>" <c:out value="${Restaurant.getIdTypeCuisine() == Type.getId() ? 'selected': ''}"/>>
+                                                                        <c:out value="${Type.getType()}"/>
+                                                                    </option>
+                                                                </c:forEach>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -210,17 +217,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                </c:forEach>  
                             </div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">Gestion des reservations</div>
                             <div class="panel-body">
                                 <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default panel-success">
+                                    <c:forEach var="Reservation" items="${Reservations}">
+                                        <div class="panel panel-default <c:out value="${Reservation.getStatus() == 2 ? 'panel-success': ''}"/> <c:out value="${Reservation.getStatus() == 3 ? 'panel-danger': ''}"/>">
                                         <div class="panel-heading" role="tab" id="headingOne">
-                                            <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne"> Réservation Acceptée </a> </h4>
+                                            <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne<c:out value="${Reservation.getId()}"/>" aria-expanded="true" aria-controls="collapseOne"><c:out value="${Reservation.getPrenom()}"/> <c:out value="${Reservation.getNom()}"/></a></h4>
                                         </div>
-                                        <div id="collapseOne2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                        <div id="collapseOne<c:out value="${Reservation.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                             <div class="panel-body">
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
@@ -228,37 +237,37 @@
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Nom</label>
                                                                 <div class="col-sm-10">
-                                                                    <p class="form-control-static">email@example.com</p>
+                                                                    <p class="form-control-static"><c:out value="${Reservation.getNom()}"/></p>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Prenom</label>
                                                                 <div class="col-sm-10">
-                                                                    <p class="form-control-static">email@example.com</p>
+                                                                    <p class="form-control-static"><c:out value="${Reservation.getPrenom()}"/></p>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Date</label>
                                                                 <div class="col-sm-10">
-                                                                    <p class="form-control-static">email@example.com</p>
+                                                                    <p class="form-control-static"><c:out value="${Reservation.getDate()}"/></p>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Nbre de Personnes</label>
                                                                 <div class="col-sm-10">
-                                                                    <p class="form-control-static">email@example.com</p>
+                                                                    <p class="form-control-static"><c:out value="${Reservation.getNbPersonnes()}"/></p>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Email</label>
                                                                 <div class="col-sm-10">
-                                                                    <p class="form-control-static">email@example.com</p>
+                                                                    <p class="form-control-static"><c:out value="${Reservation.getEmail()}"/></p>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Téléphone</label>
                                                                 <div class="col-sm-10">
-                                                                    <p class="form-control-static">email@example.com</p>
+                                                                    <p class="form-control-static"><c:out value="${Reservation.getPhone()}"/></p>
                                                                 </div>
                                                             </div>
                                                         </form>
@@ -269,26 +278,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="headingTwo">
-                                            <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo"> Réservation en Attente </a> </h4>
-                                        </div>
-                                        <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                            <div class="panel-body">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default panel-danger">
-                                        <div class="panel-heading" role="tab" id="headingThree">
-                                            <h4 class="panel-title"> <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree2" aria-expanded="false" aria-controls="collapseThree"> Réservation Refusée </a> </h4>
-                                        </div>
-                                        <div id="collapseThree2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                            <div class="panel-body">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>

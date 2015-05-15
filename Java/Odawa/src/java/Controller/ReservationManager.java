@@ -7,6 +7,7 @@ package Controller;
 
 import Models.ModelsMapping;
 import Models.ReservationJ;
+import Models.RestaurantJ;
 import java.util.ArrayList;
 import javax.xml.datatype.DatatypeConfigurationException;
 
@@ -20,8 +21,19 @@ public class ReservationManager {
         ModelsMapping.createReservation(rj);
     }
     
-    public ArrayList<ReservationJ> GetReservationsByRestaurant(int id){
+    public static ArrayList<ReservationJ> GetReservationsByRestaurant(int id){
         ArrayList<ReservationJ> a = ModelsMapping.getReservationByRestaurant(id);
+        return a;
+    }
+    
+    public static ArrayList<ReservationJ> GetReservationsByRestaurateur(ArrayList<RestaurantJ> rst){
+        ArrayList<ReservationJ> a = new ArrayList();
+        for(RestaurantJ r : rst){            
+            ArrayList<ReservationJ> rsvt = GetReservationsByRestaurant(r.getId());
+            for(ReservationJ rv : rsvt){ 
+                a.add(rv);
+            }
+        }
         return a;
     }
     

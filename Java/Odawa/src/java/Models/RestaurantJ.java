@@ -78,4 +78,14 @@ public class RestaurantJ {
         }
         return rtn;
     }
+    public ArrayList<String> getArrayHoraire() { 
+        ArrayList<String> rtn = new ArrayList() ;
+        String[] Horaires = Horaire.split(";");
+        for( String HoraireF : Horaires ) {
+            String[] HoraireJ = HoraireF.split("-");
+            rtn.add(HoraireJ[0]);
+            rtn.add(HoraireJ[1]);
+        }
+        return rtn;
+    }
 }

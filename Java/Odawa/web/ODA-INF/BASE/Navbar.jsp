@@ -26,9 +26,10 @@
                         Bonjour <c:out value="${sessionScope.Utl.getPrenom()}"/> <c:out value="${sessionScope.Utl.getNom()}"/>
                         (<a href="/Disconnect"> Déconnecter </a>) -- Compte <c:out value="${(sessionScope.AdmState == true) ? 'Restaurateur': 'Utilisateur'}"/>
                     </p>
+                    <li><a href="/Compte"> Gestion du compte </a></li>
                 </c:if>
                 <c:if test="${ sessionScope.AdmState == true }" > 
-                   <li><a href="/Gestion"> Gestion du Compte </a></li>
+                   <li><a href="/Gestion"> Restaurant & Reservation </a></li>
                 </c:if>
                 <li class="<c:out value="${(sessionScope.Utl == null) ? '' : 'last'}"/>" ><a href="/Search"> Recherche </a></li>
                 <c:if test="${ sessionScope.Utl == null }" >
