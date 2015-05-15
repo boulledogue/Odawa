@@ -28,31 +28,53 @@ namespace Odawa
         private void PopulateGrids()
         {
             dataGridViewAdministrateurs.DataSource = AdministrateurManager.GetAll();
+            dataGridViewAdministrateurs.Columns["nom"].HeaderText = "Nom";
+            dataGridViewAdministrateurs.Columns["prenom"].HeaderText = "Prénom";            
+            dataGridViewAdministrateurs.Columns["email"].HeaderText = "Email";
+            dataGridViewAdministrateurs.Columns["phone"].HeaderText = "Téléphone";
+            dataGridViewAdministrateurs.Columns["id"].Visible = false;
             dataGridViewAdministrateurs.Columns["username"].Visible = false;
             dataGridViewAdministrateurs.Columns["password"].Visible = false;
-            dataGridViewAdministrateurs.Columns["email"].Visible = false;
 
             dataGridViewRestaurateurs.DataSource = RestaurateurManager.GetAll();
+            dataGridViewRestaurateurs.Columns["nom"].HeaderText = "Nom";
+            dataGridViewRestaurateurs.Columns["prenom"].HeaderText = "Prénom";
+            dataGridViewRestaurateurs.Columns["email"].HeaderText = "Email";
+            dataGridViewRestaurateurs.Columns["phone"].HeaderText = "Téléphone";
+            dataGridViewRestaurateurs.Columns["id"].Visible = false;
             dataGridViewRestaurateurs.Columns["username"].Visible = false;
             dataGridViewRestaurateurs.Columns["password"].Visible = false;
-            dataGridViewRestaurateurs.Columns["email"].Visible = false;
 
             dataGridViewUtilisateurs.DataSource = UtilisateurManager.GetAll();
+            dataGridViewUtilisateurs.Columns["nom"].HeaderText = "Nom";
+            dataGridViewUtilisateurs.Columns["prenom"].HeaderText = "Prénom";
+            dataGridViewUtilisateurs.Columns["email"].HeaderText = "Email";
+            dataGridViewUtilisateurs.Columns["phone"].HeaderText = "Téléphone";
+            dataGridViewUtilisateurs.Columns["id"].Visible = false;
             dataGridViewUtilisateurs.Columns["username"].Visible = false;
             dataGridViewUtilisateurs.Columns["password"].Visible = false;
-            dataGridViewUtilisateurs.Columns["email"].Visible = false;
 
             dataGridViewRestaurants.DataSource = RestaurantManager.GetAll();
+            dataGridViewRestaurants.Columns["nom"].HeaderText = "Nom";
+            dataGridViewRestaurants.Columns["zipCode"].HeaderText = "Code Postal";
+            dataGridViewRestaurants.Columns["localite"].HeaderText = "Localité";
+            dataGridViewRestaurants.Columns["premium"].HeaderText = "Premium";
+            dataGridViewRestaurants.Columns["genre"].HeaderText = "Genre";
+            dataGridViewRestaurants.Columns["idTypeCuisine"].HeaderText = "Type de cuisine";
+            dataGridViewRestaurants.Columns["id"].Visible = false;
             dataGridViewRestaurants.Columns["adresse"].Visible = false;
             dataGridViewRestaurants.Columns["numero"].Visible = false;
             dataGridViewRestaurants.Columns["description"].Visible = false;
             dataGridViewRestaurants.Columns["budgetLow"].Visible = false;
             dataGridViewRestaurants.Columns["budgetHigh"].Visible = false;
             dataGridViewRestaurants.Columns["horaire"].Visible = false;
-            dataGridViewRestaurants.Columns["idTypeCuisine"].Visible = false;
+            dataGridViewRestaurants.Columns["genre"].Visible = false;
             dataGridViewRestaurants.Columns["idRestaurateur"].Visible = false;
+            dataGridViewRestaurants.Columns["idTypeCuisine"].Visible = false;
 
             dataGridViewTypesCuisine.DataSource = TypeCuisineManager.GetAll();
+            dataGridViewTypesCuisine.Columns["type"].HeaderText = "Type de cuisine";
+            dataGridViewTypesCuisine.Columns["id"].Visible = false;
         }
 
         private void buttonAddAdmin_Click(object sender, EventArgs e)

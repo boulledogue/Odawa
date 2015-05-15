@@ -55,9 +55,6 @@
             this.buttonModType = new System.Windows.Forms.Button();
             this.buttonDelType = new System.Windows.Forms.Button();
             this.dataGridViewTypesCuisine = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabAdmins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdministrateurs)).BeginInit();
@@ -69,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRestaurants)).BeginInit();
             this.tabTypes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTypesCuisine)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -377,39 +373,13 @@
             this.dataGridViewTypesCuisine.Size = new System.Drawing.Size(781, 410);
             this.dataGridViewTypesCuisine.TabIndex = 0;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fichierToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(822, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fichierToolStripMenuItem
-            // 
-            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.testToolStripMenuItem});
-            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.fichierToolStripMenuItem.Text = "Fichier";
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-            this.testToolStripMenuItem.Text = "Test";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 517);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Odawa";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -424,10 +394,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRestaurants)).EndInit();
             this.tabTypes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTypesCuisine)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -459,9 +426,6 @@
         private System.Windows.Forms.Button buttonAddType;
         private System.Windows.Forms.Button buttonModType;
         private System.Windows.Forms.Button buttonDelType;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
 
     }
 }
