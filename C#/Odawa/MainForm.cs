@@ -105,7 +105,6 @@ namespace Odawa
             {
                 int id = (int)dataGridViewAdministrateurs.SelectedRows[0].Cells[0].Value;
                 AdministrateurManager.Delete(id);
-                dataGridViewTypesCuisine.DataSource = typeof(List<TypeCuisine>);
                 PopulateGrids();
                 message = "Administrateur supprimé!";
                 buttons = MessageBoxButtons.OK;
@@ -127,7 +126,7 @@ namespace Odawa
         private void buttonDelRestaurateur_Click(object sender, EventArgs e)
         {
             int id = (int)dataGridViewRestaurateurs.SelectedRows[0].Cells[0].Value;
-            if (BU.RestaurantManager.GetAll().Where(x => x.idRestaurateur == id).Count() == 0)
+            if (RestaurantManager.GetAll().Where(x => x.idRestaurateur == id).Count() == 0)
             {
                 string message = "Voulez-vous vraiment supprimer ce restaurateur?";
                 string caption = "Suppression";
@@ -138,7 +137,6 @@ namespace Odawa
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     RestaurateurManager.Delete(id);
-                    dataGridViewTypesCuisine.DataSource = typeof(List<TypeCuisine>);
                     PopulateGrids();
                     message = "Restaurateur supprimé!";
                     buttons = MessageBoxButtons.OK;
@@ -178,7 +176,6 @@ namespace Odawa
             {
                 int id = (int)dataGridViewUtilisateurs.SelectedRows[0].Cells[0].Value;
                 UtilisateurManager.Delete(id);
-                dataGridViewTypesCuisine.DataSource = typeof(List<TypeCuisine>);
                 PopulateGrids();
                 message = "Utilisateur supprimé!";
                 buttons = MessageBoxButtons.OK;
@@ -209,7 +206,6 @@ namespace Odawa
             {
                 int id = (int)dataGridViewRestaurants.SelectedRows[0].Cells[0].Value;
                 RestaurantManager.Delete(id);
-                dataGridViewTypesCuisine.DataSource = typeof(List<TypeCuisine>);
                 PopulateGrids();
                 message = "Restaurant supprimé!";
                 buttons = MessageBoxButtons.OK;
@@ -233,21 +229,31 @@ namespace Odawa
 
         private void buttonDelType_Click(object sender, EventArgs e)
         {
-            string message = "Voulez-vous vraiment supprimer ce type de cuisine?";
-            string caption = "Suppression";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            MessageBoxIcon icon = MessageBoxIcon.Warning;
-            DialogResult result;
-            result = MessageBox.Show(message, caption, buttons, icon);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            int id = (int)dataGridViewTypesCuisine.SelectedRows[0].Cells[0].Value;
+            if (RestaurantManager.GetAll().Where(x => x.idTypeCuisine == id).Count() == 0)
             {
-                int id = (int)dataGridViewTypesCuisine.SelectedRows[0].Cells[0].Value;
-                TypeCuisineManager.Delete(id);
-                dataGridViewTypesCuisine.DataSource = typeof(List<TypeCuisine>);
-                PopulateGrids();
-                message = "Type de cuisine supprimé!";
-                buttons = MessageBoxButtons.OK;
-                icon = MessageBoxIcon.Information;
+                string message = "Voulez-vous vraiment supprimer ce type de cuisine?";
+                string caption = "Suppression";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons, icon);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    TypeCuisineManager.Delete(id);
+                    PopulateGrids();
+                    message = "Type de cuisine supprimé!";
+                    buttons = MessageBoxButtons.OK;
+                    icon = MessageBoxIcon.Information;
+                    MessageBox.Show(message, caption, buttons, icon);
+                }
+            }
+            else
+            {
+                string caption = "Erreur lors de la suppression";
+                string message = "Au moins un restaurant est lié à ce type de cuisine, impossible de le supprimer.";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
                 MessageBox.Show(message, caption, buttons, icon);
             }
         }
