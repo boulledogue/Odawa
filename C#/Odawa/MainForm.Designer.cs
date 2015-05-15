@@ -55,6 +55,7 @@
             this.buttonModType = new System.Windows.Forms.Button();
             this.buttonDelType = new System.Windows.Forms.Button();
             this.dataGridViewTypesCuisine = new System.Windows.Forms.DataGridView();
+            this.buttonViewReservations = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabAdmins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdministrateurs)).BeginInit();
@@ -259,6 +260,7 @@
             // 
             // tabRestos
             // 
+            this.tabRestos.Controls.Add(this.buttonViewReservations);
             this.tabRestos.Controls.Add(this.buttonAddResto);
             this.tabRestos.Controls.Add(this.buttonModResto);
             this.tabRestos.Controls.Add(this.buttonDelResto);
@@ -373,6 +375,16 @@
             this.dataGridViewTypesCuisine.Size = new System.Drawing.Size(781, 410);
             this.dataGridViewTypesCuisine.TabIndex = 0;
             // 
+            // buttonViewReservations
+            // 
+            this.buttonViewReservations.Location = new System.Drawing.Point(3, 419);
+            this.buttonViewReservations.Name = "buttonViewReservations";
+            this.buttonViewReservations.Size = new System.Drawing.Size(134, 23);
+            this.buttonViewReservations.TabIndex = 13;
+            this.buttonViewReservations.Text = "Consulter réservations";
+            this.buttonViewReservations.UseVisualStyleBackColor = true;
+            this.buttonViewReservations.Click += new System.EventHandler(this.buttonViewReservations_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,6 +438,7 @@
         private System.Windows.Forms.Button buttonAddType;
         private System.Windows.Forms.Button buttonModType;
         private System.Windows.Forms.Button buttonDelType;
+        private System.Windows.Forms.Button buttonViewReservations;
 
     }
 }

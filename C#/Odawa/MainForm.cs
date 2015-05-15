@@ -251,5 +251,12 @@ namespace Odawa
                 MessageBox.Show(message, caption, buttons, icon);
             }
         }
+
+        private void buttonViewReservations_Click(object sender, EventArgs e)
+        {
+            int id = (int)dataGridViewRestaurants.SelectedRows[0].Cells[0].Value;
+            FormViewReservation f = new FormViewReservation(id);
+            f.ShowDialog();
+        }
     }
 }

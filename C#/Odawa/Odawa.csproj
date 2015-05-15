@@ -60,6 +60,12 @@
     <Compile Include="FormAjoutTypeCuisine.Designer.cs">
       <DependentUpon>FormAjoutTypeCuisine.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViewReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewReservation.Designer.cs">
+      <DependentUpon>FormViewReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAjoutTypeCuisine.resx">
       <DependentUpon>FormAjoutTypeCuisine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewReservation.resx">
+      <DependentUpon>FormViewReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
