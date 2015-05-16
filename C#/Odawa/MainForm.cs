@@ -218,13 +218,16 @@ namespace Odawa
         {
             FormAjoutTypeCuisine f = new FormAjoutTypeCuisine();
             f.ShowDialog();
+            PopulateGrids();
         }
 
         private void buttonModType_Click(object sender, EventArgs e)
         {
             int id = (int)dataGridViewTypesCuisine.SelectedRows[0].Cells[0].Value;
-            FormAjoutTypeCuisine f = new FormAjoutTypeCuisine(id);
+            TypeCuisine typeCuisine = TypeCuisineManager.GetAll().Find(x => x.id == id);
+            FormAjoutTypeCuisine f = new FormAjoutTypeCuisine(typeCuisine);
             f.ShowDialog();
+            PopulateGrids();
         }
 
         private void buttonDelType_Click(object sender, EventArgs e)
