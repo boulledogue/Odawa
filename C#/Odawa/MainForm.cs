@@ -192,12 +192,18 @@ namespace Odawa
 
         private void buttonAddResto_Click(object sender, EventArgs e)
         {
-
+            FormAjoutRestaurant f = new FormAjoutRestaurant();
+            f.ShowDialog();
+            PopulateGrids();
         }
 
         private void buttonModResto_Click(object sender, EventArgs e)
         {
-
+            int id = (int)dataGridViewRestaurants.SelectedRows[0].Cells[0].Value;
+            Restaurant restaurant = RestaurantManager.GetAll().Find(x => x.id == id);
+            FormAjoutRestaurant f = new FormAjoutRestaurant(restaurant);
+            f.ShowDialog();
+            PopulateGrids();
         }
 
         private void buttonDelResto_Click(object sender, EventArgs e)
