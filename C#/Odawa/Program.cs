@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,9 +16,46 @@ namespace Odawa
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainForm());
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    StringBuilder messageSB = new StringBuilder();
+                    string executingAssembly = System.Reflection.Assembly.GetExecutingAssembly().ToString();
+                    messageSB.Append(DateTime.Now + " - ");
+                    messageSB.Append(executingAssembly + " - ");
+                    if (ex == null)
+                    {
+                        messageSB.Append("Erreur inconnue!");
+                    }
+                    else
+                    {
+                        messageSB.Append(ex.ToString());
+                        if (ex.InnerException != null) messageSB.Append(ex.InnerException.ToString());
+                    }
+                    messageSB.Append("\n-----------------------------------------------------------\n");
+                    string logFilePath = "c:\\tmp\\MyAppLog.log";
+                    System.IO.File.AppendAllText(logFilePath, messageSB.ToString());
+                }
+                catch
+                {
+                    //on ne fait rien ici, ça ne peut pas être bloquant pour fermer l'application
+                }
+                finally
+                {
+                    String message = "Une erreur s'est produite, l'application va maintenant se fermer.";
+                    MessageBoxIcon icon = MessageBoxIcon.Error;
+                    MessageBoxButtons button = MessageBoxButtons.OK;
+                    MessageBox.Show(message, "Erreur", button, icon);
+                    Application.Exit();
+                }
+            }
         }
     }
 }

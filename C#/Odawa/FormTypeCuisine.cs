@@ -60,18 +60,21 @@ namespace Odawa
                 message += "Le nom du type doit au moins faire 3 caractères.\n";
             }
 
-            if(!Regex.IsMatch(t.type, @"^[a-zA-Z]+$"))
+            if(!Regex.IsMatch(t.type, @"^[a-zA-Z ]+$"))
             {
                 labelTypeCuisine.ForeColor = Color.Red;
                 valid = false;
                 message += "Le nom du type ne doit contenir que des caractères alphabétiques.\n";
             }
 
-            if(TypeCuisineManager.GetAll().Find(x => x.type == t.type) != null && this.typeCuisineId == -1)
+            if(TypeCuisineManager.GetAll().Find(x => x.type == t.type) != null)
             {
-                labelTypeCuisine.ForeColor = Color.Red;
-                valid = false;
-                message += "Le type existe déjà.\n";
+                if ((this.typeCuisineId == -1) || (this.typeCuisineId != TypeCuisineManager.GetAll().Find(x => x.type == t.type).id))
+                {
+                    labelTypeCuisine.ForeColor = Color.Red;
+                    valid = false;
+                    message += "Le type existe déjà.\n";
+                } 
             }
 
             if (t.description.Length > 0 && t.description.Length < 10)

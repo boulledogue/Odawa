@@ -115,12 +115,18 @@ namespace Odawa
 
         private void buttonAddRestaurateur_Click(object sender, EventArgs e)
         {
-
+            FormRestaurateur f = new FormRestaurateur();
+            f.ShowDialog();
+            PopulateGrids();
         }
 
         private void buttonModRestaurateur_Click(object sender, EventArgs e)
         {
-
+            int id = (int)dataGridViewRestaurateurs.SelectedRows[0].Cells[0].Value;
+            Restaurateur r = RestaurateurManager.GetAll().Find(x => x.id == id);
+            FormRestaurateur f = new FormRestaurateur(r);
+            f.ShowDialog();
+            PopulateGrids();
         }
 
         private void buttonDelRestaurateur_Click(object sender, EventArgs e)
