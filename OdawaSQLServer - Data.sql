@@ -14,21 +14,21 @@ GO
 SET IDENTITY_INSERT [dbo].[typescuisine] ON 
 
 GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (1, N'Chinoise')
+INSERT [dbo].[typescuisine] ([id], [type], [description]) VALUES (1, N'Chinoise', N'Un peu bridé')
 GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (2, N'Française')
+INSERT [dbo].[typescuisine] ([id], [type], [description]) VALUES (2, N'Française', N'Les célèbres froggies')
 GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (3, N'Friterie')
+INSERT [dbo].[typescuisine] ([id], [type], [description]) VALUES (3, N'Friterie', N'Le gras, c''est la vie')
 GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (4, N'Italienne')
+INSERT [dbo].[typescuisine] ([id], [type], [description]) VALUES (4, N'Italienne', N'Gigi, c''est toi là-bas dans le noir?')
 GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (5, N'Japonaise')
+INSERT [dbo].[typescuisine] ([id], [type], [description]) VALUES (5, N'Japonaise', N'Si vous n''aimez pas, on se fait harakiri')
 GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (6, N'Indienne')
+INSERT [dbo].[typescuisine] ([id], [type], [description]) VALUES (6, N'Indienne', N'Ici, on ne mange pas de vache')
 GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (7, N'Thaïlandaise')
+INSERT [dbo].[typescuisine] ([id], [type], [description]) VALUES (7, N'Thaïlandaise', N'Méfiez-vous des petits pois')
 GO
-INSERT [dbo].[typescuisine] ([id], [type]) VALUES (8, N'Grecque')
+INSERT [dbo].[typescuisine] ([id], [type], [description]) VALUES (8, N'Grecque', N'Ne tournez jamais le dos au serveur')
 GO
 SET IDENTITY_INSERT [dbo].[typescuisine] OFF
 GO

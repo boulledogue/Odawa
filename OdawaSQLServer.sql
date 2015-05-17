@@ -209,6 +209,7 @@ GO
 CREATE TABLE [dbo].[typescuisine](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[type] [varchar](30) NOT NULL,
+	[description] [text] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
