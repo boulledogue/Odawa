@@ -79,7 +79,7 @@ namespace Odawa
 
         private void buttonAddAdmin_Click(object sender, EventArgs e)
         {
-            FormAjoutAdministrateur f = new FormAjoutAdministrateur();
+            FormAdministrateur f = new FormAdministrateur();
             f.ShowDialog();
             PopulateGrids();
         }
@@ -88,7 +88,7 @@ namespace Odawa
         {
             int id = (int)dataGridViewAdministrateurs.SelectedRows[0].Cells[0].Value;
             Administrateur a = AdministrateurManager.GetAll().Find(x => x.id == id);
-            FormAjoutAdministrateur f = new FormAjoutAdministrateur(a);
+            FormAdministrateur f = new FormAdministrateur(a);
             f.ShowDialog();
             PopulateGrids();
         }
@@ -216,7 +216,7 @@ namespace Odawa
 
         private void buttonAddType_Click(object sender, EventArgs e)
         {
-            FormAjoutTypeCuisine f = new FormAjoutTypeCuisine();
+            FormTypeCuisine f = new FormTypeCuisine();
             f.ShowDialog();
             PopulateGrids();
         }
@@ -225,7 +225,7 @@ namespace Odawa
         {
             int id = (int)dataGridViewTypesCuisine.SelectedRows[0].Cells[0].Value;
             TypeCuisine typeCuisine = TypeCuisineManager.GetAll().Find(x => x.id == id);
-            FormAjoutTypeCuisine f = new FormAjoutTypeCuisine(typeCuisine);
+            FormTypeCuisine f = new FormTypeCuisine(typeCuisine);
             f.ShowDialog();
             PopulateGrids();
         }

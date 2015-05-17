@@ -15,6 +15,7 @@ namespace BU
         {
             OdawaDS.typescuisineRow newRow = DataProvider.odawa.typescuisine.NewtypescuisineRow();
             newRow.type = t.type;
+            newRow.description = t.description;
             DataProvider.CreateTypeCuisine(newRow);
         }
 
@@ -27,6 +28,7 @@ namespace BU
                 TypeCuisine t = new TypeCuisine();
                 t.id = typeRow.id;
                 t.type = typeRow.type;
+                t.description = typeRow.description;
                 lst.Add(t);
             }
             return lst;
@@ -38,6 +40,7 @@ namespace BU
             OdawaDS.typescuisineRow updRow = DataProvider.odawa.typescuisine.NewtypescuisineRow();
             updRow.id = t.id;
             updRow.type = t.type;
+            updRow.description = t.description;
             DataProvider.UpdateTypeCuisine(updRow);
         }
 

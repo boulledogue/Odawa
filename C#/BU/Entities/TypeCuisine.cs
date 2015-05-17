@@ -11,6 +11,7 @@ namespace BU.Entities
     public class TypeCuisine
     {
         public int id { get; set; }
-        public string type { get; set; }        
+        public string type { get; set; }
+        public string description { get; set; }
     }
 }

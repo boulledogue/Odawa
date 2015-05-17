@@ -234,6 +234,7 @@ namespace DAL
         public static void UpdateTypeCuisine(OdawaDS.typescuisineRow t)
         {
             odawa.typescuisine.FindByid(t.id).type = t.type;
+            odawa.typescuisine.FindByid(t.id).description = t.description;
             WriteToDB("typescuisine");
         }
 

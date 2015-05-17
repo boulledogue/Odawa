@@ -2803,6 +2803,8 @@ namespace DAL {
             
             private global::System.Data.DataColumn columntype;
             
+            private global::System.Data.DataColumn columndescription;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public typescuisineDataTable() {
@@ -2854,6 +2856,14 @@ namespace DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn descriptionColumn {
+                get {
+                    return this.columndescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2889,11 +2899,12 @@ namespace DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public typescuisineRow AddtypescuisineRow(string type) {
+            public typescuisineRow AddtypescuisineRow(string type, string description) {
                 typescuisineRow rowtypescuisineRow = ((typescuisineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        type};
+                        type,
+                        description};
                 rowtypescuisineRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtypescuisineRow);
                 return rowtypescuisineRow;
@@ -2925,6 +2936,7 @@ namespace DAL {
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
                 this.columntype = base.Columns["type"];
+                this.columndescription = base.Columns["description"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2934,6 +2946,8 @@ namespace DAL {
                 base.Columns.Add(this.columnid);
                 this.columntype = new global::System.Data.DataColumn("type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntype);
+                this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescription);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -2944,6 +2958,8 @@ namespace DAL {
                 this.columnid.Unique = true;
                 this.columntype.AllowDBNull = false;
                 this.columntype.MaxLength = 30;
+                this.columndescription.AllowDBNull = false;
+                this.columndescription.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3876,6 +3892,17 @@ namespace DAL {
                 }
                 set {
                     this[this.tabletypescuisine.typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string description {
+                get {
+                    return ((string)(this[this.tabletypescuisine.descriptionColumn]));
+                }
+                set {
+                    this[this.tabletypescuisine.descriptionColumn] = value;
                 }
             }
             
@@ -7060,6 +7087,7 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
             tableMapping.DataSetTable = "typescuisine";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("type", "type");
+            tableMapping.ColumnMappings.Add("description", "description");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -7070,16 +7098,20 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[typescuisine] ([type]) VALUES (@type);\r\nSELECT id, type FROM t" +
-                "ypescuisine WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[typescuisine] ([type], [description]) VALUES (@type, @descript" +
+                "ion);\r\nSELECT id, type, description FROM typescuisine WHERE (id = SCOPE_IDENTITY" +
+                "())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[typescuisine] SET [type] = @type WHERE (([id] = @Original_id) AND (" +
-                "[type] = @Original_type));\r\nSELECT id, type FROM typescuisine WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[typescuisine] SET [type] = @type, [description] = @description WHER" +
+                "E (([id] = @Original_id) AND ([type] = @Original_type));\r\nSELECT id, type, descr" +
+                "iption FROM typescuisine WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7098,7 +7130,7 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, type FROM dbo.typescuisine";
+            this._commandCollection[0].CommandText = "SELECT id, type, description FROM dbo.typescuisine";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7187,12 +7219,18 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string type) {
+        public virtual int Insert(string type, string description) {
             if ((type == null)) {
                 throw new global::System.ArgumentNullException("type");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(type));
+            }
+            if ((description == null)) {
+                throw new global::System.ArgumentNullException("description");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(description));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7214,21 +7252,27 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string type, int Original_id, string Original_type, int id) {
+        public virtual int Update(string type, string description, int Original_id, string Original_type, int id) {
             if ((type == null)) {
                 throw new global::System.ArgumentNullException("type");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(type));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_id));
+            if ((description == null)) {
+                throw new global::System.ArgumentNullException("description");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(description));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_id));
             if ((Original_type == null)) {
                 throw new global::System.ArgumentNullException("Original_type");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_type));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_type));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(id));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7249,8 +7293,8 @@ SELECT id, nom, prenom, username, password, email, phone FROM restaurateurs WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string type, int Original_id, string Original_type) {
-            return this.Update(type, Original_id, Original_type, Original_id);
+        public virtual int Update(string type, string description, int Original_id, string Original_type) {
+            return this.Update(type, description, Original_id, Original_type, Original_id);
         }
     }
     
