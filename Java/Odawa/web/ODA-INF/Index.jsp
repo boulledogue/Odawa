@@ -20,33 +20,33 @@
                                             <div class="page-header page-header-debug">
                                                 <h4>
                                                     <p class="text-left">
-                                                        <a href="/Restaurant?id=<c:out value="${RandomRestaurant.getId()}"/>">
-                                                            <c:out value="${RandomRestaurant.getNom()}"/>
+                                                        <a href="/Restaurant?id=<c:out value="${RestaurantRandom.getId()}"/>">
+                                                            <c:out value="${RestaurantRandom.getNom()}"/>
                                                         </a>
                                                     </p>
                                                     <p class="text-right txt-debug">
                                                         <small>
-                                                            <c:out value="${RandomRestaurant.getGenre() == 1 ? 'Restaurant': 'Snack'}"/>
+                                                            <c:out value="${RestaurantRandom.getGenre() == 1 ? 'Restaurant': 'Snack'}"/>
                                                         </small>
                                                     </p>
                                                 </h4>
                                             </div>
-                                            <p class="text-right"><span class="badge"><c:out value="${RandomRestaurant.getPremium() == true ? 'P': ''}"/></span></p>
-                                            <p class="text-right"><c:out value="${RandomRestaurant.getRestaurateur()}"/></p>
-                                            <p><span class="text-muted">Type de Cuisine :</span></br><c:out value="${RandomRestaurant.getTypeCuisine()}"/></p>
-                                            <p><span class="text-muted">Adresse :</span></br><c:out value="${RandomRestaurant.getAllOfAdresse()}"/></p> 
-                                            <p><span class="text-muted">Fourchette de Tarif :</span></br><c:out value="${RandomRestaurant.getAllBudget()}"/></p>
-                                            <p><span class="text-muted">Horaire :</span></br><c:out value="${RandomRestaurant.getFormatHoraire()[day]}, ce ${nomJour} !"/></br>
+                                            <p class="text-right"><span class="badge"><c:out value="${RestaurantRandom.getPremium() == true ? 'P': ''}"/></span></p>
+                                            <p class="text-right"><c:out value="${RestaurantRandom.getRestaurateur()}"/></p>
+                                            <p><span class="text-muted">Type de Cuisine :</span></br><c:out value="${RestaurantRandom.getTypeCuisine()}"/></p>
+                                            <p><span class="text-muted">Adresse :</span></br><c:out value="${RestaurantRandom.getAllOfAdresse()}"/></p> 
+                                            <p><span class="text-muted">Fourchette de Tarif :</span></br><c:out value="${RestaurantRandom.getAllBudget()}"/></p>
+                                            <p><span class="text-muted">Horaire :</span></br><c:out value="${RestaurantRandom.getFormatHoraire()[Integer.parseInt(NumJour)-1]}, ce ${nomJour} !"/></br>
                                                 <a id="Horaire" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="
                                                    <table>
                                                    <tr>
                                                    <td>
-                                                   <c:forEach var="Jour" items="${ListNomJour}">
+                                                   <c:forEach var="Jour" items="${nomJours}">
                                                        <c:out value="${Jour}"/></br>
                                                    </c:forEach>
                                                    </td>
                                                    <td style='padding-left: 5px;'>
-                                                   <c:forEach var="Horaire" items="${RandomRestaurant.getFormatHoraire()}">
+                                                   <c:forEach var="Horaire" items="${RestaurantRandom.getFormatHoraire()}">
                                                        <c:out value="${Horaire}"/></br>
                                                    </c:forEach>
                                                    </td>
@@ -61,7 +61,7 @@
                                 <div class="col-md-6">
                                     <div class="panel panel-default page">
                                         <div class="panel-body">
-                                            <p><span class="text-muted">Description :</span></br><c:out value="${RandomRestaurant.getDescription()}"/></p>
+                                            <p><span class="text-muted">Description :</span></br><c:out value="${RestaurantRandom.getDescription()}"/></p>
                                         </div>
                                     </div>  
                                 </div>

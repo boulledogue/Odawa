@@ -25,7 +25,7 @@
                                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse<c:out value="${Restaurant.getId()}"/>" aria-expanded="true" aria-controls="collapseOne">
                                                         <c:out value="${Restaurant.getNom()}"/>
                                                     </a>
-                                                    <p class="text-right" style="margin-top: -20px; margin-bottom: 0px;"><a data-toggle="modal" data-target="#myModal" href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></p>
+                                                    <p class="text-right" style="margin-top: -20px; margin-bottom: 0px;"><a href="/Gestion?delete=<c:out value="${Restaurant.getId()}"/>"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></p>
                                                 </h4>
                                             </div>
                                             <div id="collapse<c:out value="${Restaurant.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -33,35 +33,35 @@
                                                     <form class="form-horizontal">
                                                         <div class="form-group">
                                                             <div class="input-group debug-gestrest">
-                                                                <span class="input-group-addon" id="basic-addon1">Nom</span>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNom()}"/>">
+                                                                <span class="input-group-addon">Nom</span>
+                                                                <input type="text" class="form-control" value="<c:out value="${Restaurant.getNom()}"/>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-lg-6">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon" id="basic-addon1">Adresse</span>
-                                                                    <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getAdresse()}"/>">
+                                                                    <span class="input-group-addon">Adresse</span>
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getAdresse()}"/>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div  class="input-group">
-                                                                    <span class="input-group-addon" id="basic-addon1">Numéro</span>
-                                                                    <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNumero()}"/>">
+                                                                    <span class="input-group-addon">Numéro</span>
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getNumero()}"/>">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-lg-6">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon" id="basic-addon1">Localité</span>
-                                                                    <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getLocalite()}"/>">
+                                                                    <span class="input-group-addon">Localité</span>
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getLocalite()}"/>">
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div  class="input-group">
-                                                                    <span class="input-group-addon" id="basic-addon1">Zip Code</span>
-                                                                    <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getZipCode()}"/>">
+                                                                    <span class="input-group-addon">Zip Code</span>
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getZipCode()}"/>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -74,15 +74,15 @@
                                                         <div class="form-group">
                                                             <div class="col-lg-6">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon" id="basic-addon1">Budget Low</span>
-                                                                    <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getBudgetLow()}"/>">
+                                                                    <span class="input-group-addon">Budget Low</span>
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getBudgetLow()}"/>">
                                                                     <div class="input-group-addon"> &euro; </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div  class="input-group">
-                                                                    <span class="input-group-addon" id="basic-addon1">Budget Hight</span>
-                                                                    <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getBudgetHigh()}"/>">
+                                                                    <span class="input-group-addon">Budget Hight</span>
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getBudgetHigh()}"/>">
                                                                     <div class="input-group-addon"> &euro; </div>
                                                                 </div>
                                                             </div>
@@ -96,99 +96,113 @@
                                                             <form class="form-horizontal">
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Lundi Ouvert.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[0]}"/>">
+                                                                        <div class="input-group date">
+                                                                            <span class="input-group-addon">Lundi Ouvert.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[0]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
-                                                                        <div  class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Lundi Fermet.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[1]}"/>">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <div class="col-lg-6">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Mardi Ouvert.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[2]}"/>">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6">
-                                                                        <div  class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Mardi Fermet.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[3]}"/>">
+                                                                        <div  class="input-group date">
+                                                                            <span class="input-group-addon">Lundi Fermet.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[1]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Mercredi Ouvert.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[4]}"/>">
+                                                                        <div class="input-group date">
+                                                                            <span class="input-group-addon">Mardi Ouvert.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[2]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
-                                                                        <div  class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Mercredi Fermet.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[5]}"/>">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <div class="col-lg-6">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Jeudi Ouvert.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[6]}"/>">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6">
-                                                                        <div  class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Jeudi Fermet.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[7]}"/>">
+                                                                        <div  class="input-group date">
+                                                                            <span class="input-group-addon">Mardi Fermet.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[3]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Vendredi Ouvert.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[8]}"/>">
+                                                                        <div class="input-group date">
+                                                                            <span class="input-group-addon">Mercredi Ouvert.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[4]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
-                                                                        <div  class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Vendredi Fermet.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[9]}"/>">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <div class="col-lg-6">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Samedi Ouvert.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[10]}"/>">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-lg-6">
-                                                                        <div  class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Samedi Fermet.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[11]}"/>">
+                                                                        <div  class="input-group date">
+                                                                            <span class="input-group-addon">Mercredi Fermet.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[5]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Dimanche Ouvert.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[12]}"/>">
+                                                                        <div class="input-group date">
+                                                                            <span class="input-group-addon">Jeudi Ouvert.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[6]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
-                                                                        <div  class="input-group">
-                                                                            <span class="input-group-addon" id="basic-addon1">Dimanche Fermet.</span>
-                                                                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getArrayHoraire()[13]}"/>">
+                                                                        <div  class="input-group date">
+                                                                            <span class="input-group-addon">Jeudi Fermet.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[7]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="input-group date">
+                                                                            <span class="input-group-addon">Vendredi Ouvert.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[8]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div  class="input-group date">
+                                                                            <span class="input-group-addon">Vendredi Fermet.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[9]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="input-group date">
+                                                                            <span class="input-group-addon">Samedi Ouvert.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[10]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div  class="input-group date">
+                                                                            <span class="input-group-addon">Samedi Fermet.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[11]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="input-group date">
+                                                                            <span class="input-group-addon">Dimanche Ouvert.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[12]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div  class="input-group date">
+                                                                            <span class="input-group-addon">Dimanche Fermet.</span>
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[13]}"/>">
+                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -200,7 +214,7 @@
                                                             <div class="col-lg-6">
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon">
-                                                                        <input type="checkbox" aria-label="..." <c:out value="${Restaurant.getPremium() == true ? 'checked': ''}"/> disabled="">
+                                                                        <input type="checkbox" <c:out value="${Restaurant.getPremium() == true ? 'checked': ''}"/> disabled="">
                                                                     </span>
                                                                     <input type="text" class="form-control dbg-crsr" value="Premium"  disabled>
                                                                 </div>
@@ -277,8 +291,8 @@
                                                             </form>
                                                         </div>
                                                     </div>
-                                                    <a class="btn btn-success hello-debug">Accepter</a>
-                                                    <a class="btn btn-danger hello-debug">Refuser</a>
+                                                    <a onclick="AccepterPush(${Reservation.getPhone()})" class="btn btn-success hello-debug">Accepter</a>
+                                                    <a onclick="RefuserPush(${Reservation.getPhone()})" class="btn btn-danger hello-debug">Refuser</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -302,56 +316,56 @@
                         <form class="form-horizontal">
                             <div class="form-group">
                                 <div class="input-group debug-gestrest">
-                                    <span class="input-group-addon" id="basic-addon1">Nom</span>
-                                    <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNom()}"/>">
+                                    <span class="input-group-addon">Nom</span>
+                                    <input type="text" id="inptNom" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-6">
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">Adresse</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getAdresse()}"/>">
+                                        <span class="input-group-addon">Adresse</span>
+                                        <input type="text" id="inptAdresse" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div  class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">Numéro</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getNumero()}"/>">
+                                        <span class="input-group-addon">Numéro</span>
+                                        <input type="text" id="inptNumero" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-6">
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">Localité</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getLocalite()}"/>">
+                                        <span class="input-group-addon">Localité</span>
+                                        <input type="text" id="inptLocalite" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div  class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">Zip Code</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getZipCode()}"/>">
+                                        <span class="input-group-addon">Zip Code</span>
+                                        <input type="text" id="inptZip" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     <label class="input-group-addon" style="border-bottom: 0px none; border-right: 1px solid #CCC;">Description</label>
-                                    <textarea class="form-control" rows="3"><c:out value="${Restaurant.getDescription()}"/></textarea>
+                                    <textarea class="form-control" id="inptDescr" rows="3"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-6">
                                     <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">Budget Low</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getBudgetLow()}"/>">
+                                        <span class="input-group-addon">Budget Low</span>
+                                        <input type="text" id="inptBdgLow" class="form-control">
                                         <div class="input-group-addon"> &euro; </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div  class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">Budget Hight</span>
-                                        <input type="text" class="form-control" aria-describedby="basic-addon1" value="<c:out value="${Restaurant.getBudgetHigh()}"/>">
+                                        <span class="input-group-addon">Budget Hight</span>
+                                        <input type="text" id="inptBdgHgt" class="form-control">
                                         <div class="input-group-addon"> &euro; </div>
                                     </div>
                                 </div>
@@ -365,99 +379,113 @@
                                 <form class="form-horizontal">
                                     <div class="form-group">
                                         <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Lundi Ouvert.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon">Lundi Ouvert.</span>
+                                                <input id="inptHrLndOuv" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div  class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Lundi Fermet.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Mardi Ouvert.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div  class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Mardi Fermet.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                            <div  class="input-group date">
+                                                <span class="input-group-addon">Lundi Fermet.</span>
+                                                <input id="inptHrLndFrm" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Mercredi Ouvert.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon">Mardi Ouvert.</span>
+                                                <input id="inptHrMarOuv" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div  class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Mercredi Fermet.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Jeudi Ouvert.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div  class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Jeudi Fermet.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                            <div  class="input-group date">
+                                                <span class="input-group-addon">Mardi Fermet.</span>
+                                                <input id="inptHrMarFrm" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Vendredi Ouvert.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon">Mercredi Ouvert.</span>
+                                                <input id="inptHrMercOuv" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div  class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Vendredi Fermet.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Samedi Ouvert.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div  class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Samedi Fermet.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                            <div  class="input-group date">
+                                                <span class="input-group-addon">Mercredi Fermet.</span>
+                                                <input id="inptHrMerFrm" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Dimanche Ouvert.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon">Jeudi Ouvert.</span>
+                                                <input id="inptHrJdOuv" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div  class="input-group">
-                                                <span class="input-group-addon" id="basic-addon1">Dimanche Fermet.</span>
-                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon">Jeudi Fermet.</span>
+                                                <input id="inptHrJdFrm" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon">Vendredi Ouvert.</span>
+                                                <input id="inptHrVndOuv" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div  class="input-group date">
+                                                <span class="input-group-addon">Vendredi Fermet.</span>
+                                                <input id="inptHrVndFrm" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon">Samedi Ouvert.</span>
+                                                <input id="inptHrSmdOuv" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div  class="input-group date">
+                                                <span class="input-group-addon">Samedi Fermet.</span>
+                                                <input id="inptHrVndFrm" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <div class="input-group date">
+                                                <span class="input-group-addon">Dimanche Ouvert.</span>
+                                                <input id="inptHrDmcOuv" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div  class="input-group date">
+                                                <span class="input-group-addon">Dimanche Fermet.</span>
+                                                <input id="inptHrDmcFrm" type="text" class="form-control">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -468,10 +496,10 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     <div  class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">Cuisine</span>
-                                        <select class="form-control"> type
+                                        <span class="input-group-addon">Cuisine</span>
+                                        <select id="inptType" class="form-control"> type
                                             <c:forEach var="Type" items="${Types}">
-                                                <option value="<c:out value="${Type.getId()}"/>" <c:out value="${Restaurant.getIdTypeCuisine() == Type.getId() ? 'selected': ''}"/>>
+                                                <option value="<c:out value="${Type.getId()}"/>">
                                                     <c:out value="${Type.getType()}"/>
                                                 </option>
                                             </c:forEach>
@@ -482,11 +510,54 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Enregistrer</button>
+                        <a onclick="AddRestaurant()" class="btn btn-primary">Enregistrer</a>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            $('#Horaire').popover({html: true});
+            $('.date').datetimepicker({format:'HHmm'});
+            function AddRestaurant() {
+                $.post("/Restaurant?action=1",{
+                  nom: $("#inptNom").val(),
+                  adresse: $("#inptAdresse").val(),
+                  numero: $("#inptNumero").val(),
+                  localite: $("#inptLocalite").val(),
+                  zip: $("#inptZip").val(),
+                  descr: $("#inptDescr").val(),
+                  bdglow: $("#inptBdgLow").val(),
+                  bdghgt: $("#inptBdgHgt").val(),
+                  HrLndOuv: $("#inptHrLndOuv").val(),
+                  HrLndFrm: $("#inptHrLndFrm").val(),
+                  HrMarOuv: $("#inptHrMarOuv").val(),
+                  HrMarFrm: $("#inptHrMarFrm").val(),
+                  HrMercOuv: $("#inptHrMercOuv").val(),
+                  HrMercFrm: $("#inptHrMercFrm").val(),
+                  HrJdOuv: $("#inptHrJdOuv").val(),
+                  HrJdFrm: $("#inptHrJdFrm").val(),
+                  HrVndOuv: $("#inptHrVndOuv").val(),
+                  HrVndFrm: $("#inptHrVndFrm").val(),  
+                  HrSmdOuv: $("#inptHrSmdOuv").val(),
+                  HrSmdFrm: $("#inptHrSmdFrm").val(),
+                  HrDmcOuv: $("#inptHrDmcOuv").val(),
+                  HrDmcFrm: $("#inptHrDmcFrm").val(),
+                  Type: $("#inptType").val(),
+                }).done( function () { location.reload(true); } );
+            }
+            function AccepterPush(id) { 
+                $.post("/Restaurant?action=2",{
+                    id: id,
+                    choix: 1
+                }).done( function () { location.reload(true); } );
+            }
+            function RefuserPush(id) { 
+                $.post("/Restaurant?action=2",{
+                    id: id,
+                    choix: 0
+                }).done( function () { location.reload(true); } );
+            }
+        </script>
         <jsp:include page="/ODA-INF/BASE/Footer.jsp" />
     </body>
 </html>

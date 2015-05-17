@@ -3,6 +3,7 @@
 <html lang="fr">
   <jsp:include page="/ODA-INF/BASE/Head.jsp" />
   <body>
+    <jsp:include page="/ODA-INF/BASE/Navbar.jsp" />
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 vrt-center">
@@ -42,5 +43,6 @@
             });
     }
     </script>
+    <jsp:include page="/ODA-INF/BASE/Footer.jsp" />
   </body>
 </html>

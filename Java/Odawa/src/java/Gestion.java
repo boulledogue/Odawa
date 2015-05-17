@@ -1,40 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+// Dependance Externe
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import Models.*;
-import Controller.*;
-import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Alistreaza
- */
+// Dependance Interne
+import Controller.ReservationManager;
+import Controller.RestaurantManager;
+import Controller.TypeCuisineManager;
+import Models.ReservationJ;
+import Models.RestaurantJ;
+import Models.RestaurateurJ;
+import Models.TypeCuisineJ;
+
 public class Gestion extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Si ?delete=id
+        // alors suppression du compte Restaurant
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        RestaurateurJ rst = (RestaurateurJ) session.getAttribute("Utl");
+        RestaurateurJ rst = (RestaurateurJ) session.getAttribute("Utilisateur");
         ArrayList<RestaurantJ> lstRest = RestaurantManager.GetRestaurantsByRestaurateur(rst.getId());
         request.setAttribute("Restaurants",lstRest);
         ArrayList<ReservationJ> rsvt = ReservationManager.GetReservationsByRestaurateur(lstRest);
@@ -44,43 +33,21 @@ public class Gestion extends HttpServlet {
         request.getRequestDispatcher("/ODA-INF/Gestion.jsp").forward(request,response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Si ?action=1 ( Ajout Restaurant )
+        // nom,adresse,numero,localite,zip,descr,bdglow,bdghg,HrLndOuv,HrLndFrm,HrMarOuv,
+        // HrMarFrm,HrMercOuv,HrMercFrm,HrJdOuv,HrJdFrm,HrVndOuv,HrVndFrm,HrSmdOuv,HrSmdFrm,HrDmcOuv,HrDmcFrm,Type
+        
+        // Si ?action=2 ( Choix Réservation ) ( choix = 1 => Accepter, choix = 2 => Refuser )
+        // id,choix
         processRequest(request, response);
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

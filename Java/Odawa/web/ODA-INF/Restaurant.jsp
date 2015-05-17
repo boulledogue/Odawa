@@ -73,17 +73,19 @@
                         </c:forEach>
                     </ul>
                 </div>
-                    <c:if test="${ sessionScope.AdmState != true }" > 
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="input-group">
-                                <input id="comm" type="text" class="form-control" placeholder="Nouveau Commentaire">
-                                <span class="input-group-btn">
-                                    <a onclick="Send(<c:out value="${sessionScope.Utl.getId()}"/>)" class="btn btn-primary" type="button">Send</a>
-                                </span>
+                <c:if test="${ sessionScope.isRestaurateur != true }" >
+                    <c:if test="${ sessionScope.Utilisateur != null }" >
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="input-group">
+                                    <input id="comm" type="text" class="form-control" placeholder="Nouveau Commentaire">
+                                    <span class="input-group-btn">
+                                        <a onclick="SendComment()" class="btn btn-primary" type="button">Send</a>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:if>
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <button type="button" class="btn btn-default" data-toggle="modal" data-target=".resrv-rest-modal">Reserver dans ce Restaurant</button>
@@ -92,65 +94,94 @@
                 </c:if>
             </div>
         </div>
-        <div class="modal fade resrv-rest-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Demander une réservation</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">Nom</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputEmail3" value="<c:out value="${sessionScope.Utl.getNom()}"/>" <c:out value="${(sessionScope.Utl != null)? 'disabled' : ''}"/>>
+        <c:if test="${ sessionScope.isRestaurateur != true }" >
+            <div class="modal fade resrv-rest-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Demander une réservation</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nom</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inptNom" value="<c:out value="${sessionScope.Utilisateur.getNom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/>>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Prénom</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" value="<c:out value="${sessionScope.Utl.getPrenom()}"/>" <c:out value="${(sessionScope.Utl != null)? 'disabled' : ''}"/>>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Prénom</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inptPrenom" value="<c:out value="${sessionScope.Utilisateur.getPrenom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/>>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Date</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Date</label>
+                                    <div class="col-sm-10">
+                                        <div class='input-group date' style="">
+                                            <input type='text' class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Nbre de Personnes</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nbre de Personnes</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inptNbr">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" value="<c:out value="${sessionScope.Utl.getEmail()}"/>" <c:out value="${(sessionScope.Utl != null)? 'disabled' : ''}"/>>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/>>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Téléphone</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputPassword3" value="<c:out value="${sessionScope.Utl.getPhone()}"/>" <c:out value="${(sessionScope.Utl != null)? 'disabled' : ''}"/>>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Téléphone</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/>>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary btn-sm">Envoyer</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <a onclick="SendReservation()" class="btn btn-primary btn-sm">Envoyer</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </c:if>
         <script>
             $('#Horaire').popover({html: true});
-            function Send(id) {
-                $.post("#",{comm: $("#comm").val(), idutl: id, idrest: ${Restaurant.getId()} })
-                 .done(function(){location.reload(true);});
+            $('.date').datetimepicker({format:'YYYY-MM-DD'});
+            <c:if test="${ sessionScope.Utilisateur != null }" >
+            function SendComment() {
+                $.post("/Restaurant?action=1", {
+                    idrest: <c:out value="${Restaurant.getId()}"/>,
+                    comm: $("#comm").val(),
+                    idutl: <c:out value="${sessionScope.Utilisateur.getId()}"/>
+                }).done(function () {
+                    location.reload(true);
+                });
             }
+            </c:if>
+            <c:if test="${sessionScope.isRestaurateur != true }" >
+            function SendReservation() {
+                $.post("/Restaurant?action=2", {
+                    nom: $("#inptNom").val(),
+                    prenom: $("#inptPrenom").val(),
+                    date: $("#inptDate").val(),
+                    nbrePersonne: $("#inptNbr").val(),
+                    email: $("#inptEmail").val(),
+                    phone: $("#inptPhone").val(),
+                    idrest: ${Restaurant.getId()}}
+                ).done(function () {
+                });
+            }
+            </c:if>
         </script>
         <jsp:include page="/ODA-INF/BASE/Footer.jsp" />
     </body>
