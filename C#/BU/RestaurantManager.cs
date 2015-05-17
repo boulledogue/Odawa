@@ -131,7 +131,7 @@ namespace BU
             Restaurant r = new Restaurant();
             int count = lst.Count();
             Random rnd = new Random();
-            int randomIndex = rnd.Next(0, count-1);
+            int randomIndex = rnd.Next(0, count);
             r = lst[randomIndex];
             return r;
         }

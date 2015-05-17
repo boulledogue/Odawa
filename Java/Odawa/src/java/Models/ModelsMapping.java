@@ -341,6 +341,7 @@ public class ModelsMapping {
             TypeCuisineJ type = new TypeCuisineJ();
             type.setId(t.getId());
             type.setType(t.getType().getValue());
+            type.setDescription(t.getDescription().getValue());
             arrayTypeJ.add(type);
         }
         return arrayTypeJ;
@@ -353,6 +354,7 @@ public class ModelsMapping {
         TypeCuisineJ tj = new TypeCuisineJ();
         tj.setId(t.getId());
         tj.setType(t.getType().getValue());
+        tj.setDescription(t.getDescription().getValue());
         return tj;
     }
     

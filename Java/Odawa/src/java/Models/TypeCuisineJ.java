@@ -12,10 +12,13 @@ package Models;
 public class TypeCuisineJ {
     private int id;
     private String type;
+    private String description;
     
     public void setId(int id) { this.id = id; }
     public void setType(String type) { this.type = type; }
+    public void setDescription(String description) { this.description = description; }
     
     public int getId() { return this.id; }
     public String getType() { return this.type; }
+    public String getDescription() { return this.description; }
 }
