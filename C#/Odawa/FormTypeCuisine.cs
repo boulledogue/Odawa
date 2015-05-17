@@ -35,11 +35,11 @@ namespace Odawa
             TypeCuisine t = new TypeCuisine();
             t.id = this.typeCuisineId;
             t.type = textBoxTypeCuisine.Text;
-            t.description = richTextBoxDescType.Text;
+            if (richTextBoxDescType.Text.Length == 0) t.description = "Aucune description pour ce type de cuisine.";
+            else t.description = richTextBoxDescType.Text;
 
             if(Validate(t))
-            {
-                if (t.description == "") t.description = "Aucune description pour ce type de cuisine.";
+            {                
                 if (typeCuisineId == -1) TypeCuisineManager.Create(t);
                 else TypeCuisineManager.Update(t);
                 this.Dispose();
@@ -74,6 +74,12 @@ namespace Odawa
                 message += "Le type existe déjà.\n";
             }
 
+            if (t.description.Length > 0 && t.description.Length < 10)
+            {
+                labelDescriptionType.ForeColor = Color.Red;
+                valid = false;
+                message += "La description doit être vide ou faire au moins 10 caractères.\n";
+            }
             if (!valid)
             {
                 string caption = "Erreur";
