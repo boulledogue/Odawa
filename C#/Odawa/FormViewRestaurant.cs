@@ -36,7 +36,7 @@ namespace Odawa
             Restaurateur r = RestaurateurManager.GetAll().Find(x => x.id == this.idRestaurateur);
             labelRestaurateur.Text = r.nom + " " + r.prenom;
             dataGridViewRestOwned.DataSource = RestaurantManager.GetAll().Where(x => x.idRestaurateur == this.idRestaurateur).ToList();
-            dataGridViewRestOwned.Columns["nom"].HeaderText = "Nom";
+            /*dataGridViewRestOwned.Columns["nom"].HeaderText = "Nom";*/
             dataGridViewRestOwned.Columns["zipCode"].HeaderText = "Code Postal";
             dataGridViewRestOwned.Columns["localite"].HeaderText = "Localité";
             dataGridViewRestOwned.Columns["premium"].HeaderText = "Premium";

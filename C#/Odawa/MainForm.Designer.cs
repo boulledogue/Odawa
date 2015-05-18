@@ -36,6 +36,7 @@
             this.buttonDelAdmin = new System.Windows.Forms.Button();
             this.dataGridViewAdministrateurs = new System.Windows.Forms.DataGridView();
             this.tabRestaurateurs = new System.Windows.Forms.TabPage();
+            this.buttonViewRestaurants = new System.Windows.Forms.Button();
             this.buttonModRestaurateur = new System.Windows.Forms.Button();
             this.buttonDelRestaurateur = new System.Windows.Forms.Button();
             this.buttonAddRestaurateur = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.buttonModType = new System.Windows.Forms.Button();
             this.buttonDelType = new System.Windows.Forms.Button();
             this.dataGridViewTypesCuisine = new System.Windows.Forms.DataGridView();
-            this.buttonViewRestaurants = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabAdmins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdministrateurs)).BeginInit();
@@ -72,12 +72,15 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabAdmins);
             this.tabControl1.Controls.Add(this.tabRestaurateurs);
             this.tabControl1.Controls.Add(this.tabUsers);
             this.tabControl1.Controls.Add(this.tabRestos);
             this.tabControl1.Controls.Add(this.tabTypes);
-            this.tabControl1.Location = new System.Drawing.Point(12, 27);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(798, 478);
@@ -99,6 +102,7 @@
             // 
             // buttonAddAdmin
             // 
+            this.buttonAddAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddAdmin.Location = new System.Drawing.Point(547, 419);
             this.buttonAddAdmin.Name = "buttonAddAdmin";
             this.buttonAddAdmin.Size = new System.Drawing.Size(75, 23);
@@ -109,6 +113,7 @@
             // 
             // buttonModAdmin
             // 
+            this.buttonModAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonModAdmin.Location = new System.Drawing.Point(628, 419);
             this.buttonModAdmin.Name = "buttonModAdmin";
             this.buttonModAdmin.Size = new System.Drawing.Size(75, 23);
@@ -119,6 +124,7 @@
             // 
             // buttonDelAdmin
             // 
+            this.buttonDelAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelAdmin.ForeColor = System.Drawing.Color.DarkRed;
             this.buttonDelAdmin.Location = new System.Drawing.Point(709, 419);
             this.buttonDelAdmin.Name = "buttonDelAdmin";
@@ -132,7 +138,12 @@
             // 
             this.dataGridViewAdministrateurs.AllowUserToAddRows = false;
             this.dataGridViewAdministrateurs.AllowUserToDeleteRows = false;
+            this.dataGridViewAdministrateurs.AllowUserToOrderColumns = true;
             this.dataGridViewAdministrateurs.AllowUserToResizeRows = false;
+            this.dataGridViewAdministrateurs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewAdministrateurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewAdministrateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAdministrateurs.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewAdministrateurs.MultiSelect = false;
@@ -157,8 +168,20 @@
             this.tabRestaurateurs.Text = "Restaurateurs";
             this.tabRestaurateurs.UseVisualStyleBackColor = true;
             // 
+            // buttonViewRestaurants
+            // 
+            this.buttonViewRestaurants.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonViewRestaurants.Location = new System.Drawing.Point(3, 419);
+            this.buttonViewRestaurants.Name = "buttonViewRestaurants";
+            this.buttonViewRestaurants.Size = new System.Drawing.Size(134, 23);
+            this.buttonViewRestaurants.TabIndex = 14;
+            this.buttonViewRestaurants.Text = "Consulter restaurants";
+            this.buttonViewRestaurants.UseVisualStyleBackColor = true;
+            this.buttonViewRestaurants.Click += new System.EventHandler(this.buttonViewRestaurants_Click);
+            // 
             // buttonModRestaurateur
             // 
+            this.buttonModRestaurateur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonModRestaurateur.Location = new System.Drawing.Point(628, 419);
             this.buttonModRestaurateur.Name = "buttonModRestaurateur";
             this.buttonModRestaurateur.Size = new System.Drawing.Size(75, 23);
@@ -169,6 +192,7 @@
             // 
             // buttonDelRestaurateur
             // 
+            this.buttonDelRestaurateur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelRestaurateur.ForeColor = System.Drawing.Color.DarkRed;
             this.buttonDelRestaurateur.Location = new System.Drawing.Point(709, 419);
             this.buttonDelRestaurateur.Name = "buttonDelRestaurateur";
@@ -180,6 +204,7 @@
             // 
             // buttonAddRestaurateur
             // 
+            this.buttonAddRestaurateur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddRestaurateur.Location = new System.Drawing.Point(547, 419);
             this.buttonAddRestaurateur.Name = "buttonAddRestaurateur";
             this.buttonAddRestaurateur.Size = new System.Drawing.Size(75, 23);
@@ -193,6 +218,10 @@
             this.dataGridViewRestaurateurs.AllowUserToAddRows = false;
             this.dataGridViewRestaurateurs.AllowUserToDeleteRows = false;
             this.dataGridViewRestaurateurs.AllowUserToResizeRows = false;
+            this.dataGridViewRestaurateurs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewRestaurateurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewRestaurateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRestaurateurs.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewRestaurateurs.MultiSelect = false;
@@ -218,6 +247,7 @@
             // 
             // buttonModUser
             // 
+            this.buttonModUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonModUser.Location = new System.Drawing.Point(628, 419);
             this.buttonModUser.Name = "buttonModUser";
             this.buttonModUser.Size = new System.Drawing.Size(75, 23);
@@ -228,6 +258,7 @@
             // 
             // buttonDelUser
             // 
+            this.buttonDelUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelUser.ForeColor = System.Drawing.Color.DarkRed;
             this.buttonDelUser.Location = new System.Drawing.Point(709, 419);
             this.buttonDelUser.Name = "buttonDelUser";
@@ -239,6 +270,7 @@
             // 
             // buttonAddUser
             // 
+            this.buttonAddUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddUser.Location = new System.Drawing.Point(547, 419);
             this.buttonAddUser.Name = "buttonAddUser";
             this.buttonAddUser.Size = new System.Drawing.Size(75, 23);
@@ -252,6 +284,10 @@
             this.dataGridViewUtilisateurs.AllowUserToAddRows = false;
             this.dataGridViewUtilisateurs.AllowUserToDeleteRows = false;
             this.dataGridViewUtilisateurs.AllowUserToResizeRows = false;
+            this.dataGridViewUtilisateurs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewUtilisateurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUtilisateurs.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewUtilisateurs.Name = "dataGridViewUtilisateurs";
@@ -276,6 +312,7 @@
             // 
             // buttonViewReservations
             // 
+            this.buttonViewReservations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonViewReservations.Location = new System.Drawing.Point(3, 419);
             this.buttonViewReservations.Name = "buttonViewReservations";
             this.buttonViewReservations.Size = new System.Drawing.Size(134, 23);
@@ -286,6 +323,7 @@
             // 
             // buttonAddResto
             // 
+            this.buttonAddResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddResto.Location = new System.Drawing.Point(547, 419);
             this.buttonAddResto.Name = "buttonAddResto";
             this.buttonAddResto.Size = new System.Drawing.Size(75, 23);
@@ -296,6 +334,7 @@
             // 
             // buttonModResto
             // 
+            this.buttonModResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonModResto.Location = new System.Drawing.Point(628, 419);
             this.buttonModResto.Name = "buttonModResto";
             this.buttonModResto.Size = new System.Drawing.Size(75, 23);
@@ -306,6 +345,7 @@
             // 
             // buttonDelResto
             // 
+            this.buttonDelResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelResto.ForeColor = System.Drawing.Color.DarkRed;
             this.buttonDelResto.Location = new System.Drawing.Point(709, 419);
             this.buttonDelResto.Name = "buttonDelResto";
@@ -320,8 +360,12 @@
             this.dataGridViewRestaurants.AllowUserToAddRows = false;
             this.dataGridViewRestaurants.AllowUserToDeleteRows = false;
             this.dataGridViewRestaurants.AllowUserToResizeRows = false;
+            this.dataGridViewRestaurants.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewRestaurants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewRestaurants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRestaurants.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewRestaurants.Location = new System.Drawing.Point(6, 0);
             this.dataGridViewRestaurants.Name = "dataGridViewRestaurants";
             this.dataGridViewRestaurants.ReadOnly = true;
             this.dataGridViewRestaurants.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -344,6 +388,7 @@
             // 
             // buttonAddType
             // 
+            this.buttonAddType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddType.Location = new System.Drawing.Point(547, 419);
             this.buttonAddType.Name = "buttonAddType";
             this.buttonAddType.Size = new System.Drawing.Size(75, 23);
@@ -354,6 +399,7 @@
             // 
             // buttonModType
             // 
+            this.buttonModType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonModType.Location = new System.Drawing.Point(628, 419);
             this.buttonModType.Name = "buttonModType";
             this.buttonModType.Size = new System.Drawing.Size(75, 23);
@@ -364,6 +410,7 @@
             // 
             // buttonDelType
             // 
+            this.buttonDelType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelType.ForeColor = System.Drawing.Color.DarkRed;
             this.buttonDelType.Location = new System.Drawing.Point(709, 419);
             this.buttonDelType.Name = "buttonDelType";
@@ -378,6 +425,10 @@
             this.dataGridViewTypesCuisine.AllowUserToAddRows = false;
             this.dataGridViewTypesCuisine.AllowUserToDeleteRows = false;
             this.dataGridViewTypesCuisine.AllowUserToResizeRows = false;
+            this.dataGridViewTypesCuisine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewTypesCuisine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewTypesCuisine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTypesCuisine.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewTypesCuisine.MultiSelect = false;
@@ -387,21 +438,11 @@
             this.dataGridViewTypesCuisine.Size = new System.Drawing.Size(781, 410);
             this.dataGridViewTypesCuisine.TabIndex = 0;
             // 
-            // buttonViewRestaurants
-            // 
-            this.buttonViewRestaurants.Location = new System.Drawing.Point(3, 419);
-            this.buttonViewRestaurants.Name = "buttonViewRestaurants";
-            this.buttonViewRestaurants.Size = new System.Drawing.Size(134, 23);
-            this.buttonViewRestaurants.TabIndex = 14;
-            this.buttonViewRestaurants.Text = "Consulter restaurants";
-            this.buttonViewRestaurants.UseVisualStyleBackColor = true;
-            this.buttonViewRestaurants.Click += new System.EventHandler(this.buttonViewRestaurants_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 517);
+            this.ClientSize = new System.Drawing.Size(822, 503);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";

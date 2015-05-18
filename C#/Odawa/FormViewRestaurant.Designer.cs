@@ -47,6 +47,13 @@
             // 
             // dataGridViewRestOwned
             // 
+            this.dataGridViewRestOwned.AllowUserToAddRows = false;
+            this.dataGridViewRestOwned.AllowUserToDeleteRows = false;
+            this.dataGridViewRestOwned.AllowUserToOrderColumns = true;
+            this.dataGridViewRestOwned.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewRestOwned.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewRestOwned.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRestOwned.Location = new System.Drawing.Point(13, 42);
             this.dataGridViewRestOwned.Name = "dataGridViewRestOwned";
@@ -55,6 +62,7 @@
             // 
             // buttonClose
             // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.Location = new System.Drawing.Point(599, 318);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(75, 23);
@@ -65,6 +73,7 @@
             // 
             // buttonDelResto
             // 
+            this.buttonDelResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelResto.Location = new System.Drawing.Point(518, 318);
             this.buttonDelResto.Name = "buttonDelResto";
             this.buttonDelResto.Size = new System.Drawing.Size(75, 23);

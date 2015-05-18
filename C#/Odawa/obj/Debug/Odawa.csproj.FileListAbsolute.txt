@@ -108,7 +108,6 @@ C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\bin\Debug\BU.dll
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\bin\Debug\DAL.dll
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\bin\Debug\BU.pdb
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\bin\Debug\DAL.pdb
-C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.FormAjoutTypeCuisine.resources
 C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.MainForm.resources
 C:\Users\Kevin\Source\Repos\Odawa\C#\Odawa\bin\Debug\Odawa.exe.config
 C:\Users\Kevin\Source\Repos\Odawa\C#\Odawa\bin\Debug\Odawa.exe
@@ -125,3 +124,9 @@ C:\Users\Kevin\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.Properties.Resources.
 C:\Users\Kevin\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.csproj.GenerateResource.Cache
 C:\Users\Kevin\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.exe
 C:\Users\Kevin\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.pdb
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.FormAdministrateur.resources
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.FormRestaurant.resources
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.FormRestaurateur.resources
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.FormTypeCuisine.resources
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.FormViewReservation.resources
+C:\Users\Alistreaza\Source\Repos\Odawa\C#\Odawa\obj\Debug\Odawa.FormViewRestaurant.resources
