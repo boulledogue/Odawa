@@ -21,19 +21,25 @@ namespace Odawa
         {
             this.restaurantId = -1;
             InitializeComponent();
-            comboBoxRestaurateur.DataSource = RestaurateurManager.GetAll();
-            comboBoxRestaurateur.DisplayMember = "nom";
-            comboBoxRestaurateur.ValueMember = "id";
+            List<KeyValuePair<int, string>> listRestaurateurs = new List<KeyValuePair<int, string>>();
+            String fullName = "";
+            foreach (Restaurateur r in RestaurateurManager.GetAll())
+            {
+                fullName = r.nom + " " + r.prenom;
+                listRestaurateurs.Add(new KeyValuePair<int, string>(r.id, fullName));
+            }
+            comboBoxRestaurateur.DataSource = listRestaurateurs;
+            comboBoxRestaurateur.DisplayMember = "Value";
+            comboBoxRestaurateur.ValueMember = "Key";
             comboBoxTypeCuisine.DataSource = TypeCuisineManager.GetAll();
             comboBoxTypeCuisine.DisplayMember = "type";
             comboBoxTypeCuisine.ValueMember = "id";
-            comboBoxGenre.DisplayMember = "Text";
-            comboBoxGenre.ValueMember = "Value";
-            var items = new[] { 
-                new { Text = "Restaurant", Value = 1 }, 
-                new { Text = "Snack", Value = 2 }
-            };
-            comboBoxGenre.DataSource = items;            
+            List<KeyValuePair<int, string>> listGenres = new List<KeyValuePair<int, string>>();
+            listGenres.Add(new KeyValuePair<int, string>(1, "Restaurant"));
+            listGenres.Add(new KeyValuePair<int, string>(2, "Snack"));
+            comboBoxGenre.DataSource = listGenres;
+            comboBoxGenre.DisplayMember = "Value";
+            comboBoxGenre.ValueMember = "Key";                        
         }
 
         public FormRestaurant(int id) : this()
