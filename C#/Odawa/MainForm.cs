@@ -279,5 +279,12 @@ namespace Odawa
             FormViewReservation f = new FormViewReservation(id);
             f.ShowDialog();
         }
+
+        private void buttonViewRestaurants_Click(object sender, EventArgs e)
+        {
+            int id = (int)dataGridViewRestaurateurs.SelectedRows[0].Cells[0].Value;
+            FormViewRestaurant f = new FormViewRestaurant(id);
+            f.ShowDialog();
+        }
     }
 }

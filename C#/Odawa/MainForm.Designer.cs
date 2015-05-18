@@ -46,6 +46,7 @@
             this.buttonAddUser = new System.Windows.Forms.Button();
             this.dataGridViewUtilisateurs = new System.Windows.Forms.DataGridView();
             this.tabRestos = new System.Windows.Forms.TabPage();
+            this.buttonViewReservations = new System.Windows.Forms.Button();
             this.buttonAddResto = new System.Windows.Forms.Button();
             this.buttonModResto = new System.Windows.Forms.Button();
             this.buttonDelResto = new System.Windows.Forms.Button();
@@ -55,7 +56,7 @@
             this.buttonModType = new System.Windows.Forms.Button();
             this.buttonDelType = new System.Windows.Forms.Button();
             this.dataGridViewTypesCuisine = new System.Windows.Forms.DataGridView();
-            this.buttonViewReservations = new System.Windows.Forms.Button();
+            this.buttonViewRestaurants = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabAdmins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdministrateurs)).BeginInit();
@@ -143,6 +144,7 @@
             // 
             // tabRestaurateurs
             // 
+            this.tabRestaurateurs.Controls.Add(this.buttonViewRestaurants);
             this.tabRestaurateurs.Controls.Add(this.buttonModRestaurateur);
             this.tabRestaurateurs.Controls.Add(this.buttonDelRestaurateur);
             this.tabRestaurateurs.Controls.Add(this.buttonAddRestaurateur);
@@ -272,6 +274,16 @@
             this.tabRestos.Text = "Restaurants";
             this.tabRestos.UseVisualStyleBackColor = true;
             // 
+            // buttonViewReservations
+            // 
+            this.buttonViewReservations.Location = new System.Drawing.Point(3, 419);
+            this.buttonViewReservations.Name = "buttonViewReservations";
+            this.buttonViewReservations.Size = new System.Drawing.Size(134, 23);
+            this.buttonViewReservations.TabIndex = 13;
+            this.buttonViewReservations.Text = "Consulter réservations";
+            this.buttonViewReservations.UseVisualStyleBackColor = true;
+            this.buttonViewReservations.Click += new System.EventHandler(this.buttonViewReservations_Click);
+            // 
             // buttonAddResto
             // 
             this.buttonAddResto.Location = new System.Drawing.Point(547, 419);
@@ -375,15 +387,15 @@
             this.dataGridViewTypesCuisine.Size = new System.Drawing.Size(781, 410);
             this.dataGridViewTypesCuisine.TabIndex = 0;
             // 
-            // buttonViewReservations
+            // buttonViewRestaurants
             // 
-            this.buttonViewReservations.Location = new System.Drawing.Point(3, 419);
-            this.buttonViewReservations.Name = "buttonViewReservations";
-            this.buttonViewReservations.Size = new System.Drawing.Size(134, 23);
-            this.buttonViewReservations.TabIndex = 13;
-            this.buttonViewReservations.Text = "Consulter réservations";
-            this.buttonViewReservations.UseVisualStyleBackColor = true;
-            this.buttonViewReservations.Click += new System.EventHandler(this.buttonViewReservations_Click);
+            this.buttonViewRestaurants.Location = new System.Drawing.Point(3, 419);
+            this.buttonViewRestaurants.Name = "buttonViewRestaurants";
+            this.buttonViewRestaurants.Size = new System.Drawing.Size(134, 23);
+            this.buttonViewRestaurants.TabIndex = 14;
+            this.buttonViewRestaurants.Text = "Consulter restaurants";
+            this.buttonViewRestaurants.UseVisualStyleBackColor = true;
+            this.buttonViewRestaurants.Click += new System.EventHandler(this.buttonViewRestaurants_Click);
             // 
             // MainForm
             // 
@@ -439,6 +451,7 @@
         private System.Windows.Forms.Button buttonModType;
         private System.Windows.Forms.Button buttonDelType;
         private System.Windows.Forms.Button buttonViewReservations;
+        private System.Windows.Forms.Button buttonViewRestaurants;
 
     }
 }

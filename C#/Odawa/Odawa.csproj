@@ -78,6 +78,12 @@
     <Compile Include="FormViewReservation.Designer.cs">
       <DependentUpon>FormViewReservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormViewRestaurant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewRestaurant.Designer.cs">
+      <DependentUpon>FormViewRestaurant.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormViewReservation.resx">
       <DependentUpon>FormViewReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewRestaurant.resx">
+      <DependentUpon>FormViewRestaurant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
