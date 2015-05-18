@@ -54,11 +54,11 @@
     <Compile Include="FormAdministrateur.designer.cs">
       <DependentUpon>FormAdministrateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAjoutRestaurant.cs">
+    <Compile Include="FormRestaurant.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAjoutRestaurant.designer.cs">
-      <DependentUpon>FormAjoutRestaurant.cs</DependentUpon>
+    <Compile Include="FormRestaurant.designer.cs">
+      <DependentUpon>FormRestaurant.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRestaurateur.cs">
       <SubType>Form</SubType>
@@ -89,8 +89,8 @@
     <EmbeddedResource Include="FormAdministrateur.resx">
       <DependentUpon>FormAdministrateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAjoutRestaurant.resx">
-      <DependentUpon>FormAjoutRestaurant.cs</DependentUpon>
+    <EmbeddedResource Include="FormRestaurant.resx">
+      <DependentUpon>FormRestaurant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRestaurateur.resx">
       <DependentUpon>FormRestaurateur.cs</DependentUpon>
