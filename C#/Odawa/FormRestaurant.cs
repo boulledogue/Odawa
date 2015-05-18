@@ -36,6 +36,11 @@ namespace Odawa
             comboBoxGenre.DataSource = items;            
         }
 
+        public FormRestaurant(int id) : this()
+        {
+            comboBoxRestaurateur.SelectedValue = id;
+        }
+
         public FormRestaurant(Restaurant restaurant) : this()
         {
             this.restaurantId = restaurant.id;            

@@ -36,7 +36,7 @@ namespace Odawa
             Restaurateur r = RestaurateurManager.GetAll().Find(x => x.id == this.idRestaurateur);
             labelRestaurateur.Text = r.nom + " " + r.prenom;
             dataGridViewRestOwned.DataSource = RestaurantManager.GetAll().Where(x => x.idRestaurateur == this.idRestaurateur).ToList();
-            /*dataGridViewRestOwned.Columns["nom"].HeaderText = "Nom";*/
+            dataGridViewRestOwned.Columns["nom"].HeaderText = "Nom";
             dataGridViewRestOwned.Columns["zipCode"].HeaderText = "Code Postal";
             dataGridViewRestOwned.Columns["localite"].HeaderText = "Localité";
             dataGridViewRestOwned.Columns["premium"].HeaderText = "Premium";
@@ -52,6 +52,8 @@ namespace Odawa
             dataGridViewRestOwned.Columns["genre"].Visible = false;
             dataGridViewRestOwned.Columns["idRestaurateur"].Visible = false;
             dataGridViewRestOwned.Columns["idTypeCuisine"].Visible = false;
+            if (dataGridViewRestOwned.Rows.Count == 0) buttonDelResto.Enabled = buttonModResto.Enabled = false;
+            else buttonDelResto.Enabled = buttonModResto.Enabled = true;
         }
 
         private void buttonDelResto_Click(object sender, EventArgs e)
@@ -72,6 +74,21 @@ namespace Odawa
                 icon = MessageBoxIcon.Information;
                 MessageBox.Show(message, caption, buttons, icon);
             }
+        }
+
+        private void buttonAddResto_Click(object sender, EventArgs e)
+        {
+            FormRestaurant f = new FormRestaurant(idRestaurateur);
+            f.ShowDialog();
+            Populate();
+        }
+
+        private void buttonModResto_Click(object sender, EventArgs e)
+        {
+            Restaurant r = RestaurantManager.GetAll().Find(x => x.id == (int)dataGridViewRestOwned.SelectedRows[0].Cells[0].Value);
+            FormRestaurant f = new FormRestaurant(r);
+            f.ShowDialog();
+            Populate();
         }
     }
 }

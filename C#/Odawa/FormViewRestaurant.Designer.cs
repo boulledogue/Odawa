@@ -33,6 +33,8 @@
             this.dataGridViewRestOwned = new System.Windows.Forms.DataGridView();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonDelResto = new System.Windows.Forms.Button();
+            this.buttonModResto = new System.Windows.Forms.Button();
+            this.buttonAddResto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRestOwned)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,8 +58,10 @@
             this.dataGridViewRestOwned.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewRestOwned.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRestOwned.Location = new System.Drawing.Point(13, 42);
+            this.dataGridViewRestOwned.MultiSelect = false;
             this.dataGridViewRestOwned.Name = "dataGridViewRestOwned";
             this.dataGridViewRestOwned.ReadOnly = true;
+            this.dataGridViewRestOwned.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRestOwned.Size = new System.Drawing.Size(661, 267);
             this.dataGridViewRestOwned.TabIndex = 1;
             // 
@@ -83,11 +87,35 @@
             this.buttonDelResto.UseVisualStyleBackColor = true;
             this.buttonDelResto.Click += new System.EventHandler(this.buttonDelResto_Click);
             // 
+            // buttonModResto
+            // 
+            this.buttonModResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonModResto.Location = new System.Drawing.Point(437, 318);
+            this.buttonModResto.Name = "buttonModResto";
+            this.buttonModResto.Size = new System.Drawing.Size(75, 23);
+            this.buttonModResto.TabIndex = 4;
+            this.buttonModResto.Text = "Modifier";
+            this.buttonModResto.UseVisualStyleBackColor = true;
+            this.buttonModResto.Click += new System.EventHandler(this.buttonModResto_Click);
+            // 
+            // buttonAddResto
+            // 
+            this.buttonAddResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddResto.Location = new System.Drawing.Point(356, 318);
+            this.buttonAddResto.Name = "buttonAddResto";
+            this.buttonAddResto.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddResto.TabIndex = 5;
+            this.buttonAddResto.Text = "Ajouter";
+            this.buttonAddResto.UseVisualStyleBackColor = true;
+            this.buttonAddResto.Click += new System.EventHandler(this.buttonAddResto_Click);
+            // 
             // FormViewRestaurant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 353);
+            this.Controls.Add(this.buttonAddResto);
+            this.Controls.Add(this.buttonModResto);
             this.Controls.Add(this.buttonDelResto);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.dataGridViewRestOwned);
@@ -108,5 +136,7 @@
         private System.Windows.Forms.DataGridView dataGridViewRestOwned;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonDelResto;
+        private System.Windows.Forms.Button buttonModResto;
+        private System.Windows.Forms.Button buttonAddResto;
     }
 }

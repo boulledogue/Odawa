@@ -288,6 +288,7 @@ namespace Odawa
             int id = (int)dataGridViewRestaurants.SelectedRows[0].Cells[0].Value;
             FormViewReservation f = new FormViewReservation(id);
             f.ShowDialog();
+            PopulateGrids();
         }
 
         private void buttonViewRestaurants_Click(object sender, EventArgs e)
@@ -295,6 +296,7 @@ namespace Odawa
             int id = (int)dataGridViewRestaurateurs.SelectedRows[0].Cells[0].Value;
             FormViewRestaurant f = new FormViewRestaurant(id);
             f.ShowDialog();
+            PopulateGrids();
         }
     }
 }

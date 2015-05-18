@@ -55,10 +55,13 @@
             this.dataGridViewReservations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewReservations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReservations.Location = new System.Drawing.Point(13, 42);
+            this.dataGridViewReservations.MultiSelect = false;
             this.dataGridViewReservations.Name = "dataGridViewReservations";
             this.dataGridViewReservations.ReadOnly = true;
+            this.dataGridViewReservations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewReservations.Size = new System.Drawing.Size(661, 267);
             this.dataGridViewReservations.TabIndex = 1;
             // 
