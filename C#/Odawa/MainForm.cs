@@ -35,6 +35,8 @@ namespace Odawa
             dataGridViewAdministrateurs.Columns["id"].Visible = false;
             dataGridViewAdministrateurs.Columns["username"].Visible = false;
             dataGridViewAdministrateurs.Columns["password"].Visible = false;
+            if (dataGridViewAdministrateurs.Rows.Count == 0) buttonDelAdmin.Enabled = buttonModAdmin.Enabled = false;
+            else buttonDelAdmin.Enabled = buttonModAdmin.Enabled = true;
 
             dataGridViewRestaurateurs.DataSource = RestaurateurManager.GetAll();
             dataGridViewRestaurateurs.Columns["nom"].HeaderText = "Nom";
@@ -44,6 +46,8 @@ namespace Odawa
             dataGridViewRestaurateurs.Columns["id"].Visible = false;
             dataGridViewRestaurateurs.Columns["username"].Visible = false;
             dataGridViewRestaurateurs.Columns["password"].Visible = false;
+            if (dataGridViewRestaurateurs.Rows.Count == 0) buttonDelRestaurateur.Enabled = buttonModRestaurateur.Enabled = false;
+            else buttonDelRestaurateur.Enabled = buttonModRestaurateur.Enabled = true;
 
             dataGridViewUtilisateurs.DataSource = UtilisateurManager.GetAll();
             dataGridViewUtilisateurs.Columns["nom"].HeaderText = "Nom";
@@ -53,6 +57,8 @@ namespace Odawa
             dataGridViewUtilisateurs.Columns["id"].Visible = false;
             dataGridViewUtilisateurs.Columns["username"].Visible = false;
             dataGridViewUtilisateurs.Columns["password"].Visible = false;
+            if (dataGridViewUtilisateurs.Rows.Count == 0) buttonDelUser.Enabled = buttonModUser.Enabled = false;
+            else buttonDelUser.Enabled = buttonModUser.Enabled = true;
 
             dataGridViewRestaurants.DataSource = RestaurantManager.GetAll();
             dataGridViewRestaurants.Columns["nom"].HeaderText = "Nom";
@@ -71,10 +77,14 @@ namespace Odawa
             dataGridViewRestaurants.Columns["genre"].Visible = false;
             dataGridViewRestaurants.Columns["idRestaurateur"].Visible = false;
             dataGridViewRestaurants.Columns["idTypeCuisine"].Visible = false;
+            if (dataGridViewRestaurants.Rows.Count == 0) buttonDelResto.Enabled = buttonModResto.Enabled = false;
+            else buttonDelResto.Enabled = buttonModResto.Enabled = true;
 
             dataGridViewTypesCuisine.DataSource = TypeCuisineManager.GetAll();
             dataGridViewTypesCuisine.Columns["type"].HeaderText = "Type de cuisine";
             dataGridViewTypesCuisine.Columns["id"].Visible = false;
+            if (dataGridViewTypesCuisine.Rows.Count == 0) buttonDelType.Enabled = buttonModType.Enabled = false;
+            else buttonDelType.Enabled = buttonModType.Enabled = true;
         }
 
         private void buttonAddAdmin_Click(object sender, EventArgs e)
