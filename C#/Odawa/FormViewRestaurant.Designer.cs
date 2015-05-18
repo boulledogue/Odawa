@@ -57,6 +57,7 @@
             this.dataGridViewRestOwned.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRestOwned.Location = new System.Drawing.Point(13, 42);
             this.dataGridViewRestOwned.Name = "dataGridViewRestOwned";
+            this.dataGridViewRestOwned.ReadOnly = true;
             this.dataGridViewRestOwned.Size = new System.Drawing.Size(661, 267);
             this.dataGridViewRestOwned.TabIndex = 1;
             // 

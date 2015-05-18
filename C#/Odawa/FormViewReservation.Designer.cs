@@ -49,14 +49,22 @@
             // 
             // dataGridViewReservations
             // 
+            this.dataGridViewReservations.AllowUserToAddRows = false;
+            this.dataGridViewReservations.AllowUserToDeleteRows = false;
+            this.dataGridViewReservations.AllowUserToOrderColumns = true;
+            this.dataGridViewReservations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReservations.Location = new System.Drawing.Point(13, 42);
             this.dataGridViewReservations.Name = "dataGridViewReservations";
+            this.dataGridViewReservations.ReadOnly = true;
             this.dataGridViewReservations.Size = new System.Drawing.Size(661, 267);
             this.dataGridViewReservations.TabIndex = 1;
             // 
             // buttonClose
             // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.Location = new System.Drawing.Point(599, 318);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(75, 23);
@@ -67,6 +75,7 @@
             // 
             // radioButtonSoir
             // 
+            this.radioButtonSoir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonSoir.AutoSize = true;
             this.radioButtonSoir.Location = new System.Drawing.Point(630, 13);
             this.radioButtonSoir.Name = "radioButtonSoir";
@@ -79,6 +88,7 @@
             // 
             // radioButtonMidi
             // 
+            this.radioButtonMidi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonMidi.AutoSize = true;
             this.radioButtonMidi.Location = new System.Drawing.Point(568, 13);
             this.radioButtonMidi.Name = "radioButtonMidi";
@@ -91,6 +101,7 @@
             // 
             // radioButtonAll
             // 
+            this.radioButtonAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonAll.AutoSize = true;
             this.radioButtonAll.Location = new System.Drawing.Point(489, 13);
             this.radioButtonAll.Name = "radioButtonAll";

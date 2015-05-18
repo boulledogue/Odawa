@@ -313,7 +313,7 @@
             // buttonViewReservations
             // 
             this.buttonViewReservations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonViewReservations.Location = new System.Drawing.Point(3, 419);
+            this.buttonViewReservations.Location = new System.Drawing.Point(6, 416);
             this.buttonViewReservations.Name = "buttonViewReservations";
             this.buttonViewReservations.Size = new System.Drawing.Size(134, 23);
             this.buttonViewReservations.TabIndex = 13;
@@ -324,7 +324,7 @@
             // buttonAddResto
             // 
             this.buttonAddResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddResto.Location = new System.Drawing.Point(547, 419);
+            this.buttonAddResto.Location = new System.Drawing.Point(547, 416);
             this.buttonAddResto.Name = "buttonAddResto";
             this.buttonAddResto.Size = new System.Drawing.Size(75, 23);
             this.buttonAddResto.TabIndex = 12;
@@ -335,7 +335,7 @@
             // buttonModResto
             // 
             this.buttonModResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonModResto.Location = new System.Drawing.Point(628, 419);
+            this.buttonModResto.Location = new System.Drawing.Point(628, 416);
             this.buttonModResto.Name = "buttonModResto";
             this.buttonModResto.Size = new System.Drawing.Size(75, 23);
             this.buttonModResto.TabIndex = 11;
@@ -347,7 +347,7 @@
             // 
             this.buttonDelResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelResto.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonDelResto.Location = new System.Drawing.Point(709, 419);
+            this.buttonDelResto.Location = new System.Drawing.Point(709, 416);
             this.buttonDelResto.Name = "buttonDelResto";
             this.buttonDelResto.Size = new System.Drawing.Size(75, 23);
             this.buttonDelResto.TabIndex = 10;

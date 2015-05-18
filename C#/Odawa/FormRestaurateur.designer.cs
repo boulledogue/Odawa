@@ -49,7 +49,7 @@
             // labelNom
             // 
             this.labelNom.AutoSize = true;
-            this.labelNom.Location = new System.Drawing.Point(33, 12);
+            this.labelNom.Location = new System.Drawing.Point(36, 15);
             this.labelNom.Name = "labelNom";
             this.labelNom.Size = new System.Drawing.Size(35, 13);
             this.labelNom.TabIndex = 0;
@@ -103,42 +103,42 @@
             // 
             this.textBoxNom.Location = new System.Drawing.Point(103, 12);
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(156, 20);
+            this.textBoxNom.Size = new System.Drawing.Size(183, 20);
             this.textBoxNom.TabIndex = 6;
             // 
             // textBoxPrenom
             // 
             this.textBoxPrenom.Location = new System.Drawing.Point(103, 38);
             this.textBoxPrenom.Name = "textBoxPrenom";
-            this.textBoxPrenom.Size = new System.Drawing.Size(156, 20);
+            this.textBoxPrenom.Size = new System.Drawing.Size(183, 20);
             this.textBoxPrenom.TabIndex = 7;
             // 
             // textBoxUsername
             // 
             this.textBoxUsername.Location = new System.Drawing.Point(103, 64);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(156, 20);
+            this.textBoxUsername.Size = new System.Drawing.Size(183, 20);
             this.textBoxUsername.TabIndex = 8;
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(103, 90);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(156, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(183, 20);
             this.textBoxPassword.TabIndex = 9;
             // 
             // textBoxEmail
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(103, 116);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(156, 20);
+            this.textBoxEmail.Size = new System.Drawing.Size(183, 20);
             this.textBoxEmail.TabIndex = 10;
             // 
             // textBoxPhone
             // 
             this.textBoxPhone.Location = new System.Drawing.Point(103, 142);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(156, 20);
+            this.textBoxPhone.Size = new System.Drawing.Size(183, 20);
             this.textBoxPhone.TabIndex = 11;
             // 
             // labelEmail
@@ -152,7 +152,7 @@
             // 
             // saveRestaurateur
             // 
-            this.saveRestaurateur.Location = new System.Drawing.Point(184, 168);
+            this.saveRestaurateur.Location = new System.Drawing.Point(211, 168);
             this.saveRestaurateur.Name = "saveRestaurateur";
             this.saveRestaurateur.Size = new System.Drawing.Size(75, 23);
             this.saveRestaurateur.TabIndex = 13;
@@ -162,7 +162,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(103, 168);
+            this.buttonCancel.Location = new System.Drawing.Point(130, 168);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 14;
@@ -170,11 +170,11 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // FormAjoutRestaurateur
+            // FormRestaurateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 219);
+            this.ClientSize = new System.Drawing.Size(296, 200);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.saveRestaurateur);
             this.Controls.Add(this.labelEmail);
@@ -190,8 +190,9 @@
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.labelPrenom);
             this.Controls.Add(this.labelNom);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormAjoutRestaurateur";
+            this.Name = "FormRestaurateur";
             this.Text = "Ajouter / Modifier";
             this.ResumeLayout(false);
             this.PerformLayout();

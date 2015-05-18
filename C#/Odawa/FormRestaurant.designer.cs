@@ -969,7 +969,7 @@
             this.comboBoxGenre.Size = new System.Drawing.Size(166, 21);
             this.comboBoxGenre.TabIndex = 30;
             // 
-            // FormAjoutRestaurant
+            // FormRestaurant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1001,8 +1001,9 @@
             this.Controls.Add(this.labelAdresse);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelNom);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormAjoutRestaurant";
+            this.Name = "FormRestaurant";
             this.Text = "Ajout / Modification";
             ((System.ComponentModel.ISupportInitialize)(this.MondayCloseHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MondayCloseMinutes)).EndInit();
