@@ -291,8 +291,8 @@
                                                             </form>
                                                         </div>
                                                     </div>
-                                                    <a onclick="AccepterPush(${Reservation.getPhone()})" class="btn btn-success hello-debug">Accepter</a>
-                                                    <a onclick="RefuserPush(${Reservation.getPhone()})" class="btn btn-danger hello-debug">Refuser</a>
+                                                    <a onclick="AccepterPush(${Reservation.getId()})" class="btn btn-success hello-debug">Accepter</a>
+                                                    <a onclick="RefuserPush(${Reservation.getId()})" class="btn btn-danger hello-debug">Refuser</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -420,7 +420,7 @@
                                         <div class="col-lg-6">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Mercredi Fermet.</span>
-                                                <input id="inptHrMerFrm" type="text" class="form-control">
+                                                <input id="inptHrMercFrm" type="text" class="form-control">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
@@ -468,7 +468,7 @@
                                         <div class="col-lg-6">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Samedi Fermet.</span>
-                                                <input id="inptHrVndFrm" type="text" class="form-control">
+                                                <input id="inptHrSmdFrm" type="text" class="form-control">
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
@@ -519,7 +519,7 @@
             $('#Horaire').popover({html: true});
             $('.date').datetimepicker({format:'HHmm'});
             function AddRestaurant() {
-                $.post("/Restaurant?action=1",{
+                $.post("/Gestion?action=1",{
                   nom: $("#inptNom").val(),
                   adresse: $("#inptAdresse").val(),
                   numero: $("#inptNumero").val(),
@@ -546,15 +546,15 @@
                 }).done( function () { location.reload(true); } );
             }
             function AccepterPush(id) { 
-                $.post("/Restaurant?action=2",{
+                $.post("/Gestion?action=2",{
                     id: id,
-                    choix: 1
+                    choix: 2
                 }).done( function () { location.reload(true); } );
             }
             function RefuserPush(id) { 
-                $.post("/Restaurant?action=2",{
+                $.post("/Gestion?action=2",{
                     id: id,
-                    choix: 0
+                    choix: 3
                 }).done( function () { location.reload(true); } );
             }
         </script>

@@ -120,7 +120,7 @@
                                     <label class="col-sm-2 control-label">Date</label>
                                     <div class="col-sm-10">
                                         <div class='input-group date' style="">
-                                            <input type='text' class="form-control" />
+                                            <input type="text" id="inptDate" class="form-control" />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -179,6 +179,7 @@
                     phone: $("#inptPhone").val(),
                     idrest: ${Restaurant.getId()}}
                 ).done(function () {
+                    location.reload(true);
                 });
             }
             </c:if>

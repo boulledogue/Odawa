@@ -5,7 +5,6 @@
  */
 package Models;
 
-import java.text.DateFormat;
 import java.util.Date;
 
 /**
@@ -22,8 +21,8 @@ public class ReservationJ {
     private String email;
     private String phone;
     private int idRestaurant; 
-    private int status;
-    private Date encodedDateTime;
+    private int status = 1;
+    private Date encodedDateTime = new Date();
     
     private String Restaurant; 
     

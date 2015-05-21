@@ -7,10 +7,18 @@ import javax.servlet.http.HttpServletResponse;
 
 // Dependance Interne
 import Controller.CommentManager;
+import Controller.ReservationManager;
 import Controller.RestaurantManager;
 import Models.CommentJ;
+import Models.ReservationJ;
 import Models.RestaurantJ;
 import static Utils.Jour.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.datatype.DatatypeConfigurationException;
 
 // Class Restaurant
 public class Restaurant extends HttpServlet {
@@ -44,7 +52,24 @@ public class Restaurant extends HttpServlet {
         }else{
            // Ajout Reservation
            // Donnée Envoyée. Tout en Stringg
-           // nom,prenom,date,nbrePersonne,email,phone,idrest
+           // nom,prenom,date,nbrePersonne,email,phone,idrest            
+            try {
+                ReservationJ r = new ReservationJ();
+                r.setNom(request.getParameter("nom"));
+                r.setPrenom(request.getParameter("prenom"));
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = formatter.parse(request.getParameter("date"));
+                r.setDate(date);
+                r.setNbPersonnes(Integer.parseInt(request.getParameter("nbrePersonne")));
+                r.setEmail(request.getParameter("email"));
+                r.setPhone(request.getParameter("phone"));
+                r.setIdRestaurant(Integer.parseInt(request.getParameter("idrest")));
+                ReservationManager.Add(r);
+            } catch (ParseException ex) {
+                Logger.getLogger(Restaurant.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (DatatypeConfigurationException ex) {
+                Logger.getLogger(Restaurant.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 

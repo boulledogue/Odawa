@@ -21,6 +21,11 @@ public class ReservationManager {
         ModelsMapping.createReservation(rj);
     }
     
+    public static ReservationJ GetReservation(int id){
+        ReservationJ r = ModelsMapping.getReservation(id);
+        return r;
+    }
+    
     public static ArrayList<ReservationJ> GetReservationsByRestaurant(int id){
         ArrayList<ReservationJ> a = ModelsMapping.getReservationByRestaurant(id);
         return a;

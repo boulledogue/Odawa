@@ -8,6 +8,7 @@ package Models;
 import java.util.*;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import org.datacontract.schemas._2004._07.bu.*;
 
 /**
@@ -70,22 +71,52 @@ public class ModelsMapping {
     //---------Reservations
     
     public static void createReservation(ReservationJ rj) throws DatatypeConfigurationException {
-        ObjectFactory o = new ObjectFactory();
-        DatatypeFactory datatypes = DatatypeFactory.newInstance(); 
+        ObjectFactory o = new ObjectFactory(); 
         Reservation r = new Reservation();
         r.setNom(o.createReservationNom(rj.getNom()));
         r.setPrenom(o.createReservationPrenom(rj.getPrenom()));
-        r.setDate(datatypes.newXMLGregorianCalendar(rj.getDate().toString()));
+        
+        GregorianCalendar c = new GregorianCalendar();
+        c.setTime(rj.getDate());
+        XMLGregorianCalendar dateConverted = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+        r.setDate(dateConverted);
+        
         r.setTypeService(rj.getTypeService());
         r.setNbPersonnes(rj.getNbPersonnes());
         r.setEmail(o.createReservationEmail(rj.getEmail()));
         r.setPhone(o.createReservationPhone(rj.getPhone()));
         r.setIdRestaurant(rj.getIdRestaurant());
         r.setStatus(rj.getStatus());
-        r.setEncodedDateTime(datatypes.newXMLGregorianCalendar(rj.getEncodedDateTime().toString()));
+        
+        GregorianCalendar cnow = new GregorianCalendar();
+        cnow.setTime(rj.getEncodedDateTime());
+        XMLGregorianCalendar dateNowConverted = DatatypeFactory.newInstance().newXMLGregorianCalendar(cnow);
+        r.setEncodedDateTime(dateNowConverted);
+        
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.createReservation(r);
+    }
+    
+    public static ReservationJ getReservation(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        Reservation r =  port.getReservation(id);
+        ReservationJ res = new ReservationJ();
+        res.setId(r.getId());
+        res.setNom(r.getNom().getValue());
+        res.setPrenom(r.getPrenom().getValue());
+        res.setDate(r.getDate().toGregorianCalendar().getTime());
+        res.setTypeService(r.isTypeService());
+        res.setNbPersonnes(r.getNbPersonnes());
+        res.setEmail(r.getEmail().getValue());
+        res.setPhone(r.getPhone().getValue());
+        res.setIdRestaurant(r.getIdRestaurant());
+        Restaurant rst = port.getRestaurant(r.getIdRestaurant());
+        res.setRestaurant(rst.getNom().getValue());
+        res.setStatus(r.getStatus());
+        res.setEncodedDateTime(r.getEncodedDateTime().toGregorianCalendar().getTime());        
+        return res;
     }
     
     public static ArrayList<ReservationJ> getReservationByRestaurant(java.lang.Integer id) {
@@ -114,6 +145,7 @@ public class ModelsMapping {
     }
     
     public static void updateReservation(ReservationJ rj) throws DatatypeConfigurationException {
+        /*
         ObjectFactory o = new ObjectFactory();
         DatatypeFactory datatypes = DatatypeFactory.newInstance();
         Reservation r = new Reservation();
@@ -128,6 +160,33 @@ public class ModelsMapping {
         r.setIdRestaurant(rj.getIdRestaurant());
         r.setStatus(rj.getStatus());
         r.setEncodedDateTime(datatypes.newXMLGregorianCalendar(rj.getEncodedDateTime().toString()));
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.updateReservation(r);
+                */
+        ObjectFactory o = new ObjectFactory(); 
+        Reservation r = new Reservation();
+        r.setId(rj.getId());
+        r.setNom(o.createReservationNom(rj.getNom()));
+        r.setPrenom(o.createReservationPrenom(rj.getPrenom()));
+        
+        GregorianCalendar c = new GregorianCalendar();
+        c.setTime(rj.getDate());
+        XMLGregorianCalendar dateConverted = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+        r.setDate(dateConverted);
+        
+        r.setTypeService(rj.getTypeService());
+        r.setNbPersonnes(rj.getNbPersonnes());
+        r.setEmail(o.createReservationEmail(rj.getEmail()));
+        r.setPhone(o.createReservationPhone(rj.getPhone()));
+        r.setIdRestaurant(rj.getIdRestaurant());
+        r.setStatus(rj.getStatus());
+        
+        GregorianCalendar cnow = new GregorianCalendar();
+        cnow.setTime(rj.getEncodedDateTime());
+        XMLGregorianCalendar dateNowConverted = DatatypeFactory.newInstance().newXMLGregorianCalendar(cnow);
+        r.setEncodedDateTime(dateNowConverted);
+        
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.updateReservation(r);
