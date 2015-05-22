@@ -52,6 +52,9 @@ namespace OdawaService
         List<Reservation> GetReservationsRefusees(int id);
 
         [OperationContract]
+        List<Reservation> GetReservationsArchivees(int id);
+
+        [OperationContract]
         Restaurant GetRestaurant(int id);
 
         [OperationContract]

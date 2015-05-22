@@ -26,12 +26,12 @@ namespace OdawaService
 
         public List<Restaurant> GetAllRestaurant()
         {
-            return RestaurantManager.GetAll().Where(x => x.genre == 1).ToList();
+            return RestaurantManager.GetAll().Where(x => x.genre == 1).OrderByDescending(y => y.premium).ToList();
         }
 
         public List<Restaurant> GetAllSnack()
         {
-            return RestaurantManager.GetAll().Where(x => x.genre == 2).ToList();
+            return RestaurantManager.GetAll().Where(x => x.genre == 2).OrderByDescending(y => y.premium).ToList();
         }
 
         public List<Restaurant> GetRestaurantByRestaurateur(int id)
@@ -56,7 +56,7 @@ namespace OdawaService
 
         public List<Reservation> GetReservationByRestaurant(int id)
         {
-            return ReservationManager.GetAll().Where(x => x.idRestaurant == id).ToList();
+            return ReservationManager.GetAll().Where(x => x.idRestaurant == id).Where(y => y.date >= DateTime.Now).OrderBy(z => z.date).ToList();
         }
 
         public List<Reservation> GetReservationsEnAttente(int id)
@@ -74,6 +74,11 @@ namespace OdawaService
             return GetReservationByRestaurant(id).Where(x => x.status == 3).ToList();
         }
 
+        public List<Reservation> GetReservationsArchivees(int id)
+        {
+            return ReservationManager.GetAll().Where(x => x.idRestaurant == id).Where(y => y.date < DateTime.Now).OrderByDescending(z => z.date).ToList();
+        }
+
         public Restaurant GetRestaurant(int id)
         {
             return RestaurantManager.GetAll().Find(x => x.id == id);
@@ -81,8 +86,8 @@ namespace OdawaService
 
         public List<Restaurant> SearchRestaurant(string s)
         {
-            if (s != null) return RestaurantManager.Search(s);
-            else return RestaurantManager.GetAll();
+            if (s != null) return RestaurantManager.Search(s).OrderByDescending(y => y.premium).ToList();
+            else return RestaurantManager.GetAll().OrderByDescending(y => y.premium).ToList();
         }
 
         public List<Restaurant> BestRestaurant()
