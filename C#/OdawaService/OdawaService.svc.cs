@@ -56,22 +56,22 @@ namespace OdawaService
 
         public List<Reservation> GetReservationByRestaurant(int id)
         {
-            return ReservationManager.GetAll().Where(x => x.idRestaurant == id).ToList();
+            return ReservationManager.GetAll().Where(x => x.idRestaurant == id).OrderBy(x => x.date).ToList();
         }
 
         public List<Reservation> GetReservationsEnAttente(int id)
         {
-            return GetReservationByRestaurant(id).Where(x => x.status == 1).ToList();
+            return GetReservationByRestaurant(id).Where(x => x.status == 1).OrderBy(x => x.date).ToList();
         }
 
         public List<Reservation> GetReservationsAcceptees(int id)
         {
-            return GetReservationByRestaurant(id).Where(x => x.status == 2).ToList();
+            return GetReservationByRestaurant(id).Where(x => x.status == 2).OrderBy(x => x.date).ToList();
         }
 
         public List<Reservation> GetReservationsRefusees(int id)
         {
-            return GetReservationByRestaurant(id).Where(x => x.status == 3).ToList();
+            return GetReservationByRestaurant(id).Where(x => x.status == 3).OrderBy(x => x.date).ToList();
         }
 
         public Restaurant GetRestaurant(int id)
