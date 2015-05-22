@@ -21,7 +21,10 @@
                                         <div class="panel-body">
                                             <p class="text-right"><span class="badge"><c:out value="${Restaurant.getPremium() == true ? 'P': ''}"/></span></p>
                                             <p class="text-right"><c:out value="${Restaurant.getRestaurateur()}"/></p>
-                                            <p><span class="text-muted">Type de Cuisine :</span></br><c:out value="${Restaurant.getTypeCuisine()}"/></p>
+                                            <p>
+                                                <span class="text-muted">Type de Cuisine :</span></br>
+                                                <a id="Descr" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="Description :</br><c:out value="${Restaurant.getDescriptionTypeCuisine()}"/>"><c:out value="${Restaurant.getTypeCuisine()}"/></a>
+                                            </p>
                                             <p><span class="text-muted">Adresse :</span></br><c:out value="${Restaurant.getAllOfAdresse()}"/></p> 
                                             <p><span class="text-muted">Fourchette de Tarif :</span></br><c:out value="${Restaurant.getAllBudget()}"/></p>
                                         </div>
@@ -145,6 +148,19 @@
                                         <input type="text" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/>>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Type de Service</label>
+                                    <div class="col-sm-10">
+                                        <div class="radio" style="margin-top: -8px;">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdio" value="false" checked> Midi
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdio" value="true"> Soir
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -155,8 +171,8 @@
             </div>
         </c:if>
         <script>
-            $('#Horaire').popover({html: true});
-            $('.date').datetimepicker({format:'YYYY-MM-DD'});
+            $('#Descr').popover({html: true});
+            $('.date').datetimepicker({format: 'YYYY-MM-DD'});
             <c:if test="${ sessionScope.Utilisateur != null }" >
             function SendComment() {
                 $.post("/Restaurant?action=1", {
@@ -177,6 +193,7 @@
                     nbrePersonne: $("#inptNbr").val(),
                     email: $("#inptEmail").val(),
                     phone: $("#inptPhone").val(),
+                    type: $('input[name=rdio]:checked').val(),
                     idrest: ${Restaurant.getId()}}
                 ).done(function () {
                     location.reload(true);

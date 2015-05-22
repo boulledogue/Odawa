@@ -229,8 +229,20 @@
                                                                 </select>
                                                             </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-10">
+                                                                <div class="radio" style="margin-top: -8px;">
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="rdio" value="1" <c:out value="${Restaurant.getGenre() == 1 ? 'checked': ''}"/> > Restaurant
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="rdio" value="2" <c:out value="${Restaurant.getGenre() == 2 ? 'checked': ''}"/>> Snack
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </form>
-                                                    <a class="btn btn-primary">Enregistrer</a>
+                                                    <!-- <a class="btn btn-primary">Enregistrer</a> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -283,6 +295,12 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Type de Service</label>
+                                                                    <div class="col-sm-10">
+                                                                        <p class="form-control-static"><c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
                                                                     <label class="col-sm-2 control-label">Téléphone</label>
                                                                     <div class="col-sm-10">
                                                                         <p class="form-control-static"><c:out value="${Reservation.getPhone()}"/></p>
@@ -291,11 +309,11 @@
                                                             </form>
                                                         </div>
                                                     </div>
-                                                    <a onclick="AccepterPush(${Reservation.getId()})" class="btn btn-success hello-debug">Accepter</a>
-                                                    <a onclick="RefuserPush(${Reservation.getId()})" class="btn btn-danger hello-debug">Refuser</a>
+                                                    <c:if test="${ Reservation.getStatus() != 2 }"> <a onclick="AccepterPush(${Reservation.getId()})" class="btn btn-success hello-debug">Accepter</a> </c:if>
+                                                    <c:if test="${ Reservation.getStatus() != 3 }"> <a onclick="RefuserPush(${Reservation.getId()})" class="btn btn-danger hello-debug">Refuser</a> </c:if>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                     </c:forEach>
                                 </div>
                             </div>
@@ -507,6 +525,18 @@
                                     </div> 
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    <div class="radio" style="margin-top: -8px;">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="rdio" value="1" checked> Restaurant
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="rdio" value="2"> Snack
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -517,45 +547,52 @@
         </div>
         <script>
             $('#Horaire').popover({html: true});
-            $('.date').datetimepicker({format:'HHmm'});
+            $('.date').datetimepicker({format: 'HHmm'});
             function AddRestaurant() {
-                $.post("/Gestion?action=1",{
-                  nom: $("#inptNom").val(),
-                  adresse: $("#inptAdresse").val(),
-                  numero: $("#inptNumero").val(),
-                  localite: $("#inptLocalite").val(),
-                  zip: $("#inptZip").val(),
-                  descr: $("#inptDescr").val(),
-                  bdglow: $("#inptBdgLow").val(),
-                  bdghgt: $("#inptBdgHgt").val(),
-                  HrLndOuv: $("#inptHrLndOuv").val(),
-                  HrLndFrm: $("#inptHrLndFrm").val(),
-                  HrMarOuv: $("#inptHrMarOuv").val(),
-                  HrMarFrm: $("#inptHrMarFrm").val(),
-                  HrMercOuv: $("#inptHrMercOuv").val(),
-                  HrMercFrm: $("#inptHrMercFrm").val(),
-                  HrJdOuv: $("#inptHrJdOuv").val(),
-                  HrJdFrm: $("#inptHrJdFrm").val(),
-                  HrVndOuv: $("#inptHrVndOuv").val(),
-                  HrVndFrm: $("#inptHrVndFrm").val(),  
-                  HrSmdOuv: $("#inptHrSmdOuv").val(),
-                  HrSmdFrm: $("#inptHrSmdFrm").val(),
-                  HrDmcOuv: $("#inptHrDmcOuv").val(),
-                  HrDmcFrm: $("#inptHrDmcFrm").val(),
-                  Type: $("#inptType").val(),
-                }).done( function () { location.reload(true); } );
+                $.post("/Gestion?action=1", {
+                    nom: $("#inptNom").val(),
+                    adresse: $("#inptAdresse").val(),
+                    numero: $("#inptNumero").val(),
+                    localite: $("#inptLocalite").val(),
+                    zip: $("#inptZip").val(),
+                    descr: $("#inptDescr").val(),
+                    bdglow: $("#inptBdgLow").val(),
+                    bdghgt: $("#inptBdgHgt").val(),
+                    HrLndOuv: $("#inptHrLndOuv").val(),
+                    HrLndFrm: $("#inptHrLndFrm").val(),
+                    HrMarOuv: $("#inptHrMarOuv").val(),
+                    HrMarFrm: $("#inptHrMarFrm").val(),
+                    HrMercOuv: $("#inptHrMercOuv").val(),
+                    HrMercFrm: $("#inptHrMercFrm").val(),
+                    HrJdOuv: $("#inptHrJdOuv").val(),
+                    HrJdFrm: $("#inptHrJdFrm").val(),
+                    HrVndOuv: $("#inptHrVndOuv").val(),
+                    HrVndFrm: $("#inptHrVndFrm").val(),
+                    HrSmdOuv: $("#inptHrSmdOuv").val(),
+                    HrSmdFrm: $("#inptHrSmdFrm").val(),
+                    HrDmcOuv: $("#inptHrDmcOuv").val(),
+                    HrDmcFrm: $("#inptHrDmcFrm").val(),
+                    Type: $("#inptType").val(),
+                    Genre: $('input[name=rdio]:checked').val(),
+                }).done(function () {
+                    location.reload(true);
+                });
             }
-            function AccepterPush(id) { 
-                $.post("/Gestion?action=2",{
+            function AccepterPush(id) {
+                $.post("/Gestion?action=2", {
                     id: id,
                     choix: 2
-                }).done( function () { location.reload(true); } );
+                }).done(function () {
+                    location.reload(true);
+                });
             }
-            function RefuserPush(id) { 
-                $.post("/Gestion?action=2",{
+            function RefuserPush(id) {
+                $.post("/Gestion?action=2", {
                     id: id,
                     choix: 3
-                }).done( function () { location.reload(true); } );
+                }).done(function () {
+                    location.reload(true);
+                });
             }
         </script>
         <jsp:include page="/ODA-INF/BASE/Footer.jsp" />

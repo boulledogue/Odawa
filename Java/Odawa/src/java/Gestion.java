@@ -76,7 +76,7 @@ public class Gestion extends HttpServlet {
             HttpSession session = request.getSession();
             RestaurateurJ rest = (RestaurateurJ) session.getAttribute("Utilisateur");
             r.setIdRestaurateur(rest.getId());
-            r.setGenre(1);
+            r.setGenre(Integer.parseInt(request.getParameter("Genre")));
             RestaurantManager.Add(r);
         }
         // Si ?action=2 ( Accepter / Refuser Réservation ) ( choix = 2 => Accepter, choix = 3 => Refuser )

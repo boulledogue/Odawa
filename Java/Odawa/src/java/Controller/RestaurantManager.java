@@ -39,6 +39,11 @@ public class RestaurantManager {
         return a;
     }
     
+    public static ArrayList<RestaurantJ> GetRestaurantsByTypeCuisine(int id){
+        ArrayList<RestaurantJ> a = ModelsMapping.getRestaurantByTypeCuisine(id);
+        return a;
+    }
+    
     public static ArrayList<RestaurantJ> GetAllSnack(){
         ArrayList<RestaurantJ> a = ModelsMapping.getAllSnack();
         return a;

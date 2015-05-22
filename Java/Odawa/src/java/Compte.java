@@ -1,4 +1,6 @@
 // Dependance Externe
+import Controller.UtilisateurManager;
+import Models.UtilisateurJ;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +14,9 @@ public class Compte extends HttpServlet {
         // Si ?delete=id
         // alors suppression du compte Utilisateur
         // N'est pas possible pour un Restaurateur
+        if (request.getParameter("delete") != null) {
+            UtilisateurManager.deleteUtilisateur(Integer.parseInt(request.getParameter("delete")));
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.getRequestDispatcher("/ODA-INF/Compte.jsp").forward(request,response);
     }
@@ -27,6 +32,13 @@ public class Compte extends HttpServlet {
             throws ServletException, IOException {
         // Donnée envoyé :
         // nom,prenom,username,password,email,phone
-        processRequest(request, response);
+        UtilisateurJ u = new UtilisateurJ();
+        u.setNom(request.getParameter("nom"));
+        u.setPrenom(request.getParameter("prenom"));
+        u.setUsername(request.getParameter("username"));
+        u.setPassword(request.getParameter("password"));
+        u.setEmail(request.getParameter("email"));
+        u.setPhone(request.getParameter("phone"));
+        UtilisateurManager.updateUtilisateur(u);
     }
 }

@@ -145,25 +145,6 @@ public class ModelsMapping {
     }
     
     public static void updateReservation(ReservationJ rj) throws DatatypeConfigurationException {
-        /*
-        ObjectFactory o = new ObjectFactory();
-        DatatypeFactory datatypes = DatatypeFactory.newInstance();
-        Reservation r = new Reservation();
-        r.setId(rj.getId());
-        r.setNom(o.createReservationNom(rj.getNom()));
-        r.setPrenom(o.createReservationPrenom(rj.getPrenom()));
-        r.setDate(datatypes.newXMLGregorianCalendar(rj.getDate().toString()));
-        r.setTypeService(rj.getTypeService());
-        r.setNbPersonnes(rj.getNbPersonnes());
-        r.setEmail(o.createReservationEmail(rj.getEmail()));
-        r.setPhone(o.createReservationPhone(rj.getPhone()));
-        r.setIdRestaurant(rj.getIdRestaurant());
-        r.setStatus(rj.getStatus());
-        r.setEncodedDateTime(datatypes.newXMLGregorianCalendar(rj.getEncodedDateTime().toString()));
-        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
-        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
-        port.updateReservation(r);
-                */
         ObjectFactory o = new ObjectFactory(); 
         Reservation r = new Reservation();
         r.setId(rj.getId());
@@ -226,7 +207,19 @@ public class ModelsMapping {
         org.tempuri.OdawaService service = new org.tempuri.OdawaService();
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         List<Restaurant> lstR = port.getRestaurantByRestaurateur(id).getRestaurant();
-        ArrayList<RestaurantJ> arrayRestaurantJ = new ArrayList<RestaurantJ>();
+        ArrayList<RestaurantJ> arrayRestaurantJ = new ArrayList();
+        for(Restaurant r : lstR){            
+            RestaurantJ rest = ConvertToRestaurantJ(r);
+            arrayRestaurantJ.add(rest);
+        }
+        return arrayRestaurantJ;
+    }
+    
+    public static ArrayList<RestaurantJ> getRestaurantByTypeCuisine(java.lang.Integer id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        List<Restaurant> lstR = port.getRestaurantByTypeCuisine(id).getRestaurant();
+        ArrayList<RestaurantJ> arrayRestaurantJ = new ArrayList();
         for(Restaurant r : lstR){            
             RestaurantJ rest = ConvertToRestaurantJ(r);
             arrayRestaurantJ.add(rest);
@@ -337,6 +330,7 @@ public class ModelsMapping {
         rest.setHoraire(r.getHoraire().getValue());
         TypeCuisine tc = port.getTypeCuisine(r.getIdTypeCuisine());
         rest.setTypeCuisine(tc.getType().getValue());
+        rest.setDescriptionTypeCuisine(tc.getDescription().getValue());
         Restaurateur rst = port.getRestaurateurByRestaurant(r.getId());
         rest.setRestaurateur(rst.getNom().getValue()+" "+rst.getPrenom().getValue());
         return rest;
@@ -432,6 +426,12 @@ public class ModelsMapping {
         uj.setEmail(u.getEmail().getValue());
         uj.setPhone(u.getPhone().getValue());
         return uj;
+    }
+    
+    public static void deleteUtilisateur(int id) {
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        port.deleteUtilisateur(id);
     }
     
     public static UtilisateurJ getUtilisateurByUsername(String username) {

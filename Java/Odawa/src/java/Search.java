@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 // Dependance Interne
 import Controller.RestaurantManager;
+import Controller.TypeCuisineManager;
 
 public class Search extends HttpServlet {
 
@@ -20,15 +21,18 @@ public class Search extends HttpServlet {
                 if( request.getParameter("SearchType").equals("2") ) { 
                     request.setAttribute("SearchType",2);
                     request.setAttribute("Restaurants",RestaurantManager.GetAllSnack());
+                }else{
+                    request.setAttribute("SearchType",3);
+                    int id = Integer.parseInt(request.getParameter("TypeCuisine"));
+                    request.setAttribute("Restaurants",RestaurantManager.GetRestaurantsByTypeCuisine(id));
                 } 
             }
         }else{ 
             request.setAttribute("SearchType",0); 
             if( request.getAttribute("SearchString") != null)
                 request.setAttribute("Restaurants",RestaurantManager.GetRestaurants((String)request.getAttribute("SearchString")));
-            else
-                request.setAttribute("Restaurants",RestaurantManager.GetBestRestaurants());
         }
+        request.setAttribute("TypeCuisines",TypeCuisineManager.GetAllTypeCuisine());
         request.getRequestDispatcher("/ODA-INF/Search.jsp").forward(request,response);
     }
 

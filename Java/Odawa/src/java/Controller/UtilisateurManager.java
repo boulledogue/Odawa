@@ -25,4 +25,12 @@ public class UtilisateurManager {
         UtilisateurJ u = ModelsMapping.getUtilisateurByUsername(username);
         return u;
     }
+    
+    public static void deleteUtilisateur(int id) {
+        ModelsMapping.deleteUtilisateur(id);
+    }
+    
+    public static void updateUtilisateur(UtilisateurJ u) {
+        ModelsMapping.updateUtilisateur(u);
+    }
 }

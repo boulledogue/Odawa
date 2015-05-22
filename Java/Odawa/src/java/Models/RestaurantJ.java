@@ -24,6 +24,7 @@ public class RestaurantJ {
     private int genre;
     private String Horaire;
     private int idTypeCuisine;
+    private String descriptionTypeCuisine;
     private int idRestaurateur;
     
     private String TypeCuisine;
@@ -44,6 +45,7 @@ public class RestaurantJ {
     public void setIdRestaurateur(int idRestaurateur) { this.idRestaurateur = idRestaurateur; }
     
     public void setTypeCuisine(String TypeCuisine) { this.TypeCuisine = TypeCuisine; }
+    public void setDescriptionTypeCuisine(String Description) { this.descriptionTypeCuisine = Description; }
     public void setRestaurateur(String Restaurateur) { this.Restaurateur = Restaurateur; }
     public void setHoraire(String Horaire) { this.Horaire = Horaire; }
     
@@ -62,6 +64,7 @@ public class RestaurantJ {
     public int getIdRestaurateur() { return this.idRestaurateur; }
     
     public String getTypeCuisine() { return this.TypeCuisine; }
+    public String getDescriptionTypeCuisine() { return this.descriptionTypeCuisine; }
     public String getRestaurateur() { return this.Restaurateur; }
     public String getHoraire() { return this.Horaire; }
     
