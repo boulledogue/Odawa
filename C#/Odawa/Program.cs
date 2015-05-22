@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BU;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -55,7 +56,7 @@ namespace Odawa
                 //envoi d'un email
                 try
                 {
-
+                    EmailManager.EmailError(messageSB.ToString());
                 }
                 catch
                 {

@@ -21,6 +21,14 @@ namespace BU
             newRow.email = r.email;
             newRow.phone = r.phone;
             DataProvider.CreateRestaurateur(newRow);
+            try
+            {
+                EmailManager.EmailCreateRestaurateur(r);
+            }
+            catch
+            {
+                //on ne fait rien ici, ne peut pas bloquer l'application
+            }
         }
 
         public static List<Restaurateur> GetAll()
