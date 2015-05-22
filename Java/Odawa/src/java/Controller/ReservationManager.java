@@ -8,6 +8,7 @@ package Controller;
 import Models.ModelsMapping;
 import Models.ReservationJ;
 import Models.RestaurantJ;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import javax.xml.datatype.DatatypeConfigurationException;
 
@@ -17,8 +18,9 @@ import javax.xml.datatype.DatatypeConfigurationException;
  */
 public class ReservationManager {
     
-    public static void Add(ReservationJ rj) throws DatatypeConfigurationException{        
+    public static void Add(ReservationJ rj) throws DatatypeConfigurationException, UnsupportedEncodingException{        
         ModelsMapping.createReservation(rj);
+        MailManager.SendCreateReservationMail(rj);
     }
     
     public static ReservationJ GetReservation(int id){
@@ -42,7 +44,9 @@ public class ReservationManager {
         return a;
     }
     
-    public static void Update(ReservationJ rj) throws DatatypeConfigurationException{        
+    public static void Update(ReservationJ rj) throws DatatypeConfigurationException, UnsupportedEncodingException{        
         ModelsMapping.updateReservation(rj);
+        if (rj.getStatus() == 2) MailManager.SendAcceptReservationMail(rj);
+        else if (rj.getStatus() == 3) MailManager.SendRefuseReservationMail(rj);
     }
 }
