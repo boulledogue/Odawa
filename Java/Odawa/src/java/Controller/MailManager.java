@@ -9,6 +9,9 @@ import Models.ReservationJ;
 import Models.RestaurantJ;
 import Models.RestaurateurJ;
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -29,6 +32,7 @@ public class MailManager {
         RestaurateurJ restau = RestaurateurManager.getRestaurateurByRestaurant(r.getIdRestaurant());
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.skynet.be");
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         Session session = Session.getDefaultInstance(props);
 
@@ -38,8 +42,8 @@ public class MailManager {
                 + "Restaurant: " + rest.getNom() + "\n"
                 + "Adresse: " + rest.getAdresse() + " " + rest.getNumero() + ", " + rest.getZipCode() + " " + rest.getLocalite() + "\n"
                 + "Téléphone: " + restau.getPhone() + "\n"
-                + "Nombre de personnes: " + r.getNbPersonnes() + "\n"
-                + "Date: " + r.getDate().toString() + "\n";
+                + "Nombre de personnes: " + r.getNbPersonnes() + "\n"                
+                + "Date: " + formatter.format(r.getDate()) + "\n";
                 if (!r.getTypeService()){
                     msgBody += "Pour le service du midi.\n\n";
                 }else{
@@ -68,16 +72,17 @@ public class MailManager {
         RestaurateurJ restau = RestaurateurManager.getRestaurateurByRestaurant(r.getIdRestaurant());
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.skynet.be");
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         Session session = Session.getDefaultInstance(props);
 
-        String msgBody = "Votre réservation est à présent confirmée.\n"
+        String msgBody = "Nous avons le plaisir de vous informer que votre réservation est confirmée.\n"
                 + "Voici les détails de votre réservation:\n\n"
                 + "Restaurant: " + rest.getNom() + "\n"
                 + "Adresse: " + rest.getAdresse() + " " + rest.getNumero() + ", " + rest.getZipCode() + " " + rest.getLocalite() + "\n"
                 + "Téléphone: " + restau.getPhone() + "\n"
                 + "Nombre de personnes: " + r.getNbPersonnes() + "\n"
-                + "Date: " + r.getDate().toString() + "\n";
+                + "Date: " + formatter.format(r.getDate()) + "\n";
                 if (!r.getTypeService()){
                     msgBody += "Pour le service du midi.\n\n";
                 }else{
@@ -106,16 +111,17 @@ public class MailManager {
         RestaurateurJ restau = RestaurateurManager.getRestaurateurByRestaurant(r.getIdRestaurant());
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.skynet.be");
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         Session session = Session.getDefaultInstance(props);
 
-        String msgBody = "Nous sommes au regret de vous avertir que votre réservation est refusée.\n"
+        String msgBody = "Nous sommes au regret de vous informer que votre réservation est refusée.\n"
                 + "Voici les détails de votre réservation:\n\n"
                 + "Restaurant: " + rest.getNom() + "\n"
                 + "Adresse: " + rest.getAdresse() + " " + rest.getNumero() + ", " + rest.getZipCode() + " " + rest.getLocalite() + "\n"
                 + "Téléphone: " + restau.getPhone() + "\n"
                 + "Nombre de personnes: " + r.getNbPersonnes() + "\n"
-                + "Date: " + r.getDate().toString() + "\n";
+                + "Date: " + formatter.format(r.getDate()) + "\n";
                 if (!r.getTypeService()){
                     msgBody += "Pour le service du midi.\n\n";
                 }else{
