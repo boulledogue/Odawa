@@ -254,7 +254,12 @@
                             <div class="panel-heading">Gestion des reservations</div>
                             <div class="panel-body">
                                 <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                                <c:forEach var="Restaurant" items="${Restaurants}">
+                                    <div class="page-header page-header-debug">
+                                        <h4 style="margin-bottom: -5px;"><c:out value="${Restaurant.getNom()}"/></h4>
+                                    </div>
                                     <c:forEach var="Reservation" items="${Reservations}">
+                                        <c:if test="${ Reservation.getIdRestaurant() == Restaurant.getId() }">
                                         <div class="panel panel-default <c:out value="${Reservation.getStatus() == 2 ? 'panel-success': ''}"/> <c:out value="${Reservation.getStatus() == 3 ? 'panel-danger': ''}"/>">
                                             <div class="panel-heading" role="tab" id="headingOne">
                                                 <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne<c:out value="${Reservation.getId()}"/>" aria-expanded="true" aria-controls="collapseOne"><c:out value="${Reservation.getPrenom()}"/> <c:out value="${Reservation.getNom()}"/></a></h4>
@@ -314,7 +319,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </c:if>
                                     </c:forEach>
+                                </c:forEach>
                                 </div>
                             </div>
                         </div>

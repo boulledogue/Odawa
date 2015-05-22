@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Compte extends HttpServlet {
 
@@ -32,7 +33,8 @@ public class Compte extends HttpServlet {
             throws ServletException, IOException {
         // Donnée envoyé :
         // nom,prenom,username,password,email,phone
-        UtilisateurJ u = new UtilisateurJ();
+        HttpSession session = request.getSession();
+        UtilisateurJ u = (UtilisateurJ) session.getAttribute("Utilisateur");
         u.setNom(request.getParameter("nom"));
         u.setPrenom(request.getParameter("prenom"));
         u.setUsername(request.getParameter("username"));
