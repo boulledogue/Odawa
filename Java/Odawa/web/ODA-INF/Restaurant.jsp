@@ -106,46 +106,52 @@
                             <h4 class="modal-title" id="myModalLabel">Demander une réservation</h4>
                         </div>
                         <div class="modal-body">
-                            <form class="form-horizontal">
+                            <form id="formRest" role="form" data-toggle="validator" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Nom</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inptNom" value="<c:out value="${sessionScope.Utilisateur.getNom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/>>
+                                        <input type="text" class="form-control" id="inptNom" value="<c:out value="${sessionScope.Utilisateur.getNom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Prénom</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inptPrenom" value="<c:out value="${sessionScope.Utilisateur.getPrenom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/>>
+                                        <input type="text" class="form-control" id="inptPrenom" value="<c:out value="${sessionScope.Utilisateur.getPrenom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Date</label>
                                     <div class="col-sm-10">
                                         <div class='input-group date' style="">
-                                            <input type="text" id="inptDate" class="form-control" />
+                                            <input type="text" id="inptDate" class="form-control" data-error="Veuillez saisir une date valide." required />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Nbre de Personnes</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inptNbr">
+                                        <input pattern="^([0-9])" type="text" class="form-control" id="inptNbr" data-error="Veuillez saisir uniquement des chiffres." required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/>>
+                                        <input type="email" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Téléphone</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/>>
+                                        <input pattern="^([0-9])" type="text" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> data-error="Veuillez saisir uniquement des chiffres." required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -164,7 +170,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <a onclick="SendReservation()" class="btn btn-primary btn-sm">Envoyer</a>
+                            <a id="send" onclick="SendReservation()" class="btn btn-primary btn-sm" >Envoyer</a>
                         </div>
                     </div>
                 </div>

@@ -18,41 +18,59 @@
                                     </c:if>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal">
+                            <form data-toggle="validator" class="form-horizontal">
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Nom</span>
-                                        <input type="text" class="form-control" id="inptNom" value="<c:out value="${sessionScope.Utilisateur.getNom()}"/>">
+                                        <input type="text" class="form-control" id="inptNom" value="<c:out value="${sessionScope.Utilisateur.getNom()}"/>" required>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Prenom</span>
-                                        <input type="text" class="form-control" id="inptPrenom" value="<c:out value="${sessionScope.Utilisateur.getPrenom()}"/>">
+                                        <input type="text" class="form-control" id="inptPrenom" value="<c:out value="${sessionScope.Utilisateur.getPrenom()}"/>" required>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Nom d'Utilisateur</span>
-                                        <input type="text" class="form-control" id="inptUsername" value="<c:out value="${sessionScope.Utilisateur.getUsername()}"/>">
+                                        <input type="text" class="form-control" id="inptUsername" value="<c:out value="${sessionScope.Utilisateur.getUsername()}"/>" required>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Mot de Passe</span>
-                                        <input type="text" class="form-control" id="inptPassword" value="<c:out value="${sessionScope.Utilisateur.getPassword()}"/>">
+                                        <input type="password" class="form-control" id="inptPassword" value="<c:out value="${sessionScope.Utilisateur.getPassword()}"/>" required>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">E-mail</span>
-                                        <input type="text" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>">
+                                        <input type="email" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>" required>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Telephone</span>
-                                        <input type="text" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>">
+                                        <input type="text" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" required>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                             </form>

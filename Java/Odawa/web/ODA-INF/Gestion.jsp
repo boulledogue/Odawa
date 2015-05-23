@@ -338,24 +338,24 @@
                         <h4 class="modal-title" id="myModalLabel">Ajouter un Restaurant</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="form-horizontal">
+                        <form data-toggle="validator" class="form-horizontal">
                             <div class="form-group">
                                 <div class="input-group debug-gestrest">
                                     <span class="input-group-addon">Nom</span>
-                                    <input type="text" id="inptNom" class="form-control">
+                                    <input type="text" id="inptNom" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-6">
                                     <div class="input-group">
                                         <span class="input-group-addon">Adresse</span>
-                                        <input type="text" id="inptAdresse" class="form-control">
+                                        <input type="text" id="inptAdresse" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div  class="input-group">
                                         <span class="input-group-addon">Numéro</span>
-                                        <input type="text" id="inptNumero" class="form-control">
+                                        <input type="text" id="inptNumero" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -363,34 +363,34 @@
                                 <div class="col-lg-6">
                                     <div class="input-group">
                                         <span class="input-group-addon">Localité</span>
-                                        <input type="text" id="inptLocalite" class="form-control">
+                                        <input type="text" id="inptLocalite" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div  class="input-group">
                                         <span class="input-group-addon">Zip Code</span>
-                                        <input type="text" id="inptZip" class="form-control">
+                                        <input type="text" id="inptZip" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     <label class="input-group-addon" style="border-bottom: 0px none; border-right: 1px solid #CCC;">Description</label>
-                                    <textarea class="form-control" id="inptDescr" rows="3"></textarea>
+                                    <textarea class="form-control" id="inptDescr" rows="3" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-6">
                                     <div class="input-group">
                                         <span class="input-group-addon">Budget Low</span>
-                                        <input type="text" id="inptBdgLow" class="form-control">
+                                        <input type="text" id="inptBdgLow" class="form-control" required>
                                         <div class="input-group-addon"> &euro; </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div  class="input-group">
                                         <span class="input-group-addon">Budget Hight</span>
-                                        <input type="text" id="inptBdgHgt" class="form-control">
+                                        <input type="text" id="inptBdgHgt" class="form-control" required>
                                         <div class="input-group-addon"> &euro; </div>
                                     </div>
                                 </div>
@@ -401,19 +401,19 @@
                                 <h3 class="panel-title">Horaire</h3>
                             </div>
                             <div class="panel-body">
-                                <form class="form-horizontal">
+                                <form data-toggle="validator" class="form-horizontal">
                                     <div class="form-group">
                                         <div class="col-lg-6">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Lundi Ouvert.</span>
-                                                <input id="inptHrLndOuv" type="text" class="form-control">
+                                                <input id="inptHrLndOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Lundi Fermet.</span>
-                                                <input id="inptHrLndFrm" type="text" class="form-control">
+                                                <input id="inptHrLndFrm" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
@@ -422,14 +422,14 @@
                                         <div class="col-lg-6">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Mardi Ouvert.</span>
-                                                <input id="inptHrMarOuv" type="text" class="form-control">
+                                                <input id="inptHrMarOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Mardi Fermet.</span>
-                                                <input id="inptHrMarFrm" type="text" class="form-control">
+                                                <input id="inptHrMarFrm" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
@@ -438,14 +438,14 @@
                                         <div class="col-lg-6">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Mercredi Ouvert.</span>
-                                                <input id="inptHrMercOuv" type="text" class="form-control">
+                                                <input id="inptHrMercOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Mercredi Fermet.</span>
-                                                <input id="inptHrMercFrm" type="text" class="form-control">
+                                                <input id="inptHrMercFrm" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
@@ -454,14 +454,14 @@
                                         <div class="col-lg-6">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Jeudi Ouvert.</span>
-                                                <input id="inptHrJdOuv" type="text" class="form-control">
+                                                <input id="inptHrJdOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Jeudi Fermet.</span>
-                                                <input id="inptHrJdFrm" type="text" class="form-control">
+                                                <input id="inptHrJdFrm" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
@@ -470,14 +470,14 @@
                                         <div class="col-lg-6">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Vendredi Ouvert.</span>
-                                                <input id="inptHrVndOuv" type="text" class="form-control">
+                                                <input id="inptHrVndOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Vendredi Fermet.</span>
-                                                <input id="inptHrVndFrm" type="text" class="form-control">
+                                                <input id="inptHrVndFrm" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
@@ -486,14 +486,14 @@
                                         <div class="col-lg-6">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Samedi Ouvert.</span>
-                                                <input id="inptHrSmdOuv" type="text" class="form-control">
+                                                <input id="inptHrSmdOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Samedi Fermet.</span>
-                                                <input id="inptHrSmdFrm" type="text" class="form-control">
+                                                <input id="inptHrSmdFrm" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
@@ -502,14 +502,14 @@
                                         <div class="col-lg-6">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Dimanche Ouvert.</span>
-                                                <input id="inptHrDmcOuv" type="text" class="form-control">
+                                                <input id="inptHrDmcOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Dimanche Fermet.</span>
-                                                <input id="inptHrDmcFrm" type="text" class="form-control">
+                                                <input id="inptHrDmcFrm" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
