@@ -14,11 +14,11 @@ namespace BU
         public static void Create(Utilisateur u)
         {
             OdawaDS.utilisateursRow newRow = DataProvider.odawa.utilisateurs.NewutilisateursRow();
-            newRow.nom = u.nom;
+            newRow.nom = u.nom.ToUpper();
             newRow.prenom = u.prenom;
-            newRow.username = u.username;
+            newRow.username = u.username.ToLower();
             newRow.password = u.password;
-            newRow.email = u.email;
+            newRow.email = u.email.ToLower();
             newRow.phone = u.phone;
             DataProvider.CreateUtilisateur(newRow);
         }
@@ -47,11 +47,11 @@ namespace BU
             OdawaDS.utilisateursDataTable dt = DataProvider.GetUtilisateurs();
             OdawaDS.utilisateursRow updRow = DataProvider.odawa.utilisateurs.NewutilisateursRow();
             updRow.id = u.id;
-            updRow.nom = u.nom;
+            updRow.nom = u.nom.ToUpper();
             updRow.prenom = u.prenom;
-            updRow.username = u.username;
+            updRow.username = u.username.ToLower();
             updRow.password = u.password;
-            updRow.email = u.email;
+            updRow.email = u.email.ToLower();
             updRow.phone = u.phone;
             DataProvider.UpdateUtilisateur(updRow);
         }

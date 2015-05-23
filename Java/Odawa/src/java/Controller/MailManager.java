@@ -9,7 +9,6 @@ import Models.ReservationJ;
 import Models.RestaurantJ;
 import Models.RestaurateurJ;
 import java.io.UnsupportedEncodingException;
-import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Properties;
@@ -27,11 +26,15 @@ import javax.mail.internet.MimeMessage;
  */
 public class MailManager {
 
+    private final static String mailHost = "smtp.skynet.be";
+    private final static String mailFrom = "denis.charette@skynet.be";
+    private final static String mailFromName = "Odawa Automatic Mailing";
+    
     public static void SendCreateReservationMail(ReservationJ r) throws UnsupportedEncodingException {
         RestaurantJ rest = RestaurantManager.GetRestaurant(r.getIdRestaurant());
         RestaurateurJ restau = RestaurateurManager.getRestaurateurByRestaurant(r.getIdRestaurant());
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.skynet.be");
+        props.put("mail.smtp.host", mailHost);
         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         Session session = Session.getDefaultInstance(props);
@@ -53,7 +56,7 @@ public class MailManager {
                 + "L'équipe Odawa";
         try {
             Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress("denis.charette@skynet.be", "Odawa Automatic Mailing"));
+            msg.setFrom(new InternetAddress(mailFrom, mailFromName));
             msg.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(r.getEmail()));
             msg.setSubject("Votre demande de réservation chez '" + rest.getNom() + "' est enregistrée");
@@ -61,9 +64,9 @@ public class MailManager {
             Transport.send(msg);
 
         } catch (AddressException e) {
-            // ...
+            // ne peut être bloquant pour l'application
         } catch (MessagingException e) {
-            // ...
+            // ne peut être bloquant pour l'application
         }
     }
     
@@ -71,7 +74,7 @@ public class MailManager {
         RestaurantJ rest = RestaurantManager.GetRestaurant(r.getIdRestaurant());
         RestaurateurJ restau = RestaurateurManager.getRestaurateurByRestaurant(r.getIdRestaurant());
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.skynet.be");
+        props.put("mail.smtp.host", mailHost);
         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         Session session = Session.getDefaultInstance(props);
@@ -92,7 +95,7 @@ public class MailManager {
                 + "L'équipe Odawa";
         try {
             Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress("denis.charette@skynet.be", "Odawa Automatic Mailing"));
+            msg.setFrom(new InternetAddress(mailFrom, mailFromName));
             msg.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(r.getEmail()));
             msg.setSubject("Votre demande de réservation chez '" + rest.getNom() + "' est confirmée");
@@ -100,9 +103,9 @@ public class MailManager {
             Transport.send(msg);
 
         } catch (AddressException e) {
-            // ...
+            // ne peut être bloquant pour l'application
         } catch (MessagingException e) {
-            // ...
+            // ne peut être bloquant pour l'application
         }
     }
     
@@ -110,7 +113,7 @@ public class MailManager {
         RestaurantJ rest = RestaurantManager.GetRestaurant(r.getIdRestaurant());
         RestaurateurJ restau = RestaurateurManager.getRestaurateurByRestaurant(r.getIdRestaurant());
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.skynet.be");
+        props.put("mail.smtp.host", mailHost);
         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
 
         Session session = Session.getDefaultInstance(props);
@@ -131,7 +134,7 @@ public class MailManager {
                 + "L'équipe Odawa";
         try {
             Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress("denis.charette@skynet.be", "Odawa Automatic Mailing"));
+            msg.setFrom(new InternetAddress(mailFrom, mailFromName));
             msg.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(r.getEmail()));
             msg.setSubject("Votre demande de réservation chez '" + rest.getNom() + "' est refusée");
@@ -139,9 +142,9 @@ public class MailManager {
             Transport.send(msg);
 
         } catch (AddressException e) {
-            // ...
+            // ne peut être bloquant pour l'application
         } catch (MessagingException e) {
-            // ...
+            // ne peut être bloquant pour l'application
         }
     }
 }
