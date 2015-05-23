@@ -38,3 +38,5 @@ footer .text-muted { color: #FFFFFF; margin-top: 20px; font-family: 'Oswald', sa
 .has-error .help-block { color : #973d3b; }
 .has-error .input-group-addon { color : #973d3b; border-color : #973d3b; }
 .has-error .form-control { border-color: #973d3b; }
+input[type='number'] { -moz-appearance:textfield; }
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { -webkit-appearance: none; }

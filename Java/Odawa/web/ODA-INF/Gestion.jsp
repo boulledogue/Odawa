@@ -361,9 +361,9 @@
                                 <div class="form-group">
                                     <div  class="input-group">
                                         <span class="input-group-addon">Numéro</span>
-                                        <input min="1" type="number" id="inptNumero" class="form-control" required>
+                                        <input type="text" id="inptNumero" class="form-control" required>
                                     </div>
-                                     <div style="height: 1px;" class="help-block with-errors"></div>
+                                     <div style="height: 1px;" class="help-block with-errors">  </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
