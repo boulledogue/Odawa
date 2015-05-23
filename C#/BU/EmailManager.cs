@@ -10,16 +10,18 @@ namespace BU
 {
     public static class EmailManager
     {
+        private static string emailHost = "smtp.skynet.be";
+        private static string adminMail = "denis@charette.be";
+        private static string emailFrom = "denis.charette@skynet.be";
+
         public static void EmailError(string message)
         {
-            string adminMail = "denis@charette.be";
-            string emailFrom = "denis.charette@skynet.be";
             MailMessage mail = new MailMessage(emailFrom, adminMail);
             SmtpClient client = new SmtpClient();
             client.Port = 25;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Host = "smtp.skynet.be";
+            client.Host = emailHost;
             mail.Subject = "Erreur dans l'application Odawa, VEUILLEZ VERIFIER!";
             mail.Body = message.ToString();
             client.Send(mail);
@@ -27,12 +29,12 @@ namespace BU
 
         public static void EmailCreateRestaurateur(Restaurateur r)
         {
-            MailMessage mail = new MailMessage("denis.charette@skynet.be", r.email);
+            MailMessage mail = new MailMessage(emailFrom, r.email);
             SmtpClient client = new SmtpClient();
             client.Port = 25;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Host = "smtp.skynet.be";
+            client.Host = emailHost;
             mail.Subject = "Votre compte a été créé";
             mail.Body = "Bienvenue sur odawa!\n"
             + "Votre nom d'utilisateur: " + r.username + "\n"

@@ -14,11 +14,11 @@ namespace BU
         public static void Create(Restaurateur r)
         {
             OdawaDS.restaurateursRow newRow = DataProvider.odawa.restaurateurs.NewrestaurateursRow();
-            newRow.nom = r.nom;
+            newRow.nom = r.nom.ToUpper();
             newRow.prenom = r.prenom;
-            newRow.username = r.username;
+            newRow.username = r.username.ToLower();
             newRow.password = r.password;
-            newRow.email = r.email;
+            newRow.email = r.email.ToLower();
             newRow.phone = r.phone;
             DataProvider.CreateRestaurateur(newRow);
             try
@@ -55,11 +55,11 @@ namespace BU
             OdawaDS.restaurateursDataTable dt = DataProvider.GetRestaurateurs();
             OdawaDS.restaurateursRow updRow = DataProvider.odawa.restaurateurs.NewrestaurateursRow();
             updRow.id = r.id;
-            updRow.nom = r.nom;
+            updRow.nom = r.nom.ToUpper();
             updRow.prenom = r.prenom;
-            updRow.username = r.username;
+            updRow.username = r.username.ToLower();
             updRow.password = r.password;
-            updRow.email = r.email;
+            updRow.email = r.email.ToLower();
             updRow.phone = r.phone;
             DataProvider.UpdateRestaurateur(updRow);
         }
