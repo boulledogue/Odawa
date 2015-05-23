@@ -136,22 +136,22 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Nbre de Personnes</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="inptNbr" required>
+                                        <input min="1" max="99" type="number" class="form-control" id="inptNbr" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
-                                        <div class="help-block with-errors"></div>
+                                        <input pattern="\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\b" type="email" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
+                                        <div class="help-block with-errors"> Veuillez encoder le numéro sous la forme suivante : xxx@xxx.xx .  </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Téléphone</label>
                                     <div class="col-sm-10">
-                                        <input type="text" pattern="^([/.0-9]){1,}$" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
-                                        <div class="help-block with-errors"></div>
+                                        <input type="text" pattern="/^(0)(\d{8}|d{9})/" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
+                                        <div class="help-block with-errors"> Veuillez encoder le numéro sous la forme suivante : 0xxxxxxxx ou 04xxxxxxxx . </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -209,13 +209,14 @@
             }
             
             function Validator() {
-                var emailreg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]', 'i');
+                var emailreg = new RegExp('\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\b','i');
+                var phonereg = new RegExp('^(0)(\d{8}|d{9})$','i');
                 if ($("#inptNom").val() != "") {
                     if ($("#inptPrenom").val() != "") {
                         if ($("#inptDate").val() != "") {
                             if ($("#inptNbr").val() != "" && $.isNumeric($("#inptNbr").val())) { 
                                 if ($("#inptEmail").val() != "" && emailreg.test($("#inptEmail").val())) { 
-                                    if ( $("#inptPhone").val() != "" && $.isNumeric($("#inptPhone").val().split('/').join('').split('.').join('')) ) {
+                                    if ( $("#inptPhone").val() != "" && phonereg.test($("#inptPhone").val()) {
                                         var rtn = true;
                                     } else { var rtn = false; }
                                 } else { var rtn = false; }

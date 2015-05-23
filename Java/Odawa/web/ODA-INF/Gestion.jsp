@@ -34,20 +34,20 @@
                                                         <div class="form-group">
                                                             <div class="input-group debug-gestrest">
                                                                 <span class="input-group-addon">Nom</span>
-                                                                <input type="text" class="form-control" value="<c:out value="${Restaurant.getNom()}"/>">
+                                                                <input type="text" class="form-control" value="<c:out value="${Restaurant.getNom()}"/>" disabled>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-lg-6">
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon">Adresse</span>
-                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getAdresse()}"/>">
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getAdresse()}"/>" disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div  class="input-group">
                                                                     <span class="input-group-addon">Numéro</span>
-                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getNumero()}"/>">
+                                                                    <input type="number" class="form-control" value="<c:out value="${Restaurant.getNumero()}"/>" disabled>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -55,34 +55,34 @@
                                                             <div class="col-lg-6">
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon">Localité</span>
-                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getLocalite()}"/>">
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getLocalite()}"/>" disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div  class="input-group">
                                                                     <span class="input-group-addon">Zip Code</span>
-                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getZipCode()}"/>">
+                                                                    <input type="number" class="form-control" value="<c:out value="${Restaurant.getZipCode()}"/>" disabled>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-lg-12">
                                                                 <label class="input-group-addon" style="border-bottom: 0px none; border-right: 1px solid #CCC;">Description</label>
-                                                                <textarea class="form-control" rows="3"><c:out value="${Restaurant.getDescription()}"/></textarea>
+                                                                <textarea class="form-control" rows="3" disabled><c:out value="${Restaurant.getDescription()}"/></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-lg-6">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon">Budget Low</span>
-                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getBudgetLow()}"/>">
+                                                                    <span class="input-group-addon">Budget Min</span>
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getBudgetLow()}"/>" disabled>
                                                                     <div class="input-group-addon"> &euro; </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div  class="input-group">
-                                                                    <span class="input-group-addon">Budget Hight</span>
-                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getBudgetHigh()}"/>">
+                                                                    <span class="input-group-addon">Budget Max</span>
+                                                                    <input type="text" class="form-control" value="<c:out value="${Restaurant.getBudgetHigh()}"/>" disabled>
                                                                     <div class="input-group-addon"> &euro; </div>
                                                                 </div>
                                                             </div>
@@ -98,14 +98,14 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
                                                                             <span class="input-group-addon">Lundi Ouvert.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[0]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[0]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
                                                                             <span class="input-group-addon">Lundi Fermet.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[1]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[1]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
@@ -114,14 +114,14 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
                                                                             <span class="input-group-addon">Mardi Ouvert.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[2]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[2]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
                                                                             <span class="input-group-addon">Mardi Fermet.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[3]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[3]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
@@ -130,14 +130,14 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
                                                                             <span class="input-group-addon">Mercredi Ouvert.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[4]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[4]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
                                                                             <span class="input-group-addon">Mercredi Fermet.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[5]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[5]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
@@ -146,14 +146,14 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
                                                                             <span class="input-group-addon">Jeudi Ouvert.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[6]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[6]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
                                                                             <span class="input-group-addon">Jeudi Fermet.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[7]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[7]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
@@ -162,14 +162,14 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
                                                                             <span class="input-group-addon">Vendredi Ouvert.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[8]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[8]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
                                                                             <span class="input-group-addon">Vendredi Fermet.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[9]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[9]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
@@ -178,14 +178,14 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
                                                                             <span class="input-group-addon">Samedi Ouvert.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[10]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[10]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
                                                                             <span class="input-group-addon">Samedi Fermet.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[11]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[11]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
@@ -194,14 +194,14 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
                                                                             <span class="input-group-addon">Dimanche Ouvert.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[12]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[12]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
                                                                             <span class="input-group-addon">Dimanche Fermet.</span>
-                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[13]}"/>">
+                                                                            <input type="text" class="form-control" value="<c:out value="${Restaurant.getArrayHoraire()[13]}"/>" disabled>
                                                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
@@ -220,7 +220,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6">
-                                                                <select class="form-control"> type
+                                                                <select class="form-control" disabled>
                                                                     <c:forEach var="Type" items="${Types}">
                                                                         <option value="<c:out value="${Type.getId()}"/>" <c:out value="${Restaurant.getIdTypeCuisine() == Type.getId() ? 'selected': ''}"/>>
                                                                             <c:out value="${Type.getType()}"/>
@@ -233,10 +233,10 @@
                                                             <div class="col-sm-10">
                                                                 <div class="radio" style="margin-top: -8px;">
                                                                     <label class="radio-inline">
-                                                                        <input type="radio" name="rdio" value="1" <c:out value="${Restaurant.getGenre() == 1 ? 'checked': ''}"/> > Restaurant
+                                                                        <input type="radio" name="rdio" value="1" <c:out value="${Restaurant.getGenre() == 1 ? 'checked': ''}"/> disabled> Restaurant
                                                                     </label>
                                                                     <label class="radio-inline">
-                                                                        <input type="radio" name="rdio" value="2" <c:out value="${Restaurant.getGenre() == 2 ? 'checked': ''}"/>> Snack
+                                                                        <input type="radio" name="rdio" value="2" <c:out value="${Restaurant.getGenre() == 2 ? 'checked': ''}"/> disabled> Snack
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -255,7 +255,7 @@
                             <div class="panel-body">
                                 <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
                                     <c:forEach var="Restaurant" items="${Restaurants}">
-                                        <div class="page-header page-header-debug">
+                                        <div style="margin-top: 10px;" class="page-header page-header-debug">
                                             <h4 style="margin-bottom: -5px;"><c:out value="${Restaurant.getNom()}"/></h4>
                                         </div>
                                         <c:forEach var="Reservation" items="${Reservations}">
@@ -361,7 +361,7 @@
                                 <div class="form-group">
                                     <div  class="input-group">
                                         <span class="input-group-addon">Numéro</span>
-                                        <input type="text" id="inptNumero" class="form-control" required>
+                                        <input min="1" type="number" id="inptNumero" class="form-control" required>
                                     </div>
                                      <div style="height: 1px;" class="help-block with-errors"></div>
                                 </div>
@@ -379,12 +379,12 @@
                                 <div class="form-group">
                                     <div  class="input-group">
                                         <span class="input-group-addon">Zip Code</span>
-                                        <input type="text" id="inptZip" class="form-control" required>
+                                        <input min="1000" max="9999" type="number" id="inptZip" class="form-control" required>
                                     </div>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group has-error">
                                 <div class="col-lg-12">
                                     <label class="input-group-addon" style="border-bottom: 0px none; border-right: 1px solid #CCC;">Description</label>
                                     <textarea class="form-control" id="inptDescr" rows="3" required></textarea>
@@ -395,7 +395,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <span class="input-group-addon">Budget Low</span>
+                                            <span class="input-group-addon">Budget Min</span>
                                             <input type="text" id="inptBdgLow" class="form-control" required>
                                             <div class="input-group-addon"> &euro; </div>
                                         </div>
@@ -405,7 +405,7 @@
                                 <div class="col-lg-5 col-lg-offset-1">
                                     <div class="form-group">
                                         <div  class="input-group">
-                                            <span class="input-group-addon">Budget Hight</span>
+                                            <span class="input-group-addon">Budget Max</span>
                                             <input type="text" id="inptBdgHgt" class="form-control" required>
                                             <div class="input-group-addon"> &euro; </div>
                                         </div>
@@ -616,6 +616,9 @@
                 }).done(function () {
                     location.reload(true);
                 });
+            }
+            function Validation() {
+                
             }
             function AccepterPush(id) {
                 $.post("/Gestion?action=2", {

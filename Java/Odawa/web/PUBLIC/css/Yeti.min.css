@@ -33,3 +33,8 @@ footer .text-muted { color: #FFFFFF; margin-top: 20px; font-family: 'Oswald', sa
 .page { box-shadow: 4px 4px 0 #fff,5px 5px 0 #ccc,9px 9px 0 #fff,10px 10px 0 #ccc,14px 14px 0 #fff;
     -moz-box-shadow:4px 4px 0 #fff,5px 5px 0 #ccc,9px 9px 0 #fff,10px 10px 0 #ccc,14px 14px 0 #fff;
     -webkit-box-shadow: 4px 4px 0 #fff,5px 5px 0 #ccc,9px 9px 0 #fff,10px 10px 0 #ccc,14px 14px 0 #fff; }
+.form-control[disabled] { cursor: default; }
+.input-group.date .input-group-addon { cursor: default !important; }
+.has-error .help-block { color : #973d3b; }
+.has-error .input-group-addon { color : #973d3b; border-color : #973d3b; }
+.has-error .form-control { border-color: #973d3b; }
