@@ -125,7 +125,7 @@
                                     <label class="col-sm-2 control-label">Date</label>
                                     <div class="col-sm-10">
                                         <div class='input-group date' style="">
-                                            <input type="text" id="inptDate" class="form-control" data-error="Veuillez saisir une date valide." required />
+                                            <input type="text" id="inptDate" class="form-control" required />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -136,7 +136,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Nbre de Personnes</label>
                                     <div class="col-sm-10">
-                                        <input pattern="^([0-9])" type="text" class="form-control" id="inptNbr" data-error="Veuillez saisir uniquement des chiffres." required>
+                                        <input type="number" class="form-control" id="inptNbr" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Téléphone</label>
                                     <div class="col-sm-10">
-                                        <input pattern="^([0-9])" type="text" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> data-error="Veuillez saisir uniquement des chiffres." required>
+                                        <input type="text" pattern="^([/.0-9]){1,}$" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -170,7 +170,8 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <a id="send" onclick="SendReservation()" class="btn btn-primary btn-sm" >Envoyer</a>
+                            <div class="col-sm-10"><div class="alert alert-danger hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont visiblement incomplets ou incorrectes!</div></div>
+                            <div class="col-sm-2"><a id="send" onclick="SendReservation()" class="btn btn-primary btn-sm" >Envoyer</a></div>
                         </div>
                     </div>
                 </div>
@@ -191,20 +192,40 @@
             }
             </c:if>
             <c:if test="${sessionScope.isRestaurateur != true }" >
+            
             function SendReservation() {
-                $.post("/Restaurant?action=2", {
+                if( Validator() == true ) {
+                    $.post("/Restaurant?action=2", {
                     nom: $("#inptNom").val(),
                     prenom: $("#inptPrenom").val(),
                     date: $("#inptDate").val(),
                     nbrePersonne: $("#inptNbr").val(),
                     email: $("#inptEmail").val(),
-                    phone: $("#inptPhone").val(),
+                    phone: $("#inptPhone").val().split('/').join('').split('.').join(''),
                     type: $('input[name=rdio]:checked').val(),
                     idrest: ${Restaurant.getId()}}
-                ).done(function () {
-                    location.reload(true);
-                });
+                    ).done(function () { location.reload(true); });
+                }else{ $(".alert").removeClass("hidden"); $("#formRest").validator('validate'); }
             }
+            
+            function Validator() {
+                var emailreg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]', 'i');
+                if ($("#inptNom").val() != "") {
+                    if ($("#inptPrenom").val() != "") {
+                        if ($("#inptDate").val() != "") {
+                            if ($("#inptNbr").val() != "" && $.isNumeric($("#inptNbr").val())) { 
+                                if ($("#inptEmail").val() != "" && emailreg.test($("#inptEmail").val())) { 
+                                    if ( $("#inptPhone").val() != "" && $.isNumeric($("#inptPhone").val().split('/').join('').split('.').join('')) ) {
+                                        var rtn = true;
+                                    } else { var rtn = false; }
+                                } else { var rtn = false; }
+                            } else { var rtn = false; }
+                        } else { var rtn = false; }
+                    } else { var rtn = false; }
+                } else { var rtn = false; }
+                return rtn;
+            }
+            
             </c:if>
         </script>
         <jsp:include page="/ODA-INF/BASE/Footer.jsp" />
