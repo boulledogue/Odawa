@@ -110,14 +110,14 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Nom</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inptNom" value="<c:out value="${sessionScope.Utilisateur.getNom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
+                                        <input type="text" pattern="^[A-Za-z-]{2,}$" class="form-control" id="inptNom" value="<c:out value="${sessionScope.Utilisateur.getNom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Prénom</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inptPrenom" value="<c:out value="${sessionScope.Utilisateur.getPrenom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
+                                        <input type="text" pattern="^[A-Za-z-]{2,}$" class="form-control" id="inptPrenom" value="<c:out value="${sessionScope.Utilisateur.getPrenom()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -144,13 +144,13 @@
                                     <label class="col-sm-2 control-label">Email</label>
                                     <div class="col-sm-10">
                                         <input pattern="\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\b" type="email" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
-                                        <div class="help-block with-errors"> Veuillez encoder le numéro sous la forme suivante : xxx@xxx.xx .  </div>
+                                        <div class="help-block with-errors"> Veuillez encoder l'email sous la forme suivante : xxx@xxx.xx .  </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Téléphone</label>
                                     <div class="col-sm-10">
-                                        <input type="text" pattern="/^(0)(\d{8}|d{9})/" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
+                                        <input type="text" pattern="^0[1-9][0-9]{7,8}$" class="form-control" id="inptPhone" value="<c:out value="${sessionScope.Utilisateur.getPhone()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
                                         <div class="help-block with-errors"> Veuillez encoder le numéro sous la forme suivante : 0xxxxxxxx ou 04xxxxxxxx . </div>
                                     </div>
                                 </div>
@@ -209,10 +209,12 @@
             }
             
             function Validator() {
+                var nomreg = new RegExp('^[A-Za-z-]{2,}$','i');
+                var prenomreg = new RegExp('^[A-Za-z-]{2,}$','i');
                 var emailreg = new RegExp('\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\b','i');
-                var phonereg = new RegExp('^(0)(\d{8}|d{9})$','i');
-                if ($("#inptNom").val() != "") {
-                    if ($("#inptPrenom").val() != "") {
+                var phonereg = new RegExp('^0[1-9][0-9]{7,8}$','i');
+                if ($("#inptNom").val() != "") && nomreg.test($("#inptNom").val())) {
+                    if ($("#inptPrenom").val() != "") && prenomreg.test($("#inptNom").val())) {
                         if ($("#inptDate").val() != "") {
                             if ($("#inptNbr").val() != "" && $.isNumeric($("#inptNbr").val())) { 
                                 if ($("#inptEmail").val() != "" && emailreg.test($("#inptEmail").val())) { 

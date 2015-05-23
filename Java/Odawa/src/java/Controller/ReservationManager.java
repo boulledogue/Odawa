@@ -21,6 +21,7 @@ public class ReservationManager {
     public static void Add(ReservationJ rj) throws DatatypeConfigurationException, UnsupportedEncodingException{        
         ModelsMapping.createReservation(rj);
         MailManager.SendCreateReservationMail(rj);
+        MailManager.SendCreateReservationNotifMail(rj);
     }
     
     public static ReservationJ GetReservation(int id){

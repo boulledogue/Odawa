@@ -612,7 +612,7 @@
                     HrDmcOuv: $("#inptHrDmcOuv").val(),
                     HrDmcFrm: $("#inptHrDmcFrm").val(),
                     Type: $("#inptType").val(),
-                    Genre: $('input[name=rdio]:checked').val(),
+                    Genre: $("input[name=rdio]").filter(':checked').val()
                 }).done(function () {
                     location.reload(true);
                 });
