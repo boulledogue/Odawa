@@ -1,5 +1,8 @@
 // Dependance Externe
+
+import Controller.RestaurateurManager;
 import Controller.UtilisateurManager;
+import Models.RestaurateurJ;
 import Models.UtilisateurJ;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -17,9 +20,11 @@ public class Compte extends HttpServlet {
         // N'est pas possible pour un Restaurateur
         if (request.getParameter("delete") != null) {
             UtilisateurManager.deleteUtilisateur(Integer.parseInt(request.getParameter("delete")));
+            response.sendRedirect("/Disconnect");
+        } else {
+            response.setContentType("text/html;charset=UTF-8");
+            request.getRequestDispatcher("/ODA-INF/Compte.jsp").forward(request, response);
         }
-        response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("/ODA-INF/Compte.jsp").forward(request,response);
     }
 
     @Override
@@ -34,13 +39,24 @@ public class Compte extends HttpServlet {
         // Donnée envoyé :
         // nom,prenom,username,password,email,phone
         HttpSession session = request.getSession();
-        UtilisateurJ u = (UtilisateurJ) session.getAttribute("Utilisateur");
-        u.setNom(request.getParameter("nom"));
-        u.setPrenom(request.getParameter("prenom"));
-        u.setUsername(request.getParameter("username"));
-        u.setPassword(request.getParameter("password"));
-        u.setEmail(request.getParameter("email"));
-        u.setPhone(request.getParameter("phone"));
-        UtilisateurManager.updateUtilisateur(u);
+        if (session.getAttribute("isRestaurateur").equals(true)) {
+            RestaurateurJ u = (RestaurateurJ) session.getAttribute("Utilisateur");
+            u.setNom(request.getParameter("nom"));
+            u.setPrenom(request.getParameter("prenom"));
+            u.setUsername(request.getParameter("username"));
+            u.setPassword(request.getParameter("password"));
+            u.setEmail(request.getParameter("email"));
+            u.setPhone(request.getParameter("phone"));
+            RestaurateurManager.updateRestaurateur(u);
+        } else {
+            UtilisateurJ u = (UtilisateurJ) session.getAttribute("Utilisateur");
+            u.setNom(request.getParameter("nom"));
+            u.setPrenom(request.getParameter("prenom"));
+            u.setUsername(request.getParameter("username"));
+            u.setPassword(request.getParameter("password"));
+            u.setEmail(request.getParameter("email"));
+            u.setPhone(request.getParameter("phone"));
+            UtilisateurManager.updateUtilisateur(u);
+        }
     }
 }

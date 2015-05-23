@@ -254,74 +254,74 @@
                             <div class="panel-heading">Gestion des reservations</div>
                             <div class="panel-body">
                                 <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-                                <c:forEach var="Restaurant" items="${Restaurants}">
-                                    <div class="page-header page-header-debug">
-                                        <h4 style="margin-bottom: -5px;"><c:out value="${Restaurant.getNom()}"/></h4>
-                                    </div>
-                                    <c:forEach var="Reservation" items="${Reservations}">
-                                        <c:if test="${ Reservation.getIdRestaurant() == Restaurant.getId() }">
-                                        <div class="panel panel-default <c:out value="${Reservation.getStatus() == 2 ? 'panel-success': ''}"/> <c:out value="${Reservation.getStatus() == 3 ? 'panel-danger': ''}"/>">
-                                            <div class="panel-heading" role="tab" id="headingOne">
-                                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne<c:out value="${Reservation.getId()}"/>" aria-expanded="true" aria-controls="collapseOne"><c:out value="${Reservation.getPrenom()}"/> <c:out value="${Reservation.getNom()}"/></a></h4>
-                                            </div>
-                                            <div id="collapseOne<c:out value="${Reservation.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                                <div class="panel-body">
-                                                    <div class="panel panel-default">
+                                    <c:forEach var="Restaurant" items="${Restaurants}">
+                                        <div class="page-header page-header-debug">
+                                            <h4 style="margin-bottom: -5px;"><c:out value="${Restaurant.getNom()}"/></h4>
+                                        </div>
+                                        <c:forEach var="Reservation" items="${Reservations}">
+                                            <c:if test="${ Reservation.getIdRestaurant() == Restaurant.getId() }">
+                                                <div class="panel panel-default <c:out value="${Reservation.getStatus() == 2 ? 'panel-success': ''}"/> <c:out value="${Reservation.getStatus() == 3 ? 'panel-danger': ''}"/>">
+                                                    <div class="panel-heading" role="tab" id="headingOne">
+                                                        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne<c:out value="${Reservation.getId()}"/>" aria-expanded="true" aria-controls="collapseOne"><c:out value="${Reservation.getPrenom()}"/> <c:out value="${Reservation.getNom()}"/></a></h4>
+                                                    </div>
+                                                    <div id="collapseOne<c:out value="${Reservation.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                                         <div class="panel-body">
-                                                            <form class="form-horizontal">
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-2 control-label">Nom</label>
-                                                                    <div class="col-sm-10">
-                                                                        <p class="form-control-static"><c:out value="${Reservation.getNom()}"/></p>
-                                                                    </div>
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-body">
+                                                                    <form class="form-horizontal">
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-2 control-label">Nom</label>
+                                                                            <div class="col-sm-10">
+                                                                                <p class="form-control-static"><c:out value="${Reservation.getNom()}"/></p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-2 control-label">Prenom</label>
+                                                                            <div class="col-sm-10">
+                                                                                <p class="form-control-static"><c:out value="${Reservation.getPrenom()}"/></p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-2 control-label">Date</label>
+                                                                            <div class="col-sm-10">
+                                                                                <p class="form-control-static"><c:out value="${Reservation.getDate()}"/></p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-2 control-label">Nbre de Personnes</label>
+                                                                            <div class="col-sm-10">
+                                                                                <p class="form-control-static"><c:out value="${Reservation.getNbPersonnes()}"/></p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-2 control-label">Email</label>
+                                                                            <div class="col-sm-10">
+                                                                                <p class="form-control-static"><c:out value="${Reservation.getEmail()}"/></p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-2 control-label">Type de Service</label>
+                                                                            <div class="col-sm-10">
+                                                                                <p class="form-control-static"><c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/></p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-2 control-label">Téléphone</label>
+                                                                            <div class="col-sm-10">
+                                                                                <p class="form-control-static"><c:out value="${Reservation.getPhone()}"/></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-2 control-label">Prenom</label>
-                                                                    <div class="col-sm-10">
-                                                                        <p class="form-control-static"><c:out value="${Reservation.getPrenom()}"/></p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-2 control-label">Date</label>
-                                                                    <div class="col-sm-10">
-                                                                        <p class="form-control-static"><c:out value="${Reservation.getDate()}"/></p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-2 control-label">Nbre de Personnes</label>
-                                                                    <div class="col-sm-10">
-                                                                        <p class="form-control-static"><c:out value="${Reservation.getNbPersonnes()}"/></p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-2 control-label">Email</label>
-                                                                    <div class="col-sm-10">
-                                                                        <p class="form-control-static"><c:out value="${Reservation.getEmail()}"/></p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-2 control-label">Type de Service</label>
-                                                                    <div class="col-sm-10">
-                                                                        <p class="form-control-static"><c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/></p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-2 control-label">Téléphone</label>
-                                                                    <div class="col-sm-10">
-                                                                        <p class="form-control-static"><c:out value="${Reservation.getPhone()}"/></p>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
+                                                            </div>
+                                                            <c:if test="${ Reservation.getStatus() != 2 }"> <a onclick="AccepterPush(${Reservation.getId()})" class="btn btn-success hello-debug">Accepter</a> </c:if>
+                                                            <c:if test="${ Reservation.getStatus() != 3 }"> <a onclick="RefuserPush(${Reservation.getId()})" class="btn btn-danger hello-debug">Refuser</a> </c:if>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <c:if test="${ Reservation.getStatus() != 2 }"> <a onclick="AccepterPush(${Reservation.getId()})" class="btn btn-success hello-debug">Accepter</a> </c:if>
-                                                    <c:if test="${ Reservation.getStatus() != 3 }"> <a onclick="RefuserPush(${Reservation.getId()})" class="btn btn-danger hello-debug">Refuser</a> </c:if>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </c:if>
+                                            </c:if>
+                                        </c:forEach>
                                     </c:forEach>
-                                </c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -344,73 +344,93 @@
                                     <span class="input-group-addon">Nom</span>
                                     <input type="text" id="inptNom" class="form-control" required>
                                 </div>
+                                <div class="col-sm-10">
+                                    <div class="help-block with-errors"></div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-lg-6">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">Adresse</span>
                                         <input type="text" id="inptAdresse" class="form-control" required>
                                     </div>
+                                    <div style="height: 1px;" class="help-block with-errors"></div>
                                 </div>
-                                <div class="col-lg-6">
+                            </div>
+                            <div class="col-lg-5 col-lg-offset-1">
+                                <div class="form-group">
                                     <div  class="input-group">
                                         <span class="input-group-addon">Numéro</span>
                                         <input type="text" id="inptNumero" class="form-control" required>
                                     </div>
+                                     <div style="height: 1px;" class="help-block with-errors"></div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-lg-6">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon">Localité</span>
                                         <input type="text" id="inptLocalite" class="form-control" required>
                                     </div>
+                                    <div class="help-block with-errors"></div>
                                 </div>
-                                <div class="col-lg-6">
+                            </div>
+                            <div class="col-lg-5 col-lg-offset-1">
+                                <div class="form-group">
                                     <div  class="input-group">
                                         <span class="input-group-addon">Zip Code</span>
                                         <input type="text" id="inptZip" class="form-control" required>
                                     </div>
+                                    <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     <label class="input-group-addon" style="border-bottom: 0px none; border-right: 1px solid #CCC;">Description</label>
                                     <textarea class="form-control" id="inptDescr" rows="3" required></textarea>
+                                    <div class="help-block with-errors"></div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
                                 <div class="col-lg-6">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">Budget Low</span>
-                                        <input type="text" id="inptBdgLow" class="form-control" required>
-                                        <div class="input-group-addon"> &euro; </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Budget Low</span>
+                                            <input type="text" id="inptBdgLow" class="form-control" required>
+                                            <div class="input-group-addon"> &euro; </div>
+                                        </div>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div  class="input-group">
-                                        <span class="input-group-addon">Budget Hight</span>
-                                        <input type="text" id="inptBdgHgt" class="form-control" required>
-                                        <div class="input-group-addon"> &euro; </div>
+                                <div class="col-lg-5 col-lg-offset-1">
+                                    <div class="form-group">
+                                        <div  class="input-group">
+                                            <span class="input-group-addon">Budget Hight</span>
+                                            <input type="text" id="inptBdgHgt" class="form-control" required>
+                                            <div class="input-group-addon"> &euro; </div>
+                                        </div>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                             </div>
                         </form>
-                        <div class="panel panel-default">
+                        <div style="margin-top: 5px;" class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Horaire</h3>
                             </div>
                             <div class="panel-body">
                                 <form data-toggle="validator" class="form-horizontal">
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Lundi Ouvert.</span>
                                                 <input id="inptHrLndOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                    </div>
+                                    <div class="col-lg-5 col-lg-offset-1">
+                                        <div class="form-group">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Lundi Fermet.</span>
                                                 <input id="inptHrLndFrm" type="text" class="form-control" required>
@@ -418,15 +438,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Mardi Ouvert.</span>
                                                 <input id="inptHrMarOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                    </div>
+                                    <div class="col-lg-5 col-lg-offset-1">
+                                        <div class="form-group">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Mardi Fermet.</span>
                                                 <input id="inptHrMarFrm" type="text" class="form-control" required>
@@ -434,15 +456,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Mercredi Ouvert.</span>
                                                 <input id="inptHrMercOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                    </div>
+                                    <div class="col-lg-5 col-lg-offset-1">
+                                        <div class="form-group">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Mercredi Fermet.</span>
                                                 <input id="inptHrMercFrm" type="text" class="form-control" required>
@@ -450,15 +474,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Jeudi Ouvert.</span>
                                                 <input id="inptHrJdOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                    </div>
+                                    <div class="col-lg-5 col-lg-offset-1">
+                                        <div class="form-group">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Jeudi Fermet.</span>
                                                 <input id="inptHrJdFrm" type="text" class="form-control" required>
@@ -466,15 +492,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Vendredi Ouvert.</span>
                                                 <input id="inptHrVndOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                    </div>
+                                    <div class="col-lg-5 col-lg-offset-1">
+                                        <div class="form-group">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Vendredi Fermet.</span>
                                                 <input id="inptHrVndFrm" type="text" class="form-control" required>
@@ -482,15 +510,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Samedi Ouvert.</span>
                                                 <input id="inptHrSmdOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                    </div>
+                                    <div class="col-lg-5 col-lg-offset-1">
+                                        <div class="form-group">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Samedi Fermet.</span>
                                                 <input id="inptHrSmdFrm" type="text" class="form-control" required>
@@ -498,15 +528,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <div class="input-group date">
                                                 <span class="input-group-addon">Dimanche Ouvert.</span>
                                                 <input id="inptHrDmcOuv" type="text" class="form-control" required>
                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                    </div>
+                                    <div class="col-lg-5 col-lg-offset-1">
+                                        <div class="form-group">
                                             <div  class="input-group date">
                                                 <span class="input-group-addon">Dimanche Fermet.</span>
                                                 <input id="inptHrDmcFrm" type="text" class="form-control" required>

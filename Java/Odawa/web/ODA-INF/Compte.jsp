@@ -18,7 +18,7 @@
                                     </c:if>
                         </div>
                         <div class="panel-body">
-                            <form data-toggle="validator" class="form-horizontal">
+                            <form id="UtForm" data-toggle="validator" class="form-horizontal">
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Nom</span>
@@ -74,7 +74,8 @@
                                     </div>
                                 </div>
                             </form>
-                            <p class="text-right"><a onclick="UpdateUser()" class="btn btn-primary">Mettre à Jour</a></p>
+                            <div class="col-sm-9"><div class="alert alert-danger hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont visiblement incomplets ou incorrectes!</div></div>
+                            <div class="col-sm-3"><p class="text-right"><a onclick="UpdateUser()" class="btn btn-primary">Mettre à Jour</a></p></div>
                         </div>
                     </div>
                 </div>
@@ -82,14 +83,34 @@
         </div>
         <script>
             function UpdateUser() {
-                $.post("/Compte",{
-                    nom: $("#inptNom").val(),
-                    prenom: $("#inptPrenom").val(),
-                    username: $("#inptUsername").val(),
-                    password: $("#inptPassword").val(),
-                    email: $("#inptEmail").val(),
-                    phone: $("#inptPhone").val()
-                }).done( function () { location.reload(true); } );
+                if(Validator() == true) {
+                    $.post("/Compte",{
+                        nom: $("#inptNom").val(),
+                        prenom: $("#inptPrenom").val(),
+                        username: $("#inptUsername").val(),
+                        password: $("#inptPassword").val(),
+                        email: $("#inptEmail").val(),
+                        phone: $("#inptPhone").val().split('/').join('').split('.').join('')
+                    }).done( function () { location.reload(true); } );
+                }else{ $(".alert").removeClass("hidden"); $("#UtForm").validator('validate'); }
+            }
+            
+            function Validator() {
+                var emailreg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]', 'i');
+                if ($("#inptNom").val() != "") {
+                    if ($("#inptPrenom").val() != "") {
+                        if ($("#inptUsername").val() != "") {
+                            if ($("#inptPassword").val() != "") { 
+                                if ($("#inptEmail").val() != "" && emailreg.test($("#inptEmail").val())) { 
+                                    if ( $("#inptPhone").val() != "" && $.isNumeric($("#inptPhone").val().split('/').join('').split('.').join('')) ) {
+                                        var rtn = true;
+                                    } else { var rtn = false; }
+                                } else { var rtn = false; }
+                            } else { var rtn = false; }
+                        } else { var rtn = false; }
+                    } else { var rtn = false; }
+                } else { var rtn = false; }
+                return rtn;
             }
         </script>
         <jsp:include page="/ODA-INF/BASE/Footer.jsp" />
