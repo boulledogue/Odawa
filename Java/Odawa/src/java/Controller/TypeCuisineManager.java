@@ -24,4 +24,13 @@ public class TypeCuisineManager {
         TypeCuisineJ t = ModelsMapping.getTypeCuisine(id);
         return t;
     }
+    
+    public static boolean IsValid(String type, String description) 
+    {
+        if(type == null) return false;
+        if(description == null) return false;
+        
+        
+        return true;
+    }
 }

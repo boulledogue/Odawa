@@ -37,4 +37,18 @@ public class UtilisateurManager {
     public static void createUtilisateur(UtilisateurJ u) {
         boolean o = ModelsMapping.createUtilisateur(u);
     }
+    
+    public static boolean IsValid(String id, String nom, String prenom, String username, String password,
+            String email, String phone) 
+    {
+        if(id == null) return false;
+        if(nom == null) return false;
+        if(prenom == null) return false;
+        if(username == null) return false;
+        if(password == null) return false;
+        if(email == null) return false;
+        if(phone == null) return false;
+        
+        return true;
+    }
 }

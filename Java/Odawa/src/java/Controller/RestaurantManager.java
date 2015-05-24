@@ -66,4 +66,33 @@ public class RestaurantManager {
     public static void Delete(int id){
         ModelsMapping.deleteRestaurant(id);
     }
+    
+    public static boolean IsValid(String nom, String adresse, String numero, String zipCode, 
+            String localite, String description, String budgetLow, String budgetHigh, String genre, String Horaire,
+            String idTypeCuisine, String idRestaurateur)
+    {   
+        if(nom == null) return false;
+        if(adresse == null) return false;
+        if(numero == null) return false;
+        if(zipCode == null) return false;
+        if(localite == null) return false;
+        if(description == null) return false;
+        if(budgetLow == null) return false;
+        if(budgetHigh == null) return false;
+        if(genre == null) return false;
+        if(Horaire == null) return false;
+        if(idTypeCuisine == null) return false;
+        if(idRestaurateur == null) return false;
+        
+        try
+        {
+            Integer.parseInt(budgetLow);
+            Integer.parseInt(budgetHigh);
+            Integer.parseInt(genre);
+            Integer.parseInt(idTypeCuisine);
+            Integer.parseInt(idRestaurateur);
+        } catch(NumberFormatException e) { return false; }
+        
+        return true;
+    }
 }

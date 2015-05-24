@@ -50,4 +50,27 @@ public class ReservationManager {
         if (rj.getStatus() == 2) MailManager.SendAcceptReservationMail(rj);
         else if (rj.getStatus() == 3) MailManager.SendRefuseReservationMail(rj);
     }
+    
+    public static boolean IsValid(String nom, String prenom, String date, String typeService, String nbPersonnes, 
+            String email, String phone, String idRestaurant, String statut, String encodedDateTime)
+    {
+        if(nom == null) return false;
+        if(prenom == null) return false;
+        if(date == null) return false;
+        if(typeService == null) return false;
+        if(nbPersonnes == null) return false;
+        if(email == null) return false;
+        if(phone == null) return false;
+        if(idRestaurant == null) return false;
+        if(statut == null) return false;
+        if(encodedDateTime == null) return false;
+        
+        try
+        {
+            Integer.parseInt(nbPersonnes);
+            Integer.parseInt(idRestaurant);
+            Integer.parseInt(statut);
+        } catch(NumberFormatException e) { return false; } 
+        return true;
+    }
 }

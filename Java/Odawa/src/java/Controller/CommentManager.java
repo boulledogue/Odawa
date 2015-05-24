@@ -31,4 +31,19 @@ public class CommentManager {
     public static void Delete(int id){
         ModelsMapping.deleteComment(id);
     }
+    
+    public static boolean IsValid(String commentaire, String idRestaurant, String idUtilisateur)
+    {
+        if(commentaire == null) return false;
+        if(idRestaurant == null) return false;
+        if(idUtilisateur == null) return false;
+        
+        try
+        {
+            Integer.parseInt(idRestaurant);
+            Integer.parseInt(idUtilisateur);
+        } catch(NumberFormatException e) { return false; }
+        
+        return true;
+    }
 }
