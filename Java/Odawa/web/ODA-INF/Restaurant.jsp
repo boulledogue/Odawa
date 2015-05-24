@@ -179,7 +179,7 @@
         </c:if>
         <script>
             $('#Descr').tooltip({html: true});
-            $('.date').datetimepicker({format: 'DD/MM/YYYY'});
+            $('.date').datetimepicker({format: 'DD/MM/YYYY',minDate: moment().add(1, 'd')});
             <c:if test="${ sessionScope.Utilisateur != null }" >
             function SendComment() {
                 $.post("/Restaurant?action=1", {
