@@ -42,7 +42,7 @@ input[type='number'] { -moz-appearance:textfield; }
 input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { -webkit-appearance: none; }
 .modal-header { background-color: rgb(151, 61, 59); border-top-right-radius: 3px; border-top-left-radius: 3px; border-bottom: 1px solid black; }
 .modal-title { color: white; font-family: 'Oswald', sans-serif !important; }
-.modal-footer { background-color: rgb(151, 61, 59); border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; border-top: 1px solid black; }
+.modal-footer { background-color: rgb(151, 61, 59); border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; border-top: 1px solid black; padding: 8px; }
 .has-error .control-label { color : #973d3b; }
 .alert-info { background-color: #008CBA; border-color: #0079A1; }
 .labeltxtarea { border-bottom: 0px none; border-right: 1px solid #CCC !important; }
