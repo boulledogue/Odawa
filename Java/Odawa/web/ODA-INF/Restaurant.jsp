@@ -23,7 +23,7 @@
                                             <p class="text-right"><c:out value="${Restaurant.getRestaurateur()}"/></p>
                                             <p>
                                                 <span class="text-muted">Type de Cuisine :</span></br>
-                                                <a id="Descr" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="Description :</br><c:out value="${Restaurant.getDescriptionTypeCuisine()}"/>"><c:out value="${Restaurant.getTypeCuisine()}"/></a>
+                                                <a id="Descr" href="/Search?SearchType=3&TypeCuisine=<c:out value="${Restaurant.getIdTypeCuisine()}"/>" data-toggle="tooltip" data-placement="right" title="Description :</br><c:out value="${Restaurant.getDescriptionTypeCuisine()}"/>"><c:out value="${Restaurant.getTypeCuisine()}"/></a>
                                             </p>
                                             <p><span class="text-muted">Adresse :</span></br><c:out value="${Restaurant.getAllOfAdresse()}"/></p> 
                                             <p><span class="text-muted">Fourchette de Tarif :</span></br><c:out value="${Restaurant.getAllBudget()}"/></p>
@@ -143,7 +143,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Email</label>
                                     <div class="col-sm-10">
-                                        <input pattern="\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\b" type="email" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
+                                        <input type="email" class="form-control" id="inptEmail" value="<c:out value="${sessionScope.Utilisateur.getEmail()}"/>" <c:out value="${(sessionScope.Utilisateur != null)? 'disabled' : ''}"/> required>
                                         <div class="help-block with-errors"> Veuillez encoder l'email sous la forme suivante : xxx@xxx.xx .  </div>
                                     </div>
                                 </div>
@@ -170,7 +170,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <div class="col-sm-10"><div class="alert alert-danger hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont incomplets ou incorrects!</div></div>
+                            <div class="col-sm-10"><div class="alert alert-info hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont incomplets ou incorrects!</div></div>
                             <div class="col-sm-2"><a id="send" onclick="SendReservation()" class="btn btn-primary btn-sm" >Envoyer</a></div>
                         </div>
                     </div>
@@ -178,7 +178,7 @@
             </div>
         </c:if>
         <script>
-            $('#Descr').popover({html: true});
+            $('#Descr').tooltip({html: true});
             $('.date').datetimepicker({format: 'YYYY-MM-DD'});
             <c:if test="${ sessionScope.Utilisateur != null }" >
             function SendComment() {
@@ -210,22 +210,21 @@
             
             function Validator() {
                 var nomreg = new RegExp('^[A-Za-z-]{2,}$','i');
-                var prenomreg = new RegExp('^[A-Za-z-]{2,}$','i');
-                var emailreg = new RegExp('\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\b','i');
+                //var emailreg = new RegExp('\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\b','i');
                 var phonereg = new RegExp('^0[1-9][0-9]{7,8}$','i');
-                if ($("#inptNom").val() != "") && nomreg.test($("#inptNom").val())) {
-                    if ($("#inptPrenom").val() != "") && prenomreg.test($("#inptNom").val())) {
+                if ($("#inptNom").val() != "" && nomreg.test($("#inptNom").val()) ) {
+                    if ($("#inptPrenom").val() != "" && nomreg.test($("#inptNom").val())) {
                         if ($("#inptDate").val() != "") {
                             if ($("#inptNbr").val() != "" && $.isNumeric($("#inptNbr").val())) { 
-                                if ($("#inptEmail").val() != "" && emailreg.test($("#inptEmail").val())) { 
-                                    if ( $("#inptPhone").val() != "" && phonereg.test($("#inptPhone").val()) {
+                                if ($("#inptEmail").val() != "") { //&& emailreg.test($("#inptEmail").val()))
+                                    if ( $("#inptPhone").val() != "" && phonereg.test($("#inptPhone").val()) ) {
                                         var rtn = true;
-                                    } else { var rtn = false; }
-                                } else { var rtn = false; }
-                            } else { var rtn = false; }
-                        } else { var rtn = false; }
-                    } else { var rtn = false; }
-                } else { var rtn = false; }
+                                    } else { var rtn = false; console.log("Echec Phone"); }
+                                } else { var rtn = false; console.log("Echec Email"); }
+                            } else { var rtn = false; console.log("Echec Nbr"); }
+                        } else { var rtn = false; console.log("Echec Date"); }
+                    } else { var rtn = false; console.log("Echec Prenom"); }
+                } else { var rtn = false; console.log("Echec Nom"); }
                 return rtn;
             }
             
