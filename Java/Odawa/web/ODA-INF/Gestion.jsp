@@ -592,7 +592,7 @@
         </div>
         <script>
             $('#Horaire').popover({html: true});
-            $('.date').datetimepicker({format: 'HHmm'});
+            $('.date').datetimepicker({format: 'HH:mm'});
             function AddRestaurant() {
                 if(Validation()){
                    $.post("/Gestion?action=1", {
@@ -604,20 +604,20 @@
                     descr: $("#inptDescr").val(),
                     bdglow: $("#inptBdgLow").val(),
                     bdghgt: $("#inptBdgHgt").val(),
-                    HrLndOuv: $("#inptHrLndOuv").val(),
-                    HrLndFrm: $("#inptHrLndFrm").val(),
-                    HrMarOuv: $("#inptHrMarOuv").val(),
-                    HrMarFrm: $("#inptHrMarFrm").val(),
-                    HrMercOuv: $("#inptHrMercOuv").val(),
-                    HrMercFrm: $("#inptHrMercFrm").val(),
-                    HrJdOuv: $("#inptHrJdOuv").val(),
-                    HrJdFrm: $("#inptHrJdFrm").val(),
-                    HrVndOuv: $("#inptHrVndOuv").val(),
-                    HrVndFrm: $("#inptHrVndFrm").val(),
-                    HrSmdOuv: $("#inptHrSmdOuv").val(),
-                    HrSmdFrm: $("#inptHrSmdFrm").val(),
-                    HrDmcOuv: $("#inptHrDmcOuv").val(),
-                    HrDmcFrm: $("#inptHrDmcFrm").val(),
+                    HrLndOuv: $("#inptHrLndOuv").val().split(':').join(''),
+                    HrLndFrm: $("#inptHrLndFrm").val().split(':').join(''),
+                    HrMarOuv: $("#inptHrMarOuv").val().split(':').join(''),
+                    HrMarFrm: $("#inptHrMarFrm").val().split(':').join(''),
+                    HrMercOuv: $("#inptHrMercOuv").val().split(':').join(''),
+                    HrMercFrm: $("#inptHrMercFrm").val().split(':').join(''),
+                    HrJdOuv: $("#inptHrJdOuv").val().split(':').join(''),
+                    HrJdFrm: $("#inptHrJdFrm").val().split(':').join(''),
+                    HrVndOuv: $("#inptHrVndOuv").val().split(':').join(''),
+                    HrVndFrm: $("#inptHrVndFrm").val().split(':').join(''),
+                    HrSmdOuv: $("#inptHrSmdOuv").val().split(':').join(''),
+                    HrSmdFrm: $("#inptHrSmdFrm").val().split(':').join(''),
+                    HrDmcOuv: $("#inptHrDmcOuv").val().split(':').join(''),
+                    HrDmcFrm: $("#inptHrDmcFrm").val().split(':').join(''),
                     Type: $("#inptType").val(),
                     Genre: $("input[name=rdio]").filter(':checked').val()
                 }).done(function () { location.reload(true); }); 

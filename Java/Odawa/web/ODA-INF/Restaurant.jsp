@@ -201,7 +201,7 @@
                     date: moment($("#inptDate").val()).format('YYYY-MM-DD'),
                     nbrePersonne: $("#inptNbr").val(),
                     email: $("#inptEmail").val(),
-                    phone: $("#inptPhone").val().split('/').join('').split('.').join(''),
+                    phone: $("#inptPhone").val(),
                     type: $('input[name=rdio]:checked').val(),
                     idrest: ${Restaurant.getId()}}
                     ).done(function () { location.reload(true); });
