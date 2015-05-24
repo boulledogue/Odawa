@@ -98,112 +98,112 @@
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
-                                                                            <span class="input-group-addon">Lundi Ouvert.</span>
+                                                                            <span class="input-group-addon nmcursor">Lundi Ouvert.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[0]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
-                                                                        <div  class="input-group date">
-                                                                            <span class="input-group-addon">Lundi Fermet.</span>
+                                                                        <div  class="input-group date nmcursor">
+                                                                            <span class="input-group-addon nmcursor">Lundi Fermet.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[1]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
-                                                                            <span class="input-group-addon">Mardi Ouvert.</span>
+                                                                            <span class="input-group-addon nmcursor">Mardi Ouvert.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[2]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
-                                                                            <span class="input-group-addon">Mardi Fermet.</span>
+                                                                            <span class="input-group-addon nmcursor">Mardi Fermet.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[3]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
-                                                                            <span class="input-group-addon">Mercredi Ouvert.</span>
+                                                                            <span class="input-group-addon nmcursor">Mercredi Ouvert.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[4]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
-                                                                            <span class="input-group-addon">Mercredi Fermet.</span>
+                                                                            <span class="input-group-addon nmcursor">Mercredi Fermet.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[5]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
-                                                                            <span class="input-group-addon">Jeudi Ouvert.</span>
+                                                                            <span class="input-group-addon nmcursor">Jeudi Ouvert.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[6]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
-                                                                            <span class="input-group-addon">Jeudi Fermet.</span>
+                                                                            <span class="input-group-addon nmcursor">Jeudi Fermet.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[7]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
-                                                                            <span class="input-group-addon">Vendredi Ouvert.</span>
+                                                                            <span class="input-group-addon nmcursor">Vendredi Ouvert.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[8]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
-                                                                            <span class="input-group-addon">Vendredi Fermet.</span>
+                                                                            <span class="input-group-addon nmcursor">Vendredi Fermet.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[9]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
-                                                                            <span class="input-group-addon">Samedi Ouvert.</span>
+                                                                            <span class="input-group-addon nmcursor">Samedi Ouvert.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[10]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
-                                                                            <span class="input-group-addon">Samedi Fermet.</span>
+                                                                            <span class="input-group-addon nmcursor">Samedi Fermet.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[11]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-lg-6">
                                                                         <div class="input-group date">
-                                                                            <span class="input-group-addon">Dimanche Ouvert.</span>
+                                                                            <span class="input-group-addon nmcursor">Dimanche Ouvert.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[12]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div  class="input-group date">
-                                                                            <span class="input-group-addon">Dimanche Fermet.</span>
+                                                                            <span class="input-group-addon nmcursor">Dimanche Fermet.</span>
                                                                             <input type="text" class="form-control white" value="<c:out value="${Restaurant.getArrayHoraire()[13]}"/>" disabled>
-                                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                                            <span class="input-group-addon nmcursor"><span class="glyphicon glyphicon-time"></span></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>

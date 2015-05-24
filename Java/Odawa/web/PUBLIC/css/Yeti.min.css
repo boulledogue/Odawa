@@ -24,8 +24,10 @@ body { background-color: #F2F2F2; }
 .vrt-center { margin-top:10%; }
 .form-control-static { margin-top: -5px; }
 html { position: relative; min-height: 100%; }
-footer { position: absolute; bottom: 0; width: 100%; height: 120px; background-color: #333333; border-top: 2px solid #973d3b; }
+footer { position: absolute; bottom: 0; width: 100%; height: 120px; background: url("/PUBLIC/chevrons.png") no-repeat; background-color: #333333; border-top: 2px solid #973d3b; color: white; }
 footer .text-muted { color: #FFFFFF; margin-top: 20px; font-family: 'Oswald', sans-serif; }
+footer .text-other { font-family: 'Oswald', sans-serif; margin-left: 10px !important; margin-top: -10px; font-size: 10px; }
+footer .info { margin-left: 10px; }
 .ocnt { margin-bottom: 130px; }
 .datepicker table tr td, .datepicker table tr th { border-radius: 0px !important; }
 .input-group-addon { background-color: #FFF !important; }
@@ -34,23 +36,30 @@ footer .text-muted { color: #FFFFFF; margin-top: 20px; font-family: 'Oswald', sa
     -moz-box-shadow:4px 4px 0 #fff,5px 5px 0 #ccc,9px 9px 0 #fff,10px 10px 0 #ccc,14px 14px 0 #fff;
     -webkit-box-shadow: 4px 4px 0 #fff,5px 5px 0 #ccc,9px 9px 0 #fff,10px 10px 0 #ccc,14px 14px 0 #fff; }
 .form-control[disabled] { cursor: default; }
-.modal-content { border-radius: 5px;  }
-.has-error .help-block { color : #973d3b; }
-.has-error .input-group-addon { color : #973d3b; border-color : #973d3b; }
+.has-error .help-block { color : black; }
+.has-error .input-group-addon { color : black; border-color : #973d3b; }
 .has-error .form-control { border-color: #973d3b; }
 input[type='number'] { -moz-appearance:textfield; }
 input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { -webkit-appearance: none; }
-.modal-header { background-color: rgb(151, 61, 59); border-top-right-radius: 3px; border-top-left-radius: 3px; border-bottom: 1px solid black; }
+.modal-header { background-color: rgb(151, 61, 59); border-bottom: 1px solid black; }
 .modal-title { color: white; font-family: 'Oswald', sans-serif !important; }
-.modal-footer { background-color: rgb(151, 61, 59); border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; border-top: 1px solid black; padding: 8px; }
-.has-error .control-label { color : #973d3b; }
+.modal-footer { background-color: rgb(151, 61, 59); border-top: 1px solid black; padding: 8px; }
+.modal-content { box-shadow: 4px 4px 0 #973d3b,5px 5px 0 #fff,9px 9px 0 #973d3b,10px 10px 0 #fff,14px 14px 0 #973d3b;
+    -moz-box-shadow:4px 4px 0 #973d3b,5px 5px 0 #fff,9px 9px 0 #973d3b,10px 10px 0 #fff,14px 14px 0 #973d3b;
+    -webkit-box-shadow: 4px 4px 0 #973d3b,5px 5px 0 #fff,9px 9px 0 #973d3b,10px 10px 0 #fff,14px 14px 0 #973d3b; }
+.has-error .control-label { color : black; }
 .alert-info { background-color: #008CBA; border-color: #0079A1; }
 .labeltxtarea { border-bottom: 0px none; border-right: 1px solid #CCC !important; }
 .close { opacity: 1; color: white !important; margin-top: 2px !important;}
 textarea { resize: none; }
+.nmcursor { cursor: default !important; }
 .panel-danger > .panel-heading { background-color : #973d3b; }
-.alert-danger { background-color : #973d3b; border: 1px solid grey;  }
+.alert-danger { background-color : #973d3b; border: 1px solid grey; color: white;  }
 .panel-danger { border: 1px solid grey; }
 .btn-danger { background-color : #973d3b; border: 1px solid grey; }
 .btn-danger:hover { background-color : #722e2d; border: 1px solid grey; }
 .white { background-color: #FFF !important; }
+.modal.fade:not(.in) .modal-dialog {
+    -webkit-transform: translate3d(-25%, 0, 0);
+    transform: translate3d(-25%, 0, 0);
+}
