@@ -72,7 +72,7 @@
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <p class="debug-titre">Les 3 Meilleurs Restaurant</p>
+                            <p class="debug-titre">Les 3 meilleurs restaurants</p>
                             <c:forEach var="Restaurant" items="${BestRestaurants}" >
                                 <div class="panel panel-default">
                                     <div class="panel-body">
