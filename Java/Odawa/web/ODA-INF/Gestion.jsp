@@ -1,5 +1,6 @@
 <%-- Dependance --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%-- JSP Code --%>
 <!DOCTYPE html>
@@ -264,6 +265,7 @@
                                                                     <c:out value="${Restaurant.getNom()}"/>
                                                                 </c:if>
                                                             </c:forEach>
+                                                            le <fmt:formatDate value="${Reservation.getDate()}" pattern="dd-MM-yyyy" />
                                                             <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon <c:out value="${Reservation.getTypeService() == true ? 'glyphicon-certificate': 'glyphicon-adjust'}"/>" aria-hidden="true"></span> Service du <c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/>
                                                         </p>
                                                     </div> 
@@ -287,7 +289,7 @@
                                                                         <div class="form-group">
                                                                             <label class="col-sm-2 control-label">Date</label>
                                                                             <div class="col-sm-10">
-                                                                                <p class="form-control-static"><c:out value="${Reservation.getDate()}"/></p>
+                                                                                <p class="form-control-static"><fmt:formatDate value="${Reservation.getDate()}" pattern="dd-MM-yyyy"/></p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group">

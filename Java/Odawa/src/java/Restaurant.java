@@ -55,7 +55,7 @@ public class Restaurant extends HttpServlet {
            // nom,prenom,date,nbrePersonne,email,phone,idrest            
             try {
                 ReservationJ r = new ReservationJ();
-                r.setNom(request.getParameter("nom"));
+                r.setNom(request.getParameter("nom").toUpperCase());
                 r.setPrenom(request.getParameter("prenom"));
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 Date date = formatter.parse(request.getParameter("date"));
