@@ -592,7 +592,7 @@
         </div>
         <script>
             $('#Horaire').popover({html: true});
-            $('.date').datetimepicker({format: 'HH:mm'});
+            $('.date').datetimepicker({format: 'HH:mm',stepping: '30'});
             function AddRestaurant() {
                 if(Validation()){
                    $.post("/Gestion?action=1", {
