@@ -63,3 +63,7 @@ textarea { resize: none; }
     -webkit-transform: translate3d(-25%, 0, 0);
     transform: translate3d(-25%, 0, 0);
 }
+.txt-modal { font-size: 15px;
+font-weight: normal;
+line-height: 1;
+color: #6F6F6F; margin-top: -5px; margin-bottom: 15px; text-align: center; }
