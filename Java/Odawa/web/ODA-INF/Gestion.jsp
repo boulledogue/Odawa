@@ -260,12 +260,14 @@
                                                     <div class="panel-heading" role="tab" id="headingOne">
                                                         <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne<c:out value="${Reservation.getId()}"/>" aria-expanded="true" aria-controls="collapseOne"><c:out value="${Reservation.getPrenom()}"/> <c:out value="${Reservation.getNom()}"/></a></h4>
                                                         <p class="text-right" style="margin-top: -20px; margin-bottom: 0px;">
+                                                            <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon glyphicon-home" aria-hidden="true"></span>
                                                             <c:forEach var="Restaurant" items="${Restaurants}">
                                                                 <c:if test="${ Reservation.getIdRestaurant() == Restaurant.getId() }">
                                                                     <c:out value="${Restaurant.getNom()}"/>
                                                                 </c:if>
                                                             </c:forEach>
-                                                            le <fmt:formatDate value="${Reservation.getDate()}" pattern="dd-MM-yyyy" />
+                                                            <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon glyphicon-time " aria-hidden="true"></span> 
+                                                            ( <fmt:formatDate value="${Reservation.getDate()}" pattern="dd/MM/yyyy" /> )
                                                             <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon <c:out value="${Reservation.getTypeService() == true ? 'glyphicon-certificate': 'glyphicon-adjust'}"/>" aria-hidden="true"></span> Service du <c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/>
                                                         </p>
                                                     </div> 
@@ -289,7 +291,7 @@
                                                                         <div class="form-group">
                                                                             <label class="col-sm-2 control-label">Date</label>
                                                                             <div class="col-sm-10">
-                                                                                <p class="form-control-static"><fmt:formatDate value="${Reservation.getDate()}" pattern="dd-MM-yyyy"/></p>
+                                                                                <p class="form-control-static"><fmt:formatDate value="${Reservation.getDate()}" pattern="dd/MM/yyyy"/></p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group">
