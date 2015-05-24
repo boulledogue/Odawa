@@ -14,7 +14,7 @@ namespace BU
         private static string adminMail = "denis@charette.be";
         private static string emailFrom = "denis.charette@skynet.be";
 
-        public static void EmailError(string message)
+        public static void EmailException(string message)
         {
             MailMessage mail = new MailMessage(emailFrom, adminMail);
             SmtpClient client = new SmtpClient();
@@ -38,7 +38,9 @@ namespace BU
             mail.Subject = "Votre compte a été créé";
             mail.Body = "Bienvenue sur odawa!\n"
             + "Votre nom d'utilisateur: " + r.username + "\n"
-            + "Votre mot de passe: " + r.password + "\n";
+            + "Votre mot de passe: " + r.password + "\n\n"
+            + "Pour vous connecter, visitez http://www.odawa.be et cliquez sur connexion\n\n"
+            + "Merci de votre confiance et à bientôt sur Odawa.";
             client.Send(mail);
         }
     }

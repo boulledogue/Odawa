@@ -49,6 +49,7 @@
     <Compile Include="Entities\Restaurateur.cs" />
     <Compile Include="Entities\TypeCuisine.cs" />
     <Compile Include="Entities\Utilisateur.cs" />
+    <Compile Include="LogManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReservationManager.cs" />
     <Compile Include="RestaurantManager.cs" />

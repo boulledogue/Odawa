@@ -45,8 +45,7 @@ namespace Odawa
                 //insertion dans le fichier log
                 try
                 {
-                    string logFilePath = "c:\\tmp\\MyAppLog.log";
-                    System.IO.File.AppendAllText(logFilePath, messageSB.ToString());
+                    LogManager.LogException(messageSB.ToString());
                 }
                 catch
                 {
@@ -56,7 +55,7 @@ namespace Odawa
                 //envoi d'un email
                 try
                 {
-                    EmailManager.EmailError(messageSB.ToString());
+                    EmailManager.EmailException(messageSB.ToString());
                 }
                 catch
                 {
