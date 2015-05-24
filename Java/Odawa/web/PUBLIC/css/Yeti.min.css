@@ -49,6 +49,7 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button { -webkit-appe
 .close { opacity: 1; color: white !important; margin-top: 2px !important;}
 textarea { resize: none; }
 .panel-danger > .panel-heading { background-color : #973d3b; }
+.alert-danger { background-color : #973d3b; border: 1px solid grey;  }
 .panel-danger { border: 1px solid grey; }
 .btn-danger { background-color : #973d3b; border: 1px solid grey; }
 .white { background-color: #FFF !important; }

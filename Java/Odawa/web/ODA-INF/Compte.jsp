@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="col-sm-9"><div class="alert alert-danger hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont visiblement incomplets ou incorrectes!</div></div>
+                            <div class="col-sm-9"><div class="alert alert-info hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont visiblement incomplets ou incorrectes!</div></div>
                             <div class="col-sm-3"><p class="text-right"><a onclick="UpdateUser()" class="btn btn-primary">Mettre à Jour</a></p></div>
                         </div>
                     </div>

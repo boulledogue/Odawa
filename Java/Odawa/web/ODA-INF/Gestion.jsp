@@ -580,8 +580,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <div class="col-sm-10"><div class="alert alert-info hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont incomplets ou incorrects!</div></div>
-                        <div class="col-sm-2"><a onclick="AddRestaurant()" class="btn btn-primary">Enregistrer</a></div>
+                        <div class="col-sm-10"><div class="alert alert-danger hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont incomplets ou incorrects!</div></div>
+                        <div class="col-sm-2"><a onclick="AddRestaurant()" class="btn btn-danger">Enregistrer</a></div>
                     </div>
                 </div>
             </div>

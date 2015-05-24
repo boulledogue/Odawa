@@ -170,8 +170,8 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <div class="col-sm-10"><div class="alert alert-info hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont incomplets ou incorrects!</div></div>
-                            <div class="col-sm-2"><a id="send" onclick="SendReservation()" class="btn btn-primary btn-sm" >Envoyer</a></div>
+                            <div class="col-sm-10"><div class="alert alert-danger hidden" style="text-align: left;padding: 9px;" role="alert">Certains champs sont incomplets ou incorrects!</div></div>
+                            <div class="col-sm-2"><a id="send" onclick="SendReservation()" class="btn btn-danger btn-sm" >Envoyer</a></div>
                         </div>
                     </div>
                 </div>
