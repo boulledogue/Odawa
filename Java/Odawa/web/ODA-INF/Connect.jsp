@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <a href="#" class="btn btn-info" onclick="Send()">Send</a>
+                                        <a href="#" class="btn btn-info" onclick="Send()">Envoyer</a>
                                     </div>
                                 </div>
                             </form>

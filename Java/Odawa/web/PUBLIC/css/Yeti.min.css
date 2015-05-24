@@ -21,7 +21,7 @@ body { background-color: #F2F2F2; }
 .dbg-crsr { cursor:default !important; }
 .debug-search { margin-bottom: -15px; }
 .debug-gestrest { padding-left:15px;padding-right:15px; }
-.vrt-center { margin-top:20%; }
+.vrt-center { margin-top:10%; }
 .form-control-static { margin-top: -5px; }
 html { position: relative; min-height: 100%; }
 footer { position: absolute; bottom: 0; width: 100%; height: 120px; background-color: #333333; border-top: 2px solid #973d3b; }

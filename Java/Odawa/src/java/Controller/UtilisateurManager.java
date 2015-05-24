@@ -33,4 +33,8 @@ public class UtilisateurManager {
     public static void updateUtilisateur(UtilisateurJ u) {
         ModelsMapping.updateUtilisateur(u);
     }
+    
+    public static void createUtilisateur(UtilisateurJ u) {
+        boolean o = ModelsMapping.createUtilisateur(u);
+    }
 }

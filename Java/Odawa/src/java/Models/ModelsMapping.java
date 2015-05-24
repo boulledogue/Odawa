@@ -463,4 +463,19 @@ public class ModelsMapping {
         org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
         port.updateUtilisateur(u);
     }
+
+    public static Boolean createUtilisateur(UtilisateurJ uj) {
+        ObjectFactory o = new ObjectFactory();
+        Utilisateur u = new Utilisateur();
+        u.setId(uj.getId());
+        u.setNom(o.createUtilisateurNom(uj.getNom()));
+        u.setPrenom(o.createUtilisateurPrenom(uj.getPrenom()));
+        u.setUsername(o.createUtilisateurUsername(uj.getUsername()));
+        u.setPassword(o.createUtilisateurPassword(uj.getPassword()));
+        u.setEmail(o.createUtilisateurEmail(uj.getEmail()));
+        u.setPhone(o.createUtilisateurPhone(uj.getPhone()));
+        org.tempuri.OdawaService service = new org.tempuri.OdawaService();
+        org.tempuri.IOdawaService port = service.getBasicHttpBindingIOdawaService();
+        return port.createUtilisateur(u);
+    }
 }
