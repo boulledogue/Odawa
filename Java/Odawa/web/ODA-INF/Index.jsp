@@ -52,7 +52,7 @@
                                                    </td>
                                                    </tr>
                                                    </table>">
-                                                    Autre ...
+                                                   Suite ...
                                                 </a>
                                             </p>
                                         </div>

@@ -194,11 +194,11 @@
             <c:if test="${sessionScope.isRestaurateur != true }" >
             
             function SendReservation() {
-                if( Validator() == true ) {
+                if( Validator()) {
                     $.post("/Restaurant?action=2", {
                     nom: $("#inptNom").val(),
                     prenom: $("#inptPrenom").val(),
-                    date: moment($("#inptDate").val()).format('YYYY-MM-DD'),
+                    date: $("#inptDate").val(),
                     nbrePersonne: $("#inptNbr").val(),
                     email: $("#inptEmail").val(),
                     phone: $("#inptPhone").val(),
