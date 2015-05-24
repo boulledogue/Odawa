@@ -9,7 +9,12 @@ import Models.ModelsMapping;
 import Models.ReservationJ;
 import Models.RestaurantJ;
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.datatype.DatatypeConfigurationException;
 
 /**
@@ -65,12 +70,16 @@ public class ReservationManager {
         if(statut == null) return false;
         if(encodedDateTime == null) return false;
         
+        
         try
         {
             Integer.parseInt(nbPersonnes);
             Integer.parseInt(idRestaurant);
             Integer.parseInt(statut);
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            Date dateformat = formatter.parse(date);
         } catch(NumberFormatException e) { return false; } 
+        catch (ParseException ex) { return false; } 
         return true;
     }
 }
