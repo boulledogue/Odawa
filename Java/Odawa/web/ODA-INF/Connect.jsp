@@ -10,22 +10,24 @@
                     <div class="alert alert-danger hidden" role="alert">Votre nom d'utilisateur ou votre mot de passe est erroné!</div>
                     <div class="panel panel-default">
                         <div class="panel-body debug-search">
-                            <form class="form-horizontal">
+                            <form data-toggle="validator" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Username</label>
                                     <div class="col-sm-10">
-                                        <input type="email" id="email" class="form-control" placeholder="">
+                                        <input type="text" id="email" class="form-control" placeholder="" required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Password</label>
                                     <div class="col-sm-10">
-                                        <input type="password" id="password" class="form-control" placeholder="">
+                                        <input type="password" id="password" class="form-control" placeholder="" required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <a href="#" class="btn btn-info" onclick="Send()">Envoyer</a>
+                                        <a href="#" class="btn btn-info" onclick="Send()">Se connecter!</a>
                                     </div>
                                 </div>
                             </form>
@@ -41,8 +43,13 @@
         function Send() {
             $.post("/Connect", {username: $("#email").val(), password: $("#password").val()})
                     .done(function (data) {
-                        if (data.success === true){ document.location.href = "/"; }
-                        else{ $(".alert-danger").removeClass("hidden"); $(".alert-info").addClass("hidden") }
+                        if (data.success === true) {
+                            document.location.href = "/";
+                        }
+                        else {
+                            $(".alert-danger").removeClass("hidden");
+                            $(".alert-info").addClass("hidden")
+                        }
                     });
         }
     </script>
