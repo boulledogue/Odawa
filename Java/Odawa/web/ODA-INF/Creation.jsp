@@ -19,7 +19,7 @@
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Nom</span>
-                                        <input type="text" class="form-control" id="inptNom">
+                                        <input type="text" data-match-error="Votre nom doit être composé de plus d'un caractère." class="form-control" pattern="^[A-Za-zéè-]{2,}$" id="inptNom" required="">
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="help-block with-errors"></div>
@@ -28,7 +28,7 @@
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Prenom</span>
-                                        <input type="text" class="form-control" id="inptPrenom">
+                                        <input type="text" data-match-error="Votre prénom doit être composé de plus d'un caractère." class="form-control" pattern="^[A-Za-zéè-]{2,}$" id="inptPrenom" required>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="help-block with-errors"></div>
@@ -37,7 +37,7 @@
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Nom d'Utilisateur</span>
-                                        <input type="text" class="form-control" id="inptUsername">
+                                        <input type="text" data-match-error="Votre nom d'utilisateur doit être composé de plus d'un caractère." class="form-control" pattern="^[A-Za-z0-9éè-]{2,}$" id="inptUsername" required>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="help-block with-errors"></div>
@@ -46,7 +46,16 @@
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Mot de Passe</span>
-                                        <input type="password" class="form-control" id="inptPassword">
+                                        <input type="password" class="form-control" id="inptPassword" required>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group debug-gestrest">
+                                        <span class="input-group-addon">Mot de Passe (Confirmation)</span>
+                                        <input type="password" data-match-error="Veuillez introduire des mots de passe identiques." class="form-control" id="inptPasswordConf" data-match="#inptPassword" required>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="help-block with-errors"></div>
@@ -55,19 +64,19 @@
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">E-mail</span>
-                                        <input type="email" class="form-control" id="inptEmail">
+                                        <input type="email" class="form-control" id="inptEmail" required>
                                     </div>
                                     <div class="col-sm-10">
-                                        <div class="help-block with-errors"></div>
+                                        <div class="help-block with-errors">Veuillez encoder l'email sous la forme suivante : xxx@xxx.xx .</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group debug-gestrest">
                                         <span class="input-group-addon">Telephone</span>
-                                        <input type="text" class="form-control" id="inptPhone">
+                                        <input pattern="^0[1-9][0-9]{7,8}$" type="text" class="form-control" id="inptPhone" required>
                                     </div>
                                     <div class="col-sm-10">
-                                        <div class="help-block with-errors"></div>
+                                        <div class="help-block with-errors">Veuillez encoder le numéro sous la forme suivante : 0xxxxxxxx ou 04xxxxxxxx .</div>
                                     </div>
                                 </div>
                             </form>

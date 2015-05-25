@@ -19,6 +19,23 @@
                             </div>
                             <div class="panel-body">
                                 <c:forEach var="Restaurant" items="${Restaurants}">
+                                    <div class="modal fade bs-example-modal-sm<c:out value="${Restaurant.getId()}"/>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Suppression</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Etes-vous sûr de vouloir supprimer ce restaurant ? 
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-danger" type="button" class="close" data-dismiss="modal" aria-label="Close">Refuser</button>
+                                                    <a href="/Gestion?delete=<c:out value="${Restaurant.getId()}"/>" class="btn btn-danger">Accepter</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-default">
                                             <div class="panel-heading" role="tab" id="headingOne">
@@ -26,7 +43,7 @@
                                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse<c:out value="${Restaurant.getId()}"/>" aria-expanded="true" aria-controls="collapseOne">
                                                         <c:out value="${Restaurant.getNom()}"/>
                                                     </a>
-                                                    <p class="text-right" style="margin-top: -20px; margin-bottom: 0px;"><a href="/Gestion?delete=<c:out value="${Restaurant.getId()}"/>"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></p>
+                                                    <p class="text-right" style="margin-top: -20px; margin-bottom: 0px;"><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm<c:out value="${Restaurant.getId()}"/>"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></p>
                                                 </h4>
                                             </div>
                                             <div id="collapse<c:out value="${Restaurant.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -243,7 +260,6 @@
                                                             </div>
                                                         </div>
                                                     </form>
-                                                    <!-- <a class="btn btn-primary">Enregistrer</a> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -255,78 +271,78 @@
                             <div class="panel-heading">Gestion des reservations</div>
                             <div class="panel-body">
                                 <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-                                        <c:forEach var="Reservation" items="${Reservations}">
-                                                <div class="panel panel-default <c:out value="${Reservation.getStatus() == 2 ? 'panel-success': ''}"/> <c:out value="${Reservation.getStatus() == 3 ? 'panel-danger': ''}"/>">
-                                                    <div class="panel-heading" role="tab" id="headingOne">
-                                                        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne<c:out value="${Reservation.getId()}"/>" aria-expanded="true" aria-controls="collapseOne"><c:out value="${Reservation.getPrenom()}"/> <c:out value="${Reservation.getNom()}"/></a></h4>
-                                                        <p class="text-right" style="margin-top: -20px; margin-bottom: 0px;">
-                                                            <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                                                            <c:forEach var="Restaurant" items="${Restaurants}">
-                                                                <c:if test="${ Reservation.getIdRestaurant() == Restaurant.getId() }">
-                                                                    <c:out value="${Restaurant.getNom()}"/>
-                                                                </c:if>
-                                                            </c:forEach>
-                                                            <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon glyphicon-time " aria-hidden="true"></span> 
-                                                            <fmt:formatDate value="${Reservation.getDate()}" pattern="dd/MM/yyyy" />
-                                                            <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon <c:out value="${Reservation.getTypeService() == true ? 'glyphicon-adjust':'glyphicon-certificate'}"/>" aria-hidden="true"></span> Service du <c:out value="${Reservation.getTypeService() == true ? 'Soir':'Midi'}"/>
-                                                        </p>
-                                                    </div> 
-                                                    <div id="collapseOne<c:out value="${Reservation.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <c:forEach var="Reservation" items="${Reservations}">
+                                        <div class="panel panel-default <c:out value="${Reservation.getStatus() == 2 ? 'panel-success': ''}"/> <c:out value="${Reservation.getStatus() == 3 ? 'panel-danger': ''}"/>">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne<c:out value="${Reservation.getId()}"/>" aria-expanded="true" aria-controls="collapseOne"><c:out value="${Reservation.getPrenom()}"/> <c:out value="${Reservation.getNom()}"/></a></h4>
+                                                <p class="text-right" style="margin-top: -20px; margin-bottom: 0px;">
+                                                    <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                                    <c:forEach var="Restaurant" items="${Restaurants}">
+                                                        <c:if test="${ Reservation.getIdRestaurant() == Restaurant.getId() }">
+                                                            <c:out value="${Restaurant.getNom()}"/>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                    <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon glyphicon-time " aria-hidden="true"></span> 
+                                                    <fmt:formatDate value="${Reservation.getDate()}" pattern="dd/MM/yyyy" />
+                                                    <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon <c:out value="${Reservation.getTypeService() == true ? 'glyphicon-certificate': 'glyphicon-adjust'}"/>" aria-hidden="true"></span> Service du <c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/>
+                                                </p>
+                                            </div> 
+                                            <div id="collapseOne<c:out value="${Reservation.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                <div class="panel-body">
+                                                    <div class="panel panel-default">
                                                         <div class="panel-body">
-                                                            <div class="panel panel-default">
-                                                                <div class="panel-body">
-                                                                    <form class="form-horizontal">
-                                                                        <div class="form-group">
-                                                                            <label class="col-sm-2 control-label">Nom</label>
-                                                                            <div class="col-sm-10">
-                                                                                <p class="form-control-static"><c:out value="${Reservation.getNom()}"/></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label class="col-sm-2 control-label">Prenom</label>
-                                                                            <div class="col-sm-10">
-                                                                                <p class="form-control-static"><c:out value="${Reservation.getPrenom()}"/></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label class="col-sm-2 control-label">Date</label>
-                                                                            <div class="col-sm-10">
-                                                                                <p class="form-control-static"><fmt:formatDate value="${Reservation.getDate()}" pattern="dd/MM/yyyy"/></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label class="col-sm-2 control-label">Nbre de Personnes</label>
-                                                                            <div class="col-sm-10">
-                                                                                <p class="form-control-static"><c:out value="${Reservation.getNbPersonnes()}"/></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label class="col-sm-2 control-label">Email</label>
-                                                                            <div class="col-sm-10">
-                                                                                <p class="form-control-static"><c:out value="${Reservation.getEmail()}"/></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label class="col-sm-2 control-label">Type de Service</label>
-                                                                            <div class="col-sm-10">
-                                                                                <p class="form-control-static"><c:out value="${Reservation.getTypeService() == true ? 'Soir': 'Midi'}"/></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label class="col-sm-2 control-label">Téléphone</label>
-                                                                            <div class="col-sm-10">
-                                                                                <p class="form-control-static"><c:out value="${Reservation.getPhone()}"/></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
+                                                            <form class="form-horizontal">
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Nom</label>
+                                                                    <div class="col-sm-10">
+                                                                        <p class="form-control-static"><c:out value="${Reservation.getNom()}"/></p>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <c:if test="${ Reservation.getStatus() != 2 }"> <a onclick="AccepterPush(${Reservation.getId()})" class="btn btn-success hello-debug">Accepter</a> </c:if>
-                                                            <c:if test="${ Reservation.getStatus() != 3 }"> <a onclick="RefuserPush(${Reservation.getId()})" class="btn btn-danger hello-debug">Refuser</a> </c:if>
-                                                            </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Prenom</label>
+                                                                    <div class="col-sm-10">
+                                                                        <p class="form-control-static"><c:out value="${Reservation.getPrenom()}"/></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Date</label>
+                                                                    <div class="col-sm-10">
+                                                                        <p class="form-control-static"><fmt:formatDate value="${Reservation.getDate()}" pattern="dd/MM/yyyy"/></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Nbre de Personnes</label>
+                                                                    <div class="col-sm-10">
+                                                                        <p class="form-control-static"><c:out value="${Reservation.getNbPersonnes()}"/></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Email</label>
+                                                                    <div class="col-sm-10">
+                                                                        <p class="form-control-static"><c:out value="${Reservation.getEmail()}"/></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Type de Service</label>
+                                                                    <div class="col-sm-10">
+                                                                        <p class="form-control-static"><c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Téléphone</label>
+                                                                    <div class="col-sm-10">
+                                                                        <p class="form-control-static"><c:out value="${Reservation.getPhone()}"/></p>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
                                                         </div>
+                                                    </div>
+                                                    <c:if test="${ Reservation.getStatus() != 2 }"> <a onclick="AccepterPush(${Reservation.getId()})" class="btn btn-success hello-debug">Accepter</a> </c:if>
+                                                    <c:if test="${ Reservation.getStatus() != 3 }"> <a onclick="RefuserPush(${Reservation.getId()})" class="btn btn-danger hello-debug">Refuser</a> </c:if>
+                                                    </div>
                                                 </div>
-                                        </c:forEach>
+                                            </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -368,7 +384,7 @@
                                         <span class="input-group-addon">Numéro</span>
                                         <input type="text" id="inptNumero" class="form-control" required>
                                     </div>
-                                     <div style="height: 1px;" class="help-block with-errors">  </div>
+                                    <div style="height: 1px;" class="help-block with-errors">  </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -593,83 +609,132 @@
         </div>
         <script>
             $('#Horaire').popover({html: true});
-            $('.date').datetimepicker({format: 'HH:mm',stepping: '30'});
+            $('.date').datetimepicker({format: 'HH:mm', stepping: '30'});
             function AddRestaurant() {
-                if(Validation()){
-                   $.post("/Gestion?action=1", {
-                    nom: $("#inptNom").val(),
-                    adresse: $("#inptAdresse").val(),
-                    numero: $("#inptNumero").val(),
-                    localite: $("#inptLocalite").val(),
-                    zip: $("#inptZip").val(),
-                    descr: $("#inptDescr").val(),
-                    bdglow: $("#inptBdgLow").val(),
-                    bdghgt: $("#inptBdgHgt").val(),
-                    HrLndOuv: $("#inptHrLndOuv").val().split(':').join(''),
-                    HrLndFrm: $("#inptHrLndFrm").val().split(':').join(''),
-                    HrMarOuv: $("#inptHrMarOuv").val().split(':').join(''),
-                    HrMarFrm: $("#inptHrMarFrm").val().split(':').join(''),
-                    HrMercOuv: $("#inptHrMercOuv").val().split(':').join(''),
-                    HrMercFrm: $("#inptHrMercFrm").val().split(':').join(''),
-                    HrJdOuv: $("#inptHrJdOuv").val().split(':').join(''),
-                    HrJdFrm: $("#inptHrJdFrm").val().split(':').join(''),
-                    HrVndOuv: $("#inptHrVndOuv").val().split(':').join(''),
-                    HrVndFrm: $("#inptHrVndFrm").val().split(':').join(''),
-                    HrSmdOuv: $("#inptHrSmdOuv").val().split(':').join(''),
-                    HrSmdFrm: $("#inptHrSmdFrm").val().split(':').join(''),
-                    HrDmcOuv: $("#inptHrDmcOuv").val().split(':').join(''),
-                    HrDmcFrm: $("#inptHrDmcFrm").val().split(':').join(''),
-                    Type: $("#inptType").val(),
-                    Genre: $("input[name=rdio]").filter(':checked').val()
-                }).done(function () { location.reload(true); }); 
-                }else{ $(".alert").removeClass("hidden"); $(".vldt").validator('validate'); }
+                if (Validation()) {
+                    $.post("/Gestion?action=1", {
+                        nom: $("#inptNom").val(),
+                        adresse: $("#inptAdresse").val(),
+                        numero: $("#inptNumero").val(),
+                        localite: $("#inptLocalite").val(),
+                        zip: $("#inptZip").val(),
+                        descr: $("#inptDescr").val(),
+                        bdglow: $("#inptBdgLow").val(),
+                        bdghgt: $("#inptBdgHgt").val(),
+                        HrLndOuv: $("#inptHrLndOuv").val().split(':').join(''),
+                        HrLndFrm: $("#inptHrLndFrm").val().split(':').join(''),
+                        HrMarOuv: $("#inptHrMarOuv").val().split(':').join(''),
+                        HrMarFrm: $("#inptHrMarFrm").val().split(':').join(''),
+                        HrMercOuv: $("#inptHrMercOuv").val().split(':').join(''),
+                        HrMercFrm: $("#inptHrMercFrm").val().split(':').join(''),
+                        HrJdOuv: $("#inptHrJdOuv").val().split(':').join(''),
+                        HrJdFrm: $("#inptHrJdFrm").val().split(':').join(''),
+                        HrVndOuv: $("#inptHrVndOuv").val().split(':').join(''),
+                        HrVndFrm: $("#inptHrVndFrm").val().split(':').join(''),
+                        HrSmdOuv: $("#inptHrSmdOuv").val().split(':').join(''),
+                        HrSmdFrm: $("#inptHrSmdFrm").val().split(':').join(''),
+                        HrDmcOuv: $("#inptHrDmcOuv").val().split(':').join(''),
+                        HrDmcFrm: $("#inptHrDmcFrm").val().split(':').join(''),
+                        Type: $("#inptType").val(),
+                        Genre: $("input[name=rdio]").filter(':checked').val()
+                    }).done(function () {
+                        location.reload(true);
+                    });
+                } else {
+                    $(".alert").removeClass("hidden");
+                    $(".vldt").validator('validate');
+                }
             }
             function Validation() {
-                if($("#inptNom").val() != '') {
-                    if($("#inptAdresse") != ''){
-                        if($("#inptNumero").val() != ''){
-                            if($("#inptLocalite").val() != ''){
-                                if($("#inptZip").val() != '' && $.isNumeric($("#inptZip").val()) ){
-                                    if($("#inptDescr").val() != ''){
-                                        if($("#inptBdgLow").val() != '' && $.isNumeric($("#inptBdgLow").val()) ){
-                                            if($("#inptBdgHgt").val() != ''&& $.isNumeric($("#inptBdgHgt").val()) ){
-                                                if($("#inptHrLndOuv").val() != ''){
-                                                    if($("#inptHrLndFrm").val() != ''){
-                                                        if($("#inptHrMarOuv").val() != ''){
-                                                            if($("#inptHrMarFrm").val() != ''){
-                                                                if($("#inptHrMercOuv").val() != ''){
-                                                                    if($("#inptHrMercFrm").val() != ''){
-                                                                        if($("#inptHrJdOuv").val() != ''){
-                                                                           if($("#inptHrJdFrm").val() != ''){
-                                                                               if($("#inptHrVndOuv").val() != ''){
-                                                                                   if($("#inptHrVndFrm").val() != ''){
-                                                                                       if($("#inptHrSmdOuv").val() != ''){
-                                                                                           if($("#inptHrSmdFrm").val() != ''){
-                                                                                               if($("#inptHrDmcOuv").val() != ''){
-                                                                                                   if($("#inptHrDmcFrm").val() != ''){
-                                                                                                       var rep = true;
-                                                                                                   }else{ var rep = false; }
-                                                                                               }else{ var rep = false; }
-                                                                                           }else{ var rep = false; }
-                                                                                       }else{ var rep = false; }
-                                                                                   }else{ var rep = false; }
-                                                                               }else{ var rep = false; }
-                                                                           }else{ var rep = false; }
-                                                                        }else{ var rep = false; }
-                                                                    }else{ var rep = false; }
-                                                                }else{ var rep = false; }
-                                                            }else{ var rep = false; }
-                                                        }else{ var rep = false; }
-                                                    }else{ var rep = false; }
-                                                }else{ var rep = false; }
-                                            }else{ var rep = false; }
-                                        }else{ var rep = false; }
-                                    }else{ var rep = false; }
-                                }else{ var rep = false; }
-                            }else{ var rep = false; }
-                        }else{ var rep = false; }
-                    }else{ var rep = false; }
-                }else{ var rep = false; }
+                if ($("#inptNom").val() != '') {
+                    if ($("#inptAdresse") != '') {
+                        if ($("#inptNumero").val() != '') {
+                            if ($("#inptLocalite").val() != '') {
+                                if ($("#inptZip").val() != '' && $.isNumeric($("#inptZip").val())) {
+                                    if ($("#inptDescr").val() != '') {
+                                        if ($("#inptBdgLow").val() != '' && $.isNumeric($("#inptBdgLow").val())) {
+                                            if ($("#inptBdgHgt").val() != '' && $.isNumeric($("#inptBdgHgt").val())) {
+                                                if ($("#inptHrLndOuv").val() != '') {
+                                                    if ($("#inptHrLndFrm").val() != '') {
+                                                        if ($("#inptHrMarOuv").val() != '') {
+                                                            if ($("#inptHrMarFrm").val() != '') {
+                                                                if ($("#inptHrMercOuv").val() != '') {
+                                                                    if ($("#inptHrMercFrm").val() != '') {
+                                                                        if ($("#inptHrJdOuv").val() != '') {
+                                                                            if ($("#inptHrJdFrm").val() != '') {
+                                                                                if ($("#inptHrVndOuv").val() != '') {
+                                                                                    if ($("#inptHrVndFrm").val() != '') {
+                                                                                        if ($("#inptHrSmdOuv").val() != '') {
+                                                                                            if ($("#inptHrSmdFrm").val() != '') {
+                                                                                                if ($("#inptHrDmcOuv").val() != '') {
+                                                                                                    if ($("#inptHrDmcFrm").val() != '') {
+                                                                                                        var rep = true;
+                                                                                                    } else {
+                                                                                                        var rep = false;
+                                                                                                    }
+                                                                                                } else {
+                                                                                                    var rep = false;
+                                                                                                }
+                                                                                            } else {
+                                                                                                var rep = false;
+                                                                                            }
+                                                                                        } else {
+                                                                                            var rep = false;
+                                                                                        }
+                                                                                    } else {
+                                                                                        var rep = false;
+                                                                                    }
+                                                                                } else {
+                                                                                    var rep = false;
+                                                                                }
+                                                                            } else {
+                                                                                var rep = false;
+                                                                            }
+                                                                        } else {
+                                                                            var rep = false;
+                                                                        }
+                                                                    } else {
+                                                                        var rep = false;
+                                                                    }
+                                                                } else {
+                                                                    var rep = false;
+                                                                }
+                                                            } else {
+                                                                var rep = false;
+                                                            }
+                                                        } else {
+                                                            var rep = false;
+                                                        }
+                                                    } else {
+                                                        var rep = false;
+                                                    }
+                                                } else {
+                                                    var rep = false;
+                                                }
+                                            } else {
+                                                var rep = false;
+                                            }
+                                        } else {
+                                            var rep = false;
+                                        }
+                                    } else {
+                                        var rep = false;
+                                    }
+                                } else {
+                                    var rep = false;
+                                }
+                            } else {
+                                var rep = false;
+                            }
+                        } else {
+                            var rep = false;
+                        }
+                    } else {
+                        var rep = false;
+                    }
+                } else {
+                    var rep = false;
+                }
                 return rep;
             }
             function AccepterPush(id) {
