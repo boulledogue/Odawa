@@ -80,8 +80,13 @@ namespace BU
                     if (r.username != null)
                         if (r.password != null)
                             if (r.email != null)
-                                if (r.phone != null)
-                                    b = true;
+                                if (r.phone != null) b = true;
+                                else LogManager.LogNullException("Utilisateur Add/Update : Phone est Null");
+                            else LogManager.LogNullException("Utilisateur Add/Update : Email est Null");
+                        else LogManager.LogNullException("Utilisateur Add/Update : Password est Null");
+                    else LogManager.LogNullException("Utilisateur Add/Update : Username est Null");
+                else LogManager.LogNullException("Utilisateur Add/Update : Prenom est Null");
+            else LogManager.LogNullException("Utilisateur Add/Update : Nom est Null");
             return b;
         }
     }

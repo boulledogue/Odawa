@@ -151,8 +151,22 @@ namespace BU
                                                 if (r.premium != null)
                                                     if (r.genre != null)
                                                         if (r.idRestaurateur != null && RestaurateurManager.GetAll().Exists(x => x.id == r.idRestaurateur))
-                                                            if (r.idTypeCuisine != null && TypeCuisineManager.GetAll().Exists(x => x.id == r.idTypeCuisine))
-                                                                b = true;
+                                                            if (r.idTypeCuisine != null && TypeCuisineManager.GetAll().Exists(x => x.id == r.idTypeCuisine)) b = true;
+                                                            else LogManager.LogNullException("Restaurant Add/Update : IdTypeCuisine est Null ou Non-associable");
+                                                        else LogManager.LogNullException("Restaurant Add/Update : IdRestaurateur est Null ou Non-associable");
+                                                    else LogManager.LogNullException("Restaurant Add/Update : Genre est Null");
+                                                else LogManager.LogNullException("Restaurant Add/Update : Premium est Null");
+                                            else LogManager.LogNullException("Restaurant Add/Update : Horaire est Null");
+                                        else LogManager.LogNullException("Restaurant Add/Update : BudgetHigh est Null");
+                                    else LogManager.LogNullException("Restaurant Add/Update : BudgetLow est Null");
+                                else LogManager.LogNullException("Restaurant Add/Update : Description est Null");
+                            else LogManager.LogNullException("Restaurant Add/Update : Localite est Null");
+                        else LogManager.LogNullException("Restaurant Add/Update : Zipcode est Null");
+                    else LogManager.LogNullException("Restaurant Add/Update : Numero est Null");
+                else LogManager.LogNullException("Restaurant Add/Update : Adresse est Null");
+            else LogManager.LogNullException("Restaurant Add/Update : Nom est Null");
+
+
             return b;
         }
     }

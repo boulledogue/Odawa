@@ -96,9 +96,17 @@ namespace BU
                                     if (r.phone != null)
                                         if (r.idRestaurant != null && RestaurantManager.GetAll().Exists(x => x.id == r.idRestaurant))
                                             if (r.status != null)
-                                                if (r.encodedDateTime != null)
-                                                    b = true;
-
+                                                if (r.encodedDateTime != null) b = true;
+                                                else LogManager.LogNullException("Reservation Add/Update : EncodedDateTime est Null ");
+                                            else LogManager.LogNullException("Reservation Add/Update : Status est Null ");
+                                        else LogManager.LogNullException("Reservation Add/Update : IdRestaurateur est Null ou Non-associable ");
+                                    else LogManager.LogNullException("Reservation Add/Update : Phone est Null ");
+                                else LogManager.LogNullException("Reservation Add/Update : Email est Null ");
+                            else LogManager.LogNullException("Reservation Add/Update : nbPersonnes est Null ");
+                        else LogManager.LogNullException("Reservation Add/Update : typeService est Null ");
+                    else LogManager.LogNullException("Reservation Add/Update : Date est Null ");
+                else LogManager.LogNullException("Reservation Add/Update : Prenom est Null ");
+            else LogManager.LogNullException("Reservation Add/Update : Nom est Null ");
             return b;
         }
     }
