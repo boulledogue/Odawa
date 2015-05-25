@@ -7,6 +7,7 @@ package Controller;
 
 import Models.ModelsMapping;
 import Models.RestaurantJ;
+import Utils.LogManager;
 import java.util.ArrayList;
 
 /**
@@ -91,7 +92,11 @@ public class RestaurantManager {
             Integer.parseInt(genre);
             Integer.parseInt(idTypeCuisine);
             Integer.parseInt(idRestaurateur);
-        } catch(NumberFormatException e) { return false; }
+        } catch(NumberFormatException e) { 
+            LogManager log = new LogManager();
+            log.LogException(e);
+            return false;  
+        }
         
         return true;
     }

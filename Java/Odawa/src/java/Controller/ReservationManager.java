@@ -8,6 +8,7 @@ package Controller;
 import Models.ModelsMapping;
 import Models.ReservationJ;
 import Models.RestaurantJ;
+import Utils.LogManager;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -78,8 +79,17 @@ public class ReservationManager {
             Integer.parseInt(statut);
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date dateformat = formatter.parse(date);
-        } catch(NumberFormatException e) { return false; } 
-        catch (ParseException ex) { return false; } 
+        } catch(NumberFormatException e) { 
+            LogManager log = new LogManager();
+            log.LogException(e);
+            return false;
+        } 
+        catch (ParseException ex) { 
+            LogManager log = new LogManager();
+            log.LogException(ex);
+            return false;
+        }
+        
         return true;
     }
 }
