@@ -60,10 +60,5 @@ namespace BU
         {
             DataProvider.DeleteAdministrateur(id);
         }
-
-        public static void isValid()
-        { 
-            
-        }
     }
 }

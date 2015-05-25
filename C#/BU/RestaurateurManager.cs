@@ -75,10 +75,5 @@ namespace BU
             if (r != null && r.password == password) return true;
             return false;
         }
-
-        public static void isValid()
-        {
-
-        }
     }
 }

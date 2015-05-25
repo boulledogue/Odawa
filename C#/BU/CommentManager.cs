@@ -77,9 +77,14 @@ namespace BU
             }
         }
 
-        public static void isValid()
+        public static bool isValid(Comment c)
         {
-
+            bool b = false ;
+            if (c.idRestaurant != null && c.idRestaurant > 0)
+                if (c.idUtilisateur != null && c.idUtilisateur > 0)
+                    if (c.commentaire != null)
+                        b = true;
+            return b;
         }
     }
 }

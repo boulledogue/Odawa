@@ -84,9 +84,21 @@ namespace BU
             }
         }
 
-        public static void isValid()
+        public static bool isValid(Reservation r)
         {
+            bool b = false;
+            if(r.nom != null)
+                if(r.prenom != null)
+                    if(r.date != null)
+                        if(r.typeService != null)
+                            if(r.nbPersonnes != null)
+                                if(r.email != null)
+                                    if(r.phone != null)
+                                        if(r.idRestaurant != null && r.idRestaurant > 0)
+                                            if(r.status != null)
+                                                if(r.encodedDateTime != null)
 
+            return b;
         }
     }
 }

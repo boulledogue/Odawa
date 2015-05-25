@@ -49,9 +49,5 @@ namespace BU
             DataProvider.DeleteTypeCuisine(id);
         }
 
-        public static void isValid()
-        {
-
-        }
     }
 }
