@@ -7,6 +7,7 @@ package Controller;
 
 import Models.ModelsMapping;
 import Models.CommentJ;
+import Utils.LogManager;
 import java.util.ArrayList;
 
 /**
@@ -42,7 +43,11 @@ public class CommentManager {
         {
             Integer.parseInt(idRestaurant);
             Integer.parseInt(idUtilisateur);
-        } catch(NumberFormatException e) { return false; }
+        } catch(NumberFormatException e) {
+            LogManager log = new LogManager();
+            log.LogException(e);
+            return false; 
+        }
         
         return true;
     }
