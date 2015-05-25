@@ -36,7 +36,7 @@
                                             <p><span class="text-muted">Type de Cuisine :</span></br><c:out value="${RestaurantRandom.getTypeCuisine()}"/></p>
                                             <p><span class="text-muted">Adresse :</span></br><c:out value="${RestaurantRandom.getAllOfAdresse()}"/></p> 
                                             <p><span class="text-muted">Fourchette de Tarif :</span></br><c:out value="${RestaurantRandom.getAllBudget()}"/></p>
-                                            <p><span class="text-muted">Horaire :</span></br><c:out value="${RestaurantRandom.getFormatHoraire()[Integer.parseInt(NumJour)-1]}, ce ${nomJour} !"/></br>
+                                            <p><span class="text-muted">Horaire :</span></br><c:out value="${RestaurantRandom.getFormatHoraire()[Integer.parseInt(NumJour)-2]}, ce ${nomJour} !"/></br>
                                                 <a id="Horaire" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-content="
                                                    <table>
                                                    <tr>

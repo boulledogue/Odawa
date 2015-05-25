@@ -10,18 +10,18 @@ public class Jour {
 
     public static ArrayList<String> getNomJours() {
         ArrayList<String> nmJ = new ArrayList();
-        nmJ.add("Dimanche : ");
         nmJ.add("Lundi : ");
         nmJ.add("Mardi : ");
         nmJ.add("Mercredi : ");
         nmJ.add("Jeudi : ");
         nmJ.add("Vendredi : ");
         nmJ.add("Samedi : ");
+        nmJ.add("Dimanche : ");
         return nmJ;
     }
     
     public static String getNomJour() {
-        DateFormatSymbols symbols = new DateFormatSymbols(Locale.FRENCH);
+        DateFormatSymbols symbols = new DateFormatSymbols(Locale.getDefault());
         return symbols.getWeekdays()[getNumJour()];
     }
     
