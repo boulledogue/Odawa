@@ -135,5 +135,10 @@ namespace BU
             r = lst[randomIndex];
             return r;
         }
+
+        public static void isValid()
+        {
+
+        }
     }
 }

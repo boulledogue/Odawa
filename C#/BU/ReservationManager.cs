@@ -83,5 +83,10 @@ namespace BU
                 }
             }
         }
+
+        public static void isValid()
+        {
+
+        }
     }
 }
