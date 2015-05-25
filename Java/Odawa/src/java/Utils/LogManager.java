@@ -6,12 +6,16 @@
 package Utils;
 
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
  * @author DCR
  */
 public class LogManager {
+    
+    private Date date = new Date();
     
     public void LogException(Exception ex) {
         try
@@ -26,4 +30,18 @@ public class LogManager {
             //on ne fait rien, erreur dans le log ne peut pas être bloquant
         }
     } 
+    
+    public void LogMailException(Exception ex) {
+        try
+        {            
+            String filename = System.getProperty("java.io.tmpdir") + "JavaMailExceptionLog.log";
+            FileWriter fw = new FileWriter(filename,true);
+            fw.write(date + " --- " + ex + "\n");
+            fw.close();
+        }
+        catch(Exception e)
+        {
+            //on ne fait rien, erreur dans le log ne peut pas être bloquant
+        }
+    }
 }

@@ -63,7 +63,8 @@ public class Restaurant extends HttpServlet {
                 r.setNbPersonnes(Integer.parseInt(request.getParameter("nbrePersonne")));
                 r.setEmail(request.getParameter("email"));
                 r.setPhone(request.getParameter("phone"));
-                r.setTypeService(request.getParameter("type").equals("true"));
+                if (request.getParameter("type").equals("false")) r.setTypeService(false);
+                else r.setTypeService(true);
                 r.setIdRestaurant(Integer.parseInt(request.getParameter("idrest")));
                 ReservationManager.Add(r);
             } catch (ParseException | DatatypeConfigurationException ex) {

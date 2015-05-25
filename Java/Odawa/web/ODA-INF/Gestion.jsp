@@ -268,7 +268,7 @@
                                                             </c:forEach>
                                                             <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon glyphicon-time " aria-hidden="true"></span> 
                                                             <fmt:formatDate value="${Reservation.getDate()}" pattern="dd/MM/yyyy" />
-                                                            <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon <c:out value="${Reservation.getTypeService() == true ? 'glyphicon-certificate': 'glyphicon-adjust'}"/>" aria-hidden="true"></span> Service du <c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/>
+                                                            <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon <c:out value="${Reservation.getTypeService() == true ? 'glyphicon-adjust':'glyphicon-certificate'}"/>" aria-hidden="true"></span> Service du <c:out value="${Reservation.getTypeService() == true ? 'Soir':'Midi'}"/>
                                                         </p>
                                                     </div> 
                                                     <div id="collapseOne<c:out value="${Reservation.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -309,7 +309,7 @@
                                                                         <div class="form-group">
                                                                             <label class="col-sm-2 control-label">Type de Service</label>
                                                                             <div class="col-sm-10">
-                                                                                <p class="form-control-static"><c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/></p>
+                                                                                <p class="form-control-static"><c:out value="${Reservation.getTypeService() == true ? 'Soir': 'Midi'}"/></p>
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group">
