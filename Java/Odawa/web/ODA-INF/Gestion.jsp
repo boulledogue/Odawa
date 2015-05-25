@@ -325,7 +325,7 @@
                                                                 <div class="form-group">
                                                                     <label class="col-sm-2 control-label">Type de Service</label>
                                                                     <div class="col-sm-10">
-                                                                        <p class="form-control-static"><c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/></p>
+                                                                        <p class="form-control-static"><c:out value="${Reservation.getTypeService() == true ? 'Soir': 'Midi'}"/></p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
