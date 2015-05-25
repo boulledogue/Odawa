@@ -26,40 +26,14 @@ namespace Odawa
             }
             catch (Exception ex)
             {
-                //construction du message d'erreur
-                StringBuilder messageSB = new StringBuilder();
-                string executingAssembly = System.Reflection.Assembly.GetExecutingAssembly().ToString();
-                messageSB.Append(DateTime.Now + " - ");
-                messageSB.Append(executingAssembly + " - ");
-                if (ex == null)
-                {
-                    messageSB.Append("Erreur inconnue!");
-                }
-                else
-                {
-                    messageSB.Append(ex.ToString());
-                    if (ex.InnerException != null) messageSB.Append(ex.InnerException.ToString());
-                }
-                messageSB.Append("\n-----------------------------------------------------------\n");
-                
                 //insertion dans le fichier log
                 try
                 {
-                    LogManager.LogException(messageSB.ToString());
+                    LogManager.LogException(ex);
                 }
                 catch
                 {
-                    //on ne fait rien ici, ça ne peut pas être bloquant pour fermer l'application
-                }
-
-                //envoi d'un email
-                try
-                {
-                    EmailManager.EmailException(messageSB.ToString());
-                }
-                catch
-                {
-                    //on ne fait rien ici, ça ne peut pas être bloquant pour fermer l'application
+                    //on ne fait rien ici, ça ne peut pas être bloquant pour fermer l'application                
                 }
                 finally
                 {
