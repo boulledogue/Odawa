@@ -72,9 +72,17 @@ namespace BU
             return false;
         }
 
-        public static void isValid()
+        public static bool isValid(Utilisateur r)
         {
-
+            bool b = false;
+            if (r.nom != null)
+                if (r.prenom != null)
+                    if (r.username != null)
+                        if (r.password != null)
+                            if (r.email != null)
+                                if (r.phone != null)
+                                    b = true;
+            return b;
         }
     }
 }

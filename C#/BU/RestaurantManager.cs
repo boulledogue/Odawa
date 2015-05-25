@@ -136,9 +136,24 @@ namespace BU
             return r;
         }
 
-        public static void isValid()
+        public static bool isValid(Restaurant r)
         {
-
+            bool b = false;
+            if (r.nom != null)
+                if (r.adresse != null)
+                    if (r.numero != null)
+                        if (r.zipCode != null)
+                            if (r.localite != null)
+                                if (r.description != null)
+                                    if (r.budgetLow != null)
+                                        if (r.budgetHigh != null)
+                                            if (r.horaire != null)
+                                                if (r.premium != null)
+                                                    if (r.genre != null)
+                                                        if (r.idRestaurateur != null && RestaurateurManager.GetAll().Exists(x => x.id == r.idRestaurateur))
+                                                            if (r.idTypeCuisine != null && TypeCuisineManager.GetAll().Exists(x => x.id == r.idTypeCuisine))
+                                                                b = true;
+            return b;
         }
     }
 }
