@@ -284,7 +284,7 @@
                                                     </c:forEach>
                                                     <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon glyphicon-time " aria-hidden="true"></span> 
                                                     <fmt:formatDate value="${Reservation.getDate()}" pattern="dd/MM/yyyy" />
-                                                    <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon <c:out value="${Reservation.getTypeService() == true ? 'glyphicon-certificate': 'glyphicon-adjust'}"/>" aria-hidden="true"></span> Service du <c:out value="${Reservation.getTypeService() == true ? 'Midi': 'Soir'}"/>
+                                                    <span style="margin-right: 5px; margin-left: 5px;" class="glyphicon <c:out value="${Reservation.getTypeService() == true ? 'glyphicon-adjust':'glyphicon-certificate' }"/>" aria-hidden="true"></span> Service du <c:out value="${Reservation.getTypeService() == true ? 'Soir': 'Midi'}"/>
                                                 </p>
                                             </div> 
                                             <div id="collapseOne<c:out value="${Reservation.getId()}"/>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
