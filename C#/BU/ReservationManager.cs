@@ -13,18 +13,20 @@ namespace BU
     {
         public static void Create(Reservation r)
         {
-            OdawaDS.reservationsRow newRow = DataProvider.odawa.reservations.NewreservationsRow();
-            newRow.nom = r.nom;
-            newRow.prenom = r.prenom;
-            newRow.date = r.date;
-            newRow.typeService = r.typeService;
-            newRow.nbPersonnes = r.nbPersonnes;
-            newRow.email = r.email;
-            newRow.phone = r.phone;
-            newRow.idRestaurant = r.idRestaurant;
-            newRow.status = r.status;
-            newRow.encodedDateTime = r.encodedDateTime;
-            DataProvider.CreateReservation(newRow);
+            if (isValid(r)) {
+                OdawaDS.reservationsRow newRow = DataProvider.odawa.reservations.NewreservationsRow();
+                newRow.nom = r.nom;
+                newRow.prenom = r.prenom;
+                newRow.date = r.date;
+                newRow.typeService = r.typeService;
+                newRow.nbPersonnes = r.nbPersonnes;
+                newRow.email = r.email;
+                newRow.phone = r.phone;
+                newRow.idRestaurant = r.idRestaurant;
+                newRow.status = r.status;
+                newRow.encodedDateTime = r.encodedDateTime;
+                DataProvider.CreateReservation(newRow);
+            }
         }
         
         public static List<Reservation> GetAll()
@@ -52,24 +54,28 @@ namespace BU
 
         public static void Update(Reservation r)
         {
-            OdawaDS.reservationsDataTable dt = DataProvider.GetReservations();
-            OdawaDS.reservationsRow updRow = DataProvider.odawa.reservations.NewreservationsRow();
-            updRow.id = r.id;
-            updRow.nom = r.nom;
-            updRow.prenom = r.prenom;
-            updRow.date = r.date;
-            updRow.typeService = r.typeService;
-            updRow.nbPersonnes = r.nbPersonnes;
-            updRow.email = r.email;
-            updRow.phone = r.phone;
-            updRow.idRestaurant = r.idRestaurant;
-            updRow.status = r.status;
-            DataProvider.UpdateReservation(updRow);
+            if (isValid(r)) {
+                OdawaDS.reservationsDataTable dt = DataProvider.GetReservations();
+                OdawaDS.reservationsRow updRow = DataProvider.odawa.reservations.NewreservationsRow();
+                updRow.id = r.id;
+                updRow.nom = r.nom;
+                updRow.prenom = r.prenom;
+                updRow.date = r.date;
+                updRow.typeService = r.typeService;
+                updRow.nbPersonnes = r.nbPersonnes;
+                updRow.email = r.email;
+                updRow.phone = r.phone;
+                updRow.idRestaurant = r.idRestaurant;
+                updRow.status = r.status;
+                DataProvider.UpdateReservation(updRow);
+            }
         }
 
         public static void Delete(int id)
         {
-            DataProvider.DeleteReservation(id);
+            if (GetAll().Exists(x => x.id == id)) {
+                DataProvider.DeleteReservation(id);
+            }
         }
 
         public static void DeleteByRestaurant(int id)
