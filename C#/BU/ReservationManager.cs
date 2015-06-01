@@ -97,10 +97,10 @@ namespace BU
                 if (r.prenom != null)
                     if (r.date != null)
                         if (r.typeService != null)
-                            if (r.nbPersonnes != null)
+                            if (r.nbPersonnes > 0)
                                 if (r.email != null)
                                     if (r.phone != null)
-                                        if (r.idRestaurant != null && RestaurantManager.GetAll().Exists(x => x.id == r.idRestaurant))
+                                        if (r.idRestaurant > 0 && RestaurantManager.GetAll().Exists(x => x.id == r.idRestaurant))
                                             if (r.status != null)
                                                 if (r.encodedDateTime != null) b = true;
                                                 else LogManager.LogNullException("Reservation Add/Update : EncodedDateTime est Null ");

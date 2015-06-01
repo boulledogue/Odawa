@@ -12,6 +12,7 @@ namespace BU
     {
         private static string tmpPath = System.IO.Path.GetTempPath();
 
+        //Log des exceptions "graves" et irrécupérables
         public static void LogException(Exception ex)
         {
             //construction du message d'erreur
@@ -49,6 +50,7 @@ namespace BU
             }
         }
 
+        //Log des exceptions de type 'valeur null'
         public static void LogNullException(string message)
         {
             //construction du message d'erreur
@@ -58,6 +60,28 @@ namespace BU
             else messageSB.Append(message);
             messageSB.Append("\n-----------------------------------------------------------\n");
             string logFilePath = tmpPath + "OdawaNullExceptionLog.log";
+
+            //ajout au fichier dont le chemin complet est spécifié à la ligne précédente
+            try
+            {
+                System.IO.File.AppendAllText(logFilePath, messageSB.ToString());
+            }
+            catch
+            {
+                //on ne fait rien si une exception survient pendant la création du log, ne peut être bloquant
+            }
+        }
+
+        //Log des exceptions SQL
+        public static void LogSQLException(string message)
+        {
+            //construction du message d'erreur
+            StringBuilder messageSB = new StringBuilder();
+            messageSB.Append(DateTime.Now + " - ");
+            if (message == null) messageSB.Append("Erreur sql inconnue!");
+            else messageSB.Append(message);
+            messageSB.Append("\n-----------------------------------------------------------\n");
+            string logFilePath = tmpPath + "OdawaSQLExceptionLog.log";
 
             //ajout au fichier dont le chemin complet est spécifié à la ligne précédente
             try

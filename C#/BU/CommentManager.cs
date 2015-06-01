@@ -86,8 +86,8 @@ namespace BU
         public static bool isValid(Comment c)
         {
             bool b = false ;
-            if (c.idRestaurant != null && RestaurantManager.GetAll().Exists(x => x.id == c.idRestaurant))
-                if (c.idUtilisateur != null && UtilisateurManager.GetAll().Exists(x => x.id == c.idUtilisateur))
+            if (c.idRestaurant > 0 && RestaurantManager.GetAll().Exists(x => x.id == c.idRestaurant))
+                if (c.idUtilisateur > 0 && UtilisateurManager.GetAll().Exists(x => x.id == c.idUtilisateur))
                     if (c.commentaire != null) b = true;
                     else LogManager.LogNullException("Comment Add/Update : Commentaire est Null ");
                 else LogManager.LogNullException("Comment Add/Update : IdUtilisateur est Null ou Non-associable");

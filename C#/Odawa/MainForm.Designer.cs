@@ -254,7 +254,6 @@
             this.buttonModUser.TabIndex = 10;
             this.buttonModUser.Text = "Modifier";
             this.buttonModUser.UseVisualStyleBackColor = true;
-            this.buttonModUser.Click += new System.EventHandler(this.buttonModUser_Click);
             // 
             // buttonDelUser
             // 
@@ -266,7 +265,6 @@
             this.buttonDelUser.TabIndex = 9;
             this.buttonDelUser.Text = "Supprimer";
             this.buttonDelUser.UseVisualStyleBackColor = true;
-            this.buttonDelUser.Click += new System.EventHandler(this.buttonDelUser_Click);
             // 
             // buttonAddUser
             // 
@@ -277,7 +275,6 @@
             this.buttonAddUser.TabIndex = 8;
             this.buttonAddUser.Text = "Ajouter";
             this.buttonAddUser.UseVisualStyleBackColor = true;
-            this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
             // 
             // dataGridViewUtilisateurs
             // 
@@ -313,7 +310,7 @@
             // buttonViewReservations
             // 
             this.buttonViewReservations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonViewReservations.Location = new System.Drawing.Point(6, 416);
+            this.buttonViewReservations.Location = new System.Drawing.Point(3, 419);
             this.buttonViewReservations.Name = "buttonViewReservations";
             this.buttonViewReservations.Size = new System.Drawing.Size(134, 23);
             this.buttonViewReservations.TabIndex = 13;
@@ -324,7 +321,7 @@
             // buttonAddResto
             // 
             this.buttonAddResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddResto.Location = new System.Drawing.Point(547, 416);
+            this.buttonAddResto.Location = new System.Drawing.Point(547, 419);
             this.buttonAddResto.Name = "buttonAddResto";
             this.buttonAddResto.Size = new System.Drawing.Size(75, 23);
             this.buttonAddResto.TabIndex = 12;
@@ -335,7 +332,7 @@
             // buttonModResto
             // 
             this.buttonModResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonModResto.Location = new System.Drawing.Point(628, 416);
+            this.buttonModResto.Location = new System.Drawing.Point(628, 419);
             this.buttonModResto.Name = "buttonModResto";
             this.buttonModResto.Size = new System.Drawing.Size(75, 23);
             this.buttonModResto.TabIndex = 11;
@@ -347,7 +344,7 @@
             // 
             this.buttonDelResto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDelResto.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonDelResto.Location = new System.Drawing.Point(709, 416);
+            this.buttonDelResto.Location = new System.Drawing.Point(709, 419);
             this.buttonDelResto.Name = "buttonDelResto";
             this.buttonDelResto.Size = new System.Drawing.Size(75, 23);
             this.buttonDelResto.TabIndex = 10;
@@ -365,7 +362,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewRestaurants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewRestaurants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRestaurants.Location = new System.Drawing.Point(6, 0);
+            this.dataGridViewRestaurants.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewRestaurants.Name = "dataGridViewRestaurants";
             this.dataGridViewRestaurants.ReadOnly = true;
             this.dataGridViewRestaurants.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

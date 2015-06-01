@@ -11,7 +11,7 @@ namespace BU
 {
     public static class RestaurateurManager
     {
-        public static void Create(Restaurateur r)
+        public static bool Create(Restaurateur r)
         {
             OdawaDS.restaurateursRow newRow = DataProvider.odawa.restaurateurs.NewrestaurateursRow();
             newRow.nom = r.nom.ToUpper();
@@ -20,15 +20,25 @@ namespace BU
             newRow.password = r.password;
             newRow.email = r.email.ToLower();
             newRow.phone = r.phone;
-            DataProvider.CreateRestaurateur(newRow);
             try
             {
-                EmailManager.EmailCreateRestaurateur(r);
+                DataProvider.CreateRestaurateur(newRow);
+                try
+                {
+                    EmailManager.EmailCreateRestaurateur(r);
+                }
+                catch
+                {
+                    //on ne fait rien ici, ne peut pas bloquer l'application
+                }
+                return true;
             }
-            catch
+            catch (System.Data.SqlClient.SqlException e)
             {
-                //on ne fait rien ici, ne peut pas bloquer l'application
+                LogManager.LogSQLException(e.Message);
+                return false;
             }
+            
         }
 
         public static List<Restaurateur> GetAll()
@@ -50,7 +60,7 @@ namespace BU
             return lst;
         }
 
-        public static void Update(Restaurateur r)
+        public static bool Update(Restaurateur r)
         {
             OdawaDS.restaurateursDataTable dt = DataProvider.GetRestaurateurs();
             OdawaDS.restaurateursRow updRow = DataProvider.odawa.restaurateurs.NewrestaurateursRow();
@@ -61,18 +71,39 @@ namespace BU
             updRow.password = r.password;
             updRow.email = r.email.ToLower();
             updRow.phone = r.phone;
-            DataProvider.UpdateRestaurateur(updRow);
+            try
+            {
+                DataProvider.UpdateRestaurateur(updRow);
+                return true;
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                LogManager.LogSQLException(e.Message);
+                return false;
+            }
         }
 
-        public static void Delete(int id)
+        public static bool Delete(int id)
         {
-            DataProvider.DeleteRestaurateur(id);
+            try
+            {
+                DataProvider.DeleteRestaurateur(id);
+                return true;
+            }
+            catch(System.Data.SqlClient.SqlException e)
+            {
+                LogManager.LogSQLException(e.Message);
+                return false;
+            }
         }
 
         public static bool AcceptLogin(string username, string password)
         {
-            Restaurateur r = GetAll().Find(x => x.username == username);            
-            if (r != null && r.password == password) return true;
+            if (username != null && password != null)
+            {
+                Restaurateur r = GetAll().Find(x => x.username == username);
+                if (r != null && r.password == password) return true;
+            }
             return false;
         }
     }

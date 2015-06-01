@@ -11,7 +11,7 @@ namespace BU
 {
     public static class AdministrateurManager
     {
-        public static void Create(Administrateur a)
+        public static bool Create(Administrateur a)
         {
             OdawaDS.administrateursRow newRow = DataProvider.odawa.administrateurs.NewadministrateursRow();
             newRow.nom = a.nom.ToUpper();
@@ -20,7 +20,16 @@ namespace BU
             newRow.password = a.password;
             newRow.email = a.email.ToLower();
             newRow.phone = a.phone;
-            DataProvider.CreateAdministrateur(newRow);
+            try
+            {
+                DataProvider.CreateAdministrateur(newRow);
+                return true;
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                LogManager.LogSQLException(e.Message);
+                return false;
+            }                   
         }
 
         public static List<Administrateur> GetAll()
@@ -42,7 +51,7 @@ namespace BU
             return lst;
         }
 
-        public static void Update(Administrateur a)
+        public static bool Update(Administrateur a)
         {
             OdawaDS.administrateursDataTable dt = DataProvider.GetAdministrateurs();
             OdawaDS.administrateursRow updRow = DataProvider.odawa.administrateurs.NewadministrateursRow();
@@ -53,12 +62,30 @@ namespace BU
             updRow.password = a.password.ToLower();
             updRow.email = a.email;
             updRow.phone = a.phone;
-            DataProvider.UpdateAdministrateur(updRow);
+            try
+            {
+                DataProvider.UpdateAdministrateur(updRow);
+                return true;
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                LogManager.LogSQLException(e.Message);
+                return false;
+            }            
         }
 
-        public static void Delete(int id)
+        public static bool Delete(int id)
         {
-            DataProvider.DeleteAdministrateur(id);
+            try
+            {
+                DataProvider.DeleteAdministrateur(id);
+                return true;
+            }
+            catch(System.Data.SqlClient.SqlException e)
+            {
+                LogManager.LogSQLException(e.Message);
+                return false;
+            }
         }
     }
 }

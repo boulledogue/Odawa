@@ -151,13 +151,13 @@ namespace BU
                         if (r.zipCode != null)
                             if (r.localite != null)
                                 if (r.description != null)
-                                    if (r.budgetLow != null)
-                                        if (r.budgetHigh != null)
+                                    if (r.budgetLow > 0)
+                                        if (r.budgetHigh > 0)
                                             if (r.horaire != null)
                                                 if (r.premium != null)
                                                     if (r.genre != null)
-                                                        if (r.idRestaurateur != null && RestaurateurManager.GetAll().Exists(x => x.id == r.idRestaurateur))
-                                                            if (r.idTypeCuisine != null && TypeCuisineManager.GetAll().Exists(x => x.id == r.idTypeCuisine)) b = true;
+                                                        if (r.idRestaurateur > 0 && RestaurateurManager.GetAll().Exists(x => x.id == r.idRestaurateur))
+                                                            if (r.idTypeCuisine > 0 && TypeCuisineManager.GetAll().Exists(x => x.id == r.idTypeCuisine)) b = true;
                                                             else LogManager.LogNullException("Restaurant Add/Update : IdTypeCuisine est Null ou Non-associable");
                                                         else LogManager.LogNullException("Restaurant Add/Update : IdRestaurateur est Null ou Non-associable");
                                                     else LogManager.LogNullException("Restaurant Add/Update : Genre est Null");
