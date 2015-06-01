@@ -44,4 +44,18 @@ public class LogManager {
             //on ne fait rien, erreur dans le log ne peut pas être bloquant
         }
     }
+    
+    public void LogFormatException(Exception ex) {
+        try
+        {            
+            String filename = System.getProperty("java.io.tmpdir") + "JavaFormatExceptionLog.log";
+            FileWriter fw = new FileWriter(filename,true);
+            fw.write(date + " --- " + ex + "\n");
+            fw.close();
+        }
+        catch(Exception e)
+        {
+            //on ne fait rien, erreur dans le log ne peut pas être bloquant
+        }
+    }
 }

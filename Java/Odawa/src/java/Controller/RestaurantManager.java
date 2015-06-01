@@ -69,8 +69,8 @@ public class RestaurantManager {
     }
     
     public static boolean IsValid(String nom, String adresse, String numero, String zipCode, 
-            String localite, String description, String budgetLow, String budgetHigh, String genre, String Horaire,
-            String idTypeCuisine, String idRestaurateur)
+            String localite, String description, String budgetLow, String budgetHigh, String genre,
+            String idTypeCuisine)
     {   
         if(nom == null) return false;
         if(adresse == null) return false;
@@ -81,9 +81,9 @@ public class RestaurantManager {
         if(budgetLow == null) return false;
         if(budgetHigh == null) return false;
         if(genre == null) return false;
-        if(Horaire == null) return false;
+        //if(Horaire == null) return false; 
+        //non utilisé car aucun risque que le formulaire envoie des données null
         if(idTypeCuisine == null) return false;
-        if(idRestaurateur == null) return false;
         
         try
         {
@@ -91,10 +91,9 @@ public class RestaurantManager {
             Integer.parseInt(budgetHigh);
             Integer.parseInt(genre);
             Integer.parseInt(idTypeCuisine);
-            Integer.parseInt(idRestaurateur);
         } catch(NumberFormatException e) { 
             LogManager log = new LogManager();
-            log.LogException(e);
+            log.LogFormatException(e);
             return false;  
         }
         

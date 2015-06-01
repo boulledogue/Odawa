@@ -1,4 +1,5 @@
 // Dependance Externe
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,12 +27,12 @@ public class Restaurant extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         RestaurantJ r = RestaurantManager.GetRestaurant(Integer.parseInt(request.getParameter("id")));
-        request.setAttribute("Restaurant",r);
-        request.setAttribute("Comments",CommentManager.GetCommentByRestaurant(r.getId()));
-        request.setAttribute("day",getNumJour());
-        request.setAttribute("nomJour",getNomJour());
-        request.setAttribute("ListNomJour",getNomJours());
-        request.getRequestDispatcher("/ODA-INF/Restaurant.jsp").forward(request,response);
+        request.setAttribute("Restaurant", r);
+        request.setAttribute("Comments", CommentManager.GetCommentByRestaurant(r.getId()));
+        request.setAttribute("day", getNumJour());
+        request.setAttribute("nomJour", getNomJour());
+        request.setAttribute("ListNomJour", getNomJours());
+        request.getRequestDispatcher("/ODA-INF/Restaurant.jsp").forward(request, response);
     }
 
     @Override
@@ -43,30 +44,36 @@ public class Restaurant extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if( Integer.parseInt(request.getParameter("action")) == 1 ){
-            CommentJ cm = new CommentJ();
-            cm.setCommentaire(request.getParameter("comm"));
-            cm.setIdUtilisateur(Integer.parseInt(request.getParameter("idutl")));
-            cm.setIdRestaurant(Integer.parseInt(request.getParameter("idrest")));
-            CommentManager.Add(cm);
-        }else{
-           // Ajout Reservation
-           // Donnée Envoyée. Tout en Stringg
-           // nom,prenom,date,nbrePersonne,email,phone,idrest            
+        if (Integer.parseInt(request.getParameter("action")) == 1) {
+            if (CommentManager.IsValid(request.getParameter("comm"), request.getParameter("idrest"), request.getParameter("idutl"))) {
+                CommentJ cm = new CommentJ();
+                cm.setCommentaire(request.getParameter("comm"));
+                cm.setIdUtilisateur(Integer.parseInt(request.getParameter("idutl")));
+                cm.setIdRestaurant(Integer.parseInt(request.getParameter("idrest")));
+                CommentManager.Add(cm);
+            }
+        } else {
+            // Ajout Reservation            
             try {
-                ReservationJ r = new ReservationJ();
-                r.setNom(request.getParameter("nom").toUpperCase());
-                r.setPrenom(request.getParameter("prenom"));
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                Date date = formatter.parse(request.getParameter("date"));
-                r.setDate(date);
-                r.setNbPersonnes(Integer.parseInt(request.getParameter("nbrePersonne")));
-                r.setEmail(request.getParameter("email"));
-                r.setPhone(request.getParameter("phone"));
-                if (request.getParameter("type").equals("false")) r.setTypeService(false);
-                else r.setTypeService(true);
-                r.setIdRestaurant(Integer.parseInt(request.getParameter("idrest")));
-                ReservationManager.Add(r);
+                if (ReservationManager.IsValid(request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("date"), request.getParameter("type"), 
+                        request.getParameter("nbrePersonne"), request.getParameter("email"), request.getParameter("phone"), request.getParameter("idrest"))) {
+                    ReservationJ r = new ReservationJ();
+                    r.setNom(request.getParameter("nom").toUpperCase());
+                    r.setPrenom(request.getParameter("prenom"));
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    Date date = formatter.parse(request.getParameter("date"));
+                    r.setDate(date);
+                    r.setNbPersonnes(Integer.parseInt(request.getParameter("nbrePersonne")));
+                    r.setEmail(request.getParameter("email"));
+                    r.setPhone(request.getParameter("phone"));
+                    if (request.getParameter("type").equals("false")) {
+                        r.setTypeService(false);
+                    } else {
+                        r.setTypeService(true);
+                    }
+                    r.setIdRestaurant(Integer.parseInt(request.getParameter("idrest")));
+                    ReservationManager.Add(r);
+                }
             } catch (ParseException | DatatypeConfigurationException ex) {
                 Logger.getLogger(Restaurant.class.getName()).log(Level.SEVERE, null, ex);
             }

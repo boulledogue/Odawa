@@ -25,6 +25,10 @@
         <servlet-class>Gestion</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Creation</servlet-name>
+        <servlet-class>Creation</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Connect</servlet-name>
         <servlet-class>Connect</servlet-class>
     </servlet>
@@ -53,6 +57,10 @@
         <url-pattern>/Gestion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>Creation</servlet-name>
+        <url-pattern>/Creation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>Connect</servlet-name>
         <url-pattern>/Connect</url-pattern>
     </servlet-mapping>
@@ -66,7 +74,7 @@
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            15
         </session-timeout>
     </session-config>
 </web-app>

@@ -14,8 +14,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.datatype.DatatypeConfigurationException;
 
 /**
@@ -58,7 +56,7 @@ public class ReservationManager {
     }
     
     public static boolean IsValid(String nom, String prenom, String date, String typeService, String nbPersonnes, 
-            String email, String phone, String idRestaurant, String statut, String encodedDateTime)
+            String email, String phone, String idRestaurant)
     {
         if(nom == null) return false;
         if(prenom == null) return false;
@@ -67,29 +65,23 @@ public class ReservationManager {
         if(nbPersonnes == null) return false;
         if(email == null) return false;
         if(phone == null) return false;
-        if(idRestaurant == null) return false;
-        if(statut == null) return false;
-        if(encodedDateTime == null) return false;
-        
-        
+        if(idRestaurant == null) return false;   
         try
         {
             Integer.parseInt(nbPersonnes);
             Integer.parseInt(idRestaurant);
-            Integer.parseInt(statut);
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date dateformat = formatter.parse(date);
         } catch(NumberFormatException e) { 
             LogManager log = new LogManager();
-            log.LogException(e);
+            log.LogFormatException(e);
             return false;
         } 
         catch (ParseException ex) { 
             LogManager log = new LogManager();
-            log.LogException(ex);
+            log.LogFormatException(ex);
             return false;
-        }
-        
+        }        
         return true;
     }
 }

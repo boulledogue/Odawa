@@ -440,7 +440,8 @@
                                 <h3 class="panel-title">Horaire</h3>
                             </div>
                             <div class="panel-body">
-                                <h5 class="txt-modal">Entrez 00:00 comme heure d'ouverture et de fermeture, si vous souhaitez une fermeture sur toutes la journée </h5>
+                                <h5 class="txt-modal">Entrez 00:00 comme heure d'ouverture et de fermeture si fermé </h5>
+                                <h5 class="txt-modal">Entrez 11:11 comme heure d'ouverture et de fermeture si ouvert 24h/24 </h5>
                                 <form data-toggle="validator" class="form-horizontal vldt">
                                     <div class="col-lg-6">
                                         <div class="form-group">
