@@ -4,16 +4,24 @@
     Author     : DCR
 --%>
 
-<%-- Dependance --%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <%-- JSP Code --%>
 <!DOCTYPE html>
 <html lang="fr">
     <jsp:include page="/ODA-INF/BASE/Head.jsp" />
     <body>
         <jsp:include page="/ODA-INF/BASE/Navbar.jsp" />
-        Page introuvable.
+        <div class="container ocnt">
+            <div class="row">
+                <div class="col-lg-8 col-md-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h1 class="text-center">Erreur 404</h1>
+                            <p class="text-center">Page introuvable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
         <jsp:include page="/ODA-INF/BASE/Footer.jsp" />
     </body>
 </html>
