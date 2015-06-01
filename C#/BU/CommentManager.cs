@@ -13,12 +13,14 @@ namespace BU
     {
         public static void Create(Comment c)
         {
-            OdawaDS.commentsDataTable dt = DataProvider.GetComments();
-            OdawaDS.commentsRow newRow = DataProvider.odawa.comments.NewcommentsRow();
-            newRow.commentaire = c.commentaire;
-            newRow.idUtilisateur = c.idUtilisateur;
-            newRow.idRestaurant = c.idRestaurant;
-            DataProvider.CreateComment(newRow);
+            if (isValid(c)) {
+                OdawaDS.commentsDataTable dt = DataProvider.GetComments();
+                OdawaDS.commentsRow newRow = DataProvider.odawa.comments.NewcommentsRow();
+                newRow.commentaire = c.commentaire;
+                newRow.idUtilisateur = c.idUtilisateur;
+                newRow.idRestaurant = c.idRestaurant;
+                DataProvider.CreateComment(newRow);
+            }
         }
 
         public static List<Comment> GetAll()
@@ -39,18 +41,22 @@ namespace BU
 
         public static void Update(Comment c)
         {
-            OdawaDS.commentsDataTable dt = DataProvider.GetComments();
-            OdawaDS.commentsRow updRow = DataProvider.odawa.comments.NewcommentsRow();
-            updRow.id = c.id;
-            updRow.idRestaurant = c.idRestaurant;
-            updRow.idUtilisateur = c.idUtilisateur;
-            updRow.commentaire = c.commentaire;
-            DataProvider.UpdateComment(updRow);
+            if (isValid(c)) {
+                OdawaDS.commentsDataTable dt = DataProvider.GetComments();
+                OdawaDS.commentsRow updRow = DataProvider.odawa.comments.NewcommentsRow();
+                updRow.id = c.id;
+                updRow.idRestaurant = c.idRestaurant;
+                updRow.idUtilisateur = c.idUtilisateur;
+                updRow.commentaire = c.commentaire;
+                DataProvider.UpdateComment(updRow);
+            }
         }
 
         public static void Delete(int id)
         {
-            DataProvider.DeleteComment(id);                
+            if (GetAll().Exists(x => x.id == id)) {
+                DataProvider.DeleteComment(id);
+            }                
         }
 
         public static void DeleteByRestaurant(int id)

@@ -13,21 +13,23 @@ namespace BU
     {
         public static void Create(Restaurant r)
         {
-            OdawaDS.restaurantsRow newRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
-            newRow.nom = r.nom;
-            newRow.adresse = r.adresse;
-            newRow.numero = r.numero;
-            newRow.zipCode = r.zipCode;
-            newRow.localite = r.localite;
-            newRow.description = r.description;
-            newRow.budgetLow = r.budgetLow;
-            newRow.budgetHigh = r.budgetHigh;
-            newRow.horaire = r.horaire;
-            newRow.premium = r.premium;
-            newRow.genre = r.genre;
-            newRow.idTypeCuisine = r.idTypeCuisine;
-            newRow.idRestaurateur = r.idRestaurateur;
-            DataProvider.CreateRestaurant(newRow);
+            if (isValid(r)) {
+                OdawaDS.restaurantsRow newRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
+                newRow.nom = r.nom;
+                newRow.adresse = r.adresse;
+                newRow.numero = r.numero;
+                newRow.zipCode = r.zipCode;
+                newRow.localite = r.localite;
+                newRow.description = r.description;
+                newRow.budgetLow = r.budgetLow;
+                newRow.budgetHigh = r.budgetHigh;
+                newRow.horaire = r.horaire;
+                newRow.premium = r.premium;
+                newRow.genre = r.genre;
+                newRow.idTypeCuisine = r.idTypeCuisine;
+                newRow.idRestaurateur = r.idRestaurateur;
+                DataProvider.CreateRestaurant(newRow);
+            }
         }
 
         public static List<Restaurant> GetAll()
@@ -58,31 +60,35 @@ namespace BU
 
         public static void Update(Restaurant r)
         {
-            OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
-            OdawaDS.restaurantsRow updRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
-            updRow.id = r.id;
-            updRow.nom = r.nom;
-            updRow.adresse = r.adresse;
-            updRow.numero = r.numero;
-            updRow.zipCode = r.zipCode;
-            updRow.localite = r.localite;
-            updRow.description = r.description;
-            updRow.budgetLow = r.budgetLow;
-            updRow.budgetHigh = r.budgetHigh;
-            updRow.horaire = r.horaire;
-            updRow.premium = r.premium;
-            updRow.genre = r.genre;
-            updRow.idTypeCuisine = r.idTypeCuisine;
-            updRow.idRestaurateur = r.idRestaurateur;
-            DataProvider.UpdateRestaurant(updRow);
+            if (isValid(r)) {
+                OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
+                OdawaDS.restaurantsRow updRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
+                updRow.id = r.id;
+                updRow.nom = r.nom;
+                updRow.adresse = r.adresse;
+                updRow.numero = r.numero;
+                updRow.zipCode = r.zipCode;
+                updRow.localite = r.localite;
+                updRow.description = r.description;
+                updRow.budgetLow = r.budgetLow;
+                updRow.budgetHigh = r.budgetHigh;
+                updRow.horaire = r.horaire;
+                updRow.premium = r.premium;
+                updRow.genre = r.genre;
+                updRow.idTypeCuisine = r.idTypeCuisine;
+                updRow.idRestaurateur = r.idRestaurateur;
+                DataProvider.UpdateRestaurant(updRow);
+            }
         }
 
         public static void Delete(int id)
         {
-            Restaurant resto = RestaurantManager.GetAll().Find(x => x.id == id);
-            CommentManager.DeleteByRestaurant(id);
-            ReservationManager.DeleteByRestaurant(id);
-            DataProvider.DeleteRestaurant(id);
+            if (GetAll().Exists(x => x.id == id)) {
+                Restaurant resto = RestaurantManager.GetAll().Find(x => x.id == id);
+                CommentManager.DeleteByRestaurant(id);
+                ReservationManager.DeleteByRestaurant(id);
+                DataProvider.DeleteRestaurant(id);
+            }
         }
 
         public static List<Restaurant> Search(string s)

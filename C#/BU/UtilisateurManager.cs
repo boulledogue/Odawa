@@ -13,14 +13,16 @@ namespace BU
     {
         public static void Create(Utilisateur u)
         {
-            OdawaDS.utilisateursRow newRow = DataProvider.odawa.utilisateurs.NewutilisateursRow();
-            newRow.nom = u.nom.ToUpper();
-            newRow.prenom = u.prenom;
-            newRow.username = u.username.ToLower();
-            newRow.password = u.password;
-            newRow.email = u.email.ToLower();
-            newRow.phone = u.phone;
-            DataProvider.CreateUtilisateur(newRow);
+            if (isValid(u)) {
+                OdawaDS.utilisateursRow newRow = DataProvider.odawa.utilisateurs.NewutilisateursRow();
+                newRow.nom = u.nom.ToUpper();
+                newRow.prenom = u.prenom;
+                newRow.username = u.username.ToLower();
+                newRow.password = u.password;
+                newRow.email = u.email.ToLower();
+                newRow.phone = u.phone;
+                DataProvider.CreateUtilisateur(newRow);
+            }
         }
 
         public static List<Utilisateur> GetAll()
@@ -44,22 +46,26 @@ namespace BU
 
         public static void Update(Utilisateur u)
         {
-            OdawaDS.utilisateursDataTable dt = DataProvider.GetUtilisateurs();
-            OdawaDS.utilisateursRow updRow = DataProvider.odawa.utilisateurs.NewutilisateursRow();
-            updRow.id = u.id;
-            updRow.nom = u.nom.ToUpper();
-            updRow.prenom = u.prenom;
-            updRow.username = u.username.ToLower();
-            updRow.password = u.password;
-            updRow.email = u.email.ToLower();
-            updRow.phone = u.phone;
-            DataProvider.UpdateUtilisateur(updRow);
+            if (isValid(u)) {
+                OdawaDS.utilisateursDataTable dt = DataProvider.GetUtilisateurs();
+                OdawaDS.utilisateursRow updRow = DataProvider.odawa.utilisateurs.NewutilisateursRow();
+                updRow.id = u.id;
+                updRow.nom = u.nom.ToUpper();
+                updRow.prenom = u.prenom;
+                updRow.username = u.username.ToLower();
+                updRow.password = u.password;
+                updRow.email = u.email.ToLower();
+                updRow.phone = u.phone;
+                DataProvider.UpdateUtilisateur(updRow);
+            }
         }
 
         public static void Delete(int id)
         {
-            CommentManager.DeleteByUtilisateur(id);
-            DataProvider.DeleteUtilisateur(id);
+            if (GetAll().Exists(x => x.id == id)) {
+                CommentManager.DeleteByUtilisateur(id);
+                DataProvider.DeleteUtilisateur(id);
+            }
         }
 
         public static bool AcceptLogin(string username, string password)
