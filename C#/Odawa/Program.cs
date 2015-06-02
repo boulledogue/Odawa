@@ -24,6 +24,7 @@ namespace Odawa
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new MainForm());
             }
+            //Si une exception non gérée par le programme se produit
             catch (Exception ex)
             {
                 //insertion dans le fichier log
@@ -37,11 +38,12 @@ namespace Odawa
                 }
                 finally
                 {
-                    //affichage d'un message convivial et fermeture propre
+                    //affichage d'un message convivial
                     String message = "Une erreur s'est produite, l'application va maintenant se fermer.";
                     MessageBoxIcon icon = MessageBoxIcon.Error;
                     MessageBoxButtons button = MessageBoxButtons.OK;
                     MessageBox.Show(message, "Erreur", button, icon);
+                    //fermeture propre du programme
                     Application.Exit();
                 }
             }

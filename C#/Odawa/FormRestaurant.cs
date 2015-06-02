@@ -15,40 +15,55 @@ namespace Odawa
 {
     public partial class FormRestaurant : Form
     {
+        //Propriété du form, garde l'id du restaurant édité en mémoire
         public int restaurantId { get; set; }
 
+        //constructeur du form sans paramètre (Ajout restaurant)
         public FormRestaurant()
         {
+            //Initialisation de l'id à -1, textBoxes vides
             this.restaurantId = -1;
             InitializeComponent();
+            //Création d'une listRestaurateurs liant un int et un string (id et nom)
             List<KeyValuePair<int, string>> listRestaurateurs = new List<KeyValuePair<int, string>>();
             String fullName = "";
+            //Pour chaque restaurateur
             foreach (Restaurateur r in RestaurateurManager.GetAll())
             {
+                //Construction de la chaine nom + prénom
                 fullName = r.nom + " " + r.prenom;
+                //Ajour à la listRestaurateurs de l'id et du fullName 
                 listRestaurateurs.Add(new KeyValuePair<int, string>(r.id, fullName));
             }
+            //Liaison de la liste déroulante des restaurateurs à la listRestaurateurs
             comboBoxRestaurateur.DataSource = listRestaurateurs;
             comboBoxRestaurateur.DisplayMember = "Value";
             comboBoxRestaurateur.ValueMember = "Key";
+            //Liaison de la liste déroulante des types de cuisine
             comboBoxTypeCuisine.DataSource = TypeCuisineManager.GetAll();
             comboBoxTypeCuisine.DisplayMember = "type";
             comboBoxTypeCuisine.ValueMember = "id";
+            //Création d'une listGenres liant un int et un string (id et nom)
             List<KeyValuePair<int, string>> listGenres = new List<KeyValuePair<int, string>>();
             listGenres.Add(new KeyValuePair<int, string>(1, "Restaurant"));
             listGenres.Add(new KeyValuePair<int, string>(2, "Snack"));
+            //Liaison de la liste déroulante des genres à listGenres
             comboBoxGenre.DataSource = listGenres;
             comboBoxGenre.DisplayMember = "Value";
             comboBoxGenre.ValueMember = "Key";                        
         }
 
+        //constructeur du form avec int en paramètre (Ajout restaurant à un restaurateur sélectionné), hérite du constructeur par défaut
         public FormRestaurant(int id) : this()
         {
+            //Sélectionne l'id du restaurateur passé en paramètre dans le menu déroulant
             comboBoxRestaurateur.SelectedValue = id;
         }
 
+        //constructeur du form avec restaurant en paramètre (Modification restaurant), hérite du constructeur par défaut
         public FormRestaurant(Restaurant restaurant) : this()
         {
+            //Initialisation de l'id et des contrôles du form avec les valeurs transmises
             this.restaurantId = restaurant.id;            
             textBoxName.Text = restaurant.nom;
             textBoxAdresse.Text = restaurant.adresse;
@@ -62,16 +77,21 @@ namespace Odawa
             comboBoxRestaurateur.SelectedValue = restaurant.idRestaurateur;
             comboBoxTypeCuisine.SelectedValue = restaurant.idTypeCuisine;
             comboBoxGenre.SelectedValue = restaurant.genre;
+            //Appelle la méthode de gestion de l'horaire du restaurant
             PopulateHoraire(restaurant.horaire);
         }
 
+        //Bouton cancel ferme le form
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
+        //Bouton sauver passe les valeurs du form à la BU après vérification et ferme le form
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            //Création d'un objet Restaurant avec l'id à -1 (création) ou >0 (passé en paramètre)
+            //Les autres propriétés viennent des contrôles du form
             Restaurant restaurant = new Restaurant();
             restaurant.id = this.restaurantId;
             restaurant.nom = textBoxName.Text;
@@ -85,19 +105,24 @@ namespace Odawa
             restaurant.genre = int.Parse(comboBoxGenre.SelectedValue.ToString());
             restaurant.budgetLow = int.Parse(textBoxBudgetLow.Text);
             restaurant.budgetHigh = int.Parse(textBoxBudgetHigh.Text);
+            //Construction du string horaire avec la méthode BuildHoraireString
             restaurant.horaire = BuildHoraireString();
             restaurant.description = richTextBoxDescription.Text;
-
+            //Si Validate renvoie true, l'objet est valide et peut être transmis à la BU pour traitement
             if (Validate(restaurant))
             {
+                //Si id = -1 alors c'est une création, envoi à la BU (RestaurantManager.Create)
                 if (restaurantId == -1) RestaurantManager.Create(restaurant);
+                //Sinon c'est une modification, envoi à la BU (RestaurantManager.Update)
                 else RestaurantManager.Update(restaurant);
+                //Fermeture du form
                 this.Dispose();
             }
         }
 
         private bool Validate(Restaurant restaurant)
         {
+            //Initialisation de la couleur des labels à "par défaut"
             labelNom.ForeColor = Color.Empty;
             labelAdresse.ForeColor = Color.Empty;
             labelNumero.ForeColor = Color.Empty;
@@ -106,38 +131,46 @@ namespace Odawa
             labelRestaurateur.ForeColor = Color.Empty;
             labelTypeCuisine.ForeColor = Color.Empty;
             labelPremium.ForeColor = Color.Empty;
-
+            //Initialisation de la validité à "vrai"
             bool valid = true;
             string message = "";
-
+            //Si le nom est plus court que 2
             if(restaurant.nom.Length < 2)
             {
                 labelNom.ForeColor = Color.Red;
                 valid = false;
                 message += "- Le nom doit contenir au moins 2 caractères.\n";
             }
-
+            //Si l'adresse est plus courte que 6
             if(restaurant.adresse.Length < 6)
             {
                 labelAdresse.ForeColor = Color.Red;
                 valid = false;
                 message += "- L'adresse doit contenir au moins 6 caractères.\n";
             }
-
+            //Si le restaurant envoyé par le form n'est pas valide
             if (!valid)
             {
+                //Affichage du message d'erreur
                 string caption = "Erreur";
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 MessageBoxIcon icon = MessageBoxIcon.Error;
                 MessageBox.Show(message, caption, buttons, icon);
             }
-
+            //retourne valid
             return valid;
         }
 
+        #region Affichage de l'horaire
+
+        //Méthode de découpage du string horaire, format: "xxxx-xxxx;xxxx-xxxx;xxxx-xxxx;xxxx-xxxx;xxxx-xxxx;xxxx-xxxx;xxxx-xxxx"
         private void PopulateHoraire(String horaire)
         {
+            //Construction d'un tableau contenant les paires "ouverture-fermeture" de chaque jour de la semaine: [0] = lundi, [1] = mardi ...
+            //On casse la chaine lorsqu'on rencontre un ;
             String[] horaireSemaine = horaire.Split(';');
+
+            //Pour l'horaire des jours, on casse horaireSemaine[x] lorsqu'on rencontre un -
             String[] horaireLundi = horaireSemaine[0].Split('-');
             String[] horaireMardi = horaireSemaine[1].Split('-');
             String[] horaireMercredi = horaireSemaine[2].Split('-');
@@ -146,8 +179,14 @@ namespace Odawa
             String[] horaireSamedi = horaireSemaine[5].Split('-');
             String[] horaireDimanche = horaireSemaine[6].Split('-');
 
-            if (horaireLundi[0].Equals("0000") && horaireLundi[1].Equals("0000")) checkBoxMondayClosed.Checked = true;
-            else if (horaireLundi[0].Equals("1111") && horaireLundi[1].Equals("1111")) checkBoxMondayOpen24.Checked = true;
+            //POUR CHAQUE JOUR, on vérifie si l'horaire d'ouverture et de fermeture = "0000" -> fermeture
+            //ou "1111" -> ouverture 24h/24
+            //Sinon, on convertit les 2 premiers caractères de la cellule 0 en "heure ouverture" et les 2 derniers caractères en "minute ouverture"
+            //On convertit les 2 premiers caractères de la cellule 1 en "heure fermeture" et les 2 derniers caractères en "minute fermeture"
+
+            //lundi
+            if (horaireLundi[0].Equals("0000") && horaireLundi[1].Equals("0000")) checkBoxMondayClosed.Checked = true;            
+            else if (horaireLundi[0].Equals("1111") && horaireLundi[1].Equals("1111")) checkBoxMondayOpen24.Checked = true;            
             else
             {
                 MondayOpenHour.Value = int.Parse(horaireLundi[0].Substring(0, 2));
@@ -156,6 +195,7 @@ namespace Odawa
                 MondayCloseMinutes.Value = int.Parse(horaireLundi[1].Substring(2, 2));
             }
 
+            //mardi
             if (horaireMardi[0].Equals("0000") && horaireMardi[1].Equals("0000")) checkBoxTuesdayClosed.Checked = true;
             else if (horaireMardi[0].Equals("1111") && horaireMardi[1].Equals("1111")) checkBoxTuesdayOpen24.Checked = true;
             else
@@ -166,6 +206,7 @@ namespace Odawa
                 TuesdayCloseMinutes.Value = int.Parse(horaireMardi[1].Substring(2, 2));
             }
 
+            //mercredi
             if (horaireMercredi[0].Equals("0000") && horaireMercredi[1].Equals("0000")) checkBoxWednesdayClosed.Checked = true;
             else if (horaireMercredi[0].Equals("1111") && horaireMercredi[1].Equals("1111")) checkBoxWednesdayOpen24.Checked = true;
             else
@@ -176,6 +217,7 @@ namespace Odawa
                 WednesdayCloseMinutes.Value = int.Parse(horaireMercredi[1].Substring(2, 2));
             }
 
+            //jeudi
             if (horaireJeudi[0].Equals("0000") && horaireJeudi[1].Equals("0000")) checkBoxThursdayClosed.Checked = true;
             else if (horaireJeudi[0].Equals("1111") && horaireJeudi[1].Equals("1111")) checkBoxThursdayOpen24.Checked = true;
             else
@@ -186,6 +228,7 @@ namespace Odawa
                 ThursdayCloseMinutes.Value = int.Parse(horaireJeudi[1].Substring(2, 2));
             }
 
+            //vendredi
             if (horaireVendredi[0].Equals("0000") && horaireVendredi[1].Equals("0000")) checkBoxFridayClosed.Checked = true;
             else if (horaireVendredi[0].Equals("1111") && horaireVendredi[1].Equals("1111")) checkBoxFridayOpen24.Checked = true;
             else
@@ -196,6 +239,7 @@ namespace Odawa
                 FridayCloseMinutes.Value = int.Parse(horaireVendredi[1].Substring(2, 2));
             }
 
+            //samedi
             if (horaireSamedi[0].Equals("0000") && horaireSamedi[1].Equals("0000")) checkBoxSaturdayClosed.Checked = true;
             else if (horaireSamedi[0].Equals("1111") && horaireSamedi[1].Equals("1111")) checkBoxSaturdayOpen24.Checked = true;
             else
@@ -206,6 +250,7 @@ namespace Odawa
                 SaturdayCloseMinutes.Value = int.Parse(horaireSamedi[1].Substring(2, 2));
             }
 
+            //dimanche
             if (horaireDimanche[0].Equals("0000") && horaireDimanche[1].Equals("0000")) checkBoxSundayClosed.Checked = true;
             else if (horaireDimanche[0].Equals("1111") && horaireDimanche[1].Equals("1111")) checkBoxSundayOpen24.Checked = true;
             else
@@ -217,43 +262,70 @@ namespace Odawa
             }
         }
 
+        #endregion Affichage de l'horaire
+
+        #region BuildHoraireString
+
+        //Construction de la chaine horaire en se basant sur les valeurs transmises par le form
         private String BuildHoraireString()
         {
             StringBuilder horaire = new StringBuilder();
 
+            //POUR CHAQUE JOUR, on vérifie si la case "closed" est cochée -> fermeture
+            //ou si la case "open24" est cochée -> ouverture 24h/24
+            //Sinon, on ajoute au string horaire heure ouverture + minute ouverture + - + heure fermeture + minute fermeture + ;
+
+            //lundi
             if (checkBoxMondayClosed.Checked) horaire.Append("0000-0000;");
             else if (checkBoxMondayOpen24.Checked) horaire.Append("1111-1111;");
             else horaire.Append(MondayOpenHour.Value.ToString("0#") + MondayOpenMinutes.Value.ToString("0#") + "-" + MondayCloseHour.Value.ToString("0#") + MondayCloseMinutes.Value.ToString("0#") + ";");
 
+            //mardi
             if (checkBoxTuesdayClosed.Checked) horaire.Append("0000-0000;");
             else if (checkBoxTuesdayOpen24.Checked) horaire.Append("1111-1111;");
             else horaire.Append(TuesdayOpenHour.Value.ToString("0#") + TuesdayOpenMinutes.Value.ToString("0#") + "-" + TuesdayCloseHour.Value.ToString("0#") + TuesdayCloseMinutes.Value.ToString("0#") + ";");
 
+            //mercredi
             if (checkBoxWednesdayClosed.Checked) horaire.Append("0000-0000;");
             else if (checkBoxWednesdayOpen24.Checked) horaire.Append("1111-1111;");
             else horaire.Append(WednesdayOpenHour.Value.ToString("0#") + WednesdayOpenMinutes.Value.ToString("0#") + "-" + WednesdayCloseHour.Value.ToString("0#") + WednesdayCloseMinutes.Value.ToString("0#") + ";");
 
+            //jeudi
             if (checkBoxThursdayClosed.Checked) horaire.Append("0000-0000;");
             else if (checkBoxThursdayOpen24.Checked) horaire.Append("1111-1111;");
             else horaire.Append(ThursdayOpenHour.Value.ToString("0#") + ThursdayOpenMinutes.Value.ToString("0#") + "-" + ThursdayCloseHour.Value.ToString("0#") + ThursdayCloseMinutes.Value.ToString("0#") + ";");
 
+            //vendredi
             if (checkBoxFridayClosed.Checked) horaire.Append("0000-0000;");
             else if (checkBoxFridayOpen24.Checked) horaire.Append("1111-1111;");
             else horaire.Append(FridayOpenHour.Value.ToString("0#") + FridayOpenMinutes.Value.ToString("0#") + "-" + FridayCloseHour.Value.ToString("0#") + FridayCloseMinutes.Value.ToString("0#") + ";");
 
+            //samedi
             if (checkBoxSaturdayClosed.Checked) horaire.Append("0000-0000;");
             else if (checkBoxSaturdayOpen24.Checked) horaire.Append("1111-1111;");
             else horaire.Append(SaturdayOpenHour.Value.ToString("0#") + SaturdayOpenMinutes.Value.ToString("0#") + "-" + SaturdayCloseHour.Value.ToString("0#") + SaturdayCloseMinutes.Value.ToString("0#") + ";");
 
+            //dimanche
             if (checkBoxSundayClosed.Checked) horaire.Append("0000-0000");
             else if (checkBoxSundayOpen24.Checked) horaire.Append("1111-1111");
             else horaire.Append(SundayOpenHour.Value.ToString("0#") + SundayOpenMinutes.Value.ToString("0#") + "-" + SundayCloseHour.Value.ToString("0#") + SundayCloseMinutes.Value.ToString("0#") + ";");
 
+            //retourne le stringBuilder converti en string
             return horaire.ToString();
         }
 
+        #endregion BuildHoraireString
 
-        // Gestion des checkboxes
+        #region checkBoxes EventHandler
+
+        //Gestion des checkboxes (EventHandler)
+
+        //POUR CHAQUE JOUR:
+        //Si on coche la case "fermé" -> désactive/décoche la case "ouvert 24h/24" ainsi que les textBoxes
+        //Si on décoche la case "fermé" -> active la case "ouvert 24h/24" ainsi que les textBoxes
+
+        //Si on coche la case "ouvert 24h/24" -> désactive/décoche la case "fermé" ainsi que les textBoxes
+        //Si on décoche la case "ouvert 24h/24" -> active la case "fermé" ainsi que les textBoxes
 
         private void checkBoxMondayClosed_CheckedChanged(object sender, EventArgs e)
         {
@@ -548,5 +620,7 @@ namespace Odawa
                 SundayCloseMinutes.Enabled = true;
             }
         }
+
+        #endregion checkBoxes EventHandler
     }
 }

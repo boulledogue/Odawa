@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="AdministrateurManager.cs" />
     <Compile Include="CommentManager.cs" />
+    <Compile Include="CommonManager.cs" />
     <Compile Include="EmailManager.cs" />
     <Compile Include="Entities\Administrateur.cs" />
     <Compile Include="Entities\Comment.cs" />

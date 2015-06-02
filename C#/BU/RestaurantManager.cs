@@ -11,9 +11,13 @@ namespace BU
 {
     public static class RestaurantManager
     {
-        public static void Create(Restaurant r)
+        //Création restaurant avec l'objet "r" passé en paramètre
+        public static bool Create(Restaurant r)
         {
-            if (isValid(r)) {
+            //Vérification de l'objet r: il peut être transmis par le web service et n'est pas sûr
+            if (isValid(r)) 
+            {
+                //Création d'une restaurantsRow et remplissage avec les attributs de "r"
                 OdawaDS.restaurantsRow newRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
                 newRow.nom = r.nom;
                 newRow.adresse = r.adresse;
@@ -28,14 +32,32 @@ namespace BU
                 newRow.genre = r.genre;
                 newRow.idTypeCuisine = r.idTypeCuisine;
                 newRow.idRestaurateur = r.idRestaurateur;
-                DataProvider.CreateRestaurant(newRow);
+                //Envoi à la DAL
+                try
+                {
+                    DataProvider.CreateRestaurant(newRow);
+                    //Si création ok, renvoie true
+                    return true;
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    //si SqlException, log et renvoie false
+                    LogManager.LogSQLException(ex.Message);
+                    return false;
+                }
             }
+            //si pas vérifié, renvoie false
+            else return false;
         }
 
+        //Obtention de tous les restaurants
         public static List<Restaurant> GetAll()
         {
+            //Obtention de la dataTable
             OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
+            //Création d'une liste vide
             List<Restaurant> lst = new List<Restaurant>();
+            //Pour chaque restaurant dans la dataTable
             foreach (OdawaDS.restaurantsRow restoRow in dt.Rows)
             {
                 Restaurant r = new Restaurant();
@@ -53,15 +75,20 @@ namespace BU
                 r.genre = restoRow.genre;
                 r.idTypeCuisine = restoRow.idTypeCuisine;
                 r.idRestaurateur = restoRow.idRestaurateur;
+                //Ajout à la liste
                 lst.Add(r);
             }
+            //retourne la liste
             return lst;
-        }        
+        }
 
-        public static void Update(Restaurant r)
+        //Mise à jour d'un restaurant "r" passé en paramètre
+        public static bool Update(Restaurant r)
         {
+            //Vérification de l'objet r: il peut être transmis par le web service et n'est pas sûr
             if (isValid(r)) {
                 OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
+                //Création d'une restaurantsRow et remplissage avec les attributs de "r"
                 OdawaDS.restaurantsRow updRow = DataProvider.odawa.restaurants.NewrestaurantsRow();
                 updRow.id = r.id;
                 updRow.nom = r.nom;
@@ -77,27 +104,64 @@ namespace BU
                 updRow.genre = r.genre;
                 updRow.idTypeCuisine = r.idTypeCuisine;
                 updRow.idRestaurateur = r.idRestaurateur;
-                DataProvider.UpdateRestaurant(updRow);
+                //Envoi à la DAL
+                try
+                {
+                    DataProvider.UpdateRestaurant(updRow);
+                    //si ok, renvoie true
+                    return true;
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    //si SqlException, log et renvoie false
+                    LogManager.LogSQLException(ex.Message);
+                    return false;
+                }
             }
+            //si pas validé, renvoie false
+            else return false;
         }
 
-        public static void Delete(int id)
+        //Suppression d'un restaurant avec son id passé en paramètre
+        public static bool Delete(int id)
         {
-            if (GetAll().Exists(x => x.id == id)) {
-                Restaurant resto = RestaurantManager.GetAll().Find(x => x.id == id);
-                CommentManager.DeleteByRestaurant(id);
-                ReservationManager.DeleteByRestaurant(id);
-                DataProvider.DeleteRestaurant(id);
+            //Si un restaurant avec cet id existe
+            if (GetAll().Exists(x => x.id == id))
+            {
+                try
+                {
+                    //suppression des commentaires de ce restaurant (foreign key constraint)
+                    CommentManager.DeleteByRestaurant(id);
+                    //suppression des réservations de ce restaurant (foreign key constraint)
+                    ReservationManager.DeleteByRestaurant(id);
+                    //Passage de l'id à la DAL pour suppression du restaurant
+                    DataProvider.DeleteRestaurant(id);
+                    //si ok, renvoie true
+                    return true;
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    //si SqlException, log et renvoie false
+                    LogManager.LogSQLException(ex.Message);
+                    return false;
+                }
             }
+            //si le restaurant n'existe pas, renvoie false
+            else return false;
         }
 
+        //Renvoie une liste des restaurants sur base d'un string passé en paramètre (nom, code postal ou localité)
         public static List<Restaurant> Search(string s)
         {
+            //Obtention de la dataTable
             OdawaDS.restaurantsDataTable dt = DataProvider.GetRestaurants();
-            List<Restaurant> lst = new List<Restaurant>();
+            //Création d'une liste vide
+            List<Restaurant> lst = new List<Restaurant>();            
             s = s.ToUpper();
+            //Pour chaque restaurant dans la dataTable
             foreach (OdawaDS.restaurantsRow restoRow in dt.Rows)
             {
+                //Si le nom OU le code postal OU la localité contiennent le string passé en paramètre
                 if (restoRow.nom.ToUpper().Contains(s) || restoRow.zipCode.Contains(s) || restoRow.localite.ToUpper().Contains(s))
                 {
                     Restaurant r = new Restaurant();
@@ -115,33 +179,48 @@ namespace BU
                     r.genre = restoRow.genre;
                     r.idTypeCuisine = restoRow.idTypeCuisine;
                     r.idRestaurateur = restoRow.idRestaurateur;
+                    //ajout du restaurant à la liste
                     lst.Add(r);
                 }
             }
+            //Retourne la liste
             return lst;
         }
 
+        //Obtention de la liste des meilleurs restaurants
         public static List<Restaurant> BestRestaurant()
         {
+            //Création d'une liste vide
             List<Restaurant> lst = new List<Restaurant>();
+            //Pour chaque id renvoyé par la DAL
             foreach (int id in DataProvider.BestRestaurant())
             {
+                //Ajout à la liste du restaurant avec cet id
                 lst.Add(GetAll().Find(x => x.id == id));
             }
+            //Retourne la liste
             return lst;
         }
 
+        //Obtention d'un restaurant "au hasard"
         public static Restaurant RandomRestaurant()
         {
+            //Obtention de la liste des restaurants
             List<Restaurant> lst = GetAll();
-            Restaurant r = new Restaurant();
+            //Comptage de la liste
             int count = lst.Count();
-            Random rnd = new Random();
+            //Obtention d'une position aléatoire comprise entre 0 et la somme des restaurants de la liste (non inclus)
+            Random rnd = new Random();            
             int randomIndex = rnd.Next(0, count);
-            r = lst[randomIndex];
+            //récupération du restaurant à la position aléatoire
+            Restaurant r = lst[randomIndex];
+            //retourne le restaurant
             return r;
         }
 
+        //Test du caractère non null des paramètres du restaurant (vérification des données envoyées par le web service)
+        //si tout est ok, renvoie true,
+        //sinon, log et renvoie false
         public static bool isValid(Restaurant r)
         {
             bool b = false;
@@ -156,8 +235,8 @@ namespace BU
                                             if (r.horaire != null)
                                                 if (r.premium != null)
                                                     if (r.genre != null)
-                                                        if (r.idRestaurateur > 0 && RestaurateurManager.GetAll().Exists(x => x.id == r.idRestaurateur))
-                                                            if (r.idTypeCuisine > 0 && TypeCuisineManager.GetAll().Exists(x => x.id == r.idTypeCuisine)) b = true;
+                                                        if (RestaurateurManager.GetAll().Exists(x => x.id == r.idRestaurateur))
+                                                            if (TypeCuisineManager.GetAll().Exists(x => x.id == r.idTypeCuisine)) b = true;
                                                             else LogManager.LogNullException("Restaurant Add/Update : IdTypeCuisine est Null ou Non-associable");
                                                         else LogManager.LogNullException("Restaurant Add/Update : IdRestaurateur est Null ou Non-associable");
                                                     else LogManager.LogNullException("Restaurant Add/Update : Genre est Null");

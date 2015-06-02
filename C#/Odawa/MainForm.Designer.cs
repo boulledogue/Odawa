@@ -265,6 +265,7 @@
             this.buttonDelUser.TabIndex = 9;
             this.buttonDelUser.Text = "Supprimer";
             this.buttonDelUser.UseVisualStyleBackColor = true;
+            this.buttonDelUser.Click += new System.EventHandler(this.buttonDelUser_Click);
             // 
             // buttonAddUser
             // 

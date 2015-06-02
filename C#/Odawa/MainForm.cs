@@ -27,88 +27,121 @@ namespace Odawa
 
         private void PopulateGrids()
         {
-            //DataGrid Administrateurs
-            dataGridViewAdministrateurs.DataSource = AdministrateurManager.GetAll();
-            //Renommage des colonnes affichées
-            dataGridViewAdministrateurs.Columns["nom"].HeaderText = "Nom";
-            dataGridViewAdministrateurs.Columns["prenom"].HeaderText = "Prénom";            
-            dataGridViewAdministrateurs.Columns["email"].HeaderText = "Email";
-            dataGridViewAdministrateurs.Columns["phone"].HeaderText = "Téléphone";
-            //Masquage des colonnes inutiles
-            dataGridViewAdministrateurs.Columns["id"].Visible = false;
-            dataGridViewAdministrateurs.Columns["username"].Visible = false;
-            dataGridViewAdministrateurs.Columns["password"].Visible = false;
-            //si DataGrid vide, désactivation des boutons Supprimer et Modifier
-            if (dataGridViewAdministrateurs.Rows.Count == 0) buttonDelAdmin.Enabled = buttonModAdmin.Enabled = false;
-            else buttonDelAdmin.Enabled = buttonModAdmin.Enabled = true;
+            //Si la connexion à la base de données est possible
+            if (CommonManager.CheckDBConnection())
+            {
+                #region DataGrid Administrateurs
 
-            //DataGrid Restaurateurs
-            dataGridViewRestaurateurs.DataSource = RestaurateurManager.GetAll();
-            //Renommage des colonnes affichées
-            dataGridViewRestaurateurs.Columns["nom"].HeaderText = "Nom";
-            dataGridViewRestaurateurs.Columns["prenom"].HeaderText = "Prénom";
-            dataGridViewRestaurateurs.Columns["email"].HeaderText = "Email";
-            dataGridViewRestaurateurs.Columns["phone"].HeaderText = "Téléphone";
-            //Masquage des colonnes inutiles
-            dataGridViewRestaurateurs.Columns["id"].Visible = false;
-            dataGridViewRestaurateurs.Columns["username"].Visible = false;
-            dataGridViewRestaurateurs.Columns["password"].Visible = false;
-            //si DataGrid vide, désactivation des boutons Supprimer, Modifier et Consulter restaurants
-            if (dataGridViewRestaurateurs.Rows.Count == 0) buttonDelRestaurateur.Enabled = buttonModRestaurateur.Enabled = buttonViewRestaurants.Enabled = false;
-            else buttonDelRestaurateur.Enabled = buttonModRestaurateur.Enabled = buttonViewRestaurants.Enabled = true;
+                dataGridViewAdministrateurs.DataSource = AdministrateurManager.GetAll();
+                //Renommage des colonnes affichées
+                dataGridViewAdministrateurs.Columns["nom"].HeaderText = "Nom";
+                dataGridViewAdministrateurs.Columns["prenom"].HeaderText = "Prénom";
+                dataGridViewAdministrateurs.Columns["email"].HeaderText = "Email";
+                dataGridViewAdministrateurs.Columns["phone"].HeaderText = "Téléphone";
+                //Masquage des colonnes inutiles
+                dataGridViewAdministrateurs.Columns["id"].Visible = false;
+                dataGridViewAdministrateurs.Columns["username"].Visible = false;
+                dataGridViewAdministrateurs.Columns["password"].Visible = false;
+                //si DataGrid vide, désactivation des boutons Supprimer et Modifier
+                if (dataGridViewAdministrateurs.Rows.Count == 0) buttonDelAdmin.Enabled = buttonModAdmin.Enabled = false;
+                else buttonDelAdmin.Enabled = buttonModAdmin.Enabled = true;
 
-            //DataGrid Utilisateurs
-            dataGridViewUtilisateurs.DataSource = UtilisateurManager.GetAll();
-            //Renommage des colonnes affichées
-            dataGridViewUtilisateurs.Columns["nom"].HeaderText = "Nom";
-            dataGridViewUtilisateurs.Columns["prenom"].HeaderText = "Prénom";
-            dataGridViewUtilisateurs.Columns["email"].HeaderText = "Email";
-            dataGridViewUtilisateurs.Columns["phone"].HeaderText = "Téléphone";
-            //Masquage des colonnes inutiles
-            dataGridViewUtilisateurs.Columns["id"].Visible = false;
-            dataGridViewUtilisateurs.Columns["username"].Visible = false;
-            dataGridViewUtilisateurs.Columns["password"].Visible = false;
-            //Fonctions Ajouter et Modifier non disponible car gérées par l'utilisateur, désactivation des boutons
-            //Suppression autorisée
-            buttonAddUser.Enabled = buttonModUser.Enabled = false;
+                #endregion DataGrid Administrateurs
 
-            //DataGrid Restaurants
-            dataGridViewRestaurants.DataSource = RestaurantManager.GetAll();
-            //Renommage des colonnes affichées
-            dataGridViewRestaurants.Columns["nom"].HeaderText = "Nom";
-            dataGridViewRestaurants.Columns["zipCode"].HeaderText = "Code Postal";
-            dataGridViewRestaurants.Columns["localite"].HeaderText = "Localité";
-            dataGridViewRestaurants.Columns["premium"].HeaderText = "Premium";
-            dataGridViewRestaurants.Columns["genre"].HeaderText = "Genre";
-            dataGridViewRestaurants.Columns["idTypeCuisine"].HeaderText = "Type de cuisine";
-            //Masquage des colonnes inutiles
-            dataGridViewRestaurants.Columns["id"].Visible = false;
-            dataGridViewRestaurants.Columns["adresse"].Visible = false;
-            dataGridViewRestaurants.Columns["numero"].Visible = false;
-            dataGridViewRestaurants.Columns["description"].Visible = false;
-            dataGridViewRestaurants.Columns["budgetLow"].Visible = false;
-            dataGridViewRestaurants.Columns["budgetHigh"].Visible = false;
-            dataGridViewRestaurants.Columns["horaire"].Visible = false;
-            dataGridViewRestaurants.Columns["genre"].Visible = false;
-            dataGridViewRestaurants.Columns["idRestaurateur"].Visible = false;
-            dataGridViewRestaurants.Columns["idTypeCuisine"].Visible = false;
-            //Si DataGrid vide, désactivation des boutons Supprimer, Modifier et Consulter réservations
-            if (dataGridViewRestaurants.Rows.Count == 0) buttonDelResto.Enabled = buttonModResto.Enabled = buttonViewReservations.Enabled = false;
-            else buttonDelResto.Enabled = buttonModResto.Enabled = buttonViewReservations.Enabled = true;
+                #region DataGrid Restaurateurs
 
-            //DataGrid TypeCuisine
-            dataGridViewTypesCuisine.DataSource = TypeCuisineManager.GetAll();
-            //Renommage des colonnes affichées
-            dataGridViewTypesCuisine.Columns["type"].HeaderText = "Type de cuisine";
-            dataGridViewTypesCuisine.Columns["description"].HeaderText = "Description";
-            //Masquage des colonnes inutiles
-            dataGridViewTypesCuisine.Columns["id"].Visible = false;
-            //Si DataGrid vide, désactivation des boutons Supprimer et Modifier
-            if (dataGridViewTypesCuisine.Rows.Count == 0) buttonDelType.Enabled = buttonModType.Enabled = false;
-            else buttonDelType.Enabled = buttonModType.Enabled = true;
+                //DataGrid Restaurateurs
+                dataGridViewRestaurateurs.DataSource = RestaurateurManager.GetAll();
+                //Renommage des colonnes affichées
+                dataGridViewRestaurateurs.Columns["nom"].HeaderText = "Nom";
+                dataGridViewRestaurateurs.Columns["prenom"].HeaderText = "Prénom";
+                dataGridViewRestaurateurs.Columns["email"].HeaderText = "Email";
+                dataGridViewRestaurateurs.Columns["phone"].HeaderText = "Téléphone";
+                //Masquage des colonnes inutiles
+                dataGridViewRestaurateurs.Columns["id"].Visible = false;
+                dataGridViewRestaurateurs.Columns["username"].Visible = false;
+                dataGridViewRestaurateurs.Columns["password"].Visible = false;
+                //si DataGrid vide, désactivation des boutons Supprimer, Modifier et Consulter restaurants
+                if (dataGridViewRestaurateurs.Rows.Count == 0) buttonDelRestaurateur.Enabled = buttonModRestaurateur.Enabled = buttonViewRestaurants.Enabled = false;
+                else buttonDelRestaurateur.Enabled = buttonModRestaurateur.Enabled = buttonViewRestaurants.Enabled = true;
+
+                #endregion DataGrid Restaurateurs
+
+                #region DataGrid Utilisateurs
+
+                //DataGrid Utilisateurs
+                dataGridViewUtilisateurs.DataSource = UtilisateurManager.GetAll();
+                //Renommage des colonnes affichées
+                dataGridViewUtilisateurs.Columns["nom"].HeaderText = "Nom";
+                dataGridViewUtilisateurs.Columns["prenom"].HeaderText = "Prénom";
+                dataGridViewUtilisateurs.Columns["email"].HeaderText = "Email";
+                dataGridViewUtilisateurs.Columns["phone"].HeaderText = "Téléphone";
+                //Masquage des colonnes inutiles
+                dataGridViewUtilisateurs.Columns["id"].Visible = false;
+                dataGridViewUtilisateurs.Columns["username"].Visible = false;
+                dataGridViewUtilisateurs.Columns["password"].Visible = false;
+                //Fonctions Ajouter et Modifier désactivées car gérées par l'utilisateur sur le site
+                //Suppression autorisée
+                buttonAddUser.Enabled = buttonModUser.Enabled = false;
+
+                #endregion DataGrid Utilisateurs
+
+                #region DataGrid Restaurants
+
+                //DataGrid Restaurants
+                dataGridViewRestaurants.DataSource = RestaurantManager.GetAll();
+                //Renommage des colonnes affichées
+                dataGridViewRestaurants.Columns["nom"].HeaderText = "Nom";
+                dataGridViewRestaurants.Columns["zipCode"].HeaderText = "Code Postal";
+                dataGridViewRestaurants.Columns["localite"].HeaderText = "Localité";
+                dataGridViewRestaurants.Columns["premium"].HeaderText = "Premium";
+                dataGridViewRestaurants.Columns["genre"].HeaderText = "Genre";
+                dataGridViewRestaurants.Columns["idTypeCuisine"].HeaderText = "Type de cuisine";
+                //Masquage des colonnes inutiles
+                dataGridViewRestaurants.Columns["id"].Visible = false;
+                dataGridViewRestaurants.Columns["adresse"].Visible = false;
+                dataGridViewRestaurants.Columns["numero"].Visible = false;
+                dataGridViewRestaurants.Columns["description"].Visible = false;
+                dataGridViewRestaurants.Columns["budgetLow"].Visible = false;
+                dataGridViewRestaurants.Columns["budgetHigh"].Visible = false;
+                dataGridViewRestaurants.Columns["horaire"].Visible = false;
+                dataGridViewRestaurants.Columns["genre"].Visible = false;
+                dataGridViewRestaurants.Columns["idRestaurateur"].Visible = false;
+                dataGridViewRestaurants.Columns["idTypeCuisine"].Visible = false;
+                //Si DataGrid vide, désactivation des boutons Supprimer, Modifier et Consulter réservations
+                if (dataGridViewRestaurants.Rows.Count == 0) buttonDelResto.Enabled = buttonModResto.Enabled = buttonViewReservations.Enabled = false;
+                else buttonDelResto.Enabled = buttonModResto.Enabled = buttonViewReservations.Enabled = true;
+
+                #endregion DataGrid Restaurants
+
+                #region DataGrid TypeCuisine
+
+                //DataGrid TypeCuisine
+                dataGridViewTypesCuisine.DataSource = TypeCuisineManager.GetAll();
+                //Renommage des colonnes affichées
+                dataGridViewTypesCuisine.Columns["type"].HeaderText = "Type de cuisine";
+                dataGridViewTypesCuisine.Columns["description"].HeaderText = "Description";
+                //Masquage des colonnes inutiles
+                dataGridViewTypesCuisine.Columns["id"].Visible = false;
+                //Si DataGrid vide, désactivation des boutons Supprimer et Modifier
+                if (dataGridViewTypesCuisine.Rows.Count == 0) buttonDelType.Enabled = buttonModType.Enabled = false;
+                else buttonDelType.Enabled = buttonModType.Enabled = true;
+
+                #endregion DataGrid TypeCuisine
+            }
+            //Sinon
+            else
+            {
+                string message = "Une erreur est survenue lors de la connexion à la base de données, l'application va maintenant se fermer.";
+                string caption = "Erreur";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(message, caption, buttons, icon);
+                Application.Exit();
+            }
         }
 
-        //Boutons onglet Administrateurs
+        #region Boutons Administrateurs
 
         //Clic sur Ajouter ou Modifier dans le DataGrid Administrateurs provoque l'affichage d'un nouveau FormAdministrateur
         //Ajouter
@@ -128,9 +161,12 @@ namespace Odawa
             //Recherche de l'administrateur sur base de l'id
             Administrateur a = AdministrateurManager.GetAll().Find(x => x.id == id);
             //Ouverture du form avec passage de l'administrateur sélectionné (textBoxes préremplies)
-            FormAdministrateur f = new FormAdministrateur(a);
-            f.ShowDialog();
-            PopulateGrids();
+            if (a != null)
+            {
+                FormAdministrateur f = new FormAdministrateur(a);
+                f.ShowDialog();
+                PopulateGrids();
+            }
         }
 
         //Clic sur Supprimer dans le Datagrid Administrateurs
@@ -150,9 +186,7 @@ namespace Odawa
                 int id = (int)dataGridViewAdministrateurs.SelectedRows[0].Cells[0].Value;
                 //Envoi à la couche BU qui retourne un booléen (true: suppression ok, false: erreur lors de la suppression)
                 if (AdministrateurManager.Delete(id))
-                {
-                    //Rafraichissement des grids
-                    PopulateGrids();
+                {                    
                     message = "Administrateur supprimé!";
                     buttons = MessageBoxButtons.OK;
                     icon = MessageBoxIcon.Information;
@@ -165,10 +199,14 @@ namespace Odawa
                 }                
                 //Message de résultat                
                 MessageBox.Show(message, caption, buttons, icon);
+                //Rafraichissement des grids
+                PopulateGrids();
             }
         }
 
-        //Boutons onglet Restaurateurs
+        #endregion Boutons Administrateurs
+
+        #region Boutons Restaurateurs
 
         //Clic sur Consulter restaurants dans le DataGrid Restaurateurs provoque l'affichage de FormViewRestaurant
         //qui contient la liste des restaurants du restaurateur sélectionné
@@ -177,9 +215,12 @@ namespace Odawa
             //Obtention de l'id de la ligne sélectionnée
             int id = (int)dataGridViewRestaurateurs.SelectedRows[0].Cells[0].Value;
             //Ouverture du form avec passage de l'id du restaurateur sélectionné
-            FormViewRestaurant f = new FormViewRestaurant(id);
-            f.ShowDialog();
-            PopulateGrids();
+            if (id > 0)
+            {
+                FormViewRestaurant f = new FormViewRestaurant(id);
+                f.ShowDialog();
+                PopulateGrids();
+            }
         }
 
         //Clic sur Ajouter ou Modifier dans le DataGrid Restaurateurs provoque l'affichage d'un nouveau FormRestaurateur
@@ -200,9 +241,12 @@ namespace Odawa
             //Recherche du restaurateur sur base de l'id
             Restaurateur r = RestaurateurManager.GetAll().Find(x => x.id == id);
             //Ouverture du form avec passage du restaurateur sélectionné (textBoxes préremplies)
-            FormRestaurateur f = new FormRestaurateur(r);
-            f.ShowDialog();
-            PopulateGrids();
+            if (r != null)
+            {
+                FormRestaurateur f = new FormRestaurateur(r);
+                f.ShowDialog();
+                PopulateGrids();
+            }
         }
 
         //Clic sur Supprimer dans le Datagrid Restaurateurs
@@ -225,8 +269,7 @@ namespace Odawa
                 {
                     //Envoi à la couche BU qui retourne un booléen (true: suppression ok, false: erreur lors de la suppression)
                     if (RestaurateurManager.Delete(id))
-                    {
-                        PopulateGrids();
+                    {                        
                         message = "Restaurateur supprimé!";
                         buttons = MessageBoxButtons.OK;
                         icon = MessageBoxIcon.Information;
@@ -238,8 +281,10 @@ namespace Odawa
                         icon = MessageBoxIcon.Error;
                     }
                     MessageBox.Show(message, caption, buttons, icon);
+                    PopulateGrids();
                 }
             }
+            //Sinon, avertissement: on ne peut pas supprimer un restaurateur qui gère au moins un restaurant
             else
             {
                 string message = "Au moins un restaurant est lié à ce restaurateur, impossible de le supprimer.";
@@ -249,7 +294,9 @@ namespace Odawa
             }
         }
 
-        //Boutons onglet Utilisateurs
+        #endregion Boutons Restaurateurs
+
+        #region Boutons Utilisateurs
 
         //Clic sur Supprimer dans le Datagrid Utilisateurs
         private void buttonDelUser_Click(object sender, EventArgs e)
@@ -260,28 +307,47 @@ namespace Odawa
             MessageBoxIcon icon = MessageBoxIcon.Warning;
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons, icon);
+            //Si oui
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 int id = (int)dataGridViewUtilisateurs.SelectedRows[0].Cells[0].Value;
-                UtilisateurManager.Delete(id);
-                PopulateGrids();
-                message = "Utilisateur supprimé!";
-                buttons = MessageBoxButtons.OK;
-                icon = MessageBoxIcon.Information;
+                //Si suppression ok
+                if (UtilisateurManager.Delete(id))
+                {                    
+                    message = "Utilisateur supprimé!";
+                    buttons = MessageBoxButtons.OK;
+                    icon = MessageBoxIcon.Information;
+                }
+                //Si erreur de suppression
+                else
+                {
+                    message = "Erreur lors de la suppression!";
+                    buttons = MessageBoxButtons.OK;
+                    icon = MessageBoxIcon.Error;
+                }
                 MessageBox.Show(message, caption, buttons, icon);
+                PopulateGrids();
             }
         }
 
-        //Boutons onglet Restaurants
+        #endregion Boutons Utilisateurs
 
+        #region Boutons Restaurants
+
+        //Clic sur Consulter reservations dans le DataGrid Restaurants provoque l'affichage de FormViewReservation
+        //qui contient la liste des reservations du restaurant sélectionné
         private void buttonViewReservations_Click(object sender, EventArgs e)
         {
             int id = (int)dataGridViewRestaurants.SelectedRows[0].Cells[0].Value;
-            FormViewReservation f = new FormViewReservation(id);
-            f.ShowDialog();
-            PopulateGrids();
+            if (id > 0)
+            {
+                FormViewReservation f = new FormViewReservation(id);
+                f.ShowDialog();
+                PopulateGrids();
+            }
         }
 
+        //Ajouter restaurant
         private void buttonAddResto_Click(object sender, EventArgs e)
         {
             FormRestaurant f = new FormRestaurant();
@@ -289,15 +355,20 @@ namespace Odawa
             PopulateGrids();
         }
 
+        //Modifier restaurant
         private void buttonModResto_Click(object sender, EventArgs e)
         {
             int id = (int)dataGridViewRestaurants.SelectedRows[0].Cells[0].Value;
-            Restaurant restaurant = RestaurantManager.GetAll().Find(x => x.id == id);
-            FormRestaurant f = new FormRestaurant(restaurant);
-            f.ShowDialog();
-            PopulateGrids();
+            if (id > 0)
+            {
+                Restaurant restaurant = RestaurantManager.GetAll().Find(x => x.id == id);
+                FormRestaurant f = new FormRestaurant(restaurant);
+                f.ShowDialog();
+                PopulateGrids();
+            }
         }
 
+        //Supprimer restaurant
         private void buttonDelResto_Click(object sender, EventArgs e)
         {
             string message = "Voulez-vous vraiment supprimer ce restaurant?";
@@ -306,20 +377,32 @@ namespace Odawa
             MessageBoxIcon icon = MessageBoxIcon.Warning;
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons, icon);
+            //Si oui
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 int id = (int)dataGridViewRestaurants.SelectedRows[0].Cells[0].Value;
-                RestaurantManager.Delete(id);
-                PopulateGrids();
-                message = "Restaurant supprimé!";
-                buttons = MessageBoxButtons.OK;
-                icon = MessageBoxIcon.Information;
+                if (RestaurantManager.Delete(id))
+                {
+                    message = "Restaurant supprimé!";
+                    buttons = MessageBoxButtons.OK;
+                    icon = MessageBoxIcon.Information;
+                }
+                else
+                {
+                    message = "Erreur lors de la suppression!";
+                    buttons = MessageBoxButtons.OK;
+                    icon = MessageBoxIcon.Error;
+                }
                 MessageBox.Show(message, caption, buttons, icon);
+                PopulateGrids();
             }
         }
 
-        //Boutons onglet Types de cuisine
+        #endregion Boutons Restaurants
 
+        #region Boutons Types Cuisine
+
+        //Ajouter Type de Cuisine
         private void buttonAddType_Click(object sender, EventArgs e)
         {
             FormTypeCuisine f = new FormTypeCuisine();
@@ -327,36 +410,55 @@ namespace Odawa
             PopulateGrids();
         }
 
+        //Modifier Type de Cuisine
         private void buttonModType_Click(object sender, EventArgs e)
         {
             int id = (int)dataGridViewTypesCuisine.SelectedRows[0].Cells[0].Value;
             TypeCuisine typeCuisine = TypeCuisineManager.GetAll().Find(x => x.id == id);
-            FormTypeCuisine f = new FormTypeCuisine(typeCuisine);
-            f.ShowDialog();
-            PopulateGrids();
+            if (id > 0)
+            {
+                FormTypeCuisine f = new FormTypeCuisine(typeCuisine);
+                f.ShowDialog();
+                PopulateGrids();
+            }
         }
 
+        //Supprimer Type de Cuisine
         private void buttonDelType_Click(object sender, EventArgs e)
         {
             int id = (int)dataGridViewTypesCuisine.SelectedRows[0].Cells[0].Value;
+            //Si aucun restaurant n'est du type à supprimer
             if (RestaurantManager.GetAll().Where(x => x.idTypeCuisine == id).Count() == 0)
             {
+                //Demande de confirmation
                 string message = "Voulez-vous vraiment supprimer ce type de cuisine?";
                 string caption = "Suppression";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 MessageBoxIcon icon = MessageBoxIcon.Warning;
                 DialogResult result;
                 result = MessageBox.Show(message, caption, buttons, icon);
+                //Si oui
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    TypeCuisineManager.Delete(id);
-                    PopulateGrids();
-                    message = "Type de cuisine supprimé!";
-                    buttons = MessageBoxButtons.OK;
-                    icon = MessageBoxIcon.Information;
+                    //Si suppression ok
+                    if (TypeCuisineManager.Delete(id))
+                    {                        
+                        message = "Type de cuisine supprimé!";
+                        buttons = MessageBoxButtons.OK;
+                        icon = MessageBoxIcon.Information;
+                    }
+                    //Sinon
+                    else
+                    {
+                        message = "Erreur lors de la suppression!";
+                        buttons = MessageBoxButtons.OK;
+                        icon = MessageBoxIcon.Error;
+                    }
                     MessageBox.Show(message, caption, buttons, icon);
+                    PopulateGrids();
                 }
             }
+            //Sinon, avertissement: on ne peut pas supprimer un type de cuisine lié à au moins un restaurant.
             else
             {
                 string caption = "Erreur lors de la suppression";
@@ -366,5 +468,7 @@ namespace Odawa
                 MessageBox.Show(message, caption, buttons, icon);
             }
         }
+
+        #endregion Boutons Types Cuisine
     }
 }

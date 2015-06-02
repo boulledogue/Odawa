@@ -10,8 +10,9 @@ using BU.Entities;
 
 namespace OdawaService
 {
-    // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" dans le code, le fichier svc et le fichier de configuration.
-    // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
+    //Toutes les méthodes du web service appellent celles de la BU
+    //Le cas échéant, un affinage des données est fait avec Linq (where, find, exists, orderby)
+
     public class OdawaService : IOdawaService
     {    
         public List<TypeCuisine> GetAllTypeCuisine()

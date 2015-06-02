@@ -10,7 +10,9 @@ using BU.Entities;
 
 namespace OdawaService
 {
-    // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom d'interface "IService1" à la fois dans le code et le fichier de configuration.
+    //Toutes les méthodes du web service appellent celles de la BU
+    //Le cas échéant, un affinage des données est fait avec Linq (where, find, exists, orderby)
+
     [ServiceContract]
     public interface IOdawaService
     {
@@ -119,11 +121,5 @@ namespace OdawaService
 
         [OperationContract]
         void UpdateRestaurateur(Restaurateur r);
-
-        // TODO: ajoutez vos opérations de service ici
     }
-
-
-    // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
-    
 }
